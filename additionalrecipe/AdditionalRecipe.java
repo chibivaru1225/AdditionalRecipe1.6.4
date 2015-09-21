@@ -30,6 +30,7 @@ import chibivaru.additionalrecipe.item.IronMortar;
 import chibivaru.additionalrecipe.item.NightVisionTorch;
 import chibivaru.additionalrecipe.item.SuperGravitationFeather;
 import chibivaru.additionalrecipe.item.UltimateExchangeIgnition;
+import chibivaru.additionalrecipe.recipe.RecipeHandler;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
@@ -74,6 +75,7 @@ public class AdditionalRecipe {
 	public static CheaperExchangeIgnition cheaperExchangeIgnition;
 	public static Item bedrockMortarItem,exchangeIgnitionItem,ironMortarItem,diamondMortarItem,dustNetherStarItem,dustBedrockItem,gravitationFeatherItem,superGravitationFeatherItem,craftingFurnaceItem,ultimateExchangeIgnitionItem,dustExchangeIgnitionItem,blackRottenFleshItem,cheaperExchangeIgnitionItem,nightVisionTorchItem;
 	public static boolean smeltingTool,craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,grassMobSpawn,craftingOre,digBCSpring,digEndPortal,craftingEndPortal;
+	public static RecipeHandler recipehandler;
 
 	@Mod.PreInit
 	public void preInit(FMLPreInitializationEvent event)
@@ -260,6 +262,7 @@ public class AdditionalRecipe {
 		LanguageRegistry.addName(dustExchangeIgnitionItem, "DustExchangeIgnition");
 		GameRegistry.registerItem(dustExchangeIgnitionItem, "DustExchangeIgnition");
 
+		/*
 		OreDictionary.registerOre("item_Fragment",Item.expBottle);
 
 		OreDictionary.registerOre("dustNetherStar",dustNetherStarItem);
@@ -280,6 +283,11 @@ public class AdditionalRecipe {
 		OreDictionary.registerOre("ExchangeIgnition",exchangeIgniniton);
 		OreDictionary.registerOre("ExchangeIgnition",ultimateExchangeIgnition);
 		OreDictionary.registerOre("ExchangeIgnition",new ItemStack(cheaperExchangeIgnition,1,32767));
+		*/
+
+		recipehandler = new RecipeHandler();
+		recipehandler.oredic();
+		recipehandler.init();
 
 		GameRegistry.addSmelting(exchangeIgnitionItemID,new ItemStack(dustExchangeIgnitionItem,1,0),0.0f);
 
@@ -958,6 +966,7 @@ public class AdditionalRecipe {
 				new Object[]{"XXX","XYX","XXX",
 					Character.valueOf('X'),Block.glowStone,
 					Character.valueOf('Y'),Item.blazeRod}));
+		/*
 		if(Loader.isModLoaded("Mystcraft"))
 		{
 			GameRegistry.addRecipe(
@@ -1012,6 +1021,7 @@ public class AdditionalRecipe {
 		{
 			Block.endPortalFrame.setHardness(60F);
 		}
+		*/
 		if(craftingEndPortal)
 		{
 			GameRegistry.addRecipe(
@@ -1024,6 +1034,7 @@ public class AdditionalRecipe {
 						Character.valueOf('W'),Block.obsidian,
 						Character.valueOf('V'),Block.blockDiamond}));
 		}
+		
 		try
 		{
 			MoInv = Class.forName("moreinventory.MoreInventoryMod");
