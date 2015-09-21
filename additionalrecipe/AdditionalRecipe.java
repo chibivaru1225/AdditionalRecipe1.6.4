@@ -1120,6 +1120,7 @@ public class AdditionalRecipe {
 			new ShapelessOreRecipe(
 				Block.mushroomRed,
 				new Object[]{Block.mushroomBrown}));
+		/*
 		ItemStack CertusQuartz,CertusDust,NetherDust;
 		ItemStack BlackShard,BlackCrystal;
 		ItemStack RedShard,RedCrystal;
@@ -1277,6 +1278,8 @@ public class AdditionalRecipe {
 				}
 			}
 		}
+		*/
+		/*
 		GameRegistry.addSmelting(Block.stoneBrick.blockID,new ItemStack(Block.netherBrick,1),0.0f);
 		GameRegistry.addSmelting(Block.dirt.blockID,new ItemStack(Block.netherrack,1),0.0f);
 		GameRegistry.addSmelting(Item.rottenFlesh.itemID,new ItemStack(Item.leather,1),0.0f);
@@ -1333,5 +1336,6 @@ public class AdditionalRecipe {
 			FurnaceRecipes.smelting().addSmelting(Item.bootsLeather.itemID,new ItemStack(Item.leather,4,0),0.0f);
 			FurnaceRecipes.smelting().addSmelting(Item.bow.itemID,new ItemStack(Item.silk,3,0),0.0f);
 		}
+		*/
 	}
 }
