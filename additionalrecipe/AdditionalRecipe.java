@@ -6,9 +6,11 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Property;
 import chibivaru.additionalrecipe.dust.DustBedrock;
 import chibivaru.additionalrecipe.dust.DustNetherStar;
+import chibivaru.additionalrecipe.event.ExchangeIgnitionLivingEventHooks;
 import chibivaru.additionalrecipe.item.BedrockMortar;
 import chibivaru.additionalrecipe.item.BlackRottenFlesh;
 import chibivaru.additionalrecipe.item.CheaperExchangeIgnition;
@@ -248,6 +250,8 @@ public class AdditionalRecipe {
 		recipehandler = new RecipeHandler();
 		recipehandler.oredic();
 		recipehandler.init();
+
+		MinecraftForge.EVENT_BUS.register(new ExchangeIgnitionLivingEventHooks());
 
 		if(digEndPortal)
 		{
