@@ -20,11 +20,21 @@ public class RecipeHandler {
 		recipeadditionalitems = new RecipeAdditionalItems();
 		recipeanothermod      = new RecipeAnotherMod();
 		recipecrystal         = new RecipeCrystal();
+		recipedusts           = new RecipeDusts();
+		recipeitems           = new RecipeItems();
+		recipemortar          = new RecipeMortar();
+		recipeoredic          = new RecipeOreDic();
+		recipeores            = new RecipeOres();
 		recipesmelting        = new RecipeSmelting();
 
 		recipeadditionalitems.init();
 		recipeanothermod.init();
 		recipecrystal.init();
+		recipedusts.init();
+		recipeitems.init();
+		recipemortar.init();
+		recipeoredic.init();
+		recipeores.init();
 		recipesmelting.init();
 	}
 	public void oredic()
