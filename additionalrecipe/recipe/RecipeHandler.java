@@ -1,14 +1,19 @@
 package chibivaru.additionalrecipe.recipe;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 
 public class RecipeHandler {
 	RecipeAdditionalItems recipeadditionalitems;
 	RecipeAnotherMod      recipeanothermod;
 	RecipeCrystal         recipecrystal;
+	RecipeDusts           recipedusts;
+	RecipeItems           recipeitems;
+	RecipeMortar          recipemortar;
+	RecipeOreDic          recipeoredic;
+	RecipeOres            recipeores;
 	RecipeSmelting        recipesmelting;
 	public void init()
 	{
@@ -16,7 +21,7 @@ public class RecipeHandler {
 		recipeanothermod      = new RecipeAnotherMod();
 		recipecrystal         = new RecipeCrystal();
 		recipesmelting        = new RecipeSmelting();
-		
+
 		recipeadditionalitems.init();
 		recipeanothermod.init();
 		recipecrystal.init();

@@ -1,11 +1,13 @@
 package chibivaru.additionalrecipe.recipe;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+import chibivaru.additionalrecipe.AdditionalRecipe;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeSmelting {
 	public void init()
@@ -65,6 +67,65 @@ public class RecipeSmelting {
 			FurnaceRecipes.smelting().addSmelting(Item.legsLeather.itemID,new ItemStack(Item.leather,7,0),0.0f);
 			FurnaceRecipes.smelting().addSmelting(Item.bootsLeather.itemID,new ItemStack(Item.leather,4,0),0.0f);
 			FurnaceRecipes.smelting().addSmelting(Item.bow.itemID,new ItemStack(Item.silk,3,0),0.0f);
+		}
+		if(AdditionalRecipe.furnaceDustIngot)
+		{
+			if(OreDictionary.getOres("dustIron").size() > 0)
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						Item.ingotIron,
+						new Object[]{"dustIron",AdditionalRecipe.craftingFurnaceItem}));
+			}
+			if(OreDictionary.getOres("dustGold").size() > 0)
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						Item.ingotGold,
+						new Object[]{"dustGold",AdditionalRecipe.craftingFurnaceItem}));
+			}
+			if((OreDictionary.getOres("dustCopper").size() > 0) && (OreDictionary.getOres("ingotCopper").size() > 0))
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						new ItemStack(OreDictionary.getOres("ingotCopper").get(0).getItem(),1,OreDictionary.getOres("ingotCopper").get(0).getItemDamage()),
+						new Object[]{"dustCopper",AdditionalRecipe.craftingFurnaceItem}));
+			}
+			if((OreDictionary.getOres("dustTin").size() > 0) && (OreDictionary.getOres("ingotTin").size() > 0))
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						new ItemStack(OreDictionary.getOres("ingotTin").get(0).getItem(),1,OreDictionary.getOres("ingotTin").get(0).getItemDamage()),
+						new Object[]{"dustTin",AdditionalRecipe.craftingFurnaceItem}));
+			}
+			if((OreDictionary.getOres("dustSilver").size() > 0) && (OreDictionary.getOres("ingotSilver").size() > 0))
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						new ItemStack(OreDictionary.getOres("ingotSilver").get(0).getItem(),1,OreDictionary.getOres("ingotSilver").get(0).getItemDamage()),
+						new Object[]{"dustSilver",AdditionalRecipe.craftingFurnaceItem}));
+			}
+			if((OreDictionary.getOres("dustLead").size() > 0) && (OreDictionary.getOres("ingotLead").size() > 0))
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						new ItemStack(OreDictionary.getOres("ingotLead").get(0).getItem(),1,OreDictionary.getOres("ingotLead").get(0).getItemDamage()),
+						new Object[]{"dustLead",AdditionalRecipe.craftingFurnaceItem}));
+			}
+			if((OreDictionary.getOres("dustNickel").size() > 0) && (OreDictionary.getOres("ingotNickel").size() > 0))
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						new ItemStack(OreDictionary.getOres("ingotNickel").get(0).getItem(),1,OreDictionary.getOres("ingotNickel").get(0).getItemDamage()),
+						new Object[]{"dustNickel",AdditionalRecipe.craftingFurnaceItem}));
+			}
+			if((OreDictionary.getOres("dustPlatinum").size() > 0) && (OreDictionary.getOres("ingotPlatinum").size() > 0))
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						new ItemStack(OreDictionary.getOres("ingotPlatinum").get(0).getItem(),1,OreDictionary.getOres("ingotPlatinum").get(0).getItemDamage()),
+						new Object[]{"dustPlatinum",AdditionalRecipe.craftingFurnaceItem}));
+			}
 		}
 	}
 }
