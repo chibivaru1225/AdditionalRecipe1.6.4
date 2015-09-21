@@ -1,21 +1,23 @@
-package chibivaru.additionalrecipe;
+package chibivaru.additionalrecipe.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BedrockMortar extends Item implements ICraftingHandler
+public class IronMortar extends Item implements ICraftingHandler
 {
     private boolean repair;
-    public BedrockMortar(int par1)
+    public IronMortar(int par1)
     {
         super(par1);
         this.setMaxStackSize(1);
+        this.setMaxDamage(AdditionalRecipe.iromMortarDamage);
     }
 
     //アイテムがクラフト後に戻らないようにする
@@ -35,7 +37,7 @@ public class BedrockMortar extends Item implements ICraftingHandler
     {
         if (itemStack != null && itemStack.itemID == this.itemID)
         {
-            itemStack.setItemDamage(itemStack.getItemDamage());
+            itemStack.setItemDamage(itemStack.getItemDamage() +1);
         }
         return itemStack;
     }
@@ -52,7 +54,7 @@ public class BedrockMortar extends Item implements ICraftingHandler
     //既存のハサミと見分けるため、テクスチャを赤で乗算
     public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return 0x666666;
+        return 0x777777;
     }
 
     //1.5.2のテクスチャ指定

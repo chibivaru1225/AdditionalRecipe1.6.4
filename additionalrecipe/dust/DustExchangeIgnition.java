@@ -1,4 +1,4 @@
-package chibivaru.additionalrecipe;
+package chibivaru.additionalrecipe.dust;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,8 +8,8 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class DustNetherStar extends Item{
-	public DustNetherStar(int par1) {
+public class DustExchangeIgnition extends Item{
+	public DustExchangeIgnition(int par1) {
 		super(par1);
 		this.setMaxStackSize(64);	//スタックできる量
 	}
@@ -39,6 +39,6 @@ public class DustNetherStar extends Item{
     }
     public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return 0x777777;
+        return 0xAAAAAA;
     }
 }

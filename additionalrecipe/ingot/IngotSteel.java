@@ -1,4 +1,4 @@
-package chibivaru.additionalrecipe;
+package chibivaru.additionalrecipe.ingot;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,17 +8,16 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class DustUltimaite  extends Item{
-	public DustUltimaite(int par1) {
-		super(par1);
-		this.setMaxStackSize(64);	//スタックできる量
-	}
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
-    {
-        this.itemIcon = Item.sugar.getIconFromDamage(0);
-    }
+public class IngotSteel extends Item
+{
+    private boolean repair;
+    private boolean effect;
 
+    public IngotSteel(int par1)
+    {
+        super(par1);
+        this.setMaxStackSize(64);
+    }
 	@Override
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float disX, float disY, float disZ)
 	{
@@ -32,9 +31,16 @@ public class DustUltimaite  extends Item{
 		//アイテムを右クリック時に呼ばれる
 		return item;
 	}
-    @SideOnly(Side.CLIENT)
-    public boolean hasEffect(ItemStack par1ItemStack)
+    //既存のハサミと見分けるため、テクスチャを赤で乗算
+    public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return true;
+        return 0x888888;
+    }
+
+    //1.5.2のテクスチャ指定
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister par1IconRegister)
+    {
+        this.itemIcon = Item.ingotIron.getIconFromDamage(0);
     }
 }

@@ -1,24 +1,27 @@
-package chibivaru.additionalrecipe;
+package chibivaru.additionalrecipe.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-
-public class CheaperExchangeIgnition extends Item implements ICraftingHandler
+public class UltimateExchangeIgnition extends Item implements ICraftingHandler
 {
     private boolean repair;
     private boolean effect;
 
-    public CheaperExchangeIgnition(int par1)
+    public UltimateExchangeIgnition(int par1)
     {
         super(par1);
-        this.setMaxDamage(AdditionalRecipe.cheaperExchangeIgnitionDamage);
         this.setMaxStackSize(1);
     }
 
@@ -37,10 +40,6 @@ public class CheaperExchangeIgnition extends Item implements ICraftingHandler
     //クラフト後のアイテムを、ダメージを与えて返す
     public ItemStack getContainerItemStack(ItemStack itemStack)
     {
-    	if (itemStack != null && itemStack.itemID == this.itemID)
-    	{
-    		itemStack.setItemDamage(itemStack.getItemDamage()+1);
-    	}
         return itemStack;
     }
 
@@ -63,6 +62,32 @@ public class CheaperExchangeIgnition extends Item implements ICraftingHandler
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.itemIcon = Item.diamond.getIconFromDamage(0);
+        this.itemIcon = Item.eyeOfEnder.getIconFromDamage(0);
     }
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack par1ItemStack)
+    {
+        return !this.effect;
+    }
+	@Override
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	{
+		par3EntityPlayer.swingItem();
+		par3EntityPlayer.addExperienceLevel(1);
+		return par1ItemStack;
+	}
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
+	{
+		if(entity instanceof EntityPlayer)
+		{
+			EntityPlayer player = (EntityPlayer)entity;
+			if(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID))
+			{
+				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id,20*30,49));
+				player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id,20*30,49));
+				player.addPotionEffect(new PotionEffect(Potion.regeneration.id,20*30,49));
+				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30,49));
+			}
+		}
+	}
 }

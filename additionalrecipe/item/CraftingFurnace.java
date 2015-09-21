@@ -1,4 +1,4 @@
-package chibivaru.additionalrecipe;
+package chibivaru.additionalrecipe.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,19 +18,16 @@ public class CraftingFurnace extends Item implements ICraftingHandler
         this.setMaxStackSize(1);
     }
 
-    //アイテムがクラフト後に戻らないようにする
     public boolean doesContainerItemLeaveCraftingGrid(ItemStack par1ItemStack)
     {
         return false;
     }
 
-    //クラフト後にgetContainerItemStackを呼び出す
     public boolean hasContainerItem()
     {
         return !repair;
     }
 
-    //クラフト後のアイテムを、ダメージを与えて返す
     public ItemStack getContainerItemStack(ItemStack itemStack)
     {
         if (itemStack != null && itemStack.itemID == this.itemID)
@@ -49,7 +46,6 @@ public class CraftingFurnace extends Item implements ICraftingHandler
     @Override
     public void onSmelting(EntityPlayer player, ItemStack item){};
 
-    //1.5.2のテクスチャ指定
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {

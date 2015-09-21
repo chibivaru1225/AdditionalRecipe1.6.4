@@ -16,6 +16,21 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import com.xcompwiz.mystcraft.api.MystObjects;
 
+import chibivaru.additionalrecipe.dust.DustBedrock;
+import chibivaru.additionalrecipe.dust.DustNetherStar;
+import chibivaru.additionalrecipe.event.ExchangeIgnitionLivingEventHooks;
+import chibivaru.additionalrecipe.item.BedrockMortar;
+import chibivaru.additionalrecipe.item.BlackRottenFlesh;
+import chibivaru.additionalrecipe.item.CheaperExchangeIgnition;
+import chibivaru.additionalrecipe.item.CraftingFurnace;
+import chibivaru.additionalrecipe.item.DiamondMortar;
+import chibivaru.additionalrecipe.item.ExchangeIgnition;
+import chibivaru.additionalrecipe.item.GravitationFeather;
+import chibivaru.additionalrecipe.item.IronMortar;
+import chibivaru.additionalrecipe.item.NightVisionTorch;
+import chibivaru.additionalrecipe.item.SuperGravitationFeather;
+import chibivaru.additionalrecipe.item.UltimateExchangeIgnition;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
@@ -43,8 +58,13 @@ public class AdditionalRecipe {
 	private static Class MoInv;
 	private static Class MFR;
 	private static Class BC;
-	static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
-	static int diamondMortarDamage,iromMortarDamage,cheaperExchangeIgnitionDamage,bedrockMortarCrafting,diamondMortarCrafting,ironMortarCrafting,craftingDifficulty;
+	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
+	public static int diamondMortarDamage,iromMortarDamage;
+	public static int cheaperExchangeIgnitionDamage;
+	static int bedrockMortarCrafting;
+	static int diamondMortarCrafting;
+	static int ironMortarCrafting;
+	static int craftingDifficulty;
 	public static BedrockMortar bedrockMortar;
 	public static DiamondMortar diamondMortar;
 	public static IronMortar ironMortar;
@@ -284,7 +304,7 @@ public class AdditionalRecipe {
 						Character.valueOf('X'),blackRottenFleshItem,
 						Character.valueOf('Y'),Block.blockDiamond}));
 
-		//モルタル作成
+		//繝｢繝ｫ繧ｿ繝ｫ菴懈��
 		GameRegistry.addRecipe(
 			new ShapedOreRecipe(
 				bedrockMortarItem,
@@ -304,7 +324,7 @@ public class AdditionalRecipe {
 					Character.valueOf('X'),Item.ingotIron,
 					Character.valueOf('Y'),Item.flint}));
 
-		//粉砕
+		//邊臥��
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
 				Item.silk,
@@ -383,7 +403,7 @@ public class AdditionalRecipe {
 				new Object[]{ultimateExchangeIgnition,craftingFurnace}));
 		if(craftingOre)
 		{
-			//鉱石増殖
+			//驩ｱ遏ｳ蠅玲ｮ�
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					Block.oreIron,
@@ -426,7 +446,7 @@ public class AdditionalRecipe {
 						Character.valueOf('X'),ultimateExchangeIgnition}));
 		}
 
-		//鉱石粉クラフト
+		//驩ｱ遏ｳ邊峨け繝ｩ繝輔ヨ
 		if(OreDictionary.getOres("dustCoal").size() > 0)
 		{
 			GameRegistry.addRecipe(
@@ -492,7 +512,7 @@ public class AdditionalRecipe {
 			new ShapelessOreRecipe(
 				new ItemStack(Item.emerald,bedrockMortarCrafting),
 				new Object[]{"MortarOreTier03",Block.oreEmerald}));
-		//Mod鉱石+バニラ鉱石粉
+		//Mod驩ｱ遏ｳ+繝舌ル繝ｩ驩ｱ遏ｳ邊�
 		if(mortarOreDust)
 		{
 			if(OreDictionary.getOres("dustIron").size() > 0)
@@ -768,7 +788,7 @@ public class AdditionalRecipe {
 				new ItemStack(OreDictionary.getOres("tofuGem").get(0).getItem(),2,OreDictionary.getOres("tofuGem").get(0).getItemDamage()),
 				0.0f);
 		}
-		//鉱石粉統一
+		//驩ｱ遏ｳ邊臥ｵｱ荳�
 		if(OreDictionary.getOres("dustCoal").size() > 1)
 		{
 			GameRegistry.addRecipe(

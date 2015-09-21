@@ -1,5 +1,6 @@
-package chibivaru.additionalrecipe;
+package chibivaru.additionalrecipe.event;
 
+import chibivaru.additionalrecipe.AdditionalRecipe;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;

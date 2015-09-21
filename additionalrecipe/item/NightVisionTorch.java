@@ -1,19 +1,23 @@
-package chibivaru.additionalrecipe;
+package chibivaru.additionalrecipe.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class GravitationFeather extends Item
+public class NightVisionTorch extends Item
 {
     private boolean repair;
     private boolean effect;
 
-    public GravitationFeather(int par1)
+    public NightVisionTorch(int par1)
     {
         super(par1);
         this.setMaxStackSize(1);
@@ -32,20 +36,27 @@ public class GravitationFeather extends Item
 		return item;
 	}
     //既存のハサミと見分けるため、テクスチャを赤で乗算
-    public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
-    {
-        return 0xFFFF00;
-    }
 
     //1.5.2のテクスチャ指定
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.itemIcon = Item.feather.getIconFromDamage(0);
+        this.itemIcon = Item.blazeRod.getIconFromDamage(0);
     }
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack)
     {
         return !effect;
     }
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
+	{
+		if(entity instanceof EntityPlayer)
+		{
+			EntityPlayer player = (EntityPlayer)entity;
+			if(player.inventory.hasItem(AdditionalRecipe.nightVisionTorchItemID))
+			{
+				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30));
+			}
+		}
+	}
 }

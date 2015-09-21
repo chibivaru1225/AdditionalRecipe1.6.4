@@ -1,4 +1,4 @@
-package chibivaru.additionalrecipe;
+package chibivaru.additionalrecipe.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +15,7 @@ public class BlackRottenFlesh extends Item
 	public BlackRottenFlesh(int i)
 	{
 		super(i);
-		this.setMaxStackSize(64);	//スタックできる量
+		this.setMaxStackSize(64);	
 	}
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
