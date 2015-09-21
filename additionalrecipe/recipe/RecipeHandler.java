@@ -6,12 +6,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipeHandler {
-	RecipeAnotherMod recipeanothermod;
+	RecipeAnotherMod      recipeanothermod;
+	RecipeAdditionalItems recipeadditionalitems;
 	public void init()
 	{
-		recipeanothermod = new RecipeAnotherMod();
+		recipeanothermod      = new RecipeAnotherMod();
+		recipeadditionalitems = new RecipeAdditionalItems();
 		
 		recipeanothermod.init();
+		recipeadditionalitems.init();
 	}
 	public void oredic()
 	{

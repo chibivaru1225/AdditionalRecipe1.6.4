@@ -74,7 +74,7 @@ public class AdditionalRecipe {
 	public static CraftingFurnace craftingFurnace;
 	public static CheaperExchangeIgnition cheaperExchangeIgnition;
 	public static Item bedrockMortarItem,exchangeIgnitionItem,ironMortarItem,diamondMortarItem,dustNetherStarItem,dustBedrockItem,gravitationFeatherItem,superGravitationFeatherItem,craftingFurnaceItem,ultimateExchangeIgnitionItem,dustExchangeIgnitionItem,blackRottenFleshItem,cheaperExchangeIgnitionItem,nightVisionTorchItem;
-	public static boolean smeltingTool,craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,grassMobSpawn,craftingOre,digBCSpring,digEndPortal,craftingEndPortal;
+	public static boolean smeltingTool,craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,digBCSpring,digEndPortal,craftingEndPortal;
 	public static RecipeHandler recipehandler;
 
 	@Mod.PreInit
@@ -125,8 +125,6 @@ public class AdditionalRecipe {
 
 			Property DigBCSpringProp                    = cfg.get("Dig"                ,"BuildCraft_Spring"             ,true);
 			Property DigEndPortalProp                   = cfg.get("Dig"                ,"EndPortal"                     ,false);
-
-			//Property GrassMobSpawnProp                = cfg.get("SpawnVanilaBlock"   ,"Grass"                         ,false);
 
 			CraftingDifficultyProp.comment = "0=easy 1=normal 2=hard 3=lunatic 4=ultimate The others are easy.";
 
@@ -289,6 +287,7 @@ public class AdditionalRecipe {
 		recipehandler.oredic();
 		recipehandler.init();
 
+		/*
 		GameRegistry.addSmelting(exchangeIgnitionItemID,new ItemStack(dustExchangeIgnitionItem,1,0),0.0f);
 
 		GameRegistry.addRecipe(
@@ -331,6 +330,7 @@ public class AdditionalRecipe {
 				new Object[]{"XYX"," X ",
 					Character.valueOf('X'),Item.ingotIron,
 					Character.valueOf('Y'),Item.flint}));
+		*/
 
 		//粉砕
 		GameRegistry.addRecipe(
@@ -1017,11 +1017,11 @@ public class AdditionalRecipe {
 		{
 			System.out.println("[AdditionalRecipe]:Can't Find BuildCraft");
 		}
+		*/
 		if(digEndPortal)
 		{
 			Block.endPortalFrame.setHardness(60F);
 		}
-		*/
 		if(craftingEndPortal)
 		{
 			GameRegistry.addRecipe(

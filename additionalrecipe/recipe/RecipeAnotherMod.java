@@ -67,9 +67,5 @@ public class RecipeAnotherMod {
 		{
 			System.out.println("[AdditionalRecipe]:Can't Find BuildCraft");
 		}
-		if(AdditionalRecipe.digEndPortal)
-		{
-			Block.endPortalFrame.setHardness(60F);
-		}
 	}
 }
