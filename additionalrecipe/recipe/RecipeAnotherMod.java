@@ -23,21 +23,27 @@ public class RecipeAnotherMod {
 	{
 		if(Loader.isModLoaded("Mystcraft"))
 		{
-			GameRegistry.addRecipe(
-				new ShapedOreRecipe(
-					new ItemStack(MystObjects.link_modifer),
-					new Object[]{"XXX","XYX","XXX",
-						Character.valueOf('X'),Block.blockDiamond,
-						Character.valueOf('Y'),Block.blockGold}));
+			if(AdditionalRecipe.craftingLinkModifer)
+			{
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						new ItemStack(MystObjects.link_modifer),
+						new Object[]{"XXX","XYX","XXX",
+							Character.valueOf('X'),Block.blockDiamond,
+							Character.valueOf('Y'),Block.blockGold}));
+			}
 		}
 		if(Loader.isModLoaded("AppliedEnergistics"))
 		{
 			if(OreDictionary.getOres("dustWheat").size() > 0)
 			{
-				GameRegistry.addRecipe(
-					new ShapelessOreRecipe(
-						OreDictionary.getOres("dustWheat").get(0),
-						new Object[]{Item.wheat}));
+				if(AdditionalRecipe.craftingFlour)
+				{
+					GameRegistry.addRecipe(
+						new ShapelessOreRecipe(
+							OreDictionary.getOres("dustWheat").get(0),
+							new Object[]{Item.wheat}));
+				}
 			}
 		}
 		try
@@ -45,12 +51,15 @@ public class RecipeAnotherMod {
 			MFR = Class.forName("powercrystals.minefactoryreloaded.MineFactoryReloadedCore");
 			Object pinkSlimeBall = MFR.getField("pinkSlimeballItem").get(null);
 			ItemStack pink = new ItemStack((Item)pinkSlimeBall);
-			GameRegistry.addRecipe(
-				new ShapedOreRecipe(
-					pink,
-					new Object[]{"XXX","XYX","XXX",
-						Character.valueOf('X'),Item.rottenFlesh,
-						Character.valueOf('Y'),Item.slimeBall}));
+			if(AdditionalRecipe.craftingPinkSlimeBall)
+			{
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						pink,
+						new Object[]{"XXX","XYX","XXX",
+							Character.valueOf('X'),Item.rottenFlesh,
+							Character.valueOf('Y'),Item.slimeBall}));
+			}
 		}
 		catch(Exception e)
 		{

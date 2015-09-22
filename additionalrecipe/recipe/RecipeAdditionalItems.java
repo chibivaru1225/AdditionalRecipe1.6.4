@@ -10,18 +10,33 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class RecipeAdditionalItems {
 	public void init()
 	{
-		GameRegistry.addSmelting(AdditionalRecipe.exchangeIgnitionItemID,new ItemStack(AdditionalRecipe.dustExchangeIgnitionItem,1,0),0.0f);
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
-				AdditionalRecipe.ultimateExchangeIgnition,
-				new Object[]{"XYX","YZY","XYX",
-					Character.valueOf('X'),Block.bedrock,
-					Character.valueOf('Y'),Block.dragonEgg,
-					Character.valueOf('Z'),AdditionalRecipe.dustExchangeIgnitionItem}));
+		if(AdditionalRecipe.craftingExchangeIgnition)
+		{
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.exchangeIgnitionItem,
+					new Object[]{" X ","XYX"," X ",
+						Character.valueOf('X'),Item.netherStar,
+						Character.valueOf('Y'),Block.dragonEgg}));
+		}
+		if(AdditionalRecipe.craftingDustExchangeIgnition)
+		{
+			GameRegistry.addSmelting(AdditionalRecipe.exchangeIgnitionItemID,new ItemStack(AdditionalRecipe.dustExchangeIgnitionItem,1,0),0.0f);
+		}
+		if(AdditionalRecipe.craftingUltimateExchangeIgnition)
+		{
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.ultimateExchangeIgnition,
+					new Object[]{"XYX","YZY","XYX",
+						Character.valueOf('X'),AdditionalRecipe.dustExchangeIgnitionItem,
+						Character.valueOf('Y'),Block.dragonEgg,
+						Character.valueOf('Z'),AdditionalRecipe.superGravitationFeatherItem}));
+		}
 		GameRegistry.addRecipe(
 			new ShapedOreRecipe(
 				AdditionalRecipe.blackRottenFleshItem,
-				new Object[]{"XXX","XXX","XXX",
+				new Object[]{"XXX","X X","XXX",
 					Character.valueOf('X'),Item.rottenFlesh}));
 		GameRegistry.addRecipe(
 				new ShapedOreRecipe(
@@ -49,23 +64,27 @@ public class RecipeAdditionalItems {
 					Character.valueOf('Y'),Item.flint}));
 		GameRegistry.addRecipe(
 			new ShapedOreRecipe(
-				AdditionalRecipe.exchangeIgnitionItem,
-				new Object[]{" X ","XYX"," X ",
-					Character.valueOf('X'),Item.netherStar,
-					Character.valueOf('Y'),Block.dragonEgg}));
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
 				AdditionalRecipe.gravitationFeatherItem,
 				new Object[]{" X ","XYX"," X ",
 					Character.valueOf('X'),Item.feather,
 					Character.valueOf('Y'),Item.diamond}));
+		if(AdditionalRecipe.craftingNightVisionTorch)
+		{
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.nightVisionTorchItem,
+					new Object[]{"XXX","XYX","XXX",
+						Character.valueOf('X'),Block.glowStone,
+						Character.valueOf('Y'),Item.blazeRod}));
+		}
 		GameRegistry.addRecipe(
 			new ShapedOreRecipe(
 				AdditionalRecipe.superGravitationFeatherItem,
-				new Object[]{" X ","XYX"," X ",
+				new Object[]{"ZXZ","XYX","ZXZ",
 					Character.valueOf('X'),Block.blockDiamond,
-						Character.valueOf('Y'),AdditionalRecipe.gravitationFeatherItem}));
-		if(AdditionalRecipe.furnaceDustIngot)
+					Character.valueOf('Y'),AdditionalRecipe.gravitationFeatherItem,
+					Character.valueOf('Z'),AdditionalRecipe.nightVisionTorchItem}));
+		if(AdditionalRecipe.craftingCraftingFurnace)
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
@@ -75,11 +94,5 @@ public class RecipeAdditionalItems {
 						Character.valueOf('Y'),Item.coal,
 						Character.valueOf('Z'),"ExchangeIgnition"}));
 		}
-		GameRegistry.addRecipe(
-				new ShapedOreRecipe(
-					AdditionalRecipe.nightVisionTorchItem,
-					new Object[]{"XXX","XYX","XXX",
-						Character.valueOf('X'),Block.glowStone,
-						Character.valueOf('Y'),Item.blazeRod}));
 	}
 }

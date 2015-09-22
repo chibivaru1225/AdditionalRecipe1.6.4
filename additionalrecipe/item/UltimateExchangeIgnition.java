@@ -86,7 +86,8 @@ public class UltimateExchangeIgnition extends Item implements ICraftingHandler
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id,20*30,49));
 				player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id,20*30,49));
 				player.addPotionEffect(new PotionEffect(Potion.regeneration.id,20*30,49));
-				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30,49));
+				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,20*30,49));
+				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30));
 			}
 		}
 	}

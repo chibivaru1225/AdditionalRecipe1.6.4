@@ -60,6 +60,7 @@ public class SuperGravitationFeather extends Item
 			if(player.inventory.hasItem(AdditionalRecipe.superGravitationFeatherItemID))
 			{
 				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,20*30,49));
+				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30));
 			}
 		}
 	}
