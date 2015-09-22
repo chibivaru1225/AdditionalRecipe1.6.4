@@ -66,7 +66,9 @@ public class AdditionalRecipe {
 	public static boolean smeltingArmor,smeltingArmorChain,smeltingArmorLeather,smeltingArmorIron,smeltingArmorGold,smeltingArmorDiamond;
 	public static boolean smeltingNetherBrick,smeltingNetherrack,smeltingLeather,smeltingGlowStoneDust;
 	public static boolean smeltingMinecartEmpty,smeltingIronDoor,smeltingWoodDoor;
-	public static boolean craftingExchangeIgnition,craftingUltimateExchangeIgnition,craftingDustExchangeIgnition,craftingCraftingFurnace,craftingNightVisionTorch;
+	public static boolean craftingAlchemic,craftingExchangeIgnition,craftingUltimateExchangeIgnition,craftingDustExchangeIgnition,craftingCheaperExchangeIgnition;
+	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather;
+	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar;
 	public static RecipeHandler recipehandler;
 
 	@Mod.PreInit
@@ -141,11 +143,20 @@ public class AdditionalRecipe {
 			Property DigBCSpringProp                      = cfg.get("Dig"              ,"BuildCraft_Spring"               ,true);
 			Property DigEndPortalProp                     = cfg.get("Dig"              ,"EndPortal"                       ,false);
 
+			Property CraftingAlchemicProp                 = cfg.get("AdditionalRecipe" ,"AlchemicItem"                    ,true);
 			Property CraftingExchangeIgnitionProp         = cfg.get("AdditionalRecipe" ,"ExchangeIgnition"                ,true);
 			Property CraftingDustExchangeIgnitionProp     = cfg.get("AdditionalRecipe" ,"DustExchangeIgnition"            ,true);
 			Property CraftingUltimateExchangeIgnitionProp = cfg.get("AdditionalRecipe" ,"UltimateExchangeIgnition"        ,true);
-			Property CraftingCraftingFurnaceProp          = cfg.get("AdditionalRecipe" ,"Furnace"                         ,false);
+			Property CraftingCheaperExchangeIgnitionProp  = cfg.get("AdditionalRecipe" ,"CheaperExchangeIgnition"         ,true);
+			Property CraftingBlackRottenFleshProp         = cfg.get("AdditionalRecipe" ,"BlackRottenFlesh"                ,true);
+			Property CraftingCraftingFurnaceProp          = cfg.get("AdditionalRecipe" ,"CraftingFurnace"                 ,false);
 			Property CraftingNightVisionTorchProp         = cfg.get("AdditionalRecipe" ,"NightVisionTorch"                ,true);
+			Property CraftingGravitationFeatherProp       = cfg.get("AdditionalRecipe" ,"GravitationFeather"              ,true);
+			Property CraftingSuperGravitationFeatherProp  = cfg.get("AdditionalRecipe" ,"SuperGravitationFeather"         ,true);
+			Property CraftingMortarProp                   = cfg.get("AdditionalRecipe" ,"Mortar"                          ,true);
+			Property CraftingIronMortarProp               = cfg.get("AdditionalRecipe" ,"IronMortar"                      ,true);
+			Property CraftingDiamondMortarProp            = cfg.get("AdditionalRecipe" ,"DiamondMortar"                   ,true);
+			Property CraftingBedrockMortarProp            = cfg.get("AdditionalRecipe" ,"BedrockMortar"                   ,true);
 
 			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
 			SmeltingNetherrackProp.comment                = "Require Dirt";
@@ -223,11 +234,20 @@ public class AdditionalRecipe {
 			digBCSpring                          = DigBCSpringProp.getBoolean(true);
 			digEndPortal                         = DigEndPortalProp.getBoolean(false);
 
+			craftingAlchemic                     = CraftingAlchemicProp.getBoolean(true);
 			craftingExchangeIgnition             = CraftingExchangeIgnitionProp.getBoolean(true);
 			craftingDustExchangeIgnition         = CraftingDustExchangeIgnitionProp.getBoolean(true);
 			craftingUltimateExchangeIgnition     = CraftingUltimateExchangeIgnitionProp.getBoolean(true);
+			craftingCheaperExchangeIgnition      = CraftingCheaperExchangeIgnitionProp.getBoolean(true);
+			craftingBlackRottenFlesh             = CraftingBlackRottenFleshProp.getBoolean(true);
 			craftingCraftingFurnace              = CraftingCraftingFurnaceProp.getBoolean(false);
 			craftingNightVisionTorch             = CraftingNightVisionTorchProp.getBoolean(true);
+			craftingGravitationFeather           = CraftingGravitationFeatherProp.getBoolean(true);
+			craftingSuperGravitationFeather      = CraftingSuperGravitationFeatherProp.getBoolean(true);
+			craftingMortar                       = CraftingMortarProp.getBoolean(true);
+			craftingIronMortar                   = CraftingIronMortarProp.getBoolean(true);
+			craftingDiamondMortar                = CraftingDiamondMortarProp.getBoolean(true);
+			craftingBedrockMortar                = CraftingBedrockMortarProp.getBoolean(true);
 		}
 		catch (Exception e)
 		{
