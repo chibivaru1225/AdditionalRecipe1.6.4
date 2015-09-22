@@ -10,6 +10,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Property;
 import chibivaru.additionalrecipe.dust.DustBedrock;
 import chibivaru.additionalrecipe.dust.DustNetherStar;
+import chibivaru.additionalrecipe.event.AddChestGenHooks;
 import chibivaru.additionalrecipe.event.ExchangeIgnitionLivingEventHooks;
 import chibivaru.additionalrecipe.item.BedrockMortar;
 import chibivaru.additionalrecipe.item.BlackRottenFlesh;
@@ -70,6 +71,7 @@ public class AdditionalRecipe {
 	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather;
 	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar;
 	public static RecipeHandler recipehandler;
+	public static AddChestGenHooks addchestgenhooks;
 
 	@Mod.PreInit
 	public void preInit(FMLPreInitializationEvent event)
@@ -340,6 +342,9 @@ public class AdditionalRecipe {
 		recipehandler = new RecipeHandler();
 		recipehandler.oredic();
 		recipehandler.init();
+
+		addchestgenhooks = new AddChestGenHooks();
+		addchestgenhooks.AddChestItems();
 
 		MinecraftForge.EVENT_BUS.register(new ExchangeIgnitionLivingEventHooks());
 
