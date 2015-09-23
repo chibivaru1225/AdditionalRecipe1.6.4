@@ -19,27 +19,33 @@ public class RecipeDusts {
 					OreDictionary.getOres("dustCoal").get(0),
 					new Object[]{Item.coal,"MortarTier01"}));
 		}
-		if(OreDictionary.getOres("dustNetherStar").size() > 0)
+		if(AdditionalRecipe.craftingDustNetherStar)
 		{
-			GameRegistry.addRecipe(
-				new ShapelessOreRecipe(
-					OreDictionary.getOres("dustNetherStar").get(0),
-					new Object[]{Item.netherStar,"MortarTier03"}));
-			GameRegistry.addRecipe(
-				new ShapelessOreRecipe(
-					Item.netherStar,
-					new Object[]{"dustNetherStar"}));
+			if(OreDictionary.getOres("dustNetherStar").size() > 0)
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						OreDictionary.getOres("dustNetherStar").get(0),
+						new Object[]{Item.netherStar,"MortarTier03"}));
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						Item.netherStar,
+						new Object[]{"dustNetherStar"}));
+			}
 		}
-		if(OreDictionary.getOres("dustBedrock").size() > 0)
+		if(AdditionalRecipe.craftingDustBedrock)
 		{
-			GameRegistry.addRecipe(
-				new ShapelessOreRecipe(
-					OreDictionary.getOres("dustBedrock").get(0),
-					new Object[]{Block.bedrock,"MortarTier03"}));
-			GameRegistry.addRecipe(
-				new ShapelessOreRecipe(
-					new ItemStack(Block.bedrock,1),
-					new Object[]{"dustBedrock"}));
+			if(OreDictionary.getOres("dustBedrock").size() > 0)
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						OreDictionary.getOres("dustBedrock").get(0),
+						new Object[]{Block.bedrock,"MortarTier03"}));
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						new ItemStack(Block.bedrock,1),
+						new Object[]{"dustBedrock"}));
+			}
 		}
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(

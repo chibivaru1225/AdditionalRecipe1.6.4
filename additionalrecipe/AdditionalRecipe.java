@@ -69,8 +69,9 @@ public class AdditionalRecipe {
 	public static boolean smeltingMinecartEmpty,smeltingIronDoor,smeltingWoodDoor;
 	public static boolean craftingAlchemic,craftingExchangeIgnition,craftingUltimateExchangeIgnition,craftingDustExchangeIgnition,craftingCheaperExchangeIgnition;
 	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather;
-	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar;
-	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingEnderPearl;
+	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
+	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
+	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall;
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
 
@@ -146,6 +147,15 @@ public class AdditionalRecipe {
 			Property CraftingDragonEggProp                = cfg.get("Crafting"           ,"DragonEgg"                     ,true);
 			Property CraftingNetherStarProp               = cfg.get("Crafting"           ,"NetherStar"                    ,true);
 			Property CraftingEnderPearlProp               = cfg.get("Crafting"           ,"EnderPearl"                    ,true);
+			Property CraftingPowerStoneProp               = cfg.get("Crafting"           ,"PowerStone"                    ,true);
+			Property CraftingGrassProp                    = cfg.get("Crafting"           ,"Grass"                         ,true);
+			Property CraftingObsidianProp                 = cfg.get("Crafting"           ,"Obsidian"                      ,false);
+			Property CraftingBlazeRodProp                 = cfg.get("Crafting"           ,"BlazeRod"                      ,true);
+			Property CraftingBookOldProp                  = cfg.get("Crafting"           ,"BookOld"                       ,true);
+			Property CraftingCrayProp                     = cfg.get("Crafting"           ,"Cray"                          ,false);
+			Property CraftingCactusProp                   = cfg.get("Crafting"           ,"Cactus"                        ,false);
+			Property CraftingSlimeBallProp                = cfg.get("Crafting"           ,"SlimeBall"                     ,true);
+			Property CraftingExpBottleProp                = cfg.get("Crafting"           ,"ExpBottle"                     ,true);
 
 			Property BedrockMortarCraftingProp            = cfg.get("MortarCrafting"     ,"BedrockMortarDust"             ,8);
 			Property DiamondMortarCraftingProp            = cfg.get("MortarCrafting"     ,"DiamondMortarDust"             ,4);
@@ -168,6 +178,8 @@ public class AdditionalRecipe {
 			Property CraftingIronMortarProp               = cfg.get("AdditionalRecipe" ,"IronMortar"                      ,true);
 			Property CraftingDiamondMortarProp            = cfg.get("AdditionalRecipe" ,"DiamondMortar"                   ,true);
 			Property CraftingBedrockMortarProp            = cfg.get("AdditionalRecipe" ,"BedrockMortar"                   ,true);
+			Property CraftingDustNetherStarProp           = cfg.get("AdditionalRecipe" ,"DustNetherStar"                  ,false);
+			Property CraftingDustBedrockProp              = cfg.get("AdditionalRecipe" ,"DustBedrock"                     ,false);
 
 			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
 			SmeltingNetherrackProp.comment                = "Require Dirt";
@@ -243,6 +255,15 @@ public class AdditionalRecipe {
 			craftingDragonEgg                    = CraftingDragonEggProp.getBoolean(true);
 			craftingNetherStar                   = CraftingNetherStarProp.getBoolean(true);
 			craftingEnderPearl                   = CraftingEnderPearlProp.getBoolean(true);
+			craftingPowerStone                   = CraftingPowerStoneProp.getBoolean(true);
+			craftingGrass                        = CraftingGrassProp.getBoolean(true);
+			craftingObsidian                     = CraftingObsidianProp.getBoolean(false);
+			craftingBlazeRod                     = CraftingBlazeRodProp.getBoolean(true);
+			craftingBookOld                      = CraftingBookOldProp.getBoolean(true);
+			craftingCray                         = CraftingCrayProp.getBoolean(false);
+			craftingCactus                       = CraftingCactusProp.getBoolean(false);
+			craftingSlimeBall                    = CraftingSlimeBallProp.getBoolean(true);
+			craftingExpBottle                    = CraftingExpBottleProp.getBoolean(true);
 
 			mortarOreDust                        = MortarOreDustProp.getBoolean(true);
 			mortarIngotDust                      = MortarIngotDustProp.getBoolean(true);
@@ -268,6 +289,8 @@ public class AdditionalRecipe {
 			craftingIronMortar                   = CraftingIronMortarProp.getBoolean(true);
 			craftingDiamondMortar                = CraftingDiamondMortarProp.getBoolean(true);
 			craftingBedrockMortar                = CraftingBedrockMortarProp.getBoolean(true);
+			craftingDustNetherStar               = CraftingDustNetherStarProp.getBoolean(false);
+			craftingDustBedrock                  = CraftingDustBedrockProp.getBoolean(false);
 		}
 		catch (Exception e)
 		{

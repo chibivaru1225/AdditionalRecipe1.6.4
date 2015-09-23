@@ -83,9 +83,12 @@ public class RecipeMortar {
 			new ShapelessOreRecipe(
 				new ItemStack(Item.redstone,4),
 				new Object[]{Item.poisonousPotato,"MortarTier01"}));
-		GameRegistry.addRecipe(
-			new ShapelessOreRecipe(
-				new ItemStack(Block.stone,64),
-				new Object[]{AdditionalRecipe.ultimateExchangeIgnition,AdditionalRecipe.craftingFurnace}));
+		if((AdditionalRecipe.furnaceDustIngot)&&(AdditionalRecipe.craftingCraftingFurnace))
+		{
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					new ItemStack(Block.stone,64),
+					new Object[]{AdditionalRecipe.ultimateExchangeIgnition,AdditionalRecipe.craftingFurnace}));
+		}
 	}
 }

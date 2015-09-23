@@ -120,54 +120,89 @@ public class RecipeItems {
 					new Object[]{"XXX","XYX","XXX",
 						Character.valueOf('X'),Item.gunpowder,
 						Character.valueOf('Y'),"ExchangeIgnition"}));
-			GameRegistry.addRecipe(
-				new ShapedOreRecipe(
-					Item.enderPearl,
-					new Object[]{"XXX","XYX","XXX",
-						Character.valueOf('X'),new ItemStack(Block.sapling,1,32767),
-						Character.valueOf('Y'),Item.slimeBall}));
-			GameRegistry.addRecipe(
-				new ShapedOreRecipe(
-					Item.enderPearl,
-					new Object[]{"XXX","XYX","XXX",
-						Character.valueOf('X'),"treeSapling",
-						Character.valueOf('Y'),Item.slimeBall}));
+			if(AdditionalRecipe.craftingDifficulty == 0)
+			{
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						Item.enderPearl,
+						new Object[]{"XXX","XYX","XXX",
+							Character.valueOf('X'),new ItemStack(Block.sapling,1,32767),
+							Character.valueOf('Y'),Item.slimeBall}));
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						Item.enderPearl,
+						new Object[]{"XXX","XYX","XXX",
+							Character.valueOf('X'),"treeSapling",
+							Character.valueOf('Y'),Item.slimeBall}));
+			}
 		}
-		GameRegistry.addRecipe(
-			new ShapelessOreRecipe(
-				Item.glowstone,
-				new Object[]{"ExchangeIgnition",Item.redstone}));
-		GameRegistry.addRecipe(
-			new ShapelessOreRecipe(
-				new ItemStack(Block.obsidian,8,0),
-				new Object[]{Item.bucketLava,Item.bucketWater,"ExchangeIgnition"}));
-		GameRegistry.addRecipe(
-			new ShapelessOreRecipe(
-				Block.grass,
-				new Object[]{Item.seeds,Block.dirt}));
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
-				Block.cactus,
-				new Object[]{"XXX","XYX","XXX",
-					Character.valueOf('X'),Item.seeds,
-					Character.valueOf('Y'),Block.sand}));
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
-				Item.blazeRod,
-				new Object[]{"XYX","XYX","XYX",
-					Character.valueOf('X'),Item.glowstone,
-					Character.valueOf('Y'),Item.stick}));
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
-				Item.book,
-				new Object[]{"XXX",
-					Character.valueOf('X'),Item.paper}));
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
-				new ItemStack(Item.clay,8),
-				new Object[]{"XXX","XYX","XXX",
-					Character.valueOf('X'),Block.sand,
-					Character.valueOf('Y'),Block.gravel}));
+		if(AdditionalRecipe.craftingPowerStone)
+		{
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					Item.glowstone,
+					new Object[]{"ExchangeIgnition",Item.redstone}));
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					Item.redstone,
+					new Object[]{"ExchangeIgnition",Item.glowstone}));
+		}
+		if(AdditionalRecipe.craftingObsidian)
+		{
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					new ItemStack(Block.obsidian,8,0),
+					new Object[]{Item.bucketLava,Item.bucketWater,"ExchangeIgnition"}));
+		}
+		if(AdditionalRecipe.craftingGrass)
+		{
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					Block.grass,
+					new Object[]{Item.seeds,Block.dirt}));
+		}
+		if(AdditionalRecipe.craftingCactus)
+		{
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					Block.cactus,
+					new Object[]{"XXX","XYX","XXX",
+						Character.valueOf('X'),Item.seeds,
+						Character.valueOf('Y'),Block.sand}));
+		}
+		if(AdditionalRecipe.craftingBlazeRod)
+		{
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					Item.blazeRod,
+					new Object[]{"XYX","XYX","XYX",
+						Character.valueOf('X'),Item.glowstone,
+						Character.valueOf('Y'),Item.stick}));
+			if(AdditionalRecipe.craftingDifficulty == 0)
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						Item.blazeRod,
+						new Object[]{Item.blazePowder,Item.blazePowder}));
+			}
+		}
+		if(AdditionalRecipe.craftingBookOld)
+		{
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					Item.book,
+					new Object[]{"XXX",
+						Character.valueOf('X'),Item.paper}));
+		}
+		if(AdditionalRecipe.craftingCray)
+		{
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					new ItemStack(Item.clay,8),
+					new Object[]{"XXX","XYX","XXX",
+						Character.valueOf('X'),Block.sand,
+						Character.valueOf('Y'),Block.gravel}));
+		}
 		if(AdditionalRecipe.craftingPiston)
 		{
 			GameRegistry.addRecipe(
@@ -195,18 +230,20 @@ public class RecipeItems {
 						Character.valueOf('Z'),"ingotInvar",
 						Character.valueOf('W'),Item.redstone}));
 		}
-		GameRegistry.addRecipe(
-			new ShapelessOreRecipe(
-				new ItemStack(Item.expBottle,3),
-				new Object[]{Item.glassBottle,Item.glassBottle,Item.glassBottle,Item.eyeOfEnder}));
-		GameRegistry.addRecipe(
-			new ShapelessOreRecipe(
-				Item.blazeRod,
-				new Object[]{Item.blazePowder,Item.blazePowder}));
-		GameRegistry.addRecipe(
-			new ShapelessOreRecipe(
-				Item.slimeBall,
-				new Object[]{Item.seeds,Item.seeds,Item.seeds,Item.seeds}));
+		if(AdditionalRecipe.craftingExpBottle)
+		{
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					new ItemStack(Item.expBottle,3),
+					new Object[]{Item.glassBottle,Item.glassBottle,Item.glassBottle,Item.eyeOfEnder}));
+		}
+		if(AdditionalRecipe.craftingSlimeBall)
+		{
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					Item.slimeBall,
+					new Object[]{Item.seeds,Item.seeds,Item.seeds,Item.seeds}));
+		}
 		if(AdditionalRecipe.craftingMushroom)
 		{
 			GameRegistry.addRecipe(
