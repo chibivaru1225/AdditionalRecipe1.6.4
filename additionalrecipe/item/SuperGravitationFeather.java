@@ -59,7 +59,7 @@ public class SuperGravitationFeather extends Item
 			EntityPlayer player = (EntityPlayer)entity;
 			if(player.inventory.hasItem(AdditionalRecipe.superGravitationFeatherItemID))
 			{
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,20*30,49));
+				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,20*30,75));
 				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30));
 			}
 		}
