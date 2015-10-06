@@ -1,15 +1,15 @@
 package chibivaru.additionalrecipe.dust;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class DustYellowSteel extends Item{
-	public DustYellowSteel(int par1) {
+public class DustTitanium extends Item{
+	public DustTitanium(int par1) {
 		super(par1);
 		this.setMaxStackSize(64);	//スタックできる量
 	}
@@ -35,6 +35,6 @@ public class DustYellowSteel extends Item{
     @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return 0xFFFF00;
+        return 0xD358F7;
     }
 }

@@ -11,7 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BedrockArmor extends ItemArmor
 {
-	private String texturePath = AdditionalRecipe.modid + ":" + "textures/armor/";
+	private String texturePath = AdditionalRecipe.MODID + ":" + "textures/armor/";
 
 	   public BedrockArmor(int par1, EnumArmorMaterial par2EnumArmorMaterial,
 	         int par3, int par4,String type) {
@@ -35,7 +35,7 @@ public class BedrockArmor extends ItemArmor
 	   @SideOnly(Side.CLIENT)
 	    public void registerIcon(IconRegister register)
 	    {
-	       this.itemIcon = register.registerIcon(AdditionalRecipe.modid + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+	       this.itemIcon = register.registerIcon(AdditionalRecipe.MODID + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
 	    }
 
 	    public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)

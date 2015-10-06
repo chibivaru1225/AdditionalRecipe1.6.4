@@ -12,6 +12,7 @@ import chibivaru.additionalrecipe.dust.DustBedrock;
 import chibivaru.additionalrecipe.dust.DustNetherStar;
 import chibivaru.additionalrecipe.event.AddChestGenHooks;
 import chibivaru.additionalrecipe.event.ExchangeIgnitionLivingEventHooks;
+import chibivaru.additionalrecipe.event.ModInfo;
 import chibivaru.additionalrecipe.item.BedrockMortar;
 import chibivaru.additionalrecipe.item.BlackRottenFlesh;
 import chibivaru.additionalrecipe.item.CheaperExchangeIgnition;
@@ -26,6 +27,8 @@ import chibivaru.additionalrecipe.item.UltimateExchangeIgnition;
 import chibivaru.additionalrecipe.recipe.RecipeHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Metadata;
+import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
@@ -34,9 +37,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
 @Mod(
-		modid = "AdditionalRecipe",
-		name  = "AdditionalRecipe",
-		version = "2.00",
+		modid   = AdditionalRecipe.MODID,
+		name    = AdditionalRecipe.MODNAME,
+		version = AdditionalRecipe.VERSION,
 		dependencies="after:Waila;after:AppliedEnergistics;after:GeoStrata;after:MineFactoryReloaded;after:MoreInventoryMod;after:MoreInventory Mod;after:MoreInventory;after:Thermal Expansion;after:ThermalExpansion;after:BuildCraftCore"
 	)
 @NetworkMod(
@@ -45,7 +48,12 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 	)
 
 public class AdditionalRecipe {
-	public static final String modid = "additionalrecipe";
+	public static final String MODID   = "additionalrecipe";
+	public static final String MODNAME = "AdditionalRecipe";
+	public static final String VERSION = "2.00alpha";
+
+	@Metadata(MODID)
+	public static ModMetadata meta;
 
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
 	public static int diamondMortarDamage,iromMortarDamage;
@@ -386,6 +394,8 @@ public class AdditionalRecipe {
 
 		addchestgenhooks = new AddChestGenHooks();
 		addchestgenhooks.AddChestItems();
+
+		ModInfo.loadInfo(meta);
 
 		MinecraftForge.EVENT_BUS.register(new ExchangeIgnitionLivingEventHooks());
 
