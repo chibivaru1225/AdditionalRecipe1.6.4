@@ -294,7 +294,7 @@ public class AdditionalRecipe {
 		}
 		catch (Exception e)
 		{
-			FMLLog.log(Level.SEVERE, e, "Error Message");
+			FMLLog.log(Level.SEVERE, e, "Config Load Failure.");
 		}
 		finally
 		{
