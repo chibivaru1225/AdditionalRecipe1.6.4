@@ -39,8 +39,10 @@ public class RecipeHandler {
 	}
 	public void oredic()
 	{
-
-		OreDictionary.registerOre("item_Fragment",Item.expBottle);
+		if(AdditionalRecipe.addOreDicExpBottle)
+		{
+			OreDictionary.registerOre("item_Fragment",Item.expBottle);
+		}
 
 		OreDictionary.registerOre("dustNetherStar",AdditionalRecipe.dustNetherStarItem);
 		OreDictionary.registerOre("dustBedrock",AdditionalRecipe.dustBedrockItem);

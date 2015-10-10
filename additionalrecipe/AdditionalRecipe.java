@@ -40,7 +40,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 		modid   = AdditionalRecipe.MODID,
 		name    = AdditionalRecipe.MODNAME,
 		version = AdditionalRecipe.VERSION,
-		dependencies="after:Waila;after:AppliedEnergistics;after:GeoStrata;after:MineFactoryReloaded;after:MoreInventoryMod;after:MoreInventory Mod;after:MoreInventory;after:Thermal Expansion;after:ThermalExpansion;after:BuildCraftCore"
+		dependencies="after:Waila;after:AppliedEnergistics;after:GeoStrata;after:MineFactoryReloaded;after:MoreInventoryMod;after:MoreInventory Mod;after:MoreInventory;after:Thermal Expansion;after:ThermalExpansion;after:BuildCraftCore;after:Railcraft"
 	)
 @NetworkMod(
 		clientSideRequired = true,
@@ -80,6 +80,7 @@ public class AdditionalRecipe {
 	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall;
+	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
 
@@ -119,12 +120,17 @@ public class AdditionalRecipe {
 			Property SmeltingToolGoldProp                 = cfg.get("Smelting"           ,"GoldTool"                      ,true);
 			Property SmeltingToolDiamondProp              = cfg.get("Smelting"           ,"DiamondTool"                   ,true);
 			Property SmeltingToolBowProp                  = cfg.get("Smelting"           ,"Bow"                           ,true);
+			Property SmeltingToolSteelProp                = cfg.get("Smelting"           ,"SteelTool"                     ,true);
+			Property SmeltingToolInvarProp                = cfg.get("Smelting"           ,"InvarTool"                     ,true);
+
 			Property SmeltingArmorProp                    = cfg.get("Smelting"           ,"RecycleArmor"                  ,true);
 			Property SmeltingArmorChainProp               = cfg.get("Smelting"           ,"ChainArmor"                    ,true);
 			Property SmeltingArmorLeatherProp             = cfg.get("Smelting"           ,"LeatherArmor"                  ,true);
 			Property SmeltingArmorIronProp                = cfg.get("Smelting"           ,"IronArmor"                     ,true);
 			Property SmeltingArmorGoldProp                = cfg.get("Smelting"           ,"GoldArmor"                     ,true);
 			Property SmeltingArmorDiamondProp             = cfg.get("Smelting"           ,"DiamondArmor"                  ,true);
+			Property SmeltingArmorSteelProp               = cfg.get("Smelting"           ,"SteelArmor"                    ,true);
+			Property SmeltingArmorInvarProp               = cfg.get("Smelting"           ,"InvarArmor"                    ,true);
 
 			Property SmeltingNetherBrickProp              = cfg.get("Smelting"           ,"NetherBrick"                   ,true);
 			Property SmeltingNetherrackProp               = cfg.get("Smelting"           ,"Netherrack"                    ,false);
@@ -139,6 +145,8 @@ public class AdditionalRecipe {
 			Property MortarIngotDustProp                  = cfg.get("MortarCrafting"     ,"CraftingIngotDust"             ,true);
 
 			Property FurnaceDustIngotProp                 = cfg.get("FurnaceCrafting"    ,"DustIngot"                     ,false);
+
+			Property AddOreDicExpBottleProp               = cfg.get("OreDicitionary"     ,"ExpBottle"                     ,false);
 
 			Property CraftingEndPortalProp                = cfg.get("Crafting"           ,"EndPortal"                     ,false);
 			Property CraftingOreProp                      = cfg.get("Crafting"           ,"Ore"                           ,false);
@@ -230,12 +238,17 @@ public class AdditionalRecipe {
 			smeltingToolGold                     = SmeltingToolGoldProp.getBoolean(true);
 			smeltingToolDiamond                  = SmeltingToolDiamondProp.getBoolean(true);
 			smeltingToolBow                      = SmeltingToolBowProp.getBoolean(true);
+			smeltingToolSteel                    = SmeltingToolSteelProp.getBoolean(true);
+			smeltingToolInvar                    = SmeltingToolInvarProp.getBoolean(true);
+
 			smeltingArmor                        = SmeltingArmorProp.getBoolean(true);
 			smeltingArmorChain                   = SmeltingArmorChainProp.getBoolean(true);
 			smeltingArmorLeather                 = SmeltingArmorLeatherProp.getBoolean(true);
 			smeltingArmorIron                    = SmeltingArmorIronProp.getBoolean(true);
 			smeltingArmorGold                    = SmeltingArmorGoldProp.getBoolean(true);
 			smeltingArmorDiamond                 = SmeltingArmorDiamondProp.getBoolean(true);
+			smeltingArmorSteel                   = SmeltingArmorSteelProp.getBoolean(true);
+			smeltingArmorInvar                   = SmeltingArmorInvarProp.getBoolean(true);
 
 			smeltingNetherBrick                  = SmeltingNetherBrickProp.getBoolean(true);
 			smeltingNetherrack                   = SmeltingNetherrackProp.getBoolean(false);
@@ -245,6 +258,8 @@ public class AdditionalRecipe {
 			smeltingMinecartEmpty                = SmeltingMinecartEmptyProp.getBoolean(true);
 			smeltingIronDoor                     = SmeltingIronDoorProp.getBoolean(true);
 			smeltingWoodDoor                     = SmeltingWoodDoorProp.getBoolean(true);
+
+			addOreDicExpBottle                   = AddOreDicExpBottleProp.getBoolean(false);
 
 			furnaceDustIngot                     = FurnaceDustIngotProp.getBoolean(true);
 

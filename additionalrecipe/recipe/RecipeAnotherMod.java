@@ -46,6 +46,50 @@ public class RecipeAnotherMod {
 				}
 			}
 		}
+		/*
+		if(Loader.isModLoaded("Railcraft"))
+		{
+			if(OreDictionary.getOres("ingotSteel").size() != 0)
+			{
+				if(AdditionalRecipe.smeltingToolSteel)
+				{
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","Steel Axe").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),3,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","Steel Hoe").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),2,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","Steel Pickaxe").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),3,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","Steel Shovel").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),1,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","Steel Sword").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),2,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
+				}
+				if(AdditionalRecipe.smeltingArmorSteel)
+				{
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","Steel Boots").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),4,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","Steel Helmet").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),5,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","Steel Leggings").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),7,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","Steel Chestplate").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),8,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
+				}
+			}
+		}
+		if(Loader.isModLoaded("ThermalExpansion"))
+		{
+			if(OreDictionary.getOres("ingotInvar").size() != 0)
+			{
+				if(AdditionalRecipe.smeltingToolInvar)
+				{
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","Invar Axe").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","Invar Hoe").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),2,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","Invar Pickaxe").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","Invar Shovel").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),1,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","Invar Sword").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),2,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
+				}
+				if(AdditionalRecipe.smeltingArmorInvar)
+				{
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","Invar Boots").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),4,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","Invar Helmet").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),5,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","Invar Leggings").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),7,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
+					FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","Invar Chestplate").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),8,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
+				}
+			}
+		}
+		*/
 		try
 		{
 			MFR = Class.forName("powercrystals.minefactoryreloaded.MineFactoryReloadedCore");
