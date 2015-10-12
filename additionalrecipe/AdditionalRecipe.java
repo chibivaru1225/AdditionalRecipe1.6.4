@@ -27,9 +27,11 @@ import chibivaru.additionalrecipe.item.UltimateExchangeIgnition;
 import chibivaru.additionalrecipe.recipe.RecipeHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Metadata;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -84,7 +86,7 @@ public class AdditionalRecipe {
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
 
-	@Mod.PreInit
+	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
@@ -403,10 +405,6 @@ public class AdditionalRecipe {
 		LanguageRegistry.addName(dustExchangeIgnitionItem, "DustExchangeIgnition");
 		GameRegistry.registerItem(dustExchangeIgnitionItem, "DustExchangeIgnition");
 
-		recipehandler = new RecipeHandler();
-		recipehandler.oredic();
-		recipehandler.init();
-
 		addchestgenhooks = new AddChestGenHooks();
 		addchestgenhooks.AddChestItems();
 
@@ -419,4 +417,11 @@ public class AdditionalRecipe {
 			Block.endPortalFrame.setHardness(60F);
 		}
 	}
+	@EventHandler
+    public void postInit(FMLPostInitializationEvent event)
+	{
+		recipehandler = new RecipeHandler();
+		recipehandler.oredic();
+		recipehandler.init();
+    }
 }
