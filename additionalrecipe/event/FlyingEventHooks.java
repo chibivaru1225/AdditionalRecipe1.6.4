@@ -8,11 +8,10 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 
-public class ExchangeIgnitionLivingEventHooks
+public class FlyingEventHooks
 {
 	private boolean allowLevitatiton = false;//飛べるかどうか
 	private boolean isLevitation = false;//飛んでいるかどうか
-	private boolean noFallDamage = false;//落下ダメージ無効かどうか
 	private int flyToggleTimer = 0;//Jumpキーの入力間隔
 	private int sprintToggleTimer = 0;//ダッシュの入力間隔（何故必要なのかは後述）
 	public static boolean flyBoost;
@@ -30,17 +29,6 @@ public class ExchangeIgnitionLivingEventHooks
 		}
 	}
 	//落下時ダメージ無効化処理。LivingFallEventが実装されたバージョンのみ
-	@ForgeSubscribe
-	public void onPlayerFall(LivingFallEvent event)
-	{
-		if (event.entityLiving instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer)event.entityLiving;
-			if (this.noFallDamage)
-			{
-				event.setCanceled(true);
-			}
-		}
-	}
 	public void Flight(EntityPlayerSP player)
 	{
 		//クリエイティブでないなら
@@ -52,16 +40,9 @@ public class ExchangeIgnitionLivingEventHooks
 				if((player.inventory.hasItem(AdditionalRecipe.exchangeIgnitionItemID))||(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID)))
 				{
 					this.allowLevitatiton = true;
-					this.noFallDamage = true;
-				}
-				else if((player.inventory.hasItem(AdditionalRecipe.gravitationFeatherItemID))||(player.inventory.hasItem(AdditionalRecipe.superGravitationFeatherItemID)))
-				{
-					this.allowLevitatiton = false;
-					this.noFallDamage = true;
 				}
 				else
 				{
-					this.noFallDamage = false;
 					this.allowLevitatiton = false;
 				}
 			}
