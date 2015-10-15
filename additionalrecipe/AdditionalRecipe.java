@@ -7,12 +7,14 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Property;
 import chibivaru.additionalrecipe.armor.BedrockArmor;
 import chibivaru.additionalrecipe.dust.DustBedrock;
 import chibivaru.additionalrecipe.dust.DustNetherStar;
 import chibivaru.additionalrecipe.event.AddChestGenHooks;
+import chibivaru.additionalrecipe.event.BedrockArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.FlyingEventHooks;
 import chibivaru.additionalrecipe.event.ModInfo;
 import chibivaru.additionalrecipe.event.NoFallDamageEventHooks;
@@ -63,7 +65,7 @@ public class AdditionalRecipe {
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
 	public static int armorBedrockHelmetID,armorBedrockPlateID,armorBedrockLegsID,armorBedrockBootsID;
 	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
-	public static int armorDragoneHoodID,armorDragoneVestmentID,armorDragoneSkirtID,armorDragoneBootsID;
+	public static int armorAngelusHoodID,armorAngelusVestmentID,armorAngelusSkirtID,armorAngelusBootsID;
 	public static int diamondMortarDamage,iromMortarDamage;
 	public static int cheaperExchangeIgnitionDamage;
 	public static int bedrockMortarCrafting;
@@ -87,12 +89,19 @@ public class AdditionalRecipe {
 	public static boolean craftingAlchemic,craftingExchangeIgnition,craftingUltimateExchangeIgnition,craftingDustExchangeIgnition,craftingCheaperExchangeIgnition;
 	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather;
 	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
+	public static boolean craftingBedrockArmor;
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall;
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
-	public EnumArmorMaterial ARMOR_BEDROCK;
+	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_SLOTH,ARMOR_ANGELUS;
+	public static String BEDROCK = "bedrock";
+	public static final int ARMOR_DEFAULT = 0;
+	public static final int ARMOR_HELMET  = 0;
+	public static final int ARMOR_PLATE   = 1;
+	public static final int ARMOR_LEGS    = 2;
+	public static final int ARMOR_BOOTS   = 3;
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -211,6 +220,8 @@ public class AdditionalRecipe {
 			Property CraftingBedrockMortarProp            = cfg.get("AdditionalRecipe" ,"BedrockMortar"                   ,true);
 			Property CraftingDustNetherStarProp           = cfg.get("AdditionalRecipe" ,"DustNetherStar"                  ,false);
 			Property CraftingDustBedrockProp              = cfg.get("AdditionalRecipe" ,"DustBedrock"                     ,false);
+			Property CraftingBedrockArmorProp             = cfg.get("AdditionalRecipe" ,"BedrockArmor"                    ,true);
+			Property CraftingAngelusArmorProp             = cfg.get("AdditionalRecipe" ,"AngelusArmor"                    ,true);
 
 			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
 			SmeltingNetherrackProp.comment                = "Require Dirt";
@@ -224,19 +235,19 @@ public class AdditionalRecipe {
 			CraftingLinkModiferProp.comment               = "Link Modifer with MystCraft.";
 			CraftingPistonProp.comment                    = "It's possible to use bronze, invar and steel to make a piston.";
 
-			bedrockMortarItemID                  = BedrockMortarItemIDProp.getInt();
-			diamondMortarItemID                  = DiamondMortarItemIDProp.getInt();
-			ironMortarItemID                     = IronMortarItemIDProp.getInt();
+			bedrockMortarItemID                           = BedrockMortarItemIDProp.getInt();
+			diamondMortarItemID                           = DiamondMortarItemIDProp.getInt();
+			ironMortarItemID                              = IronMortarItemIDProp.getInt();
 
-			ultimateExchangeIgnitionItemID       = UltimateExchangeIgnitionItemIDProp.getInt();
-			exchangeIgnitionItemID               = ExchangeIgnitionItemIDProp.getInt();
-			cheaperExchangeIgnitionItemID        = CheaperExchangeIgnitionItemIDProp.getInt();
+			ultimateExchangeIgnitionItemID                = UltimateExchangeIgnitionItemIDProp.getInt();
+			exchangeIgnitionItemID                        = ExchangeIgnitionItemIDProp.getInt();
+			cheaperExchangeIgnitionItemID                 = CheaperExchangeIgnitionItemIDProp.getInt();
 
-			craftingFurnaceItemID                = CraftingFurnaceItemIDProp.getInt();
-			blackRottenFleshItemID               = BlackRottenFleshItemIDProp.getInt();
-			gravitationFeatherItemID             = GravitationFeatherItemIDProp.getInt();
-			superGravitationFeatherItemID        = SuperGravitationFeatherItemIDProp.getInt();
-			nightVisionTorchItemID               = NightVisionTorchItemIDProp.getInt();
+			craftingFurnaceItemID                         = CraftingFurnaceItemIDProp.getInt();
+			blackRottenFleshItemID                        = BlackRottenFleshItemIDProp.getInt();
+			gravitationFeatherItemID                      = GravitationFeatherItemIDProp.getInt();
+			superGravitationFeatherItemID                 = SuperGravitationFeatherItemIDProp.getInt();
+			nightVisionTorchItemID                        = NightVisionTorchItemIDProp.getInt();
 
 			armorBedrockHelmetID                 = ArmorBedrockHelmetIDProp.getInt();
 			armorBedrockPlateID                  = ArmorBedrockPlateIDProp.getInt();
@@ -334,6 +345,7 @@ public class AdditionalRecipe {
 			craftingBedrockMortar                = CraftingBedrockMortarProp.getBoolean(true);
 			craftingDustNetherStar               = CraftingDustNetherStarProp.getBoolean(false);
 			craftingDustBedrock                  = CraftingDustBedrockProp.getBoolean(false);
+			craftingBedrockArmor                 = CraftingBedrockArmorProp.getBoolean(true);
 		}
 		catch (Exception e)
 		{
@@ -352,6 +364,8 @@ public class AdditionalRecipe {
 		{
 			craftingDifficulty = 0;
 		}
+
+		ARMOR_BEDROCK = EnumHelper.addArmorMaterial("BEDROCK", 1, new int[] {10,10,10,10},20);
 
 		bedrockMortar     = (BedrockMortar)(new BedrockMortar(bedrockMortarItemID - 256)).setUnlocalizedName("bedrockmortar");
 		bedrockMortarItem = (Item)bedrockMortar;
@@ -411,7 +425,31 @@ public class AdditionalRecipe {
 		LanguageRegistry.addName(nightVisionTorchItem, "NightVisionTorch");
 		GameRegistry.registerItem(nightVisionTorchItem, "NightVisionTorch");
 
-		armorBedrockHelmetItem = new BedrockArmor(armorBedrockHelmetID, ARMOR_BEDROCK, 0, 0, null);
+
+		armorBedrockHelmetItem = new BedrockArmor(armorBedrockHelmetID - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);
+		armorBedrockHelmetItem.setUnlocalizedName("bedrockhelmet");
+		armorBedrockHelmetItem.setTextureName("additionalrecipe:BedrockHelmet");
+		LanguageRegistry.addName(armorBedrockHelmetItem, "BedrockHelmet");
+		GameRegistry.registerItem(armorBedrockHelmetItem, "BedrockHelmet");
+
+		armorBedrockPlateItem = new BedrockArmor(armorBedrockPlateID - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK);
+		armorBedrockPlateItem.setUnlocalizedName("bedrockplate");
+		armorBedrockPlateItem.setTextureName("additionalrecipe:BedrockPlate");
+		LanguageRegistry.addName(armorBedrockPlateItem, "BedrockChestplate");
+		GameRegistry.registerItem(armorBedrockPlateItem, "BedrockChestplate");
+
+		armorBedrockLegsItem = new BedrockArmor(armorBedrockLegsID - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK);
+		armorBedrockLegsItem.setUnlocalizedName("bedrocklegs");
+		armorBedrockLegsItem.setTextureName("additionalrecipe:BedrockLegs");
+		LanguageRegistry.addName(armorBedrockLegsItem, "BedrockLeggings");
+		GameRegistry.registerItem(armorBedrockLegsItem, "BedrockLeggings");
+
+		armorBedrockBootsItem = new BedrockArmor(armorBedrockBootsID - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK);
+		armorBedrockBootsItem.setUnlocalizedName("bedrockboots");
+		armorBedrockBootsItem.setTextureName("additionalrecipe:BedrockBoots");
+		LanguageRegistry.addName(armorBedrockBootsItem, "BedrockBoots");
+		GameRegistry.registerItem(armorBedrockBootsItem, "BedrockBoots");
+
 
 		dustNetherStarItem = new DustNetherStar(dustNetherStarItemID - 256).setUnlocalizedName("dustnetherstar");
 		LanguageRegistry.addName(dustNetherStarItem, "DustNetherStar");
@@ -432,6 +470,7 @@ public class AdditionalRecipe {
 
 		MinecraftForge.EVENT_BUS.register(new NoFallDamageEventHooks());
 		MinecraftForge.EVENT_BUS.register(new FlyingEventHooks());
+		MinecraftForge.EVENT_BUS.register(new BedrockArmorLivingEventHooks());
 
 		if(digEndPortal)
 		{

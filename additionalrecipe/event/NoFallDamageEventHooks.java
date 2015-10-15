@@ -1,13 +1,14 @@
 package chibivaru.additionalrecipe.event;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 
-public class NoFallDamageEventHooks {
+public class NoFallDamageEventHooks
+{
 	private boolean noFallDamage = false;
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
 	public void LivingUpdate(LivingUpdateEvent event)

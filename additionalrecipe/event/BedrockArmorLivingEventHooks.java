@@ -1,51 +1,53 @@
 package chibivaru.additionalrecipe.event;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
-import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 
-public class BedrockArmorLivingEventHooks {
-	private boolean noFallDamage = false;
+public class BedrockArmorLivingEventHooks
+{
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
-	public void LivingUpdate(LivingUpdateEvent event)
+	public void LivingUpdate(net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent event)
 	{
-		if(event.entityLiving != null && event.entityLiving instanceof EntityPlayer && event.entityLiving .worldObj.isRemote)
+		EntityLivingBase livingBase = ((LivingEvent) (event)).entityLiving;
+		if(livingBase != null && (livingBase instanceof EntityPlayer))
 		{
-			EntityPlayerSP player = (EntityPlayerSP) event.entityLiving;
-			Flight(player);
+			EntityPlayer player = (EntityPlayer) event.entityLiving;
+			Bedrock(player);
 		}
 	}
-	private void Flight(EntityPlayerSP player)
+	private void Bedrock(EntityPlayer player)
 	{
-		//クリエイティブでないなら
-		if(!player.capabilities.isCreativeMode)
+		boolean isHelmet = player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == AdditionalRecipe.armorBedrockHelmetID;
+		boolean isPlate  = player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == AdditionalRecipe.armorBedrockPlateID;
+		boolean isLegs   = player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == AdditionalRecipe.armorBedrockLegsID;
+		boolean isBoots  = player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == AdditionalRecipe.armorBedrockBootsID;
+		//System.out.println("[AdditionalRecipe]:Bedrock isHelmet=" + isHelmet + " isPlate=" + isPlate + " isLegs=" + isLegs + " isBoots=" + isBoots);
+		if(isHelmet)
 		{
-			//飛行が許可されていないなら
-			if(!player.capabilities.allowFlying)
+			if(player.isInsideOfMaterial(Material.water))
 			{
-				if((player.inventory.armorItemInSlot(0) != null)&&(player.inventory.armorItemInSlot(0).getItem().itemID == AdditionalRecipe.armorBedrockBootsID))
-				{
-					this.noFallDamage = true;
-				}
-				else
-				{
-					this.noFallDamage = false;
-				}
+				player.setAir(300);
+				//System.out.println("[AdditionalRecipe]:SetAir.");
 			}
 		}
-	}
-	//落下時ダメージ無効化処理。LivingFallEventが実装されたバージョンのみ
-	@ForgeSubscribe
-	public void onPlayerFall(LivingFallEvent event)
-	{
-		if (event.entityLiving instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer)event.entityLiving;
-			if (this.noFallDamage)
+		if(isPlate)
+		{
+			for(int i = 0; i < Potion.potionTypes.length; i++)
 			{
-				event.setCanceled(true);
+				if(Potion.potionTypes[i] != null && player.isPotionActive(i) && Potion.potionTypes[i].isBadEffect())
+				{
+					player.removePotionEffect(i);
+				}
+			}
+			if(player.isBurning())
+			{
+				player.extinguish();
+				//System.out.println("[AdditionalRecipe]:Exitnguish.");
 			}
 		}
 	}

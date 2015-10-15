@@ -121,5 +121,32 @@ public class RecipeAdditionalItems {
 						Character.valueOf('Y'),Item.coal,
 						Character.valueOf('Z'),"ExchangeIgnition"}));
 		}
+		if(AdditionalRecipe.craftingBedrockArmor)
+		{
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.armorBedrockHelmetItem,
+					new Object[]{"XXX","XYX","   ",
+						Character.valueOf('X'),Block.bedrock,
+						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.armorBedrockPlateItem,
+					new Object[]{"XYX","XXX","XXX",
+						Character.valueOf('X'),Block.bedrock,
+						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.armorBedrockLegsItem,
+					new Object[]{"XXX","XYX","X X",
+						Character.valueOf('X'),Block.bedrock,
+						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.armorBedrockBootsItem,
+					new Object[]{"   ","XYX","X X",
+						Character.valueOf('X'),Block.bedrock,
+						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
+		}
 	}
 }

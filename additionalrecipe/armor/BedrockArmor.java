@@ -46,7 +46,7 @@ public class BedrockArmor extends ItemArmor
 	{
 		return this.texturePath;
 	}
-	public boolean hasEffect()
+	public boolean hasEffect(ItemStack par1ItemStack)
 	{
 		return true;
 	}
