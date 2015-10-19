@@ -361,6 +361,7 @@ public class AdditionalRecipe {
 			craftingDustNetherStar               = CraftingDustNetherStarProp.getBoolean(false);
 			craftingDustBedrock                  = CraftingDustBedrockProp.getBoolean(false);
 			craftingBedrockArmor                 = CraftingBedrockArmorProp.getBoolean(true);
+			craftingAngelusArmor                 = CraftingAngelusArmorProp.getBoolean(true);
 		}
 		catch (Exception e)
 		{
