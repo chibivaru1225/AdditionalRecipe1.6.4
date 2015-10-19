@@ -47,7 +47,14 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 		modid   = AdditionalRecipe.MODID,
 		name    = AdditionalRecipe.MODNAME,
 		version = AdditionalRecipe.VERSION,
-		dependencies="after:Waila;after:AppliedEnergistics;after:GeoStrata;after:MineFactoryReloaded;after:MoreInventoryMod;after:MoreInventory Mod;after:MoreInventory;after:Thermal Expansion;after:ThermalExpansion;after:BuildCraftCore;after:Railcraft"
+		dependencies="after:Waila;"
+				+ "after:AppliedEnergistics;"
+				+ "after:GeoStrata;"
+				+ "after:MineFactoryReloaded;"
+				+ "after:MoreInventoryMod;"
+				+ "after:ThermalExpansion;"
+				+ "after:BuildCraftCore;"
+				+ "after:Railcraft"
 	)
 @NetworkMod(
 		clientSideRequired = true,
@@ -89,22 +96,22 @@ public class AdditionalRecipe {
 	public static boolean craftingAlchemic,craftingExchangeIgnition,craftingUltimateExchangeIgnition,craftingDustExchangeIgnition,craftingCheaperExchangeIgnition;
 	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather;
 	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
-	public static boolean craftingBedrockArmor;
+	public static boolean craftingBedrockArmor,craftingAngelusArmor;
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust;
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
 	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
-	public static String BEDROCK  = "bedrock";
-	public static String PRIDE    = "pride";
-	public static String WRATH    = "wrath";
-	public static String ENVY     = "envy";
-	public static String SLOTH    = "sloth";
-	public static String AVARICE  = "avarice";
-	public static String GLUTTONY = "gluttony";
-	public static String LUST     = "lust";
-	public static String ANGELUS  = "angelus";
+	public static String BEDROCK          = "bedrock";
+	public static String PRIDE            = "pride";
+	public static String WRATH            = "wrath";
+	public static String ENVY             = "envy";
+	public static String SLOTH            = "sloth";
+	public static String AVARICE          = "avarice";
+	public static String GLUTTONY         = "gluttony";
+	public static String LUST             = "lust";
+	public static String ANGELUS          = "angelus";
 	public static final int ARMOR_DEFAULT = 0;
 	public static final int ARMOR_HELMET  = 0;
 	public static final int ARMOR_PLATE   = 1;
@@ -356,6 +363,7 @@ public class AdditionalRecipe {
 			craftingDustNetherStar               = CraftingDustNetherStarProp.getBoolean(false);
 			craftingDustBedrock                  = CraftingDustBedrockProp.getBoolean(false);
 			craftingBedrockArmor                 = CraftingBedrockArmorProp.getBoolean(true);
+			craftingAngelusArmor                 = CraftingAngelusArmorProp.getBoolean(true);
 		}
 		catch (Exception e)
 		{
