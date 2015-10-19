@@ -95,8 +95,16 @@ public class AdditionalRecipe {
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
-	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_SLOTH,ARMOR_ANGELUS;
-	public static String BEDROCK = "bedrock";
+	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
+	public static String BEDROCK  = "bedrock";
+	public static String PRIDE    = "pride";
+	public static String WRATH    = "wrath";
+	public static String ENVY     = "envy";
+	public static String SLOTH    = "sloth";
+	public static String AVARICE  = "avarice";
+	public static String GLUTTONY = "gluttony";
+	public static String LUST     = "lust";
+	public static String ANGELUS  = "angelus";
 	public static final int ARMOR_DEFAULT = 0;
 	public static final int ARMOR_HELMET  = 0;
 	public static final int ARMOR_PLATE   = 1;
@@ -367,7 +375,15 @@ public class AdditionalRecipe {
 			craftingDifficulty = 0;
 		}
 
-		ARMOR_BEDROCK = EnumHelper.addArmorMaterial("BEDROCK", 1, new int[] {10,10,10,10},20);
+		ARMOR_BEDROCK  = EnumHelper.addArmorMaterial("BEDROCK" , 1, new int[] {10,10,10,10},20);
+		ARMOR_PRIDE    = EnumHelper.addArmorMaterial("PRIDE"   , 1, new int[] {15,15,15,15},30);
+		ARMOR_WRATH    = EnumHelper.addArmorMaterial("WRATH"   , 1, new int[] {15,15,15,15},30);
+		ARMOR_ENVY     = EnumHelper.addArmorMaterial("ENVY"    , 1, new int[] {15,15,15,15},30);
+		ARMOR_SLOTH    = EnumHelper.addArmorMaterial("SLOTH"   , 1, new int[] {15,15,15,15},30);
+		ARMOR_AVARICE  = EnumHelper.addArmorMaterial("AVARICE" , 1, new int[] {15,15,15,15},30);
+		ARMOR_GLUTTONY = EnumHelper.addArmorMaterial("GLUTTONY", 1, new int[] {15,15,15,15},30);
+		ARMOR_LUST     = EnumHelper.addArmorMaterial("LUST"    , 1, new int[] {15,15,15,15},30);
+		ARMOR_ANGELUS  = EnumHelper.addArmorMaterial("ANGELUS" , 1, new int[] {20,20,20,20},40);
 
 		bedrockMortar     = (BedrockMortar)(new BedrockMortar(bedrockMortarItemID - 256)).setUnlocalizedName("bedrockmortar");
 		bedrockMortarItem = (Item)bedrockMortar;
