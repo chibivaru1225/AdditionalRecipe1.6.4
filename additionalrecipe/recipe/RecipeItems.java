@@ -267,5 +267,12 @@ public class RecipeItems {
 						Character.valueOf('W'),Block.obsidian,
 						Character.valueOf('V'),Block.blockDiamond}));
 		}
+		if(AdditionalRecipe.craftingGlowStoneDust)
+		{
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					new ItemStack(Item.glowstone,4),
+					new Object[]{"dustGold",Item.redstone,"dustGold",Item.redstone}));
+		}
 	}
 }

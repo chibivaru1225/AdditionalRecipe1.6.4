@@ -44,6 +44,9 @@ public class BedrockArmorLivingEventHooks
 					player.removePotionEffect(i);
 				}
 			}
+		}
+		if(isLegs)
+		{
 			if(player.isBurning())
 			{
 				player.extinguish();

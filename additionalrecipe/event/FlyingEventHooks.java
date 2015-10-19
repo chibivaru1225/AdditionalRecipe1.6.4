@@ -1,23 +1,25 @@
 package chibivaru.additionalrecipe.event;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 
 public class FlyingEventHooks
 {
 	private boolean allowLevitatiton = false;//飛べるかどうか
-	private boolean isLevitation = false;//飛んでいるかどうか
-	private int flyToggleTimer = 0;//Jumpキーの入力間隔
-	private int sprintToggleTimer = 0;//ダッシュの入力間隔（何故必要なのかは後述）
+	private boolean isLevitation     = false;//飛んでいるかどうか
+	private int flyToggleTimer       = 0;//Jumpキーの入力間隔
+	private int sprintToggleTimer    = 0;//ダッシュの入力間隔（何故必要なのかは後述）
 	public static boolean flyBoost;
-	private int flySpeed = 1;
-	private int potionduration  = 4;
-	private byte potionamplifier = 4;
+	private int flySpeed             = 1;
+	private int potionduration       = 4;
+	private byte potionamplifier     = 4;
+	private boolean exchange         = false;
+	private boolean ultimate         = false;
+	private boolean bedrock          = false;
 
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
 	public void LivingUpdate(LivingUpdateEvent event)
@@ -31,13 +33,48 @@ public class FlyingEventHooks
 	//落下時ダメージ無効化処理。LivingFallEventが実装されたバージョンのみ
 	public void Flight(EntityPlayerSP player)
 	{
+		if(player.inventory.hasItem(AdditionalRecipe.exchangeIgnitionItemID))
+		{
+			exchange = true;
+		}
+		else
+		{
+			exchange = false;
+		}
+		if(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID))
+		{
+			ultimate = true;
+		}
+		else
+		{
+			ultimate = false;
+		}
+		if(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID))
+		{
+			ultimate = true;
+		}
+		else
+		{
+			ultimate = false;
+		}
+		if((player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == AdditionalRecipe.armorBedrockHelmetID)&&
+				(player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == AdditionalRecipe.armorBedrockPlateID)&&
+				(player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == AdditionalRecipe.armorBedrockLegsID)&&
+				(player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == AdditionalRecipe.armorBedrockBootsID))
+		{
+			bedrock = true;
+		}
+		else
+		{
+			bedrock = false;
+		}
 		//クリエイティブでないなら
 		if(!player.capabilities.isCreativeMode)
 		{
 			//飛行が許可されていないなら
 			if(!player.capabilities.allowFlying)
 			{
-				if((player.inventory.hasItem(AdditionalRecipe.exchangeIgnitionItemID))||(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID)))
+				if(exchange||ultimate||bedrock)
 				{
 					this.allowLevitatiton = true;
 				}
@@ -118,18 +155,32 @@ public class FlyingEventHooks
 		}
 		if (this.isLevitation)//飛行中の処理
 		{
-			player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
-			player.jumpMovementFactor = 0.12f * this.flySpeed;//滞空時の滞空移動速度．クリエイティブより少し早い
-			if (((EntityPlayerSP)player).movementInput.sneak)
+			if(ultimate)
 			{
-				player.motionY -= 0.5D * this.flySpeed;//スニークで下降．クリエイティブより少し早い
+				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
+				player.jumpMovementFactor = 0.15f;//滞空時の滞空移動速度．クリエイティブより少し早い
+				if (((EntityPlayerSP)player).movementInput.sneak)
+				{
+					player.motionY -= 0.5D;//スニークで下降．クリエイティブより少し早い
+				}
+				if (((EntityPlayerSP)player).movementInput.jump)
+				{
+					player.motionY += 0.5D;//Jumpキーで上昇．クリエ〈略〉
+				}
 			}
-
-			if (((EntityPlayerSP)player).movementInput.jump)
+			else if(exchange||bedrock)
 			{
-				player.motionY += 0.5D * this.flySpeed;//Jumpキーで上昇．クリエ〈略〉
+				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
+				player.jumpMovementFactor = 0.1f;//滞空時の滞空移動速度．クリエイティブより少し早い
+				if (((EntityPlayerSP)player).movementInput.sneak)
+				{
+					player.motionY -= 0.4D;//スニークで下降．クリエイティブより少し早い
+				}
+				if (((EntityPlayerSP)player).movementInput.jump)
+				{
+					player.motionY += 0.4D;//Jumpキーで上昇．クリエ〈略〉
+				}
 			}
-
 		}
 		else
 		{
