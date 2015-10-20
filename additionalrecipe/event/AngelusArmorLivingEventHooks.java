@@ -21,10 +21,10 @@ public class AngelusArmorLivingEventHooks {
 	}
 	private void Angelus(EntityPlayer player)
 	{
-		boolean isHelmet = player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == AdditionalRecipe.armorAngelusHoodID;
-		boolean isPlate  = player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == AdditionalRecipe.armorAngelusVestmentID;
-		boolean isLegs   = player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == AdditionalRecipe.armorAngelusSkirtID;
-		boolean isBoots  = player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == AdditionalRecipe.armorAngelusBootsID;
+		boolean isHelmet = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_HELMET);
+		boolean isPlate  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_PLATE);
+		boolean isLegs   = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_LEGS);
+		boolean isBoots  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_BOOTS);
 		//System.out.println("[AdditionalRecipe]:Bedrock isHelmet=" + isHelmet + " isPlate=" + isPlate + " isLegs=" + isLegs + " isBoots=" + isBoots);
 		if(isHelmet)
 		{

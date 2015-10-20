@@ -3,6 +3,7 @@ package chibivaru.additionalrecipe;
 import java.util.logging.Level;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.src.ModLoader;
@@ -70,9 +71,11 @@ public class AdditionalRecipe {
 	public static ModMetadata meta;
 
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
-	public static int armorBedrockHelmetID,armorBedrockPlateID,armorBedrockLegsID,armorBedrockBootsID;
+	public static int[] armorBedrockID = new int[4];
+	public static int[] armorAngelusID = new int[4];
+	//public static int armorBedrockHelmetID,armorBedrockPlateID,armorBedrockLegsID,armorBedrockBootsID;
 	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
-	public static int armorAngelusHoodID,armorAngelusVestmentID,armorAngelusSkirtID,armorAngelusBootsID;
+	//public static int armorAngelusHoodID,armorAngelusVestmentID,armorAngelusSkirtID,armorAngelusBootsID;
 	public static int diamondMortarDamage,iromMortarDamage;
 	public static int cheaperExchangeIgnitionDamage;
 	public static int bedrockMortarCrafting;
@@ -265,10 +268,17 @@ public class AdditionalRecipe {
 			superGravitationFeatherItemID                 = SuperGravitationFeatherItemIDProp.getInt();
 			nightVisionTorchItemID                        = NightVisionTorchItemIDProp.getInt();
 
+			/*
 			armorBedrockHelmetID                          = ArmorBedrockHelmetIDProp.getInt();
 			armorBedrockPlateID                           = ArmorBedrockPlateIDProp.getInt();
 			armorBedrockLegsID                            = ArmorBedrockLegsIDProp.getInt();
 			armorBedrockBootsID                           = ArmorBedrockBootsIDProp.getInt();
+			*/
+
+			armorBedrockID[ARMOR_HELMET]                  = ArmorBedrockHelmetIDProp.getInt();
+			armorBedrockID[ARMOR_PLATE]                   = ArmorBedrockPlateIDProp.getInt();
+			armorBedrockID[ARMOR_LEGS]                    = ArmorBedrockLegsIDProp.getInt();
+			armorBedrockID[ARMOR_BOOTS]                   = ArmorBedrockBootsIDProp.getInt();
 
 			dustNetherStarItemID                          = DustNetherStarItemIDProp.getInt();
 			dustBedrockItemID                             = DustBedrockItemIDProp.getInt();
@@ -452,25 +462,25 @@ public class AdditionalRecipe {
 		GameRegistry.registerItem(nightVisionTorchItem, "NightVisionTorch");
 
 
-		armorBedrockHelmetItem = new BedrockArmor(armorBedrockHelmetID - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);
+		armorBedrockHelmetItem = new BedrockArmor(armorBedrockID[ARMOR_HELMET] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);
 		armorBedrockHelmetItem.setUnlocalizedName("bedrockhelmet");
 		armorBedrockHelmetItem.setTextureName("additionalrecipe:BedrockHelmet");
 		LanguageRegistry.addName(armorBedrockHelmetItem, "BedrockHelmet");
 		GameRegistry.registerItem(armorBedrockHelmetItem, "BedrockHelmet");
 
-		armorBedrockPlateItem = new BedrockArmor(armorBedrockPlateID - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK);
+		armorBedrockPlateItem = new BedrockArmor(armorBedrockID[ARMOR_PLATE] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK);
 		armorBedrockPlateItem.setUnlocalizedName("bedrockplate");
 		armorBedrockPlateItem.setTextureName("additionalrecipe:BedrockPlate");
 		LanguageRegistry.addName(armorBedrockPlateItem, "BedrockChestplate");
 		GameRegistry.registerItem(armorBedrockPlateItem, "BedrockChestplate");
 
-		armorBedrockLegsItem = new BedrockArmor(armorBedrockLegsID - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK);
+		armorBedrockLegsItem = new BedrockArmor(armorBedrockID[ARMOR_LEGS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK);
 		armorBedrockLegsItem.setUnlocalizedName("bedrocklegs");
 		armorBedrockLegsItem.setTextureName("additionalrecipe:BedrockLegs");
 		LanguageRegistry.addName(armorBedrockLegsItem, "BedrockLeggings");
 		GameRegistry.registerItem(armorBedrockLegsItem, "BedrockLeggings");
 
-		armorBedrockBootsItem = new BedrockArmor(armorBedrockBootsID - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK);
+		armorBedrockBootsItem = new BedrockArmor(armorBedrockID[ARMOR_BOOTS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK);
 		armorBedrockBootsItem.setUnlocalizedName("bedrockboots");
 		armorBedrockBootsItem.setTextureName("additionalrecipe:BedrockBoots");
 		LanguageRegistry.addName(armorBedrockBootsItem, "BedrockBoots");
@@ -510,4 +520,48 @@ public class AdditionalRecipe {
 		recipehandler.oredic();
 		recipehandler.init();
     }
+	public static boolean equipArmor(int armorIDs[],EntityPlayer player)
+	{
+		if((player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_HELMET]))
+		{
+			if((player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_PLATE]))
+			{
+				if((player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_LEGS]))
+				{
+					if((player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_BOOTS]))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	public static boolean equipArmor(int armorIDs[],EntityPlayer player,int armorType)
+	{
+		switch(armorType)
+		{
+			case ARMOR_HELMET:
+			{
+				return player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == armorIDs[armorType];
+			}
+			case ARMOR_PLATE:
+			{
+				return player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == armorIDs[armorType];
+			}
+			case ARMOR_LEGS:
+			{
+				return player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == armorIDs[armorType];
+			}
+			case ARMOR_BOOTS:
+			{
+				return player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == armorIDs[armorType];
+			}
+		}
+		return false;
+	}
+	public static boolean hasItem(int itemID,EntityPlayer player)
+	{
+		return player.inventory.hasItem(itemID);
+	}
 }

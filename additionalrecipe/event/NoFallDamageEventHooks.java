@@ -27,7 +27,7 @@ public class NoFallDamageEventHooks
 			//飛行が許可されていないなら
 			if(!player.capabilities.allowFlying)
 			{
-				if((player.inventory.armorItemInSlot(0) != null)&&(player.inventory.armorItemInSlot(0).getItem().itemID == AdditionalRecipe.armorBedrockBootsID))
+				if(AdditionalRecipe.equipArmor(AdditionalRecipe.armorBedrockID, player, AdditionalRecipe.ARMOR_BOOTS))
 				{
 					this.noFallDamage = true;
 				}

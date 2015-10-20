@@ -20,6 +20,7 @@ public class FlyingEventHooks
 	private boolean exchange         = false;
 	private boolean ultimate         = false;
 	private boolean bedrock          = false;
+	private boolean angelus          = false;
 
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
 	public void LivingUpdate(LivingUpdateEvent event)
@@ -33,41 +34,10 @@ public class FlyingEventHooks
 	//落下時ダメージ無効化処理。LivingFallEventが実装されたバージョンのみ
 	public void Flight(EntityPlayerSP player)
 	{
-		if(player.inventory.hasItem(AdditionalRecipe.exchangeIgnitionItemID))
-		{
-			exchange = true;
-		}
-		else
-		{
-			exchange = false;
-		}
-		if(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID))
-		{
-			ultimate = true;
-		}
-		else
-		{
-			ultimate = false;
-		}
-		if(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID))
-		{
-			ultimate = true;
-		}
-		else
-		{
-			ultimate = false;
-		}
-		if((player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == AdditionalRecipe.armorBedrockHelmetID)&&
-				(player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == AdditionalRecipe.armorBedrockPlateID)&&
-				(player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == AdditionalRecipe.armorBedrockLegsID)&&
-				(player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == AdditionalRecipe.armorBedrockBootsID))
-		{
-			bedrock = true;
-		}
-		else
-		{
-			bedrock = false;
-		}
+		exchange = player.inventory.hasItem(AdditionalRecipe.exchangeIgnitionItemID);
+		ultimate = player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID);
+		bedrock  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorBedrockID, player);
+		angelus  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player);
 		//クリエイティブでないなら
 		if(!player.capabilities.isCreativeMode)
 		{
@@ -155,23 +125,10 @@ public class FlyingEventHooks
 		}
 		if (this.isLevitation)//飛行中の処理
 		{
-			if(ultimate)
+			if(ultimate||angelus)
 			{
 				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
 				player.jumpMovementFactor = 0.15f;//滞空時の滞空移動速度．クリエイティブより少し早い
-				if (((EntityPlayerSP)player).movementInput.sneak)
-				{
-					player.motionY -= 0.5D;//スニークで下降．クリエイティブより少し早い
-				}
-				if (((EntityPlayerSP)player).movementInput.jump)
-				{
-					player.motionY += 0.5D;//Jumpキーで上昇．クリエ〈略〉
-				}
-			}
-			else if(exchange||bedrock)
-			{
-				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
-				player.jumpMovementFactor = 0.1f;//滞空時の滞空移動速度．クリエイティブより少し早い
 				if (((EntityPlayerSP)player).movementInput.sneak)
 				{
 					player.motionY -= 0.4D;//スニークで下降．クリエイティブより少し早い
@@ -179,6 +136,21 @@ public class FlyingEventHooks
 				if (((EntityPlayerSP)player).movementInput.jump)
 				{
 					player.motionY += 0.4D;//Jumpキーで上昇．クリエ〈略〉
+				}
+			}
+			else if(exchange||bedrock)
+			{
+				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
+				player.jumpMovementFactor = 0.08f;//滞空時の滞空移動速度．クリエイティブより少し早い
+				if (((EntityPlayerSP)player).movementInput.sneak)
+				{
+					//player.motionY -= 0.4D;//スニークで下降．クリエイティブより少し早い
+					player.motionY -= 0.15D;
+				}
+				if (((EntityPlayerSP)player).movementInput.jump)
+				{
+					//player.motionY += 0.4D;//Jumpキーで上昇．クリエ〈略〉
+					player.motionY += 0.15D;
 				}
 			}
 		}
