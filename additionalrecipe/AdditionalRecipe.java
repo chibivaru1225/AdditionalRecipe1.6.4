@@ -73,9 +73,7 @@ public class AdditionalRecipe {
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
 	public static int[] armorBedrockID = new int[4];
 	public static int[] armorAngelusID = new int[4];
-	//public static int armorBedrockHelmetID,armorBedrockPlateID,armorBedrockLegsID,armorBedrockBootsID;
 	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
-	//public static int armorAngelusHoodID,armorAngelusVestmentID,armorAngelusSkirtID,armorAngelusBootsID;
 	public static int diamondMortarDamage,iromMortarDamage;
 	public static int cheaperExchangeIgnitionDamage;
 	public static int bedrockMortarCrafting;
@@ -90,7 +88,8 @@ public class AdditionalRecipe {
 	public static CraftingFurnace craftingFurnace;
 	public static CheaperExchangeIgnition cheaperExchangeIgnition;
 	public static Item bedrockMortarItem,exchangeIgnitionItem,ironMortarItem,diamondMortarItem,dustNetherStarItem,dustBedrockItem,gravitationFeatherItem,superGravitationFeatherItem,craftingFurnaceItem,ultimateExchangeIgnitionItem,dustExchangeIgnitionItem,blackRottenFleshItem,cheaperExchangeIgnitionItem,nightVisionTorchItem;
-	public static Item armorBedrockHelmetItem,armorBedrockPlateItem,armorBedrockLegsItem,armorBedrockBootsItem;
+	public static Item[] armorBedrockItem = new Item[4];
+	public static Item[] armorAngelusItem = new Item[4];
 	public static boolean craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,digBCSpring,digEndPortal,craftingEndPortal,craftingPinkSlimeBall,craftingFlour,craftingLinkModifer;
 	public static boolean smeltingTool,smeltingToolWood,smeltingToolStone,smeltingToolIron,smeltingToolGold,smeltingToolDiamond,smeltingToolBow;
 	public static boolean smeltingArmor,smeltingArmorChain,smeltingArmorLeather,smeltingArmorIron,smeltingArmorGold,smeltingArmorDiamond;
@@ -150,6 +149,11 @@ public class AdditionalRecipe {
 			Property ArmorBedrockPlateIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockPlateItemID"            ,12701);
 			Property ArmorBedrockLegsIDProp               = cfg.getItem("ArmorItemID"    ,"BedrockLegsItemID"             ,12702);
 			Property ArmorBedrockBootsIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockBootsItemID"            ,12703);
+
+			Property ArmorAngelusHoodIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusHoodItemID"             ,12704);
+			Property ArmorAngelusVestmentIDProp           = cfg.getItem("ArmorItemID"    ,"AngelusVestmentItemID"         ,12705);
+			Property ArmorAngelusSkirtIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusSkirtItemID"            ,12706);
+			Property ArmorAngelusBootsIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusBootsItemID"            ,12707);
 
 			Property DiamondMortarDamageProp              = cfg.get("ItemDamage"         ,"DiamondMortar"                 ,1561);
 			Property IromMortarDamageProp                 = cfg.get("ItemDamage"         ,"IromMortar"                    ,250);
@@ -268,17 +272,15 @@ public class AdditionalRecipe {
 			superGravitationFeatherItemID                 = SuperGravitationFeatherItemIDProp.getInt();
 			nightVisionTorchItemID                        = NightVisionTorchItemIDProp.getInt();
 
-			/*
-			armorBedrockHelmetID                          = ArmorBedrockHelmetIDProp.getInt();
-			armorBedrockPlateID                           = ArmorBedrockPlateIDProp.getInt();
-			armorBedrockLegsID                            = ArmorBedrockLegsIDProp.getInt();
-			armorBedrockBootsID                           = ArmorBedrockBootsIDProp.getInt();
-			*/
-
 			armorBedrockID[ARMOR_HELMET]                  = ArmorBedrockHelmetIDProp.getInt();
 			armorBedrockID[ARMOR_PLATE]                   = ArmorBedrockPlateIDProp.getInt();
 			armorBedrockID[ARMOR_LEGS]                    = ArmorBedrockLegsIDProp.getInt();
 			armorBedrockID[ARMOR_BOOTS]                   = ArmorBedrockBootsIDProp.getInt();
+
+			armorAngelusID[ARMOR_HELMET]                  = ArmorAngelusHoodIDProp.getInt();
+			armorAngelusID[ARMOR_PLATE]                   = ArmorAngelusVestmentIDProp.getInt();
+			armorAngelusID[ARMOR_LEGS]                    = ArmorAngelusSkirtIDProp.getInt();
+			armorAngelusID[ARMOR_BOOTS]                   = ArmorAngelusBootsIDProp.getInt();
 
 			dustNetherStarItemID                          = DustNetherStarItemIDProp.getInt();
 			dustBedrockItemID                             = DustBedrockItemIDProp.getInt();
@@ -462,29 +464,53 @@ public class AdditionalRecipe {
 		GameRegistry.registerItem(nightVisionTorchItem, "NightVisionTorch");
 
 
-		armorBedrockHelmetItem = new BedrockArmor(armorBedrockID[ARMOR_HELMET] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);
-		armorBedrockHelmetItem.setUnlocalizedName("bedrockhelmet");
-		armorBedrockHelmetItem.setTextureName("additionalrecipe:BedrockHelmet");
-		LanguageRegistry.addName(armorBedrockHelmetItem, "BedrockHelmet");
-		GameRegistry.registerItem(armorBedrockHelmetItem, "BedrockHelmet");
+		armorBedrockItem[ARMOR_HELMET] = new BedrockArmor(armorBedrockID[ARMOR_HELMET] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);
+		armorBedrockItem[ARMOR_HELMET].setUnlocalizedName("bedrockhelmet");
+		armorBedrockItem[ARMOR_HELMET].setTextureName("additionalrecipe:BedrockHelmet");
+		LanguageRegistry.addName(armorBedrockItem[ARMOR_HELMET], "BedrockHelmet");
+		GameRegistry.registerItem(armorBedrockItem[ARMOR_HELMET], "BedrockHelmet");
 
-		armorBedrockPlateItem = new BedrockArmor(armorBedrockID[ARMOR_PLATE] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK);
-		armorBedrockPlateItem.setUnlocalizedName("bedrockplate");
-		armorBedrockPlateItem.setTextureName("additionalrecipe:BedrockPlate");
-		LanguageRegistry.addName(armorBedrockPlateItem, "BedrockChestplate");
-		GameRegistry.registerItem(armorBedrockPlateItem, "BedrockChestplate");
+		armorBedrockItem[ARMOR_PLATE] = new BedrockArmor(armorBedrockID[ARMOR_PLATE] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK);
+		armorBedrockItem[ARMOR_PLATE].setUnlocalizedName("bedrockplate");
+		armorBedrockItem[ARMOR_PLATE].setTextureName("additionalrecipe:BedrockPlate");
+		LanguageRegistry.addName(armorBedrockItem[ARMOR_PLATE], "BedrockChestplate");
+		GameRegistry.registerItem(armorBedrockItem[ARMOR_PLATE], "BedrockChestplate");
 
-		armorBedrockLegsItem = new BedrockArmor(armorBedrockID[ARMOR_LEGS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK);
-		armorBedrockLegsItem.setUnlocalizedName("bedrocklegs");
-		armorBedrockLegsItem.setTextureName("additionalrecipe:BedrockLegs");
-		LanguageRegistry.addName(armorBedrockLegsItem, "BedrockLeggings");
-		GameRegistry.registerItem(armorBedrockLegsItem, "BedrockLeggings");
+		armorBedrockItem[ARMOR_LEGS] = new BedrockArmor(armorBedrockID[ARMOR_LEGS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK);
+		armorBedrockItem[ARMOR_LEGS].setUnlocalizedName("bedrocklegs");
+		armorBedrockItem[ARMOR_LEGS].setTextureName("additionalrecipe:BedrockLegs");
+		LanguageRegistry.addName(armorBedrockItem[ARMOR_LEGS], "BedrockLeggings");
+		GameRegistry.registerItem(armorBedrockItem[ARMOR_LEGS], "BedrockLeggings");
 
-		armorBedrockBootsItem = new BedrockArmor(armorBedrockID[ARMOR_BOOTS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK);
-		armorBedrockBootsItem.setUnlocalizedName("bedrockboots");
-		armorBedrockBootsItem.setTextureName("additionalrecipe:BedrockBoots");
-		LanguageRegistry.addName(armorBedrockBootsItem, "BedrockBoots");
-		GameRegistry.registerItem(armorBedrockBootsItem, "BedrockBoots");
+		armorBedrockItem[ARMOR_BOOTS] = new BedrockArmor(armorBedrockID[ARMOR_BOOTS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK);
+		armorBedrockItem[ARMOR_BOOTS].setUnlocalizedName("bedrockboots");
+		armorBedrockItem[ARMOR_BOOTS].setTextureName("additionalrecipe:BedrockBoots");
+		LanguageRegistry.addName(armorBedrockItem[ARMOR_BOOTS], "BedrockBoots");
+		GameRegistry.registerItem(armorBedrockItem[ARMOR_BOOTS], "BedrockBoots");
+
+		armorAngelusItem[ARMOR_HELMET] = new BedrockArmor(armorAngelusID[ARMOR_HELMET] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_HELMET, ANGELUS);
+		armorAngelusItem[ARMOR_HELMET].setUnlocalizedName("angelushood");
+		armorAngelusItem[ARMOR_HELMET].setTextureName("additionalrecipe:AngelusHood");
+		LanguageRegistry.addName(armorAngelusItem[ARMOR_HELMET], "AngelusHood");
+		GameRegistry.registerItem(armorAngelusItem[ARMOR_HELMET], "AngelusHood");
+
+		armorAngelusItem[ARMOR_PLATE] = new BedrockArmor(armorAngelusID[ARMOR_PLATE] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_PLATE, ANGELUS);
+		armorAngelusItem[ARMOR_PLATE].setUnlocalizedName("angelusvestment");
+		armorAngelusItem[ARMOR_PLATE].setTextureName("additionalrecipe:AngelusVestment");
+		LanguageRegistry.addName(armorAngelusItem[ARMOR_PLATE], "AngelusVestment");
+		GameRegistry.registerItem(armorAngelusItem[ARMOR_PLATE], "AngelusVestment");
+
+		armorAngelusItem[ARMOR_LEGS] = new BedrockArmor(armorAngelusID[ARMOR_LEGS] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_LEGS, ANGELUS);
+		armorAngelusItem[ARMOR_LEGS].setUnlocalizedName("angelusskirt");
+		armorAngelusItem[ARMOR_LEGS].setTextureName("additionalrecipe:AngelusSkirt");
+		LanguageRegistry.addName(armorAngelusItem[ARMOR_LEGS], "AngelusSkirt");
+		GameRegistry.registerItem(armorAngelusItem[ARMOR_LEGS], "AngelusSkirt");
+
+		armorAngelusItem[ARMOR_BOOTS] = new BedrockArmor(armorAngelusID[ARMOR_BOOTS] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_BOOTS, ANGELUS);
+		armorAngelusItem[ARMOR_BOOTS].setUnlocalizedName("angelusboots");
+		armorAngelusItem[ARMOR_BOOTS].setTextureName("additionalrecipe:AngelusBoots");
+		LanguageRegistry.addName(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
+		GameRegistry.registerItem(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
 
 
 		dustNetherStarItem = new DustNetherStar(dustNetherStarItemID - 256).setUnlocalizedName("dustnetherstar");

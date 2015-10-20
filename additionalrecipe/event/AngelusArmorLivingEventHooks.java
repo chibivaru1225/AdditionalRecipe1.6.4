@@ -8,7 +8,8 @@ import net.minecraft.potion.Potion;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
-public class AngelusArmorLivingEventHooks {
+public class AngelusArmorLivingEventHooks
+{
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
 	public void LivingUpdate(net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent event)
 	{

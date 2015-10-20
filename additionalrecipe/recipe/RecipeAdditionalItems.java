@@ -125,25 +125,25 @@ public class RecipeAdditionalItems {
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorBedrockHelmetItem,
+					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_HELMET],
 					new Object[]{"XXX","XYX","   ",
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorBedrockPlateItem,
+					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_PLATE],
 					new Object[]{"XYX","XXX","XXX",
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorBedrockLegsItem,
+					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_LEGS],
 					new Object[]{"XXX","XYX","X X",
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorBedrockBootsItem,
+					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_BOOTS],
 					new Object[]{"   ","XYX","X X",
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));

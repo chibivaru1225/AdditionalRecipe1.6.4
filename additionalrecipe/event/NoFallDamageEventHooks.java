@@ -31,6 +31,10 @@ public class NoFallDamageEventHooks
 				{
 					this.noFallDamage = true;
 				}
+				else if(AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_BOOTS))
+				{
+					this.noFallDamage = true;
+				}
 				else if((player.inventory.hasItem(AdditionalRecipe.gravitationFeatherItemID))||(player.inventory.hasItem(AdditionalRecipe.superGravitationFeatherItemID)))
 				{
 					this.noFallDamage = true;
