@@ -150,7 +150,7 @@ public class AdditionalRecipe {
 			Property ArmorBedrockLegsIDProp               = cfg.getItem("ArmorItemID"    ,"BedrockLegsItemID"             ,12702);
 			Property ArmorBedrockBootsIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockBootsItemID"            ,12703);
 
-			Property ArmorAngelusHoodIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusHoodItemID"             ,12704);
+			Property ArmorAngelusHoodIDProp               = cfg.getItem("ArmorItemID"    ,"AngelusHoodItemID"             ,12704);
 			Property ArmorAngelusVestmentIDProp           = cfg.getItem("ArmorItemID"    ,"AngelusVestmentItemID"         ,12705);
 			Property ArmorAngelusSkirtIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusSkirtItemID"            ,12706);
 			Property ArmorAngelusBootsIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusBootsItemID"            ,12707);
@@ -309,73 +309,73 @@ public class AdditionalRecipe {
 			smeltingArmorSteel                            = SmeltingArmorSteelProp.getBoolean(true);
 			smeltingArmorInvar                            = SmeltingArmorInvarProp.getBoolean(true);
 
-			smeltingNetherBrick                  = SmeltingNetherBrickProp.getBoolean(true);
-			smeltingNetherrack                   = SmeltingNetherrackProp.getBoolean(false);
-			smeltingLeather                      = SmeltingLeatherProp.getBoolean(true);
-			smeltingGlowStoneDust                = SmeltingGlowStoneDustProp.getBoolean(false);
+			smeltingNetherBrick                           = SmeltingNetherBrickProp.getBoolean(true);
+			smeltingNetherrack                            = SmeltingNetherrackProp.getBoolean(false);
+			smeltingLeather                               = SmeltingLeatherProp.getBoolean(true);
+			smeltingGlowStoneDust                         = SmeltingGlowStoneDustProp.getBoolean(false);
 
-			smeltingMinecartEmpty                = SmeltingMinecartEmptyProp.getBoolean(true);
-			smeltingIronDoor                     = SmeltingIronDoorProp.getBoolean(true);
-			smeltingWoodDoor                     = SmeltingWoodDoorProp.getBoolean(true);
+			smeltingMinecartEmpty                         = SmeltingMinecartEmptyProp.getBoolean(true);
+			smeltingIronDoor                              = SmeltingIronDoorProp.getBoolean(true);
+			smeltingWoodDoor                              = SmeltingWoodDoorProp.getBoolean(true);
 
-			addOreDicExpBottle                   = AddOreDicExpBottleProp.getBoolean(false);
+			addOreDicExpBottle                            = AddOreDicExpBottleProp.getBoolean(false);
 
-			furnaceDustIngot                     = FurnaceDustIngotProp.getBoolean(true);
+			furnaceDustIngot                              = FurnaceDustIngotProp.getBoolean(true);
 
-			craftingEndPortal                    = CraftingEndPortalProp.getBoolean(false);
-			craftingOre                          = CraftingOreProp.getBoolean(true);
-			craftingDifficulty                   = CraftingDifficultyProp.getInt();
-			craftingCrystal                      = CraftingCrystalProp.getBoolean(true);
-			craftingPinkSlimeBall                = CraftingPinkSlimeBallProp.getBoolean(true);
-			craftingFlour                        = CraftingFlourProp.getBoolean(true);
-			craftingLinkModifer                  = CraftingLinkModiferProp.getBoolean(true);
-			craftingMushroom                     = CraftingMushroomProp.getBoolean(true);
-			craftingPiston                       = CraftingPistonProp.getBoolean(true);
-			craftingJewel                        = CraftingJewelProp.getBoolean(true);
-			craftingSkull                        = CraftingSkullProp.getBoolean(true);
-			craftingBedrock                      = CraftingBedrockProp.getBoolean(false);
-			craftingDragonEgg                    = CraftingDragonEggProp.getBoolean(true);
-			craftingNetherStar                   = CraftingNetherStarProp.getBoolean(true);
-			craftingEnderPearl                   = CraftingEnderPearlProp.getBoolean(true);
-			craftingPowerStone                   = CraftingPowerStoneProp.getBoolean(true);
-			craftingGrass                        = CraftingGrassProp.getBoolean(true);
-			craftingObsidian                     = CraftingObsidianProp.getBoolean(false);
-			craftingBlazeRod                     = CraftingBlazeRodProp.getBoolean(true);
-			craftingBookOld                      = CraftingBookOldProp.getBoolean(true);
-			craftingCray                         = CraftingCrayProp.getBoolean(false);
-			craftingCactus                       = CraftingCactusProp.getBoolean(false);
-			craftingSlimeBall                    = CraftingSlimeBallProp.getBoolean(true);
-			craftingExpBottle                    = CraftingExpBottleProp.getBoolean(true);
-			craftingGlowStoneDust                = CraftingGlowStoneDustProp.getBoolean(true);
+			craftingEndPortal                             = CraftingEndPortalProp.getBoolean(false);
+			craftingOre                                   = CraftingOreProp.getBoolean(true);
+			craftingDifficulty                            = CraftingDifficultyProp.getInt();
+			craftingCrystal                               = CraftingCrystalProp.getBoolean(true);
+			craftingPinkSlimeBall                         = CraftingPinkSlimeBallProp.getBoolean(true);
+			craftingFlour                                 = CraftingFlourProp.getBoolean(true);
+			craftingLinkModifer                           = CraftingLinkModiferProp.getBoolean(true);
+			craftingMushroom                              = CraftingMushroomProp.getBoolean(true);
+			craftingPiston                                = CraftingPistonProp.getBoolean(true);
+			craftingJewel                                 = CraftingJewelProp.getBoolean(true);
+			craftingSkull                                 = CraftingSkullProp.getBoolean(true);
+			craftingBedrock                               = CraftingBedrockProp.getBoolean(false);
+			craftingDragonEgg                             = CraftingDragonEggProp.getBoolean(true);
+			craftingNetherStar                            = CraftingNetherStarProp.getBoolean(true);
+			craftingEnderPearl                            = CraftingEnderPearlProp.getBoolean(true);
+			craftingPowerStone                            = CraftingPowerStoneProp.getBoolean(true);
+			craftingGrass                                 = CraftingGrassProp.getBoolean(true);
+			craftingObsidian                              = CraftingObsidianProp.getBoolean(false);
+			craftingBlazeRod                              = CraftingBlazeRodProp.getBoolean(true);
+			craftingBookOld                               = CraftingBookOldProp.getBoolean(true);
+			craftingCray                                  = CraftingCrayProp.getBoolean(false);
+			craftingCactus                                = CraftingCactusProp.getBoolean(false);
+			craftingSlimeBall                             = CraftingSlimeBallProp.getBoolean(true);
+			craftingExpBottle                             = CraftingExpBottleProp.getBoolean(true);
+			craftingGlowStoneDust                         = CraftingGlowStoneDustProp.getBoolean(true);
 
-			mortarOreDust                        = MortarOreDustProp.getBoolean(true);
-			mortarIngotDust                      = MortarIngotDustProp.getBoolean(true);
+			mortarOreDust                                 = MortarOreDustProp.getBoolean(true);
+			mortarIngotDust                               = MortarIngotDustProp.getBoolean(true);
 
-			bedrockMortarCrafting                = BedrockMortarCraftingProp.getInt();
-			diamondMortarCrafting                = DiamondMortarCraftingProp.getInt();
-			ironMortarCrafting                   = IronMortarCraftingProp.getInt();
+			bedrockMortarCrafting                         = BedrockMortarCraftingProp.getInt();
+			diamondMortarCrafting                         = DiamondMortarCraftingProp.getInt();
+			ironMortarCrafting                            = IronMortarCraftingProp.getInt();
 
-			digBCSpring                          = DigBCSpringProp.getBoolean(true);
-			digEndPortal                         = DigEndPortalProp.getBoolean(false);
+			digBCSpring                                   = DigBCSpringProp.getBoolean(true);
+			digEndPortal                                  = DigEndPortalProp.getBoolean(false);
 
-			craftingAlchemic                     = CraftingAlchemicProp.getBoolean(true);
-			craftingExchangeIgnition             = CraftingExchangeIgnitionProp.getBoolean(true);
-			craftingDustExchangeIgnition         = CraftingDustExchangeIgnitionProp.getBoolean(true);
-			craftingUltimateExchangeIgnition     = CraftingUltimateExchangeIgnitionProp.getBoolean(false);
-			craftingCheaperExchangeIgnition      = CraftingCheaperExchangeIgnitionProp.getBoolean(true);
-			craftingBlackRottenFlesh             = CraftingBlackRottenFleshProp.getBoolean(true);
-			craftingCraftingFurnace              = CraftingCraftingFurnaceProp.getBoolean(false);
-			craftingNightVisionTorch             = CraftingNightVisionTorchProp.getBoolean(true);
-			craftingGravitationFeather           = CraftingGravitationFeatherProp.getBoolean(true);
-			craftingSuperGravitationFeather      = CraftingSuperGravitationFeatherProp.getBoolean(false);
-			craftingMortar                       = CraftingMortarProp.getBoolean(true);
-			craftingIronMortar                   = CraftingIronMortarProp.getBoolean(true);
-			craftingDiamondMortar                = CraftingDiamondMortarProp.getBoolean(true);
-			craftingBedrockMortar                = CraftingBedrockMortarProp.getBoolean(true);
-			craftingDustNetherStar               = CraftingDustNetherStarProp.getBoolean(false);
-			craftingDustBedrock                  = CraftingDustBedrockProp.getBoolean(false);
-			craftingBedrockArmor                 = CraftingBedrockArmorProp.getBoolean(true);
-			craftingAngelusArmor                 = CraftingAngelusArmorProp.getBoolean(true);
+			craftingAlchemic                              = CraftingAlchemicProp.getBoolean(true);
+			craftingExchangeIgnition                      = CraftingExchangeIgnitionProp.getBoolean(true);
+			craftingDustExchangeIgnition                  = CraftingDustExchangeIgnitionProp.getBoolean(true);
+			craftingUltimateExchangeIgnition              = CraftingUltimateExchangeIgnitionProp.getBoolean(false);
+			craftingCheaperExchangeIgnition               = CraftingCheaperExchangeIgnitionProp.getBoolean(true);
+			craftingBlackRottenFlesh                      = CraftingBlackRottenFleshProp.getBoolean(true);
+			craftingCraftingFurnace                       = CraftingCraftingFurnaceProp.getBoolean(false);
+			craftingNightVisionTorch                      = CraftingNightVisionTorchProp.getBoolean(true);
+			craftingGravitationFeather                    = CraftingGravitationFeatherProp.getBoolean(true);
+			craftingSuperGravitationFeather               = CraftingSuperGravitationFeatherProp.getBoolean(false);
+			craftingMortar                                = CraftingMortarProp.getBoolean(true);
+			craftingIronMortar                            = CraftingIronMortarProp.getBoolean(true);
+			craftingDiamondMortar                         = CraftingDiamondMortarProp.getBoolean(true);
+			craftingBedrockMortar                         = CraftingBedrockMortarProp.getBoolean(true);
+			craftingDustNetherStar                        = CraftingDustNetherStarProp.getBoolean(false);
+			craftingDustBedrock                           = CraftingDustBedrockProp.getBoolean(false);
+			craftingBedrockArmor                          = CraftingBedrockArmorProp.getBoolean(true);
+			craftingAngelusArmor                          = CraftingAngelusArmorProp.getBoolean(true);
 		}
 		catch (Exception e)
 		{
