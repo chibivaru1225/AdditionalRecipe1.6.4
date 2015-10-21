@@ -26,12 +26,12 @@ public class AngelusArmor extends ItemArmor
 
 	private void setTextureName(String type,int armorPart)
 	{
-		//head,body
-		if(armorType == 0 || armorType == 1)
+		//head,body,boots
+		if(armorType == 0 || armorType == 1 || armorType == 3)
 		{
 			this.texturePath += type + "_1.png";
 		}
-		//legs,boots
+		//legs
 		else
 		{
 			this.texturePath += type + "_2.png";

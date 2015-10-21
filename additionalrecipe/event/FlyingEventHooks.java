@@ -44,7 +44,7 @@ public class FlyingEventHooks
 			//飛行が許可されていないなら
 			if(!player.capabilities.allowFlying)
 			{
-				if(exchange||ultimate||bedrock)
+				if(exchange||ultimate||bedrock||angelus)
 				{
 					this.allowLevitatiton = true;
 				}

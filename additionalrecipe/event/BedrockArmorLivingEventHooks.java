@@ -6,12 +6,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import chibivaru.additionalrecipe.AdditionalRecipe;
 
 public class BedrockArmorLivingEventHooks
 {
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
-	public void LivingUpdate(net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent event)
+	public void LivingUpdate(LivingUpdateEvent event)
 	{
 		EntityLivingBase livingBase = ((LivingEvent) (event)).entityLiving;
 		if(livingBase != null && (livingBase instanceof EntityPlayer))
