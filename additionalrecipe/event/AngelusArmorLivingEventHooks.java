@@ -12,11 +12,14 @@ import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
@@ -57,6 +60,11 @@ public class AngelusArmorLivingEventHooks
 			if(player.isBurning())
 			{
 				player.extinguish();
+			}
+			if(player.shouldHeal() && (((Entity) (player)).ticksExisted % 20) * 12 == 0)
+			{
+				((Entity) (player)).worldObj.playSoundAtEntity(player, "random.pop", 1.0F, 1.0F);
+				player.heal(1.0F);
 			}
 		}
 		if(isBoots)
@@ -141,6 +149,43 @@ public class AngelusArmorLivingEventHooks
 					}
 					world.playSoundAtEntity(target, "random.pop", 0.5F, 1.0F);
 				}
+			}
+		}
+	}
+	@ForgeSubscribe
+	public void onPlateAttackedEvent(LivingAttackEvent event)
+	{
+		EntityLivingBase livingBase = ((LivingEvent) (event)).entityLiving;
+		DamageSource source         = event.source;
+		float damageAmount          = event.ammount;
+		if(livingBase instanceof EntityPlayer)
+		{
+			EntityPlayer player = (EntityPlayer)livingBase;
+			boolean isPlate     = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_PLATE);
+			if(isPlate && source != DamageSource.starve)
+			{
+				float damageResistant = damageAmount * (float)(player.experienceLevel);
+				if(damageAmount < damageResistant)
+				{
+					event.setCanceled(true);
+				}
+			}
+		}
+	}
+	@ForgeSubscribe
+	public void onPlateLivingHurt(LivingHurtEvent event)
+	{
+		EntityLivingBase livingBase = ((LivingEvent) (event)).entityLiving;
+		DamageSource source         = event.source;
+		float damageAmount          = event.ammount;
+		if(livingBase instanceof EntityPlayer)
+		{
+			EntityPlayer player = (EntityPlayer)livingBase;
+			boolean isPlate     = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_PLATE);
+			if(isPlate && source != DamageSource.starve)
+			{
+				float damageResistant = damageAmount * (float)(player.experienceLevel);
+				event.ammount = damageAmount - damageResistant;
 			}
 		}
 	}
