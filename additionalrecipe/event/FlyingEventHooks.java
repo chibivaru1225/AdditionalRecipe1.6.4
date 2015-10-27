@@ -21,6 +21,7 @@ public class FlyingEventHooks
 	private boolean ultimate         = false;
 	private boolean bedrock          = false;
 	private boolean angelus          = false;
+	private boolean angelus2         = false;
 
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
 	public void LivingUpdate(LivingUpdateEvent event)
@@ -37,14 +38,15 @@ public class FlyingEventHooks
 		exchange = player.inventory.hasItem(AdditionalRecipe.exchangeIgnitionItemID);
 		ultimate = player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID);
 		bedrock  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorBedrockID, player);
-		angelus  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player);
+		angelus  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player,true);
+		angelus2 = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player);
 		//クリエイティブでないなら
 		if(!player.capabilities.isCreativeMode)
 		{
 			//飛行が許可されていないなら
 			if(!player.capabilities.allowFlying)
 			{
-				if(exchange||ultimate||bedrock||angelus)
+				if(exchange||ultimate||bedrock||angelus||angelus2)
 				{
 					this.allowLevitatiton = true;
 				}
@@ -125,7 +127,7 @@ public class FlyingEventHooks
 		}
 		if (this.isLevitation)//飛行中の処理
 		{
-			if(ultimate||angelus)
+			if(ultimate||angelus2)
 			{
 				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
 				player.jumpMovementFactor = 0.15f;//滞空時の滞空移動速度．クリエイティブより少し早い
@@ -138,7 +140,7 @@ public class FlyingEventHooks
 					player.motionY += 0.4D;//Jumpキーで上昇．クリエ〈略〉
 				}
 			}
-			else if(exchange||bedrock)
+			else if(exchange||bedrock||angelus)
 			{
 				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
 				player.jumpMovementFactor = 0.08f;//滞空時の滞空移動速度．クリエイティブより少し早い

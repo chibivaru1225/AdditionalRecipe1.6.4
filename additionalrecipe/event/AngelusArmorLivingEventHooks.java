@@ -1,11 +1,18 @@
 package chibivaru.additionalrecipe.event;
 
+import java.util.Iterator;
+
 import chibivaru.additionalrecipe.AdditionalRecipe;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -31,13 +38,11 @@ public class AngelusArmorLivingEventHooks
 		boolean isPlate  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_PLATE);
 		boolean isLegs   = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_LEGS);
 		boolean isBoots  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_BOOTS);
-		//System.out.println("[AdditionalRecipe]:Bedrock isHelmet=" + isHelmet + " isPlate=" + isPlate + " isLegs=" + isLegs + " isBoots=" + isBoots);
 		if(isHelmet)
 		{
 			if(player.isInsideOfMaterial(Material.water))
 			{
 				player.setAir(300);
-				//System.out.println("[AdditionalRecipe]:SetAir.");
 			}
 		}
 		if(isPlate)
@@ -52,7 +57,6 @@ public class AngelusArmorLivingEventHooks
 			if(player.isBurning())
 			{
 				player.extinguish();
-				//System.out.println("[AdditionalRecipe]:Exitnguish.");
 			}
 		}
 		if(isBoots)
@@ -100,5 +104,44 @@ public class AngelusArmorLivingEventHooks
 	@ForgeSubscribe
 	public void onHoodDropEvent(LivingDropsEvent event)
 	{
+		EntityLivingBase LivingBase = ((LivingEvent) (event)).entityLiving;
+		Entity entity               = event.source.getEntity();
+		World world                 = ((Entity) (((LivingEvent) (event)).entityLiving)).worldObj;
+		if(LivingBase instanceof EntityLiving)
+		{
+			EntityLiving target = (EntityLiving)LivingBase;
+			if(entity instanceof EntityPlayer)
+			{
+				EntityPlayer player = (EntityPlayer)entity;
+				boolean isHelmet    = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_HELMET);
+				if(isHelmet)
+				{
+					Iterator i$ = event.drops.iterator();
+					do
+					{
+						if(!i$.hasNext())
+						{
+							break;
+						}
+						EntityItem input = (EntityItem)i$.next();
+						ItemStack resultStack = input.getEntityItem();
+						if(1 < resultStack.stackSize)
+						{
+							EntityItem dropItem = new EntityItem(world, ((Entity) (target)).posX, ((Entity) (target)).posY, ((Entity) (target)).posZ, new ItemStack(resultStack.itemID, player.experienceLevel/2, resultStack.getItemDamage()));
+							if(!world.isRemote)
+							{
+								world.spawnEntityInWorld(dropItem);
+							}
+						}
+					}
+					while(true);
+					if(!world.isRemote)
+					{
+						world.spawnEntityInWorld(new EntityXPOrb(world, ((Entity) (target)).posX, ((Entity) (target)).posY, ((Entity) (target)).posZ, target.experienceValue));
+					}
+					world.playSoundAtEntity(target, "random.pop", 0.5F, 1.0F);
+				}
+			}
+		}
 	}
 }

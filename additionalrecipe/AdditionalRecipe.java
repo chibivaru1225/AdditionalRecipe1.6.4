@@ -586,6 +586,36 @@ public class AdditionalRecipe {
 		}
 		return false;
 	}
+	public static boolean equipArmor(int armorIDs[],EntityPlayer player,boolean mode)
+	{
+		if(mode)
+		{
+			if((player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_HELMET]))
+			{
+				return true;
+			}
+			else if((player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_PLATE]))
+			{
+				return true;
+			}
+			else if((player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_LEGS]))
+			{
+				return true;
+			}
+			else if((player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_BOOTS]))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return equipArmor(armorIDs,player);
+		}
+	}
 	public static boolean hasItem(int itemID,EntityPlayer player)
 	{
 		return player.inventory.hasItem(itemID);
