@@ -1,6 +1,7 @@
 package chibivaru.additionalrecipe.event;
 
 import java.util.Iterator;
+import java.util.List;
 
 import chibivaru.additionalrecipe.AdditionalRecipe;
 import net.minecraft.block.material.Material;
@@ -9,9 +10,11 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -65,6 +68,27 @@ public class AngelusArmorLivingEventHooks
 			{
 				((Entity) (player)).worldObj.playSoundAtEntity(player, "random.pop", 1.0F, 1.0F);
 				player.heal(1.0F);
+			}
+		}
+		if(isLegs)
+		{
+			double width = player.experienceLevel / 2;
+			List list = player.worldObj.getEntitiesWithinAABBExcludingEntity(player, player.boundingBox.expand(width, 1.5D, width));
+			Entity entity = null;
+			if(list != null && list.size() > 0)
+			{
+				for(int j1 = 0; j1 < list.size(); j1++)
+				{
+					entity = (Entity)list.get(j1);
+					if(!(entity instanceof EntityLiving) || !(entity instanceof IMob))
+					{
+						continue;
+					}
+					EntityLiving target = (EntityLiving)entity;
+					target.addPotionEffect(new PotionEffect(Potion.weakness.id, 20, 1));
+					target.addPotionEffect(new PotionEffect(Potion.confusion.id, 20, 9));
+					target.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20, 9));
+				}
 			}
 		}
 		if(isBoots)
