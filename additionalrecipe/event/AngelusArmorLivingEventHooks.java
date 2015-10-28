@@ -215,6 +215,7 @@ public class AngelusArmorLivingEventHooks
 			}
 		}
 	}
+	@ForgeSubscribe
 	public void onLegsAttackedEvent(LivingAttackEvent event)
 	{
 		EntityLivingBase livingBase = ((LivingEvent) (event)).entityLiving;

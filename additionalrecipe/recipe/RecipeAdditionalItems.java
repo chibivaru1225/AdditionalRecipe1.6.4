@@ -148,5 +148,40 @@ public class RecipeAdditionalItems {
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
 		}
+		if(AdditionalRecipe.craftingAngelusArmor)
+		{
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_HELMET],
+					new Object[]{"ZYZ","ZXZ","ZWZ",
+						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_HELMET],
+						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem,
+						Character.valueOf('Z'),Block.blockDiamond,
+						Character.valueOf('W'),AdditionalRecipe.ultimateExchangeIgnitionItem}));
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_PLATE],
+					new Object[]{"ZYZ","ZXZ","ZWZ",
+						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_PLATE],
+						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem,
+						Character.valueOf('Z'),Block.blockDiamond,
+						Character.valueOf('W'),AdditionalRecipe.ultimateExchangeIgnitionItem}));
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_LEGS],
+					new Object[]{"ZYZ","ZXZ","ZWZ",
+						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_LEGS],
+						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem,
+						Character.valueOf('Z'),Block.blockDiamond,
+						Character.valueOf('W'),AdditionalRecipe.ultimateExchangeIgnitionItem}));
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_BOOTS],
+					new Object[]{"ZYZ","ZXZ","ZWZ",
+						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_BOOTS],
+						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem,
+						Character.valueOf('Z'),Block.blockDiamond,
+						Character.valueOf('W'),AdditionalRecipe.ultimateExchangeIgnitionItem}));
+		}
 	}
 }
