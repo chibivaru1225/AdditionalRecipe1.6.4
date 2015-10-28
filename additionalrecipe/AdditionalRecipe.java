@@ -15,6 +15,7 @@ import chibivaru.additionalrecipe.armor.BedrockArmor;
 import chibivaru.additionalrecipe.dust.DustBedrock;
 import chibivaru.additionalrecipe.dust.DustNetherStar;
 import chibivaru.additionalrecipe.event.AddChestGenHooks;
+import chibivaru.additionalrecipe.event.AngelusArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.BedrockArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.FlyingEventHooks;
 import chibivaru.additionalrecipe.event.ModInfo;
@@ -533,6 +534,7 @@ public class AdditionalRecipe {
 		MinecraftForge.EVENT_BUS.register(new NoFallDamageEventHooks());
 		MinecraftForge.EVENT_BUS.register(new FlyingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new BedrockArmorLivingEventHooks());
+		MinecraftForge.EVENT_BUS.register(new AngelusArmorLivingEventHooks());
 
 		if(digEndPortal)
 		{

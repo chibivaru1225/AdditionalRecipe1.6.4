@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.event;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -210,6 +212,52 @@ public class AngelusArmorLivingEventHooks
 			{
 				float damageResistant = damageAmount * (float)(player.experienceLevel);
 				event.ammount = damageAmount - damageResistant;
+			}
+		}
+	}
+	public void onLegsAttackedEvent(LivingAttackEvent event)
+	{
+		EntityLivingBase livingBase = ((LivingEvent) (event)).entityLiving;
+		DamageSource source = event.source;
+		float damageAmount = event.ammount;
+		World world = ((Entity) (livingBase)).worldObj;
+		if(livingBase instanceof EntityPlayer)
+		{
+			EntityPlayer player = (EntityPlayer)livingBase;
+			boolean isLegs = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_LEGS);
+			if(isLegs && (source.getEntity() instanceof EntityLivingBase))
+			{
+				float reflectDamage = damageAmount * (float)(player.experienceLevel / 5);
+				double width = player.experienceLevel / 2;
+				source.getEntity().attackEntityFrom(DamageSource.causeMobDamage(player), reflectDamage);
+				List list = source.getEntity().worldObj.getEntitiesWithinAABBExcludingEntity(source.getEntity(), source.getEntity().boundingBox.expand(width, width, width));
+				ArrayList arraylist = new ArrayList();
+				Iterator iterator = list.iterator();
+				do
+				{
+					if(!iterator.hasNext())
+					{
+						break;
+					}
+					Entity entity = (Entity)iterator.next();
+					if(entity instanceof EntityMob)
+					{
+						arraylist.add((EntityMob)entity);
+					}
+				}
+				while(true);
+				if(arraylist.size() < 2)
+				{
+					return;
+				}
+				for(int i = 0; i < arraylist.size(); i++)
+				{
+					EntityMob mob = (EntityMob)arraylist.get(i);
+					EntityMob otherMob = (EntityMob)arraylist.get(i == 0 ? arraylist.size() - 1 : i - 1);
+					mob.attackEntityFrom(DamageSource.causeMobDamage(otherMob), reflectDamage);
+					otherMob.setTarget(mob);
+				}
+				world.playSoundAtEntity(player, "random.anvil_land", 1.0F, 1.0F);
 			}
 		}
 	}
