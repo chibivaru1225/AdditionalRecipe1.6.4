@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -27,6 +26,7 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 
 public class AngelusArmorLivingEventHooks
 {
@@ -95,9 +95,9 @@ public class AngelusArmorLivingEventHooks
 		}
 		if(isBoots)
 		{
+			double dashAmount = 1.0D;
 			if(player.onGround)
 			{
-				double dashAmount = 1.0D;
 				if(player.isInWater())
 				{
 					dashAmount = 1.1799999999999999D;
@@ -110,17 +110,9 @@ public class AngelusArmorLivingEventHooks
 						dashAmount = 1.3999999999999999D;
 					}
 				}
-				player.motionX *= dashAmount;
-				player.motionZ *= dashAmount;
 			}
-			else if(player.isSprinting())
-			{
-				player.jumpMovementFactor = 0.08F;
-			}
-			else
-			{
-				player.jumpMovementFactor = 0.04F;
-			}
+			player.motionX *= dashAmount;
+			player.motionZ *= dashAmount;
 		}
 	}
 	@ForgeSubscribe

@@ -127,32 +127,32 @@ public class FlyingEventHooks
 		}
 		if (this.isLevitation)//飛行中の処理
 		{
+			if(exchange||bedrock||angelus)
+			{
+				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
+				player.jumpMovementFactor = 0.1f;//滞空時の滞空移動速度．クリエイティブより少し早い
+				if (((EntityPlayerSP)player).movementInput.sneak)
+				{
+					//player.motionY -= 0.4D;//スニークで下降．クリエイティブより少し早い
+					player.motionY -= 0.4D;
+				}
+				if (((EntityPlayerSP)player).movementInput.jump)
+				{
+					//player.motionY += 0.4D;//Jumpキーで上昇．クリエ〈略〉
+					player.motionY += 0.4D;
+				}
+			}
 			if(ultimate||angelus2)
 			{
 				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
 				player.jumpMovementFactor = 0.15f;//滞空時の滞空移動速度．クリエイティブより少し早い
 				if (((EntityPlayerSP)player).movementInput.sneak)
 				{
-					player.motionY -= 0.4D;//スニークで下降．クリエイティブより少し早い
+					player.motionY -= 0.6D;//スニークで下降．クリエイティブより少し早い
 				}
 				if (((EntityPlayerSP)player).movementInput.jump)
 				{
-					player.motionY += 0.4D;//Jumpキーで上昇．クリエ〈略〉
-				}
-			}
-			else if(exchange||bedrock||angelus)
-			{
-				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
-				player.jumpMovementFactor = 0.08f;//滞空時の滞空移動速度．クリエイティブより少し早い
-				if (((EntityPlayerSP)player).movementInput.sneak)
-				{
-					//player.motionY -= 0.4D;//スニークで下降．クリエイティブより少し早い
-					player.motionY -= 0.15D;
-				}
-				if (((EntityPlayerSP)player).movementInput.jump)
-				{
-					//player.motionY += 0.4D;//Jumpキーで上昇．クリエ〈略〉
-					player.motionY += 0.15D;
+					player.motionY += 0.6D;//Jumpキーで上昇．クリエ〈略〉
 				}
 			}
 		}
