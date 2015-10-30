@@ -52,6 +52,8 @@ public class AngelusArmorLivingEventHooks
 			{
 				player.setAir(300);
 			}
+			player.getFoodStats().setFoodLevel(20);
+			player.getFoodStats().setFoodSaturationLevel(20F);
 		}
 		if(isPlate)
 		{
