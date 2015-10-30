@@ -222,6 +222,11 @@ public class AngelusArmorLivingEventHooks
 			{
 				float reflectDamage = damageAmount * (float)(player.experienceLevel / 5);
 				double width = player.experienceLevel / 2;
+				if(player == (EntityPlayer)source.getEntity())
+				{
+					System.out.println("[AdditionalRecipe]:DamageSource is Player.");
+					return;
+				}
 				source.getEntity().attackEntityFrom(DamageSource.causeMobDamage(player), reflectDamage);
 				List list = source.getEntity().worldObj.getEntitiesWithinAABBExcludingEntity(source.getEntity(), source.getEntity().boundingBox.expand(width, width, width));
 				ArrayList arraylist = new ArrayList();
