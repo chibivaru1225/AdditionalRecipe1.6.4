@@ -30,6 +30,39 @@ import chibivaru.additionalrecipe.AdditionalRecipe;
 
 public class AngelusArmorLivingEventHooks
 {
+	private char timer = 0;
+	public boolean timer(boolean mode)
+	{
+		if(mode)
+		{
+			if(timer == 0)
+			{
+				timer++;
+				return true;
+			}
+			else if(timer == 10)
+			{
+				timer = 0;
+				return false;
+			}
+			else
+			{
+				timer++;
+				return false;
+			}
+		}
+		else
+		{
+			if(timer == 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
 	public void LivingUpdate(LivingUpdateEvent event)
 	{
@@ -38,6 +71,7 @@ public class AngelusArmorLivingEventHooks
 		{
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
 			Angelus(player);
+			timer(true);
 		}
 	}
 	private void Angelus(EntityPlayer player)
@@ -52,7 +86,10 @@ public class AngelusArmorLivingEventHooks
 			{
 				player.setAir(300);
 			}
-			player.getFoodStats().addStats(1,0F);
+			if(timer(false))
+			{
+				player.getFoodStats().addStats(1,0F);
+			}
 		}
 		if(isPlate)
 		{
