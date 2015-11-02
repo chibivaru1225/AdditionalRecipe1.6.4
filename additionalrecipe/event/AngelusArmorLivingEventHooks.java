@@ -262,7 +262,7 @@ public class AngelusArmorLivingEventHooks
 				double width = player.experienceLevel / 2;
 				if(player == (EntityPlayer)source.getEntity())
 				{
-					System.out.println("[AdditionalRecipe]:DamageSource is Player.");
+					System.out.println(AdditionalRecipe.CONSOLE + "DamageSource is Player.");
 					return;
 				}
 				source.getEntity().attackEntityFrom(DamageSource.causeMobDamage(player), reflectDamage);
