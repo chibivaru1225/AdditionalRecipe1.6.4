@@ -71,6 +71,7 @@ public class AdditionalRecipe {
 	@Metadata(MODID)
 	public static ModMetadata meta;
 
+	public static final String CONSOLE = "[AdditionalRecipe]:";
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
 	public static int[] armorBedrockID = new int[4];
 	public static int[] armorAngelusID = new int[4];
@@ -103,6 +104,7 @@ public class AdditionalRecipe {
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust;
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
+	public static boolean printInAddRecipe;
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
 	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
@@ -247,6 +249,8 @@ public class AdditionalRecipe {
 			Property CraftingBedrockArmorProp             = cfg.get("AdditionalRecipe"   ,"BedrockArmor"                    ,true);
 			Property CraftingAngelusArmorProp             = cfg.get("AdditionalRecipe"   ,"AngelusArmor"                    ,true);
 
+			Property PrintInAddRecipeProp                 = cfg.get("Another"            ,"Add-Recipe Print-In"             ,true);
+
 			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
 			SmeltingNetherrackProp.comment                = "Require Dirt";
 			SmeltingLeatherProp.comment                   = "Require RottenFlesh";
@@ -377,6 +381,8 @@ public class AdditionalRecipe {
 			craftingDustBedrock                           = CraftingDustBedrockProp.getBoolean(false);
 			craftingBedrockArmor                          = CraftingBedrockArmorProp.getBoolean(true);
 			craftingAngelusArmor                          = CraftingAngelusArmorProp.getBoolean(true);
+
+			printInAddRecipe                              = PrintInAddRecipeProp.getBoolean(true);
 		}
 		catch (Exception e)
 		{

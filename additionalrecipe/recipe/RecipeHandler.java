@@ -15,6 +15,8 @@ public class RecipeHandler {
 	RecipeOreDic          recipeoredic;
 	RecipeOres            recipeores;
 	RecipeSmelting        recipesmelting;
+	public final static String ADDED    = "crafting recipe was added.";
+	public final static String NOTADDED = "crafting recipe was not added.";
 	public void init()
 	{
 		recipeadditionalitems = new RecipeAdditionalItems();
