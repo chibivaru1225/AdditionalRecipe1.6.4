@@ -130,102 +130,102 @@ public class AdditionalRecipe {
 		try
 		{
 			cfg.load();
-			Property BedrockMortarItemIDProp              = cfg.getItem("ItemID"         ,"BedrockMortarItemID"           ,12503);
-			Property DiamondMortarItemIDProp              = cfg.getItem("ItemID"         ,"DiamondMortarItemID"           ,12502);
-			Property IronMortarItemIDProp                 = cfg.getItem("ItemID"         ,"IronMortarItemID"              ,12501);
+			Property BedrockMortarItemIDProp              = cfg.getItem("ItemID"         ,"BedrockMortarItemID"             ,12503);
+			Property DiamondMortarItemIDProp              = cfg.getItem("ItemID"         ,"DiamondMortarItemID"             ,12502);
+			Property IronMortarItemIDProp                 = cfg.getItem("ItemID"         ,"IronMortarItemID"                ,12501);
 
-			Property UltimateExchangeIgnitionItemIDProp   = cfg.getItem("ItemID"         ,"UltimateExchangeIgnitionItemID",12506);
-			Property ExchangeIgnitionItemIDProp           = cfg.getItem("ItemID"         ,"ExchangeIgnitionItemID"        ,12500);
-			Property CheaperExchangeIgnitionItemIDProp    = cfg.getItem("ItemID"         ,"CheaperExchangeIgnitionItemID" ,12507);
+			Property UltimateExchangeIgnitionItemIDProp   = cfg.getItem("ItemID"         ,"UltimateExchangeIgnitionItemID"  ,12506);
+			Property ExchangeIgnitionItemIDProp           = cfg.getItem("ItemID"         ,"ExchangeIgnitionItemID"          ,12500);
+			Property CheaperExchangeIgnitionItemIDProp    = cfg.getItem("ItemID"         ,"CheaperExchangeIgnitionItemID"   ,12507);
 
-			Property CraftingFurnaceItemIDProp            = cfg.getItem("ItemID"         ,"CraftingFurnaceItemID"         ,12505);
-			Property BlackRottenFleshItemIDProp           = cfg.getItem("ItemID"         ,"BlackRottenFleshItemID"        ,12508);
-			Property GravitationFeatherItemIDProp         = cfg.getItem("ItemID"         ,"GravitationFeatherItemID"      ,12504);
-			Property SuperGravitationFeatherItemIDProp    = cfg.getItem("ItemID"         ,"SuperGravitationFeatherItemID" ,12510);
-			Property NightVisionTorchItemIDProp           = cfg.getItem("ItemID"         ,"NightVisionTorchItemID"        ,12509);
+			Property CraftingFurnaceItemIDProp            = cfg.getItem("ItemID"         ,"CraftingFurnaceItemID"           ,12505);
+			Property BlackRottenFleshItemIDProp           = cfg.getItem("ItemID"         ,"BlackRottenFleshItemID"          ,12508);
+			Property GravitationFeatherItemIDProp         = cfg.getItem("ItemID"         ,"GravitationFeatherItemID"        ,12504);
+			Property SuperGravitationFeatherItemIDProp    = cfg.getItem("ItemID"         ,"SuperGravitationFeatherItemID"   ,12510);
+			Property NightVisionTorchItemIDProp           = cfg.getItem("ItemID"         ,"NightVisionTorchItemID"          ,12509);
 
-			Property DustNetherStarItemIDProp             = cfg.getItem("DustItemID"     ,"DustNetherStarItemID"          ,12600);
-			Property DustBedrockItemIDProp                = cfg.getItem("DustItemID"     ,"DustBedrockItemID"             ,12601);
-			Property DustExchangeIgnitionItemIDProp       = cfg.getItem("DustItemID"     ,"DustExchangeIgnitionID"        ,12602);
+			Property DustNetherStarItemIDProp             = cfg.getItem("DustItemID"     ,"DustNetherStarItemID"            ,12600);
+			Property DustBedrockItemIDProp                = cfg.getItem("DustItemID"     ,"DustBedrockItemID"               ,12601);
+			Property DustExchangeIgnitionItemIDProp       = cfg.getItem("DustItemID"     ,"DustExchangeIgnitionID"          ,12602);
 
-			Property ArmorBedrockHelmetIDProp             = cfg.getItem("ArmorItemID"    ,"BedrockHelmetItemID"           ,12700);
-			Property ArmorBedrockPlateIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockPlateItemID"            ,12701);
-			Property ArmorBedrockLegsIDProp               = cfg.getItem("ArmorItemID"    ,"BedrockLegsItemID"             ,12702);
-			Property ArmorBedrockBootsIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockBootsItemID"            ,12703);
+			Property ArmorBedrockHelmetIDProp             = cfg.getItem("ArmorItemID"    ,"BedrockHelmetItemID"             ,12700);
+			Property ArmorBedrockPlateIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockPlateItemID"              ,12701);
+			Property ArmorBedrockLegsIDProp               = cfg.getItem("ArmorItemID"    ,"BedrockLegsItemID"               ,12702);
+			Property ArmorBedrockBootsIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockBootsItemID"              ,12703);
 
-			Property ArmorAngelusHoodIDProp               = cfg.getItem("ArmorItemID"    ,"AngelusHoodItemID"             ,12704);
-			Property ArmorAngelusVestmentIDProp           = cfg.getItem("ArmorItemID"    ,"AngelusVestmentItemID"         ,12705);
-			Property ArmorAngelusSkirtIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusSkirtItemID"            ,12706);
-			Property ArmorAngelusBootsIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusBootsItemID"            ,12707);
+			Property ArmorAngelusHoodIDProp               = cfg.getItem("ArmorItemID"    ,"AngelusHoodItemID"               ,12704);
+			Property ArmorAngelusVestmentIDProp           = cfg.getItem("ArmorItemID"    ,"AngelusVestmentItemID"           ,12705);
+			Property ArmorAngelusSkirtIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusSkirtItemID"              ,12706);
+			Property ArmorAngelusBootsIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusBootsItemID"              ,12707);
 
-			Property DiamondMortarDamageProp              = cfg.get("ItemDamage"         ,"DiamondMortar"                 ,1561);
-			Property IromMortarDamageProp                 = cfg.get("ItemDamage"         ,"IromMortar"                    ,250);
-			Property CheaperExchangeIgnitionDamageProp    = cfg.get("ItemDamage"         ,"CheaperExchangeIgnition"       ,128);
+			Property DiamondMortarDamageProp              = cfg.get("ItemDamage"         ,"DiamondMortar"                   ,1561);
+			Property IromMortarDamageProp                 = cfg.get("ItemDamage"         ,"IromMortar"                      ,250);
+			Property CheaperExchangeIgnitionDamageProp    = cfg.get("ItemDamage"         ,"CheaperExchangeIgnition"         ,128);
 
-			Property SmeltingToolProp                     = cfg.get("Smelting"           ,"RecycleTool"                   ,true);
-			Property SmeltingToolWoodProp                 = cfg.get("Smelting"           ,"WoodTool"                      ,true);
-			Property SmeltingToolStoneProp                = cfg.get("Smelting"           ,"StoneTool"                     ,true);
-			Property SmeltingToolIronProp                 = cfg.get("Smelting"           ,"IronTool"                      ,true);
-			Property SmeltingToolGoldProp                 = cfg.get("Smelting"           ,"GoldTool"                      ,true);
-			Property SmeltingToolDiamondProp              = cfg.get("Smelting"           ,"DiamondTool"                   ,true);
-			Property SmeltingToolBowProp                  = cfg.get("Smelting"           ,"Bow"                           ,true);
-			Property SmeltingToolSteelProp                = cfg.get("Smelting"           ,"SteelTool"                     ,true);
-			Property SmeltingToolInvarProp                = cfg.get("Smelting"           ,"InvarTool"                     ,true);
+			Property SmeltingToolProp                     = cfg.get("Smelting"           ,"RecycleTool"                     ,true);
+			Property SmeltingToolWoodProp                 = cfg.get("Smelting"           ,"WoodTool"                        ,true);
+			Property SmeltingToolStoneProp                = cfg.get("Smelting"           ,"StoneTool"                       ,true);
+			Property SmeltingToolIronProp                 = cfg.get("Smelting"           ,"IronTool"                        ,true);
+			Property SmeltingToolGoldProp                 = cfg.get("Smelting"           ,"GoldTool"                        ,true);
+			Property SmeltingToolDiamondProp              = cfg.get("Smelting"           ,"DiamondTool"                     ,true);
+			Property SmeltingToolBowProp                  = cfg.get("Smelting"           ,"Bow"                             ,true);
+			Property SmeltingToolSteelProp                = cfg.get("Smelting"           ,"SteelTool"                       ,true);
+			Property SmeltingToolInvarProp                = cfg.get("Smelting"           ,"InvarTool"                       ,true);
 
-			Property SmeltingArmorProp                    = cfg.get("Smelting"           ,"RecycleArmor"                  ,true);
-			Property SmeltingArmorChainProp               = cfg.get("Smelting"           ,"ChainArmor"                    ,true);
-			Property SmeltingArmorLeatherProp             = cfg.get("Smelting"           ,"LeatherArmor"                  ,true);
-			Property SmeltingArmorIronProp                = cfg.get("Smelting"           ,"IronArmor"                     ,true);
-			Property SmeltingArmorGoldProp                = cfg.get("Smelting"           ,"GoldArmor"                     ,true);
-			Property SmeltingArmorDiamondProp             = cfg.get("Smelting"           ,"DiamondArmor"                  ,true);
-			Property SmeltingArmorSteelProp               = cfg.get("Smelting"           ,"SteelArmor"                    ,true);
-			Property SmeltingArmorInvarProp               = cfg.get("Smelting"           ,"InvarArmor"                    ,true);
+			Property SmeltingArmorProp                    = cfg.get("Smelting"           ,"RecycleArmor"                    ,true);
+			Property SmeltingArmorChainProp               = cfg.get("Smelting"           ,"ChainArmor"                      ,true);
+			Property SmeltingArmorLeatherProp             = cfg.get("Smelting"           ,"LeatherArmor"                    ,true);
+			Property SmeltingArmorIronProp                = cfg.get("Smelting"           ,"IronArmor"                       ,true);
+			Property SmeltingArmorGoldProp                = cfg.get("Smelting"           ,"GoldArmor"                       ,true);
+			Property SmeltingArmorDiamondProp             = cfg.get("Smelting"           ,"DiamondArmor"                    ,true);
+			Property SmeltingArmorSteelProp               = cfg.get("Smelting"           ,"SteelArmor"                      ,true);
+			Property SmeltingArmorInvarProp               = cfg.get("Smelting"           ,"InvarArmor"                      ,true);
 
-			Property SmeltingNetherBrickProp              = cfg.get("Smelting"           ,"NetherBrick"                   ,true);
-			Property SmeltingNetherrackProp               = cfg.get("Smelting"           ,"Netherrack"                    ,false);
-			Property SmeltingLeatherProp                  = cfg.get("Smelting"           ,"Leather"                       ,true);
-			Property SmeltingGlowStoneDustProp            = cfg.get("Smelting"           ,"GlowStoneDust"                 ,false);
+			Property SmeltingNetherBrickProp              = cfg.get("Smelting"           ,"NetherBrick"                     ,true);
+			Property SmeltingNetherrackProp               = cfg.get("Smelting"           ,"Netherrack"                      ,false);
+			Property SmeltingLeatherProp                  = cfg.get("Smelting"           ,"Leather"                         ,true);
+			Property SmeltingGlowStoneDustProp            = cfg.get("Smelting"           ,"GlowStoneDust"                   ,false);
 
-			Property SmeltingMinecartEmptyProp            = cfg.get("Smelting"           ,"MinecartEmpty"                 ,true);
-			Property SmeltingIronDoorProp                 = cfg.get("Smelting"           ,"IronDoor"                      ,true);
-			Property SmeltingWoodDoorProp                 = cfg.get("Smelting"           ,"WoodDoor"                      ,true);
+			Property SmeltingMinecartEmptyProp            = cfg.get("Smelting"           ,"MinecartEmpty"                   ,true);
+			Property SmeltingIronDoorProp                 = cfg.get("Smelting"           ,"IronDoor"                        ,true);
+			Property SmeltingWoodDoorProp                 = cfg.get("Smelting"           ,"WoodDoor"                        ,true);
 
-			Property MortarOreDustProp                    = cfg.get("MortarCrafting"     ,"CraftingOreDust"               ,true);
-			Property MortarIngotDustProp                  = cfg.get("MortarCrafting"     ,"CraftingIngotDust"             ,true);
+			Property MortarOreDustProp                    = cfg.get("MortarCrafting"     ,"CraftingOreDust"                 ,true);
+			Property MortarIngotDustProp                  = cfg.get("MortarCrafting"     ,"CraftingIngotDust"               ,true);
 
-			Property FurnaceDustIngotProp                 = cfg.get("FurnaceCrafting"    ,"DustIngot"                     ,false);
+			Property FurnaceDustIngotProp                 = cfg.get("FurnaceCrafting"    ,"DustIngot"                       ,false);
 
-			Property AddOreDicExpBottleProp               = cfg.get("OreDicitionary"     ,"ExpBottle"                     ,false);
+			Property AddOreDicExpBottleProp               = cfg.get("OreDicitionary"     ,"ExpBottle"                       ,false);
 
-			Property CraftingEndPortalProp                = cfg.get("Crafting"           ,"EndPortal"                     ,false);
-			Property CraftingOreProp                      = cfg.get("Crafting"           ,"Ore"                           ,false);
-			Property CraftingDifficultyProp               = cfg.get("Crafting"           ,"Difficulty"                    ,0);
-			Property CraftingCrystalProp                  = cfg.get("Crafting"           ,"Crystal"                       ,true);
-			Property CraftingPinkSlimeBallProp            = cfg.get("Crafting"           ,"PinkSlimeBall"                 ,true);
-			Property CraftingFlourProp                    = cfg.get("Crafting"           ,"Flour"                         ,true);
-			Property CraftingLinkModiferProp              = cfg.get("Crafting"           ,"LinkModifer"                   ,true);
-			Property CraftingMushroomProp                 = cfg.get("Crafting"           ,"Mushroom"                      ,true);
-			Property CraftingPistonProp                   = cfg.get("Crafting"           ,"Piston"                        ,true);
-			Property CraftingJewelProp                    = cfg.get("Crafting"           ,"Jewel"                         ,true);
-			Property CraftingSkullProp                    = cfg.get("Crafting"           ,"Skull"                         ,true);
-			Property CraftingBedrockProp                  = cfg.get("Crafting"           ,"Bedrock"                       ,false);
-			Property CraftingDragonEggProp                = cfg.get("Crafting"           ,"DragonEgg"                     ,true);
-			Property CraftingNetherStarProp               = cfg.get("Crafting"           ,"NetherStar"                    ,true);
-			Property CraftingEnderPearlProp               = cfg.get("Crafting"           ,"EnderPearl"                    ,true);
-			Property CraftingPowerStoneProp               = cfg.get("Crafting"           ,"PowerStone"                    ,true);
-			Property CraftingGrassProp                    = cfg.get("Crafting"           ,"Grass"                         ,true);
-			Property CraftingObsidianProp                 = cfg.get("Crafting"           ,"Obsidian"                      ,false);
-			Property CraftingBlazeRodProp                 = cfg.get("Crafting"           ,"BlazeRod"                      ,true);
-			Property CraftingBookOldProp                  = cfg.get("Crafting"           ,"BookOld"                       ,true);
-			Property CraftingCrayProp                     = cfg.get("Crafting"           ,"Cray"                          ,false);
-			Property CraftingCactusProp                   = cfg.get("Crafting"           ,"Cactus"                        ,false);
-			Property CraftingSlimeBallProp                = cfg.get("Crafting"           ,"SlimeBall"                     ,true);
-			Property CraftingExpBottleProp                = cfg.get("Crafting"           ,"ExpBottle"                     ,true);
-			Property CraftingGlowStoneDustProp            = cfg.get("Crafting"           ,"GlowStoneDust"                 ,true);
+			Property CraftingEndPortalProp                = cfg.get("Crafting"           ,"EndPortal"                       ,false);
+			Property CraftingOreProp                      = cfg.get("Crafting"           ,"Ore"                             ,false);
+			Property CraftingDifficultyProp               = cfg.get("Crafting"           ,"Difficulty"                      ,0);
+			Property CraftingCrystalProp                  = cfg.get("Crafting"           ,"Crystal"                         ,true);
+			Property CraftingPinkSlimeBallProp            = cfg.get("Crafting"           ,"PinkSlimeBall"                   ,true);
+			Property CraftingFlourProp                    = cfg.get("Crafting"           ,"Flour"                           ,true);
+			Property CraftingLinkModiferProp              = cfg.get("Crafting"           ,"LinkModifer"                     ,true);
+			Property CraftingMushroomProp                 = cfg.get("Crafting"           ,"Mushroom"                        ,true);
+			Property CraftingPistonProp                   = cfg.get("Crafting"           ,"Piston"                          ,true);
+			Property CraftingJewelProp                    = cfg.get("Crafting"           ,"Jewel"                           ,true);
+			Property CraftingSkullProp                    = cfg.get("Crafting"           ,"Skull"                           ,true);
+			Property CraftingBedrockProp                  = cfg.get("Crafting"           ,"Bedrock"                         ,false);
+			Property CraftingDragonEggProp                = cfg.get("Crafting"           ,"DragonEgg"                       ,true);
+			Property CraftingNetherStarProp               = cfg.get("Crafting"           ,"NetherStar"                      ,true);
+			Property CraftingEnderPearlProp               = cfg.get("Crafting"           ,"EnderPearl"                      ,true);
+			Property CraftingPowerStoneProp               = cfg.get("Crafting"           ,"PowerStone"                      ,true);
+			Property CraftingGrassProp                    = cfg.get("Crafting"           ,"Grass"                           ,true);
+			Property CraftingObsidianProp                 = cfg.get("Crafting"           ,"Obsidian"                        ,false);
+			Property CraftingBlazeRodProp                 = cfg.get("Crafting"           ,"BlazeRod"                        ,true);
+			Property CraftingBookOldProp                  = cfg.get("Crafting"           ,"BookOld"                         ,true);
+			Property CraftingCrayProp                     = cfg.get("Crafting"           ,"Cray"                            ,false);
+			Property CraftingCactusProp                   = cfg.get("Crafting"           ,"Cactus"                          ,false);
+			Property CraftingSlimeBallProp                = cfg.get("Crafting"           ,"SlimeBall"                       ,true);
+			Property CraftingExpBottleProp                = cfg.get("Crafting"           ,"ExpBottle"                       ,true);
+			Property CraftingGlowStoneDustProp            = cfg.get("Crafting"           ,"GlowStoneDust"                   ,true);
 
-			Property BedrockMortarCraftingProp            = cfg.get("MortarCrafting"     ,"BedrockMortarDust"             ,8);
-			Property DiamondMortarCraftingProp            = cfg.get("MortarCrafting"     ,"DiamondMortarDust"             ,4);
-			Property IronMortarCraftingProp               = cfg.get("MortarCrafting"     ,"IronMortarDust"                ,2);
+			Property BedrockMortarCraftingProp            = cfg.get("MortarCrafting"     ,"BedrockMortarDust"               ,8);
+			Property DiamondMortarCraftingProp            = cfg.get("MortarCrafting"     ,"DiamondMortarDust"               ,4);
+			Property IronMortarCraftingProp               = cfg.get("MortarCrafting"     ,"IronMortarDust"                  ,2);
 
 			Property DigBCSpringProp                      = cfg.get("Dig"                ,"BuildCraft_Spring"               ,true);
 			Property DigEndPortalProp                     = cfg.get("Dig"                ,"EndPortal"                       ,false);
