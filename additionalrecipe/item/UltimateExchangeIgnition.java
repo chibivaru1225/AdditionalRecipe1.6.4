@@ -83,11 +83,14 @@ public class UltimateExchangeIgnition extends Item implements ICraftingHandler
 			EntityPlayer player = (EntityPlayer)entity;
 			if(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID))
 			{
-				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id,20*30,75));
-				player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id,20*30,75));
-				player.addPotionEffect(new PotionEffect(Potion.regeneration.id,20*30,75));
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,20*30,75));
-				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30));
+				if(AdditionalRecipe.ultimateExchangeIgnitionEffect)
+				{
+					player.addPotionEffect(new PotionEffect(Potion.damageBoost.id,20*30,75));
+					player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id,20*30,75));
+					player.addPotionEffect(new PotionEffect(Potion.regeneration.id,20*30,75));
+					player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,20*30,75));
+					player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30));
+				}
 			}
 		}
 	}

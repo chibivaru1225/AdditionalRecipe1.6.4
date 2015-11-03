@@ -22,14 +22,14 @@ public class RecipeAdditionalItems {
 							Character.valueOf('Y'),Block.dragonEgg}));
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + RecipeHandler.ADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + RecipeHandler.NOTADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 			if(AdditionalRecipe.craftingDustExchangeIgnition)
@@ -37,14 +37,14 @@ public class RecipeAdditionalItems {
 				GameRegistry.addSmelting(AdditionalRecipe.exchangeIgnitionItemID,new ItemStack(AdditionalRecipe.dustExchangeIgnitionItem,1,0),0.0f);
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "DustExchangeIgnition" + RecipeHandler.ADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "DustExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "DustExchangeIgnition" + RecipeHandler.NOTADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "DustExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 			if(AdditionalRecipe.craftingUltimateExchangeIgnition)
@@ -58,14 +58,14 @@ public class RecipeAdditionalItems {
 							Character.valueOf('Z'),AdditionalRecipe.superGravitationFeatherItem}));
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + RecipeHandler.ADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + RecipeHandler.NOTADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 			if(AdditionalRecipe.craftingCheaperExchangeIgnition)
@@ -78,14 +78,14 @@ public class RecipeAdditionalItems {
 							Character.valueOf('Y'),Block.blockDiamond}));
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + RecipeHandler.ADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + RecipeHandler.NOTADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 		}
@@ -93,7 +93,7 @@ public class RecipeAdditionalItems {
 		{
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "AlchemicItems" + RecipeHandler.NOTADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "AlchemicItems" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
 		if(AdditionalRecipe.craftingBlackRottenFlesh)
@@ -105,14 +105,14 @@ public class RecipeAdditionalItems {
 						Character.valueOf('X'),Item.rottenFlesh}));
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "BlackRottenFlesh" + RecipeHandler.ADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "BlackRottenFlesh" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "BlackRottenFlesh" + RecipeHandler.NOTADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "BlackRottenFlesh" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
 		if(AdditionalRecipe.craftingMortar)
@@ -127,14 +127,14 @@ public class RecipeAdditionalItems {
 							Character.valueOf('Y'),Block.dragonEgg}));
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + RecipeHandler.ADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + RecipeHandler.NOTADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 			if(AdditionalRecipe.craftingDiamondMortar)
@@ -147,14 +147,14 @@ public class RecipeAdditionalItems {
 							Character.valueOf('Y'),Item.ingotIron}));
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + RecipeHandler.ADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + RecipeHandler.NOTADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 			if(AdditionalRecipe.craftingIronMortar)
@@ -167,14 +167,14 @@ public class RecipeAdditionalItems {
 							Character.valueOf('Y'),Item.flint}));
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "IronMortar" + RecipeHandler.ADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "IronMortar" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
 				if(AdditionalRecipe.printInAddRecipe)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "IronMortar" + RecipeHandler.NOTADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "IronMortar" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 		}
@@ -182,7 +182,7 @@ public class RecipeAdditionalItems {
 		{
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "Mortars" + RecipeHandler.NOTADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "Mortars" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
 		if(AdditionalRecipe.craftingGravitationFeather)
@@ -195,14 +195,14 @@ public class RecipeAdditionalItems {
 						Character.valueOf('Y'),Item.diamond}));
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "GravitationFeather" + RecipeHandler.ADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "GravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "GravitationFeather" + RecipeHandler.NOTADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "GravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
 		if(AdditionalRecipe.craftingNightVisionTorch)
@@ -215,14 +215,14 @@ public class RecipeAdditionalItems {
 						Character.valueOf('Y'),Item.blazeRod}));
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "NightVisionTorch" + RecipeHandler.ADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "NightVisionTorch" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "NightVisionTorch" + RecipeHandler.NOTADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "NightVisionTorch" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
 		if(AdditionalRecipe.craftingSuperGravitationFeather)
@@ -236,14 +236,14 @@ public class RecipeAdditionalItems {
 						Character.valueOf('Z'),AdditionalRecipe.nightVisionTorchItem}));
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "SuperGravitationFeather" + RecipeHandler.ADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "SuperGravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "SuperGravitationFeather" + RecipeHandler.NOTADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "SuperGravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
 		if(AdditionalRecipe.craftingCraftingFurnace)
@@ -257,14 +257,14 @@ public class RecipeAdditionalItems {
 						Character.valueOf('Z'),"ExchangeIgnition"}));
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "CraftingFurnace" + RecipeHandler.ADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "CraftingFurnace" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "CraftingFurnace" + RecipeHandler.NOTADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "CraftingFurnace" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
 		if(AdditionalRecipe.craftingBedrockArmor)
@@ -295,14 +295,14 @@ public class RecipeAdditionalItems {
 						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "BedrockArmor" + RecipeHandler.ADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "BedrockArmor" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "BedrockArmor" + RecipeHandler.NOTADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "BedrockArmor" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
 		if(AdditionalRecipe.craftingAngelusArmor)
@@ -341,14 +341,14 @@ public class RecipeAdditionalItems {
 						Character.valueOf('W'),AdditionalRecipe.ultimateExchangeIgnitionItem}));
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.ADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
 			if(AdditionalRecipe.printInAddRecipe)
 			{
-				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.NOTADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
 	}

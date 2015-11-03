@@ -104,7 +104,7 @@ public class AdditionalRecipe {
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust;
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
-	public static boolean printInAddRecipe;
+	public static boolean printInAddRecipe,ultimateExchangeIgnitionEffect;
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
 	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
@@ -250,6 +250,7 @@ public class AdditionalRecipe {
 			Property CraftingAngelusArmorProp             = cfg.get("AdditionalRecipe"   ,"AngelusArmor"                    ,true);
 
 			Property PrintInAddRecipeProp                 = cfg.get("Another"            ,"Add-Recipe Print-In"             ,true);
+			Property UltimateExchangeIgnitionEffectProp   = cfg.get("Another"            ,"UltimateExchangeIgnitionEffect"  ,false);
 
 			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
 			SmeltingNetherrackProp.comment                = "Require Dirt";
@@ -383,6 +384,7 @@ public class AdditionalRecipe {
 			craftingAngelusArmor                          = CraftingAngelusArmorProp.getBoolean(true);
 
 			printInAddRecipe                              = PrintInAddRecipeProp.getBoolean(true);
+			ultimateExchangeIgnitionEffect                = UltimateExchangeIgnitionEffectProp.getBoolean(false);
 		}
 		catch (Exception e)
 		{

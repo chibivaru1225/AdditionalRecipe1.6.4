@@ -36,6 +36,11 @@ public class RecipeCrystal {
 			GameRegistry.addSmelting(Block.whiteStone.blockID, new ItemStack(CertusDust.getItem(),4,7), 0.0f);
 			GameRegistry.addShapelessRecipe(CertusQuartz,new Object[]{CertusDust,Block.sand});
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.netherQuartz,1,0),new Object[]{NetherDust,Block.sand});
+			if(AdditionalRecipe.printInAddRecipe)
+			{
+				System.out.println(AdditionalRecipe.CONSOLE + "CertusQuartz" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+				System.out.println(AdditionalRecipe.CONSOLE + "NetherQuartz" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+			}
 			if(AdditionalRecipe.craftingCrystal)
 			{
 				if((OreDictionary.getOres("dyeBlackCrystalShard").size() != 0) && (OreDictionary.getOres("dyeBlackCrystal").size() != 0))
@@ -165,6 +170,17 @@ public class RecipeCrystal {
 					GameRegistry.addShapelessRecipe(WhiteShard,new Object[]{CertusQuartz,new ItemStack(Item.dyePowder,1,15)});
 					GameRegistry.addShapelessRecipe(WhiteCrystal,new Object[]{WhiteShard,WhiteShard,WhiteShard,WhiteShard});
 					FurnaceRecipes.smelting().addSmelting(WhiteCrystal.itemID,15,new ItemStack(WhiteShard.getItem(),4,15), 0.0f);
+				}
+				if(AdditionalRecipe.printInAddRecipe)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "Crystals" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+				}
+			}
+			else
+			{
+				if(AdditionalRecipe.printInAddRecipe)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "Crystals" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 		}
