@@ -74,7 +74,8 @@ public class AdditionalRecipe {
 	public static ModMetadata meta;
 
 	public static final String CONSOLE = "[AdditionalRecipe]:";
-	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID,swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID;
+	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
+	public static int swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID,swordExelectorFirstItemID,swordExelectorSecondItemID,swordExelectorLastItemID;
 	public static int[] armorBedrockID = new int[4];
 	public static int[] armorAngelusID = new int[4];
 	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
@@ -91,9 +92,8 @@ public class AdditionalRecipe {
 	public static UltimateExchangeIgnition ultimateExchangeIgnition;
 	public static CraftingFurnace craftingFurnace;
 	public static CheaperExchangeIgnition cheaperExchangeIgnition;
-	public static SwordExelectorLast swordExelectorLast;
 	public static Item bedrockMortarItem,exchangeIgnitionItem,ironMortarItem,diamondMortarItem,dustNetherStarItem,dustBedrockItem,gravitationFeatherItem,superGravitationFeatherItem,craftingFurnaceItem,ultimateExchangeIgnitionItem,dustExchangeIgnitionItem,blackRottenFleshItem,cheaperExchangeIgnitionItem,nightVisionTorchItem;
-	public static Item swordMoonlight,swordDarkslayer,swordMoonlightPowerd,swordExelectorFirst,swordExelectorSecond;
+	public static Item swordMoonlight,swordDarkslayer,swordMoonlightPowerd,swordExelectorFirst,swordExelectorSecond,swordExelectorLast;
 	public static Item[] armorBedrockItem = new Item[4];
 	public static Item[] armorAngelusItem = new Item[4];
 	public static boolean craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,digBCSpring,digEndPortal,craftingEndPortal,craftingPinkSlimeBall,craftingFlour,craftingLinkModifer;
@@ -488,6 +488,12 @@ public class AdditionalRecipe {
 		nightVisionTorchItem = new NightVisionTorch(nightVisionTorchItemID - 256).setUnlocalizedName("nightvisiontorch");
 		LanguageRegistry.addName(nightVisionTorchItem, "NightVisionTorch");
 		GameRegistry.registerItem(nightVisionTorchItem, "NightVisionTorch");
+
+
+		swordExelectorLast = new SwordExelectorLast(swordExelectorLastItemID - 256,SWORD_ULTIMATE).setUnlocalizedName("exelectorlast");
+		swordExelectorLast.setTextureName("additionalrecipe:ExelectorLast");
+		LanguageRegistry.addName(swordExelectorLast,"Exelector");
+		GameRegistry.registerItem(swordExelectorLast,"Exelector");
 
 
 		armorBedrockItem[ARMOR_HELMET] = new BedrockArmor(armorBedrockID[ARMOR_HELMET] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);
