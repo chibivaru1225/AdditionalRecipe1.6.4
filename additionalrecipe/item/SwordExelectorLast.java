@@ -22,7 +22,7 @@ public class SwordExelectorLast extends ItemSword
 		this.toolMaterial = par2EnumToolMaterial;
 		this.setMaxStackSize(1);
 		this.setContainerItem(AdditionalRecipe.swordExelectorFirst);
-		this.weaponDamage = (int) (4 + par2EnumToolMaterial.getDamageVsEntity());
+		this.weaponDamage = (int) par2EnumToolMaterial.getDamageVsEntity();
 		this.setMaxDamage(0);
 	}
 	public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack)

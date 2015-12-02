@@ -3,6 +3,7 @@ package chibivaru.additionalrecipe;
 import java.util.logging.Level;
 
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
@@ -16,6 +17,7 @@ import chibivaru.additionalrecipe.armor.BedrockArmor;
 import chibivaru.additionalrecipe.dust.DustBedrock;
 import chibivaru.additionalrecipe.dust.DustNetherStar;
 import chibivaru.additionalrecipe.event.AddChestGenHooks;
+import chibivaru.additionalrecipe.event.AdditionalRecipeCreativeTab;
 import chibivaru.additionalrecipe.event.AngelusArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.BedrockArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.FlyingEventHooks;
@@ -73,6 +75,7 @@ public class AdditionalRecipe {
 	@Metadata(MODID)
 	public static ModMetadata meta;
 
+	public static final CreativeTabs ARTabs = new AdditionalRecipeCreativeTab("AdditionalRecipe");
 	public static final String CONSOLE = "[AdditionalRecipe]:";
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
 	public static int swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID,swordExelectorFirstItemID,swordExelectorSecondItemID,swordExelectorLastItemID;
@@ -431,66 +434,66 @@ public class AdditionalRecipe {
 
 		SWORD_ULTIMATE = EnumHelper.addToolMaterial("ULTIMATE" , 4, 1, 6.0f, 20, 100);
 
-		bedrockMortar     = (BedrockMortar)(new BedrockMortar(bedrockMortarItemID - 256)).setUnlocalizedName("bedrockmortar");
+		bedrockMortar     = (BedrockMortar)(new BedrockMortar(bedrockMortarItemID - 256)).setUnlocalizedName("bedrockmortar").setCreativeTab(ARTabs);
 		bedrockMortarItem = (Item)bedrockMortar;
 		GameRegistry.registerItem(bedrockMortar, "BedrockMortar");
 		GameRegistry.registerCraftingHandler(bedrockMortar);
 		ModLoader.addName(bedrockMortar, "BedrockMortar");
 
-		diamondMortar     = (DiamondMortar)(new DiamondMortar(diamondMortarItemID - 256)).setUnlocalizedName("diamondmortar");
+		diamondMortar     = (DiamondMortar)(new DiamondMortar(diamondMortarItemID - 256)).setUnlocalizedName("diamondmortar").setCreativeTab(ARTabs);
 		diamondMortarItem = (Item)diamondMortar;
 		GameRegistry.registerItem(diamondMortar, "DiamondMortar");
 		GameRegistry.registerCraftingHandler(diamondMortar);
 		ModLoader.addName(diamondMortar, "DiamondMortar");
 
-		ironMortar     = (IronMortar)(new IronMortar(ironMortarItemID - 256)).setUnlocalizedName("ironmortar");
+		ironMortar     = (IronMortar)(new IronMortar(ironMortarItemID - 256)).setUnlocalizedName("ironmortar").setCreativeTab(ARTabs);
 		ironMortarItem = (Item)ironMortar;
 		GameRegistry.registerItem(ironMortar, "IronMortar");
 		GameRegistry.registerCraftingHandler(ironMortar);
 		ModLoader.addName(ironMortar, "IronMortar");
 
-		exchangeIgniniton     = (ExchangeIgnition)(new ExchangeIgnition(exchangeIgnitionItemID - 256)).setUnlocalizedName("exchangeiginiton");
+		exchangeIgniniton     = (ExchangeIgnition)(new ExchangeIgnition(exchangeIgnitionItemID - 256)).setUnlocalizedName("exchangeiginiton").setCreativeTab(ARTabs);
 		exchangeIgnitionItem = (Item)exchangeIgniniton;
 		GameRegistry.registerItem(exchangeIgniniton, "ExchangeIgnition");
 		GameRegistry.registerCraftingHandler(exchangeIgniniton);
 		ModLoader.addName(exchangeIgniniton, "ExchangeIgnition");
 
-		ultimateExchangeIgnition     = (UltimateExchangeIgnition)(new UltimateExchangeIgnition(ultimateExchangeIgnitionItemID - 256)).setUnlocalizedName("ultimateexchangeiginiton");
+		ultimateExchangeIgnition     = (UltimateExchangeIgnition)(new UltimateExchangeIgnition(ultimateExchangeIgnitionItemID - 256)).setUnlocalizedName("ultimateexchangeiginiton").setCreativeTab(ARTabs);
 		ultimateExchangeIgnitionItem = (Item)ultimateExchangeIgnition;
 		GameRegistry.registerItem(ultimateExchangeIgnition, "UltimateExchangeIgnition");
 		GameRegistry.registerCraftingHandler(ultimateExchangeIgnition);
 		ModLoader.addName(ultimateExchangeIgnition, "UltimateExchangeIgnition");
 
-		cheaperExchangeIgnition     = (CheaperExchangeIgnition)(new CheaperExchangeIgnition(cheaperExchangeIgnitionItemID - 256)).setUnlocalizedName("cheaperexchangeiginiton");
+		cheaperExchangeIgnition     = (CheaperExchangeIgnition)(new CheaperExchangeIgnition(cheaperExchangeIgnitionItemID - 256)).setUnlocalizedName("cheaperexchangeiginiton").setCreativeTab(ARTabs);
 		cheaperExchangeIgnitionItem = (Item)cheaperExchangeIgnition;
 		GameRegistry.registerItem(cheaperExchangeIgnition, "CheaperExchangeIgnition");
 		GameRegistry.registerCraftingHandler(cheaperExchangeIgnition);
 		ModLoader.addName(cheaperExchangeIgnition, "CheaperExchangeIgnition");
 
-		craftingFurnace = (CraftingFurnace)(new CraftingFurnace(craftingFurnaceItemID - 256)).setUnlocalizedName("craftingfurnace");
+		craftingFurnace = (CraftingFurnace)(new CraftingFurnace(craftingFurnaceItemID - 256)).setUnlocalizedName("craftingfurnace").setCreativeTab(ARTabs);
 		craftingFurnaceItem = (Item)craftingFurnace;
 		GameRegistry.registerItem(craftingFurnace,"CraftingFurnace");
 		GameRegistry.registerCraftingHandler(craftingFurnace);
 		ModLoader.addName(craftingFurnace, "CraftingFurnace");
 
-		gravitationFeatherItem = new GravitationFeather(gravitationFeatherItemID - 256).setUnlocalizedName("gravitationfeather");
+		gravitationFeatherItem = new GravitationFeather(gravitationFeatherItemID - 256).setUnlocalizedName("gravitationfeather").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(gravitationFeatherItem, "GravitationFeather");
 		GameRegistry.registerItem(gravitationFeatherItem, "GravitationFeather");
 
-		superGravitationFeatherItem = new SuperGravitationFeather(superGravitationFeatherItemID - 256).setUnlocalizedName("supergravitationfeather");
+		superGravitationFeatherItem = new SuperGravitationFeather(superGravitationFeatherItemID - 256).setUnlocalizedName("supergravitationfeather").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(superGravitationFeatherItem, "SuperGravitationFeather");
 		GameRegistry.registerItem(superGravitationFeatherItem, "SuperGravitationFeather");
 
-		blackRottenFleshItem = new BlackRottenFlesh(blackRottenFleshItemID - 256).setUnlocalizedName("blackrottenflesh");
+		blackRottenFleshItem = new BlackRottenFlesh(blackRottenFleshItemID - 256).setUnlocalizedName("blackrottenflesh").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(blackRottenFleshItem, "BlackRottenFlesh");
 		GameRegistry.registerItem(blackRottenFleshItem, "BlackRottenFlesh");
 
-		nightVisionTorchItem = new NightVisionTorch(nightVisionTorchItemID - 256).setUnlocalizedName("nightvisiontorch");
+		nightVisionTorchItem = new NightVisionTorch(nightVisionTorchItemID - 256).setUnlocalizedName("nightvisiontorch").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(nightVisionTorchItem, "NightVisionTorch");
 		GameRegistry.registerItem(nightVisionTorchItem, "NightVisionTorch");
 
 
-		swordExelectorLast = new SwordExelectorLast(swordExelectorLastItemID - 256,SWORD_ULTIMATE).setUnlocalizedName("exelectorlast");
+		swordExelectorLast = new SwordExelectorLast(swordExelectorLastItemID - 256,SWORD_ULTIMATE).setUnlocalizedName("exelectorlast").setCreativeTab(ARTabs);
 		swordExelectorLast.setTextureName("additionalrecipe:ExelectorLast");
 		LanguageRegistry.addName(swordExelectorLast,"Exelector");
 		GameRegistry.registerItem(swordExelectorLast,"Exelector");
@@ -499,61 +502,69 @@ public class AdditionalRecipe {
 		armorBedrockItem[ARMOR_HELMET] = new BedrockArmor(armorBedrockID[ARMOR_HELMET] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);
 		armorBedrockItem[ARMOR_HELMET].setUnlocalizedName("bedrockhelmet");
 		armorBedrockItem[ARMOR_HELMET].setTextureName("additionalrecipe:BedrockHelmet");
+		armorBedrockItem[ARMOR_HELMET].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorBedrockItem[ARMOR_HELMET], "BedrockHelmet");
 		GameRegistry.registerItem(armorBedrockItem[ARMOR_HELMET], "BedrockHelmet");
 
 		armorBedrockItem[ARMOR_PLATE] = new BedrockArmor(armorBedrockID[ARMOR_PLATE] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK);
 		armorBedrockItem[ARMOR_PLATE].setUnlocalizedName("bedrockplate");
 		armorBedrockItem[ARMOR_PLATE].setTextureName("additionalrecipe:BedrockPlate");
+		armorBedrockItem[ARMOR_PLATE].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorBedrockItem[ARMOR_PLATE], "BedrockChestplate");
 		GameRegistry.registerItem(armorBedrockItem[ARMOR_PLATE], "BedrockChestplate");
 
 		armorBedrockItem[ARMOR_LEGS] = new BedrockArmor(armorBedrockID[ARMOR_LEGS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK);
 		armorBedrockItem[ARMOR_LEGS].setUnlocalizedName("bedrocklegs");
 		armorBedrockItem[ARMOR_LEGS].setTextureName("additionalrecipe:BedrockLegs");
+		armorBedrockItem[ARMOR_LEGS].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorBedrockItem[ARMOR_LEGS], "BedrockLeggings");
 		GameRegistry.registerItem(armorBedrockItem[ARMOR_LEGS], "BedrockLeggings");
 
 		armorBedrockItem[ARMOR_BOOTS] = new BedrockArmor(armorBedrockID[ARMOR_BOOTS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK);
 		armorBedrockItem[ARMOR_BOOTS].setUnlocalizedName("bedrockboots");
 		armorBedrockItem[ARMOR_BOOTS].setTextureName("additionalrecipe:BedrockBoots");
+		armorBedrockItem[ARMOR_BOOTS].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorBedrockItem[ARMOR_BOOTS], "BedrockBoots");
 		GameRegistry.registerItem(armorBedrockItem[ARMOR_BOOTS], "BedrockBoots");
 
 		armorAngelusItem[ARMOR_HELMET] = new BedrockArmor(armorAngelusID[ARMOR_HELMET] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_HELMET, ANGELUS);
 		armorAngelusItem[ARMOR_HELMET].setUnlocalizedName("angelushood");
 		armorAngelusItem[ARMOR_HELMET].setTextureName("additionalrecipe:AngelusHood");
+		armorAngelusItem[ARMOR_HELMET].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorAngelusItem[ARMOR_HELMET], "AngelusHood");
 		GameRegistry.registerItem(armorAngelusItem[ARMOR_HELMET], "AngelusHood");
 
 		armorAngelusItem[ARMOR_PLATE] = new BedrockArmor(armorAngelusID[ARMOR_PLATE] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_PLATE, ANGELUS);
 		armorAngelusItem[ARMOR_PLATE].setUnlocalizedName("angelusvestment");
 		armorAngelusItem[ARMOR_PLATE].setTextureName("additionalrecipe:AngelusVestment");
+		armorAngelusItem[ARMOR_PLATE].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorAngelusItem[ARMOR_PLATE], "AngelusVestment");
 		GameRegistry.registerItem(armorAngelusItem[ARMOR_PLATE], "AngelusVestment");
 
 		armorAngelusItem[ARMOR_LEGS] = new BedrockArmor(armorAngelusID[ARMOR_LEGS] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_LEGS, ANGELUS);
 		armorAngelusItem[ARMOR_LEGS].setUnlocalizedName("angelusskirt");
 		armorAngelusItem[ARMOR_LEGS].setTextureName("additionalrecipe:AngelusSkirt");
+		armorAngelusItem[ARMOR_LEGS].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorAngelusItem[ARMOR_LEGS], "AngelusSkirt");
 		GameRegistry.registerItem(armorAngelusItem[ARMOR_LEGS], "AngelusSkirt");
 
 		armorAngelusItem[ARMOR_BOOTS] = new BedrockArmor(armorAngelusID[ARMOR_BOOTS] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_BOOTS, ANGELUS);
 		armorAngelusItem[ARMOR_BOOTS].setUnlocalizedName("angelusboots");
 		armorAngelusItem[ARMOR_BOOTS].setTextureName("additionalrecipe:AngelusBoots");
+		armorAngelusItem[ARMOR_BOOTS].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
 		GameRegistry.registerItem(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
 
 
-		dustNetherStarItem = new DustNetherStar(dustNetherStarItemID - 256).setUnlocalizedName("dustnetherstar");
+		dustNetherStarItem = new DustNetherStar(dustNetherStarItemID - 256).setUnlocalizedName("dustnetherstar").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(dustNetherStarItem, "DustNetherStar");
 		GameRegistry.registerItem(dustNetherStarItem, "DustNetherStar");
 
-		dustBedrockItem = new DustBedrock(dustBedrockItemID - 256).setUnlocalizedName("dustbedrock");
+		dustBedrockItem = new DustBedrock(dustBedrockItemID - 256).setUnlocalizedName("dustbedrock").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(dustBedrockItem, "DustBedrock");
 		GameRegistry.registerItem(dustBedrockItem, "DustBedrock");
 
-		dustExchangeIgnitionItem = new DustBedrock(dustExchangeIgnitionItemID - 256).setUnlocalizedName("dustexchangeignition");
+		dustExchangeIgnitionItem = new DustBedrock(dustExchangeIgnitionItemID - 256).setUnlocalizedName("dustexchangeignition").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(dustExchangeIgnitionItem, "DustExchangeIgnition");
 		GameRegistry.registerItem(dustExchangeIgnitionItem, "DustExchangeIgnition");
 
