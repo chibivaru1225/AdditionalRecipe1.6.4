@@ -160,6 +160,8 @@ public class AdditionalRecipe {
 			Property SwordDarkslayerProp                  = cfg.getItem("SwordItemID"    ,"SwordDarkslayerID"               ,12512);
 			Property SwordMoonlightPowerdProp             = cfg.getItem("SwordItemID"    ,"SwordMoonlightPowerdID"          ,12513);
 			Property SwordExelectorFirstProp              = cfg.getItem("SwordItemID"    ,"SwordExelectorFirstID"           ,12514);
+			Property SwordExelectorSecondProp             = cfg.getItem("SwordItemID"    ,"SwordExelectorSecondID"           ,12514);
+			Property SwordExelectorLastProp               = cfg.getItem("SwordItemID"    ,"SwordExelectorLastID"           ,12514);
 
 			Property ArmorBedrockHelmetIDProp             = cfg.getItem("ArmorItemID"    ,"BedrockHelmetItemID"             ,12700);
 			Property ArmorBedrockPlateIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockPlateItemID"              ,12701);
@@ -295,6 +297,7 @@ public class AdditionalRecipe {
 			swordMoonlightItemID                          = SwordMoonlightProp.getInt();
 			swordDarkslayerItemID                         = SwordDarkslayerProp.getInt();
 			swordMoonlightPowerdItemID                    = SwordMoonlightPowerdProp.getInt();
+			swordExelectorLastItemID                      = SwordExelectorLastProp.getInt();
 
 			armorBedrockID[ARMOR_HELMET]                  = ArmorBedrockHelmetIDProp.getInt();
 			armorBedrockID[ARMOR_PLATE]                   = ArmorBedrockPlateIDProp.getInt();
