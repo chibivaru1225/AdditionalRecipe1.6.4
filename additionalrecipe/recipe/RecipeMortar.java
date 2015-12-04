@@ -86,7 +86,7 @@ public class RecipeMortar {
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
 				Block.gravel,
-				new Object[]{Block.cobblestone,Block.sand}));
+				new Object[]{Block.cobblestone,Block.sand,Item.bowlEmpty}));
 		if((AdditionalRecipe.furnaceDustIngot)&&(AdditionalRecipe.craftingCraftingFurnace))
 		{
 			GameRegistry.addRecipe(
