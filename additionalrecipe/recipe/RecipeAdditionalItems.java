@@ -4,7 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import chibivaru.additionalrecipe.AdditionalRecipe;
+import chibivaru.additionalrecipe.item.SwordExelectorFirst;
+import chibivaru.additionalrecipe.item.SwordExelectorLast;
+import chibivaru.additionalrecipe.item.SwordExelectorSecond;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeAdditionalItems {
@@ -351,5 +355,23 @@ public class RecipeAdditionalItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
+		SwordExelectorFirst e1 = AdditionalRecipe.swordExelectorFirst;
+		e1.setCanUse(true);
+		GameRegistry.addRecipe(
+			new ShapelessOreRecipe(
+				AdditionalRecipe.swordExelectorSecondItem,
+				new Object[]{e1}));
+		SwordExelectorSecond e2 = AdditionalRecipe.swordExelectorSecond;
+		e2.setCanUse(true);
+		GameRegistry.addRecipe(
+			new ShapelessOreRecipe(
+				AdditionalRecipe.swordExelectorLastItem,
+				new Object[]{e2}));
+		SwordExelectorLast e3 = AdditionalRecipe.swordExelectorLast;
+		e3.setCanUse(true);
+		GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					AdditionalRecipe.forceBallItem,
+					new Object[]{e3}));
 	}
 }

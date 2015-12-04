@@ -12,26 +12,26 @@ import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class SwordExelectorLast extends ItemSword
+public class SwordExelectorFirst extends ItemSword
 {
 	private int weaponDamage;
 	private EnumToolMaterial toolMaterial;
 	private boolean can;
 	private int exp;
-	public SwordExelectorLast(int itemID, EnumToolMaterial par2EnumToolMaterial)
+	public SwordExelectorFirst(int itemID, EnumToolMaterial par2EnumToolMaterial)
 	{
 		super(itemID, par2EnumToolMaterial);
 		this.toolMaterial = par2EnumToolMaterial;
 		this.setMaxStackSize(1);
-		this.setContainerItem(AdditionalRecipe.swordExelectorFirst);
 		this.weaponDamage = (int) par2EnumToolMaterial.getDamageVsEntity();
 		this.setMaxDamage(0);
 		this.setExp(0);
 		this.setCanUse(false);
 	}
-	public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack)
+	@SideOnly(Side.CLIENT)
+	public void registerIcon(IconRegister register)
 	{
-		return false;
+		this.itemIcon = register.registerIcon(AdditionalRecipe.MODID + ":" + this.getUnlocalizedName());
 	}
 	public void setExp(int par1)
 	{
@@ -41,15 +41,10 @@ public class SwordExelectorLast extends ItemSword
 	{
 		this.can = par1;
 	}
-	@SideOnly(Side.CLIENT)
-	public void registerIcon(IconRegister register)
-	{
-		this.itemIcon = register.registerIcon(AdditionalRecipe.MODID + ":" + this.getUnlocalizedName());
-	}
 	@Override
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
 	{
-		if(this.exp > AdditionalRecipe.exelectorLastExp)
+		if(this.exp > AdditionalRecipe.exelectorFirstExp)
 		{
 			this.can = true;
 		}
@@ -61,11 +56,11 @@ public class SwordExelectorLast extends ItemSword
 	{
 		if(this.can)
 		{
-			par3List.add("Exelector can extract Force Ball!");
+			par3List.add("Exelector can improve to next level!");
 		}
 		else
 		{
-			par3List.add("Exp = " + this.exp + " / " + AdditionalRecipe.exelectorLastExp);
+			par3List.add("Exp = " + this.exp + " / " + AdditionalRecipe.exelectorFirstExp);
 		}
 	}
 }

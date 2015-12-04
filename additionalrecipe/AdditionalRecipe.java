@@ -26,14 +26,18 @@ import chibivaru.additionalrecipe.event.NoFallDamageEventHooks;
 import chibivaru.additionalrecipe.item.BedrockMortar;
 import chibivaru.additionalrecipe.item.BlackRottenFlesh;
 import chibivaru.additionalrecipe.item.CheaperExchangeIgnition;
+import chibivaru.additionalrecipe.item.CirceForce;
 import chibivaru.additionalrecipe.item.CraftingFurnace;
 import chibivaru.additionalrecipe.item.DiamondMortar;
 import chibivaru.additionalrecipe.item.ExchangeIgnition;
+import chibivaru.additionalrecipe.item.ForceBall;
 import chibivaru.additionalrecipe.item.GravitationFeather;
 import chibivaru.additionalrecipe.item.IronMortar;
 import chibivaru.additionalrecipe.item.NightVisionTorch;
 import chibivaru.additionalrecipe.item.SuperGravitationFeather;
+import chibivaru.additionalrecipe.item.SwordExelectorFirst;
 import chibivaru.additionalrecipe.item.SwordExelectorLast;
+import chibivaru.additionalrecipe.item.SwordExelectorSecond;
 import chibivaru.additionalrecipe.item.UltimateExchangeIgnition;
 import chibivaru.additionalrecipe.recipe.RecipeHandler;
 import cpw.mods.fml.common.FMLLog;
@@ -77,7 +81,7 @@ public class AdditionalRecipe {
 
 	public static final CreativeTabs ARTabs = new AdditionalRecipeCreativeTab("AdditionalRecipe");
 	public static final String CONSOLE = "[AdditionalRecipe]:";
-	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID;
+	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID,forceBallItemID,circeForceItemID;
 	public static int swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID,swordExelectorFirstItemID,swordExelectorSecondItemID,swordExelectorLastItemID;
 	public static int[] armorBedrockID = new int[4];
 	public static int[] armorAngelusID = new int[4];
@@ -87,7 +91,7 @@ public class AdditionalRecipe {
 	public static int bedrockMortarCrafting;
 	public static int diamondMortarCrafting;
 	public static int ironMortarCrafting;
-	public static int craftingDifficulty;
+	public static int craftingDifficulty,exelectorFirstExp,exelectorSecondExp,exelectorLastExp;
 	public static BedrockMortar bedrockMortar;
 	public static DiamondMortar diamondMortar;
 	public static IronMortar ironMortar;
@@ -95,8 +99,11 @@ public class AdditionalRecipe {
 	public static UltimateExchangeIgnition ultimateExchangeIgnition;
 	public static CraftingFurnace craftingFurnace;
 	public static CheaperExchangeIgnition cheaperExchangeIgnition;
-	public static Item bedrockMortarItem,exchangeIgnitionItem,ironMortarItem,diamondMortarItem,dustNetherStarItem,dustBedrockItem,gravitationFeatherItem,superGravitationFeatherItem,craftingFurnaceItem,ultimateExchangeIgnitionItem,dustExchangeIgnitionItem,blackRottenFleshItem,cheaperExchangeIgnitionItem,nightVisionTorchItem;
-	public static Item swordMoonlight,swordDarkslayer,swordMoonlightPowerd,swordExelectorFirst,swordExelectorSecond,swordExelectorLast;
+	public static SwordExelectorFirst swordExelectorFirst;
+	public static SwordExelectorSecond swordExelectorSecond;
+	public static SwordExelectorLast swordExelectorLast;
+	public static Item bedrockMortarItem,exchangeIgnitionItem,ironMortarItem,diamondMortarItem,dustNetherStarItem,dustBedrockItem,gravitationFeatherItem,superGravitationFeatherItem,craftingFurnaceItem,ultimateExchangeIgnitionItem,dustExchangeIgnitionItem,blackRottenFleshItem,cheaperExchangeIgnitionItem,nightVisionTorchItem,forceBallItem,circeForceItem;
+	public static Item swordMoonlightItem,swordDarkslayerItem,swordMoonlightPowerdItem,swordExelectorFirstItem,swordExelectorSecondItem,swordExelectorLastItem;
 	public static Item[] armorBedrockItem = new Item[4];
 	public static Item[] armorAngelusItem = new Item[4];
 	public static boolean craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,digBCSpring,digEndPortal,craftingEndPortal,craftingPinkSlimeBall,craftingFlour,craftingLinkModifer;
@@ -109,7 +116,7 @@ public class AdditionalRecipe {
 	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
 	public static boolean craftingBedrockArmor,craftingAngelusArmor;
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
-	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust;
+	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust,craftingButton;
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
 	public static boolean printInAddRecipe,ultimateExchangeIgnitionEffect;
 	public static RecipeHandler recipehandler;
@@ -151,17 +158,19 @@ public class AdditionalRecipe {
 			Property GravitationFeatherItemIDProp         = cfg.getItem("ItemID"         ,"GravitationFeatherItemID"        ,12504);
 			Property SuperGravitationFeatherItemIDProp    = cfg.getItem("ItemID"         ,"SuperGravitationFeatherItemID"   ,12510);
 			Property NightVisionTorchItemIDProp           = cfg.getItem("ItemID"         ,"NightVisionTorchItemID"          ,12509);
+			Property ForceBallItemIDProp                  = cfg.getItem("ItemID"         ,"ForceBallItemID"                 ,12511);
+			Property CirceForceItemIDProp                 = cfg.getItem("ItemID"         ,"CirceForceItemID"                ,12512);
+
+			Property SwordMoonlightProp                   = cfg.getItem("SwordItemID"    ,"SwordMoonlightID"                ,12551);
+			Property SwordDarkslayerProp                  = cfg.getItem("SwordItemID"    ,"SwordDarkslayerID"               ,12552);
+			Property SwordMoonlightPowerdProp             = cfg.getItem("SwordItemID"    ,"SwordMoonlightPowerdID"          ,12553);
+			Property SwordExelectorFirstProp              = cfg.getItem("SwordItemID"    ,"SwordExelectorFirstID"           ,12554);
+			Property SwordExelectorSecondProp             = cfg.getItem("SwordItemID"    ,"SwordExelectorSecondID"          ,12555);
+			Property SwordExelectorLastProp               = cfg.getItem("SwordItemID"    ,"SwordExelectorLastID"            ,12556);
 
 			Property DustNetherStarItemIDProp             = cfg.getItem("DustItemID"     ,"DustNetherStarItemID"            ,12600);
 			Property DustBedrockItemIDProp                = cfg.getItem("DustItemID"     ,"DustBedrockItemID"               ,12601);
 			Property DustExchangeIgnitionItemIDProp       = cfg.getItem("DustItemID"     ,"DustExchangeIgnitionID"          ,12602);
-
-			Property SwordMoonlightProp                   = cfg.getItem("SwordItemID"    ,"SwordMoonlightID"                ,12511);
-			Property SwordDarkslayerProp                  = cfg.getItem("SwordItemID"    ,"SwordDarkslayerID"               ,12512);
-			Property SwordMoonlightPowerdProp             = cfg.getItem("SwordItemID"    ,"SwordMoonlightPowerdID"          ,12513);
-			Property SwordExelectorFirstProp              = cfg.getItem("SwordItemID"    ,"SwordExelectorFirstID"           ,12514);
-			Property SwordExelectorSecondProp             = cfg.getItem("SwordItemID"    ,"SwordExelectorSecondID"           ,12514);
-			Property SwordExelectorLastProp               = cfg.getItem("SwordItemID"    ,"SwordExelectorLastID"           ,12514);
 
 			Property ArmorBedrockHelmetIDProp             = cfg.getItem("ArmorItemID"    ,"BedrockHelmetItemID"             ,12700);
 			Property ArmorBedrockPlateIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockPlateItemID"              ,12701);
@@ -237,10 +246,15 @@ public class AdditionalRecipe {
 			Property CraftingSlimeBallProp                = cfg.get("Crafting"           ,"SlimeBall"                       ,true);
 			Property CraftingExpBottleProp                = cfg.get("Crafting"           ,"ExpBottle"                       ,true);
 			Property CraftingGlowStoneDustProp            = cfg.get("Crafting"           ,"GlowStoneDust"                   ,true);
+			Property CraftingButtonProp                   = cfg.get("Crafting"           ,"Button"                          ,true);
 
 			Property BedrockMortarCraftingProp            = cfg.get("MortarCrafting"     ,"BedrockMortarDust"               ,8);
 			Property DiamondMortarCraftingProp            = cfg.get("MortarCrafting"     ,"DiamondMortarDust"               ,4);
 			Property IronMortarCraftingProp               = cfg.get("MortarCrafting"     ,"IronMortarDust"                  ,2);
+
+			Property ExelectorFirstExpProp                = cfg.get("Another"            ,"Exelector First-Lv Exp"          ,500);
+			Property ExelectorSecondExpProp               = cfg.get("Another"            ,"Exelector Second-Lv Exp"         ,2500);
+			Property ExelectorLastExpProp                 = cfg.get("Another"            ,"Exelector Last-Lv Exp"           ,5000);
 
 			Property DigBCSpringProp                      = cfg.get("Dig"                ,"BuildCraft_Spring"               ,true);
 			Property DigEndPortalProp                     = cfg.get("Dig"                ,"EndPortal"                       ,false);
@@ -293,10 +307,14 @@ public class AdditionalRecipe {
 			gravitationFeatherItemID                      = GravitationFeatherItemIDProp.getInt();
 			superGravitationFeatherItemID                 = SuperGravitationFeatherItemIDProp.getInt();
 			nightVisionTorchItemID                        = NightVisionTorchItemIDProp.getInt();
+			forceBallItemID                               = ForceBallItemIDProp.getInt();
+			circeForceItemID                              = CirceForceItemIDProp.getInt();
 
 			swordMoonlightItemID                          = SwordMoonlightProp.getInt();
 			swordDarkslayerItemID                         = SwordDarkslayerProp.getInt();
 			swordMoonlightPowerdItemID                    = SwordMoonlightPowerdProp.getInt();
+			swordExelectorFirstItemID                     = SwordExelectorFirstProp.getInt();
+			swordExelectorSecondItemID                    = SwordExelectorSecondProp.getInt();
 			swordExelectorLastItemID                      = SwordExelectorLastProp.getInt();
 
 			armorBedrockID[ARMOR_HELMET]                  = ArmorBedrockHelmetIDProp.getInt();
@@ -374,6 +392,7 @@ public class AdditionalRecipe {
 			craftingSlimeBall                             = CraftingSlimeBallProp.getBoolean(true);
 			craftingExpBottle                             = CraftingExpBottleProp.getBoolean(true);
 			craftingGlowStoneDust                         = CraftingGlowStoneDustProp.getBoolean(true);
+			craftingButton                                = CraftingButtonProp.getBoolean(true);
 
 			mortarOreDust                                 = MortarOreDustProp.getBoolean(true);
 			mortarIngotDust                               = MortarIngotDustProp.getBoolean(true);
@@ -381,6 +400,10 @@ public class AdditionalRecipe {
 			bedrockMortarCrafting                         = BedrockMortarCraftingProp.getInt();
 			diamondMortarCrafting                         = DiamondMortarCraftingProp.getInt();
 			ironMortarCrafting                            = IronMortarCraftingProp.getInt();
+
+			exelectorFirstExp                             = ExelectorFirstExpProp.getInt();
+			exelectorSecondExp                            = ExelectorSecondExpProp.getInt();
+			exelectorLastExp                              = ExelectorLastExpProp.getInt();
 
 			digBCSpring                                   = DigBCSpringProp.getBoolean(true);
 			digEndPortal                                  = DigEndPortalProp.getBoolean(false);
@@ -435,7 +458,9 @@ public class AdditionalRecipe {
 		ARMOR_LUST     = EnumHelper.addArmorMaterial("LUST"    , 1, new int[] {15,15,15,15},30);
 		ARMOR_ANGELUS  = EnumHelper.addArmorMaterial("ANGELUS" , 1, new int[] {20,20,20,20},40);
 
-		SWORD_ULTIMATE = EnumHelper.addToolMaterial("ULTIMATE" , 4, 1, 6.0f, 20, 100);
+		SWORD_POOR     = EnumHelper.addToolMaterial("POOR"     , 2, 1, 6.0f, 0,  100);
+		SWORD_BASIC    = EnumHelper.addToolMaterial("BASIC"    , 3, 1, 6.0f, 5,  100);
+		SWORD_ULTIMATE = EnumHelper.addToolMaterial("ULTIMATE" , 4, 1, 6.0f, 15, 100);
 
 		bedrockMortar     = (BedrockMortar)(new BedrockMortar(bedrockMortarItemID - 256)).setUnlocalizedName("bedrockmortar").setCreativeTab(ARTabs);
 		bedrockMortarItem = (Item)bedrockMortar;
@@ -495,11 +520,34 @@ public class AdditionalRecipe {
 		LanguageRegistry.addName(nightVisionTorchItem, "NightVisionTorch");
 		GameRegistry.registerItem(nightVisionTorchItem, "NightVisionTorch");
 
+		forceBallItem = new ForceBall(forceBallItemID - 256).setUnlocalizedName("forceball").setCreativeTab(ARTabs);
+		LanguageRegistry.addName(forceBallItem, "ForceBall");
+		GameRegistry.registerItem(forceBallItem, "ForceBall");
 
-		swordExelectorLast = new SwordExelectorLast(swordExelectorLastItemID - 256,SWORD_ULTIMATE).setUnlocalizedName("exelectorlast").setCreativeTab(ARTabs);
+		circeForceItem = new CirceForce(circeForceItemID - 256).setUnlocalizedName("circeforce").setCreativeTab(ARTabs);
+		LanguageRegistry.addName(circeForceItem, "CirceForce");
+		GameRegistry.registerItem(circeForceItem, "CirceForce");
+
+		swordExelectorFirst = (SwordExelectorFirst)(new SwordExelectorFirst(swordExelectorFirstItemID - 256,SWORD_POOR)).setUnlocalizedName("exelectofirst");
+		//swordExelectorFirst.setCreativeTab(ARTabs);
+		swordExelectorFirst.setTextureName("additionalrecipe:ExelectorFirst");
+		swordExelectorFirstItem = (Item)swordExelectorFirst;
+		LanguageRegistry.addName(swordExelectorFirst,"Exelector");
+		GameRegistry.registerItem(swordExelectorFirst,"ExelectorFirst");
+
+		swordExelectorSecond = (SwordExelectorSecond)(new SwordExelectorSecond(swordExelectorSecondItemID - 256,SWORD_BASIC)).setUnlocalizedName("exelectorsecond");
+		//swordExelectorSecond.setCreativeTab(ARTabs);
+		swordExelectorSecond.setTextureName("additionalrecipe:ExelectorSecond");
+		swordExelectorSecondItem = (Item)swordExelectorSecond;
+		LanguageRegistry.addName(swordExelectorSecond,"Exelector");
+		GameRegistry.registerItem(swordExelectorSecond,"ExelectorSecond");
+
+		swordExelectorLast = (SwordExelectorLast)(new SwordExelectorLast(swordExelectorLastItemID - 256,SWORD_ULTIMATE)).setUnlocalizedName("exelectorlast");
+		//swordExelectorLast.setCreativeTab(ARTabs);
 		swordExelectorLast.setTextureName("additionalrecipe:ExelectorLast");
+		swordExelectorLastItem = (Item)swordExelectorLast;
 		LanguageRegistry.addName(swordExelectorLast,"Exelector");
-		GameRegistry.registerItem(swordExelectorLast,"Exelector");
+		GameRegistry.registerItem(swordExelectorLast,"ExelectorLast");
 
 
 		armorBedrockItem[ARMOR_HELMET] = new BedrockArmor(armorBedrockID[ARMOR_HELMET] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);

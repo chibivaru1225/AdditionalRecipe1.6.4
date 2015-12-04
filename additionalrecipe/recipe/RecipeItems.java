@@ -274,13 +274,16 @@ public class RecipeItems {
 					new ItemStack(Item.glowstone,4),
 					new Object[]{"dustGold",Item.redstone,"dustGold",Item.redstone}));
 		}
-		GameRegistry.addRecipe(
-			new ShapelessOreRecipe(
-				Block.planks,
-				new Object[]{Block.woodenButton}));
-		GameRegistry.addRecipe(
-			new ShapelessOreRecipe(
-				Block.stone,
-				new Object[]{Block.stoneButton}));
+		if(AdditionalRecipe.craftingButton)
+		{
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					Block.planks,
+					new Object[]{Block.woodenButton}));
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					Block.stone,
+					new Object[]{Block.stoneButton}));
+		}
 	}
 }
