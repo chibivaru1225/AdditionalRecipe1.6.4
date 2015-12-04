@@ -528,6 +528,7 @@ public class AdditionalRecipe {
 		LanguageRegistry.addName(circeForceItem, "CirceForce");
 		GameRegistry.registerItem(circeForceItem, "CirceForce");
 
+
 		swordExelectorFirst = (SwordExelectorFirst)(new SwordExelectorFirst(swordExelectorFirstItemID - 256,SWORD_POOR)).setUnlocalizedName("exelectofirst");
 		//swordExelectorFirst.setCreativeTab(ARTabs);
 		swordExelectorFirst.setTextureName("additionalrecipe:ExelectorFirst");
