@@ -46,26 +46,26 @@ public class RecipeHandler {
 		if(AdditionalRecipe.addOreDicExpBottle)
 		{
 			OreDictionary.registerOre("item_Fragment",Item.expBottle);
-			if(AdditionalRecipe.printInAddRecipe)
+			if(AdditionalRecipe.consoleOut)
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "ExpBottle" + OREDIC + ADDED);
 			}
 		}
 		else
 		{
-			if(AdditionalRecipe.printInAddRecipe)
+			if(AdditionalRecipe.consoleOut)
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "ExpBottle" + OREDIC + NOTADDED);
 			}
 		}
 
 		OreDictionary.registerOre("dustNetherStar",AdditionalRecipe.dustNetherStarItem);
-		if(AdditionalRecipe.printInAddRecipe)
+		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "DustNetherStar" + OREDIC + ADDED);
 		}
 		OreDictionary.registerOre("dustBedrock",AdditionalRecipe.dustBedrockItem);
-		if(AdditionalRecipe.printInAddRecipe)
+		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "DustBedrock" + OREDIC + ADDED);
 		}
@@ -74,7 +74,7 @@ public class RecipeHandler {
 		OreDictionary.registerOre("MortarTier02",AdditionalRecipe.bedrockMortar);
 		OreDictionary.registerOre("MortarTier03",AdditionalRecipe.bedrockMortar);
 		OreDictionary.registerOre("MortarOreTier03",AdditionalRecipe.bedrockMortar);
-		if(AdditionalRecipe.printInAddRecipe)
+		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + OREDIC + ADDED);
 		}
@@ -82,30 +82,30 @@ public class RecipeHandler {
 		OreDictionary.registerOre("MortarTier01",new ItemStack(AdditionalRecipe.diamondMortar,1,32767));
 		OreDictionary.registerOre("MortarTier02",new ItemStack(AdditionalRecipe.diamondMortar,1,32767));
 		OreDictionary.registerOre("MortarOreTier02",new ItemStack(AdditionalRecipe.diamondMortar,1,32767));
-		if(AdditionalRecipe.printInAddRecipe)
+		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + OREDIC + ADDED);
 		}
 
 		OreDictionary.registerOre("MortarTier01",new ItemStack(AdditionalRecipe.ironMortar,1,32767));
 		OreDictionary.registerOre("MortarOreTier01",new ItemStack(AdditionalRecipe.ironMortar,1,32767));
-		if(AdditionalRecipe.printInAddRecipe)
+		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "IronMortar" + OREDIC + ADDED);
 		}
 
 		OreDictionary.registerOre("ExchangeIgnition",AdditionalRecipe.exchangeIgniniton);
-		if(AdditionalRecipe.printInAddRecipe)
+		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + OREDIC + ADDED);
 		}
 		OreDictionary.registerOre("ExchangeIgnition",AdditionalRecipe.ultimateExchangeIgnition);
-		if(AdditionalRecipe.printInAddRecipe)
+		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + OREDIC + ADDED);
 		}
 		OreDictionary.registerOre("ExchangeIgnition",new ItemStack(AdditionalRecipe.cheaperExchangeIgnition,1,32767));
-		if(AdditionalRecipe.printInAddRecipe)
+		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + OREDIC + ADDED);
 		}

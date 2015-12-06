@@ -54,7 +54,7 @@ public class IronMortar extends Item implements ICraftingHandler
     //既存のハサミと見分けるため、テクスチャを赤で乗算
     public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return 0x777777;
+        return AdditionalRecipe.textureIronMortar;
     }
 
     //1.5.2のテクスチャ指定

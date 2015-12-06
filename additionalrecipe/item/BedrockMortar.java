@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -27,7 +28,7 @@ public class BedrockMortar extends Item implements ICraftingHandler
     {
         return !repair;
     }
-    
+
     public ItemStack getContainerItemStack(ItemStack itemStack)
     {
         if (itemStack != null && itemStack.itemID == this.itemID)
@@ -48,7 +49,7 @@ public class BedrockMortar extends Item implements ICraftingHandler
 
     public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return 0x666666;
+        return AdditionalRecipe.textureBedrockMortar;
     }
 
     @SideOnly(Side.CLIENT)

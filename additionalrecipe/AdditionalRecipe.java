@@ -82,6 +82,7 @@ public class AdditionalRecipe {
 
 	public static final CreativeTabs ARTabs = new AdditionalRecipeCreativeTab("AdditionalRecipe");
 	public static final String CONSOLE = "[AdditionalRecipe]:";
+	public static final String ADDID = " added ID ";
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID,superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID,forceBallItemID,circeForceItemID;
 	public static int swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID,swordExelectorFirstItemID,swordExelectorSecondItemID,swordExelectorLastItemID;
 	public static int[] armorBedrockID = new int[4];
@@ -93,6 +94,7 @@ public class AdditionalRecipe {
 	public static int diamondMortarCrafting;
 	public static int ironMortarCrafting;
 	public static int craftingDifficulty,exelectorFirstExp,exelectorSecondExp,exelectorLastExp;
+	public static int textureIronMortar,textureDiamondMortar,textureBedrockMortar;
 	public static BedrockMortar bedrockMortar;
 	public static DiamondMortar diamondMortar;
 	public static IronMortar ironMortar;
@@ -113,13 +115,13 @@ public class AdditionalRecipe {
 	public static boolean smeltingNetherBrick,smeltingNetherrack,smeltingLeather,smeltingGlowStoneDust;
 	public static boolean smeltingMinecartEmpty,smeltingIronDoor,smeltingWoodDoor;
 	public static boolean craftingAlchemic,craftingExchangeIgnition,craftingUltimateExchangeIgnition,craftingDustExchangeIgnition,craftingCheaperExchangeIgnition;
-	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather;
+	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather,craftingCirceForce;
 	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
 	public static boolean craftingBedrockArmor,craftingAngelusArmor;
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust,craftingButton;
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
-	public static boolean printInAddRecipe,ultimateExchangeIgnitionEffect;
+	public static boolean consoleOut,ultimateExchangeIgnitionEffect;
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
 	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
@@ -260,6 +262,10 @@ public class AdditionalRecipe {
 			Property DigBCSpringProp                      = cfg.get("Dig"                ,"BuildCraft_Spring"               ,true);
 			Property DigEndPortalProp                     = cfg.get("Dig"                ,"EndPortal"                       ,false);
 
+			Property TextureIronMortarProp                = cfg.get("Texture"            ,"IronMortal"                      ,0x777777);
+			Property TextureDiamondMortarProp             = cfg.get("Texture"            ,"DiamondMortal"                   ,0x8888FF);
+			Property TextureBedrockMortarProp             = cfg.get("Texture"            ,"BedrockMortal"                   ,0x666666);
+
 			Property CraftingAlchemicProp                 = cfg.get("AdditionalRecipe"   ,"AlchemicItem"                    ,true);
 			Property CraftingExchangeIgnitionProp         = cfg.get("AdditionalRecipe"   ,"ExchangeIgnition"                ,true);
 			Property CraftingDustExchangeIgnitionProp     = cfg.get("AdditionalRecipe"   ,"DustExchangeIgnition"            ,true);
@@ -278,9 +284,10 @@ public class AdditionalRecipe {
 			Property CraftingDustBedrockProp              = cfg.get("AdditionalRecipe"   ,"DustBedrock"                     ,false);
 			Property CraftingBedrockArmorProp             = cfg.get("AdditionalRecipe"   ,"BedrockArmor"                    ,true);
 			Property CraftingAngelusArmorProp             = cfg.get("AdditionalRecipe"   ,"AngelusArmor"                    ,true);
-			Property CraftingSwordsProp                   = cfg.get("AdditionalRecipe"   ,"Swords"                          ,true);
+			Property CraftingSwordsProp                   = cfg.get("AdditionalRecipe"   ,"Swords"                          ,false);
+			Property CraftingCirceForceProp               = cfg.get("AdditionalRecipe"   ,"CirceForce"                      ,true);
 
-			Property PrintInAddRecipeProp                 = cfg.get("Another"            ,"Add-Recipe Print-In"             ,true);
+			Property ConsoleOutProp                       = cfg.get("Another"            ,"ConsoleOut"                      ,true);
 			Property UltimateExchangeIgnitionEffectProp   = cfg.get("Another"            ,"UltimateExchangeIgnitionEffect"  ,false);
 
 			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
@@ -409,6 +416,10 @@ public class AdditionalRecipe {
 			digBCSpring                                   = DigBCSpringProp.getBoolean(true);
 			digEndPortal                                  = DigEndPortalProp.getBoolean(false);
 
+			textureIronMortar                             = TextureIronMortarProp.getInt();
+			textureDiamondMortar                          = TextureDiamondMortarProp.getInt();
+			textureBedrockMortar                          = TextureBedrockMortarProp.getInt();
+
 			craftingAlchemic                              = CraftingAlchemicProp.getBoolean(true);
 			craftingExchangeIgnition                      = CraftingExchangeIgnitionProp.getBoolean(true);
 			craftingDustExchangeIgnition                  = CraftingDustExchangeIgnitionProp.getBoolean(true);
@@ -427,8 +438,9 @@ public class AdditionalRecipe {
 			craftingDustBedrock                           = CraftingDustBedrockProp.getBoolean(false);
 			craftingBedrockArmor                          = CraftingBedrockArmorProp.getBoolean(true);
 			craftingAngelusArmor                          = CraftingAngelusArmorProp.getBoolean(true);
+			craftingCirceForce                            = CraftingCirceForceProp.getBoolean(true);
 
-			printInAddRecipe                              = PrintInAddRecipeProp.getBoolean(true);
+			consoleOut                                    = ConsoleOutProp.getBoolean(true);
 			ultimateExchangeIgnitionEffect                = UltimateExchangeIgnitionEffectProp.getBoolean(false);
 		}
 		catch (Exception e)
@@ -468,66 +480,121 @@ public class AdditionalRecipe {
 		GameRegistry.registerItem(bedrockMortar, "BedrockMortar");
 		GameRegistry.registerCraftingHandler(bedrockMortar);
 		ModLoader.addName(bedrockMortar, "BedrockMortar");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "BedrockMortar" + ADDID + (bedrockMortarItemID - 256));
+			System.out.println(CONSOLE + "BedrockMortar" + " color " + textureBedrockMortar);
+		}
 
 		diamondMortar     = (DiamondMortar)(new DiamondMortar(diamondMortarItemID - 256)).setUnlocalizedName("diamondmortar").setCreativeTab(ARTabs);
 		diamondMortarItem = (Item)diamondMortar;
 		GameRegistry.registerItem(diamondMortar, "DiamondMortar");
 		GameRegistry.registerCraftingHandler(diamondMortar);
 		ModLoader.addName(diamondMortar, "DiamondMortar");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "DiamondMortar" + ADDID + (diamondMortarItemID - 256));
+			System.out.println(CONSOLE + "DiamondMortar" + " color " + textureDiamondMortar);
+		}
 
 		ironMortar     = (IronMortar)(new IronMortar(ironMortarItemID - 256)).setUnlocalizedName("ironmortar").setCreativeTab(ARTabs);
 		ironMortarItem = (Item)ironMortar;
 		GameRegistry.registerItem(ironMortar, "IronMortar");
 		GameRegistry.registerCraftingHandler(ironMortar);
 		ModLoader.addName(ironMortar, "IronMortar");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "IronMortar" + ADDID + (ironMortarItemID - 256));
+			System.out.println(CONSOLE + "IronMortar" + " color " + textureIronMortar);
+		}
 
 		exchangeIgniniton     = (ExchangeIgnition)(new ExchangeIgnition(exchangeIgnitionItemID - 256)).setUnlocalizedName("exchangeiginiton").setCreativeTab(ARTabs);
 		exchangeIgnitionItem = (Item)exchangeIgniniton;
 		GameRegistry.registerItem(exchangeIgniniton, "ExchangeIgnition");
 		GameRegistry.registerCraftingHandler(exchangeIgniniton);
 		ModLoader.addName(exchangeIgniniton, "ExchangeIgnition");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "ExchangeIgnition" + ADDID + (exchangeIgnitionItemID - 256));
+		}
 
 		ultimateExchangeIgnition     = (UltimateExchangeIgnition)(new UltimateExchangeIgnition(ultimateExchangeIgnitionItemID - 256)).setUnlocalizedName("ultimateexchangeiginiton").setCreativeTab(ARTabs);
 		ultimateExchangeIgnitionItem = (Item)ultimateExchangeIgnition;
 		GameRegistry.registerItem(ultimateExchangeIgnition, "UltimateExchangeIgnition");
 		GameRegistry.registerCraftingHandler(ultimateExchangeIgnition);
 		ModLoader.addName(ultimateExchangeIgnition, "UltimateExchangeIgnition");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "UltimateExchangeIgnition" + ADDID + (ultimateExchangeIgnitionItemID - 256));
+		}
 
 		cheaperExchangeIgnition     = (CheaperExchangeIgnition)(new CheaperExchangeIgnition(cheaperExchangeIgnitionItemID - 256)).setUnlocalizedName("cheaperexchangeiginiton").setCreativeTab(ARTabs);
 		cheaperExchangeIgnitionItem = (Item)cheaperExchangeIgnition;
 		GameRegistry.registerItem(cheaperExchangeIgnition, "CheaperExchangeIgnition");
 		GameRegistry.registerCraftingHandler(cheaperExchangeIgnition);
 		ModLoader.addName(cheaperExchangeIgnition, "CheaperExchangeIgnition");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "CheaperExchangeIgnition" + ADDID + (cheaperExchangeIgnitionItemID - 256));
+		}
 
 		craftingFurnace = (CraftingFurnace)(new CraftingFurnace(craftingFurnaceItemID - 256)).setUnlocalizedName("craftingfurnace").setCreativeTab(ARTabs);
 		craftingFurnaceItem = (Item)craftingFurnace;
 		GameRegistry.registerItem(craftingFurnace,"CraftingFurnace");
 		GameRegistry.registerCraftingHandler(craftingFurnace);
 		ModLoader.addName(craftingFurnace, "CraftingFurnace");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "CraftingFurnace" + ADDID + (craftingFurnaceItemID - 256));
+		}
 
 		gravitationFeatherItem = new GravitationFeather(gravitationFeatherItemID - 256).setUnlocalizedName("gravitationfeather").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(gravitationFeatherItem, "GravitationFeather");
 		GameRegistry.registerItem(gravitationFeatherItem, "GravitationFeather");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "GravitationFeather" + ADDID + (gravitationFeatherItemID - 256));
+		}
 
 		superGravitationFeatherItem = new SuperGravitationFeather(superGravitationFeatherItemID - 256).setUnlocalizedName("supergravitationfeather").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(superGravitationFeatherItem, "SuperGravitationFeather");
 		GameRegistry.registerItem(superGravitationFeatherItem, "SuperGravitationFeather");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "SuperGravitationFeather" + ADDID + (superGravitationFeatherItemID - 256));
+		}
 
 		blackRottenFleshItem = new BlackRottenFlesh(blackRottenFleshItemID - 256).setUnlocalizedName("blackrottenflesh").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(blackRottenFleshItem, "BlackRottenFlesh");
 		GameRegistry.registerItem(blackRottenFleshItem, "BlackRottenFlesh");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "BlackRottenFlesh" + ADDID + (blackRottenFleshItemID - 256));
+		}
 
 		nightVisionTorchItem = new NightVisionTorch(nightVisionTorchItemID - 256).setUnlocalizedName("nightvisiontorch").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(nightVisionTorchItem, "NightVisionTorch");
 		GameRegistry.registerItem(nightVisionTorchItem, "NightVisionTorch");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "NightVisionTorch" + ADDID + (nightVisionTorchItemID - 256));
+		}
 
 		forceBallItem = new ForceBall(forceBallItemID - 256).setUnlocalizedName("forceball").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(forceBallItem, "ForceBall");
 		GameRegistry.registerItem(forceBallItem, "ForceBall");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "ForceBall" + ADDID + (forceBallItemID - 256));
+		}
 
 		circeForceItem = new CirceForce(circeForceItemID - 256).setUnlocalizedName("circeforce").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(circeForceItem, "CirceForce");
 		GameRegistry.registerItem(circeForceItem, "CirceForce");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "CirceForce" + ADDID + (circeForceItemID - 256));
+		}
 
 
 		swordExelectorFirst = (SwordExelectorFirst)(new SwordExelectorFirst(swordExelectorFirstItemID - 256,SWORD_POOR)).setUnlocalizedName("exelectofirst");
@@ -558,6 +625,10 @@ public class AdditionalRecipe {
 		armorBedrockItem[ARMOR_HELMET].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorBedrockItem[ARMOR_HELMET], "BedrockHelmet");
 		GameRegistry.registerItem(armorBedrockItem[ARMOR_HELMET], "BedrockHelmet");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "BedrockHelmet" + ADDID + (armorBedrockID[ARMOR_HELMET] - 256));
+		}
 
 		armorBedrockItem[ARMOR_PLATE] = new BedrockArmor(armorBedrockID[ARMOR_PLATE] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK);
 		armorBedrockItem[ARMOR_PLATE].setUnlocalizedName("bedrockplate");
@@ -565,6 +636,10 @@ public class AdditionalRecipe {
 		armorBedrockItem[ARMOR_PLATE].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorBedrockItem[ARMOR_PLATE], "BedrockChestplate");
 		GameRegistry.registerItem(armorBedrockItem[ARMOR_PLATE], "BedrockChestplate");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "BedrockChestplate" + ADDID + (armorBedrockID[ARMOR_PLATE] - 256));
+		}
 
 		armorBedrockItem[ARMOR_LEGS] = new BedrockArmor(armorBedrockID[ARMOR_LEGS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK);
 		armorBedrockItem[ARMOR_LEGS].setUnlocalizedName("bedrocklegs");
@@ -572,6 +647,10 @@ public class AdditionalRecipe {
 		armorBedrockItem[ARMOR_LEGS].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorBedrockItem[ARMOR_LEGS], "BedrockLeggings");
 		GameRegistry.registerItem(armorBedrockItem[ARMOR_LEGS], "BedrockLeggings");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "BedrockLeggings" + ADDID + (armorBedrockID[ARMOR_LEGS] - 256));
+		}
 
 		armorBedrockItem[ARMOR_BOOTS] = new BedrockArmor(armorBedrockID[ARMOR_BOOTS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK);
 		armorBedrockItem[ARMOR_BOOTS].setUnlocalizedName("bedrockboots");
@@ -579,6 +658,10 @@ public class AdditionalRecipe {
 		armorBedrockItem[ARMOR_BOOTS].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorBedrockItem[ARMOR_BOOTS], "BedrockBoots");
 		GameRegistry.registerItem(armorBedrockItem[ARMOR_BOOTS], "BedrockBoots");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "BedrockBoots" + ADDID + (armorBedrockID[ARMOR_BOOTS] - 256));
+		}
 
 		armorAngelusItem[ARMOR_HELMET] = new BedrockArmor(armorAngelusID[ARMOR_HELMET] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_HELMET, ANGELUS);
 		armorAngelusItem[ARMOR_HELMET].setUnlocalizedName("angelushood");
@@ -586,6 +669,10 @@ public class AdditionalRecipe {
 		armorAngelusItem[ARMOR_HELMET].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorAngelusItem[ARMOR_HELMET], "AngelusHood");
 		GameRegistry.registerItem(armorAngelusItem[ARMOR_HELMET], "AngelusHood");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "AngelusHood" + ADDID + (armorAngelusID[ARMOR_HELMET] - 256));
+		}
 
 		armorAngelusItem[ARMOR_PLATE] = new BedrockArmor(armorAngelusID[ARMOR_PLATE] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_PLATE, ANGELUS);
 		armorAngelusItem[ARMOR_PLATE].setUnlocalizedName("angelusvestment");
@@ -593,6 +680,10 @@ public class AdditionalRecipe {
 		armorAngelusItem[ARMOR_PLATE].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorAngelusItem[ARMOR_PLATE], "AngelusVestment");
 		GameRegistry.registerItem(armorAngelusItem[ARMOR_PLATE], "AngelusVestment");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "AngelusVestment" + ADDID + (armorAngelusID[ARMOR_PLATE] - 256));
+		}
 
 		armorAngelusItem[ARMOR_LEGS] = new BedrockArmor(armorAngelusID[ARMOR_LEGS] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_LEGS, ANGELUS);
 		armorAngelusItem[ARMOR_LEGS].setUnlocalizedName("angelusskirt");
@@ -600,6 +691,10 @@ public class AdditionalRecipe {
 		armorAngelusItem[ARMOR_LEGS].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorAngelusItem[ARMOR_LEGS], "AngelusSkirt");
 		GameRegistry.registerItem(armorAngelusItem[ARMOR_LEGS], "AngelusSkirt");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "AngelusSkirt" + ADDID + (armorAngelusID[ARMOR_LEGS] - 256));
+		}
 
 		armorAngelusItem[ARMOR_BOOTS] = new BedrockArmor(armorAngelusID[ARMOR_BOOTS] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_BOOTS, ANGELUS);
 		armorAngelusItem[ARMOR_BOOTS].setUnlocalizedName("angelusboots");
@@ -607,19 +702,35 @@ public class AdditionalRecipe {
 		armorAngelusItem[ARMOR_BOOTS].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
 		GameRegistry.registerItem(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "AngelusBoots" + ADDID + (armorAngelusID[ARMOR_BOOTS] - 256));
+		}
 
 
 		dustNetherStarItem = new DustNetherStar(dustNetherStarItemID - 256).setUnlocalizedName("dustnetherstar").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(dustNetherStarItem, "DustNetherStar");
 		GameRegistry.registerItem(dustNetherStarItem, "DustNetherStar");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "DustNetherStar" + ADDID + (dustNetherStarItemID - 256));
+		}
 
 		dustBedrockItem = new DustBedrock(dustBedrockItemID - 256).setUnlocalizedName("dustbedrock").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(dustBedrockItem, "DustBedrock");
 		GameRegistry.registerItem(dustBedrockItem, "DustBedrock");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "DustBedrock" + ADDID + (dustBedrockItemID - 256));
+		}
 
 		dustExchangeIgnitionItem = new DustBedrock(dustExchangeIgnitionItemID - 256).setUnlocalizedName("dustexchangeignition").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(dustExchangeIgnitionItem, "DustExchangeIgnition");
 		GameRegistry.registerItem(dustExchangeIgnitionItem, "DustExchangeIgnition");
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "DustExchangeIgnition" + ADDID + (dustExchangeIgnitionItemID - 256));
+		}
 
 		addchestgenhooks = new AddChestGenHooks();
 		addchestgenhooks.AddChestItems();
@@ -627,10 +738,30 @@ public class AdditionalRecipe {
 		ModInfo.loadInfo(meta);
 
 		MinecraftForge.EVENT_BUS.register(new NoFallDamageEventHooks());
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "NoFallDamageEventHooks" + " added.");
+		}
 		MinecraftForge.EVENT_BUS.register(new FlyingEventHooks());
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "FlyingEventHooks" + " added.");
+		}
 		MinecraftForge.EVENT_BUS.register(new BedrockArmorLivingEventHooks());
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "BedrockArmorLivingEventHooks" + " added.");
+		}
 		MinecraftForge.EVENT_BUS.register(new AngelusArmorLivingEventHooks());
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "AngelusArmorLivingEventHooks" + " added.");
+		}
 		MinecraftForge.EVENT_BUS.register(new CirceForceEventHooks());
+		if(consoleOut)
+		{
+			System.out.println(CONSOLE + "CirceForceEventHooks" + " added.");
+		}
 
 		if(digEndPortal)
 		{

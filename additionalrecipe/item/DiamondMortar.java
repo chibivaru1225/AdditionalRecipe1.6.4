@@ -54,7 +54,7 @@ public class DiamondMortar extends Item implements ICraftingHandler
     //既存のハサミと見分けるため、テクスチャを赤で乗算
     public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return 0x8888FF;
+        return AdditionalRecipe.textureDiamondMortar;
     }
 
     //1.5.2のテクスチャ指定

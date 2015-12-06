@@ -1,12 +1,12 @@
 package chibivaru.additionalrecipe.recipe;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.oredict.OreDictionary;
+import chibivaru.additionalrecipe.AdditionalRecipe;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeCrystal {
 	ItemStack CertusQuartz,CertusDust,NetherDust;
@@ -36,7 +36,7 @@ public class RecipeCrystal {
 			GameRegistry.addSmelting(Block.whiteStone.blockID, new ItemStack(CertusDust.getItem(),4,7), 0.0f);
 			GameRegistry.addShapelessRecipe(CertusQuartz,new Object[]{CertusDust,Block.sand});
 			GameRegistry.addShapelessRecipe(new ItemStack(Item.netherQuartz,1,0),new Object[]{NetherDust,Block.sand});
-			if(AdditionalRecipe.printInAddRecipe)
+			if(AdditionalRecipe.consoleOut)
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "CertusQuartz" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				System.out.println(AdditionalRecipe.CONSOLE + "NetherQuartz" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -171,14 +171,14 @@ public class RecipeCrystal {
 					GameRegistry.addShapelessRecipe(WhiteCrystal,new Object[]{WhiteShard,WhiteShard,WhiteShard,WhiteShard});
 					FurnaceRecipes.smelting().addSmelting(WhiteCrystal.itemID,15,new ItemStack(WhiteShard.getItem(),4,15), 0.0f);
 				}
-				if(AdditionalRecipe.printInAddRecipe)
+				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "Crystals" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.printInAddRecipe)
+				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "Crystals" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
