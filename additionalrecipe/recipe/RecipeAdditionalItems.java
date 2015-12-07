@@ -408,14 +408,36 @@ public class RecipeAdditionalItems {
 							Character.valueOf('V'),Block.bedrock}));
 				if(AdditionalRecipe.consoleOut)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "Dark Spear 'DAYO'" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "Evil Spear 'DAYO'" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
 				if(AdditionalRecipe.consoleOut)
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "Dark Spear 'DAYO'" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "Evil Spear 'DAYO'" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
+				}
+			}
+			if(AdditionalRecipe.craftingYORU)
+			{
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						AdditionalRecipe.swordYORUItem,
+						new Object[]{" X ","YXY","ZVZ",
+							Character.valueOf('X'),Block.blockIron,
+							Character.valueOf('Y'),Block.bedrock,
+							Character.valueOf('Z'),Block.blockDiamond,
+							Character.valueOf('V'),"ExchangeIgnition"}));
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "Villany Sword 'YORU'" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+				}
+			}
+			else
+			{
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "Villany Sword 'YORU'" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 		}

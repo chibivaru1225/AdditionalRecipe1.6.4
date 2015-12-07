@@ -44,6 +44,7 @@ import chibivaru.additionalrecipe.weapons.SpearDAYO;
 import chibivaru.additionalrecipe.weapons.SwordExelectorFirst;
 import chibivaru.additionalrecipe.weapons.SwordExelectorLast;
 import chibivaru.additionalrecipe.weapons.SwordExelectorSecond;
+import chibivaru.additionalrecipe.weapons.SwordYORU;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -88,7 +89,7 @@ public class AdditionalRecipe {
 	public static final String ADDID = " added ID ";
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID;
 	public static int superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID,forceBallItemID,circeForceItemID;
-	public static int swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID,swordExelectorFirstItemID,swordExelectorSecondItemID,swordExelectorLastItemID,bladeNIOHItemID,spearDAYOItemID;
+	public static int swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID,swordExelectorFirstItemID,swordExelectorSecondItemID,swordExelectorLastItemID,bladeNIOHItemID,spearDAYOItemID,swordYORUItemID;
 	public static int[] armorBedrockID = new int[4];
 	public static int[] armorAngelusID = new int[4];
 	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
@@ -111,9 +112,10 @@ public class AdditionalRecipe {
 	public static SwordExelectorLast swordExelectorLast;
 	public static BladeNIOH bladeNIOH;
 	public static SpearDAYO spearDAYO;
+	public static SwordYORU swordYORU;
 	public static Item bedrockMortarItem,exchangeIgnitionItem,ironMortarItem,diamondMortarItem,dustNetherStarItem,dustBedrockItem,gravitationFeatherItem,superGravitationFeatherItem;
 	public static Item craftingFurnaceItem,ultimateExchangeIgnitionItem,dustExchangeIgnitionItem,blackRottenFleshItem,cheaperExchangeIgnitionItem,nightVisionTorchItem,forceBallItem,circeForceItem;
-	public static Item swordMoonlightItem,swordDarkslayerItem,swordMoonlightPowerdItem,swordExelectorFirstItem,swordExelectorSecondItem,swordExelectorLastItem,bladeNIOHItem,spearDAYOItem;
+	public static Item swordMoonlightItem,swordDarkslayerItem,swordMoonlightPowerdItem,swordExelectorFirstItem,swordExelectorSecondItem,swordExelectorLastItem,bladeNIOHItem,spearDAYOItem,swordYORUItem;
 	public static Item[] armorBedrockItem = new Item[4];
 	public static Item[] armorAngelusItem = new Item[4];
 	public static boolean craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,digBCSpring,digEndPortal,craftingEndPortal,craftingPinkSlimeBall,craftingFlour,craftingLinkModifer;
@@ -125,7 +127,7 @@ public class AdditionalRecipe {
 	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather,craftingCirceForce;
 	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
 	public static boolean craftingBedrockArmor,craftingAngelusArmor;
-	public static boolean craftingWeapons,craftingNIOH,craftingDAYO;
+	public static boolean craftingWeapons,craftingNIOH,craftingDAYO,craftingYORU;
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust,craftingButton;
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
@@ -180,6 +182,7 @@ public class AdditionalRecipe {
 			Property SwordExelectorLastProp               = cfg.getItem("WeaponItemID"   ,"SwordExelectorLastID"            ,12556);
 			Property BladeNIOHProp                        = cfg.getItem("WeaponItemID"   ,"BladeNIOHID"                     ,12557);
 			Property SpearDAYOProp                        = cfg.getItem("WeaponItemID"   ,"SpearDAYOID"                     ,12558);
+			Property SwordYORUProp                        = cfg.getItem("WeaponItemID"   ,"SwordYORUID"                     ,12559);
 
 			Property DustNetherStarItemIDProp             = cfg.getItem("DustItemID"     ,"DustNetherStarItemID"            ,12600);
 			Property DustBedrockItemIDProp                = cfg.getItem("DustItemID"     ,"DustBedrockItemID"               ,12601);
@@ -298,7 +301,8 @@ public class AdditionalRecipe {
 			Property CraftingAngelusArmorProp             = cfg.get("AdditionalRecipe"   ,"AngelusArmor"                    ,true);
 			Property CraftingWeaponsProp                  = cfg.get("AdditionalRecipe"   ,"Weapons"                         ,true);
 			Property CraftingNIOHProp                     = cfg.get("AdditionalRecipe"   ,"NIOH"                            ,true);
-			Property CraftingDAYOProp                     = cfg.get("AdditionalRecipe"   ,"Dark Spear DAYO"                 ,true);
+			Property CraftingDAYOProp                     = cfg.get("AdditionalRecipe"   ,"Evil Spear DAYO"                 ,true);
+			Property CraftingYORUProp                     = cfg.get("AdditionalRecipe"   ,"Villany Sword YORU"              ,true);
 
 			Property ConsoleOutProp                       = cfg.get("Another"            ,"ConsoleOut"                      ,true);
 			Property UltimateExchangeIgnitionEffectProp   = cfg.get("Another"            ,"UltimateExchangeIgnitionEffect"  ,false);
@@ -340,6 +344,7 @@ public class AdditionalRecipe {
 			swordExelectorLastItemID                      = SwordExelectorLastProp.getInt();
 			bladeNIOHItemID                               = BladeNIOHProp.getInt();
 			spearDAYOItemID                               = SpearDAYOProp.getInt();
+			swordYORUItemID                               = SwordYORUProp.getInt();
 
 			armorBedrockID[ARMOR_HELMET]                  = ArmorBedrockHelmetIDProp.getInt();
 			armorBedrockID[ARMOR_PLATE]                   = ArmorBedrockPlateIDProp.getInt();
@@ -459,6 +464,7 @@ public class AdditionalRecipe {
 			craftingWeapons                               = CraftingWeaponsProp.getBoolean(true);
 			craftingNIOH                                  = CraftingNIOHProp.getBoolean(true);
 			craftingDAYO                                  = CraftingDAYOProp.getBoolean(true);
+			craftingYORU                                  = CraftingYORUProp.getBoolean(true);
 
 			consoleOut                                    = ConsoleOutProp.getBoolean(true);
 			ultimateExchangeIgnitionEffect                = UltimateExchangeIgnitionEffectProp.getBoolean(false);
@@ -597,6 +603,13 @@ public class AdditionalRecipe {
 		LanguageRegistry.addName(spearDAYO,"Dark Spear 'DAYO'");
 		LanguageRegistry.instance().addNameForObject(spearDAYO,"ja_JP","悪槍「堕那」");
 		GameRegistry.registerItem(spearDAYO,"DAYO");
+
+		swordYORU = (SwordYORU)(new SwordYORU(swordYORUItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("yoru");
+		swordYORU.setCreativeTab(ARTabs);
+		swordYORU.setTextureName("additionalrecipe:YORU");
+		LanguageRegistry.addName(swordYORU,"Villainy Sword 'YORU'");
+		LanguageRegistry.instance().addNameForObject(swordYORU,"ja_JP","邪剣「夜」");
+		GameRegistry.registerItem(swordYORU,"YORU");
 
 
 		armorBedrockItem[ARMOR_HELMET] = new BedrockArmor(armorBedrockID[ARMOR_HELMET] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);

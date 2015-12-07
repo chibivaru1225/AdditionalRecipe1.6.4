@@ -23,6 +23,7 @@ public class WeaponsEventHooks {
 	public void Weapons(EntityPlayer player)
 	{
 		boolean spearDAYO = AdditionalRecipe.hasItem(AdditionalRecipe.spearDAYOItemID, player);
+		boolean swordYORU = AdditionalRecipe.hasItem(AdditionalRecipe.swordYORUItemID, player);
 		if(spearDAYO)
 		{
 			if(!(player.experienceLevel > 10))
@@ -31,6 +32,15 @@ public class WeaponsEventHooks {
 				player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 10, 1));
 			}
 			player.addPotionEffect(new PotionEffect(Potion.poison.id, 10, 1));
+		}
+		if(swordYORU)
+		{
+			if(player.experienceLevel < 50)
+			{
+				player.addPotionEffect(new PotionEffect(Potion.hunger.id, 10, 1));
+				player.addPotionEffect(new PotionEffect(Potion.weakness.id, 10, 1));
+			}
+			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 10, 1));
 		}
 	}
 }
