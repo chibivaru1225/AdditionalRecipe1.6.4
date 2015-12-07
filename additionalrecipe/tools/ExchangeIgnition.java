@@ -1,23 +1,23 @@
-package chibivaru.additionalrecipe.item;
+package chibivaru.additionalrecipe.tools;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class DiamondMortar extends Item implements ICraftingHandler
+public class ExchangeIgnition extends Item implements ICraftingHandler
 {
     private boolean repair;
-    public DiamondMortar(int par1)
+    private boolean effect;
+
+    public ExchangeIgnition(int par1)
     {
         super(par1);
         this.setMaxStackSize(1);
-        this.setMaxDamage(AdditionalRecipe.diamondMortarDamage);
     }
 
     //アイテムがクラフト後に戻らないようにする
@@ -35,17 +35,13 @@ public class DiamondMortar extends Item implements ICraftingHandler
     //クラフト後のアイテムを、ダメージを与えて返す
     public ItemStack getContainerItemStack(ItemStack itemStack)
     {
-        if (itemStack != null && itemStack.itemID == this.itemID)
-        {
-            itemStack.setItemDamage(itemStack.getItemDamage() +1);
-        }
         return itemStack;
     }
 
     @Override
     public void onCrafting(EntityPlayer player, ItemStack item, IInventory craftMatrix)
     {
-        repair = this.itemID == item.itemID;
+        this.repair = this.itemID == item.itemID;
     }
 
     @Override
@@ -54,13 +50,25 @@ public class DiamondMortar extends Item implements ICraftingHandler
     //既存のハサミと見分けるため、テクスチャを赤で乗算
     public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return AdditionalRecipe.textureDiamondMortar;
+        return 0x666666;
     }
 
     //1.5.2のテクスチャ指定
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.itemIcon = Item.bowlEmpty.getIconFromDamage(0);
+        this.itemIcon = Item.enderPearl.getIconFromDamage(0);
     }
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack par1ItemStack)
+    {
+        return !this.effect;
+    }
+	/*@Override
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	{
+		this.effect = !this.effect;
+		ExchangeIgnitionLivingEventHooks.flyBoost = this.effect;
+		return par1ItemStack;
+	}*/
 }

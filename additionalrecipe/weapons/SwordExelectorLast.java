@@ -1,4 +1,4 @@
-package chibivaru.additionalrecipe.item;
+package chibivaru.additionalrecipe.weapons;
 
 import java.util.List;
 

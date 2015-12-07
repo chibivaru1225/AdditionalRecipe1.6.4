@@ -1,4 +1,4 @@
-package chibivaru.additionalrecipe.item;
+package chibivaru.additionalrecipe.weapons;
 
 import java.util.List;
 
@@ -12,13 +12,13 @@ import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class SwordExelectorSecond  extends ItemSword
+public class SwordExelectorFirst extends ItemSword
 {
 	private int weaponDamage;
 	private EnumToolMaterial toolMaterial;
 	private boolean can;
 	private int exp;
-	public SwordExelectorSecond(int itemID, EnumToolMaterial par2EnumToolMaterial)
+	public SwordExelectorFirst(int itemID, EnumToolMaterial par2EnumToolMaterial)
 	{
 		super(itemID, par2EnumToolMaterial);
 		this.toolMaterial = par2EnumToolMaterial;
@@ -44,13 +44,9 @@ public class SwordExelectorSecond  extends ItemSword
 	@Override
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
 	{
-		if(this.exp > AdditionalRecipe.exelectorSecondExp)
+		if(this.exp > AdditionalRecipe.exelectorFirstExp)
 		{
 			this.can = true;
-		}
-		else
-		{
-			this.can = false;
 		}
 		this.exp++;
 		return true;
@@ -64,7 +60,7 @@ public class SwordExelectorSecond  extends ItemSword
 		}
 		else
 		{
-			par3List.add("Exp = " + this.exp + " / " + AdditionalRecipe.exelectorSecondExp);
+			par3List.add("Exp = " + this.exp + " / " + AdditionalRecipe.exelectorFirstExp);
 		}
 	}
 }

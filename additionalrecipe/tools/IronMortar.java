@@ -1,4 +1,4 @@
-package chibivaru.additionalrecipe.item;
+package chibivaru.additionalrecipe.tools;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;

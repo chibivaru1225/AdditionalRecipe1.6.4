@@ -1,19 +1,18 @@
-package chibivaru.additionalrecipe.item;
+package chibivaru.additionalrecipe.tools;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BedrockMortar extends Item implements ICraftingHandler
+public class CraftingFurnace extends Item implements ICraftingHandler
 {
     private boolean repair;
-    public BedrockMortar(int par1)
+    public CraftingFurnace(int par1)
     {
         super(par1);
         this.setMaxStackSize(1);
@@ -47,14 +46,14 @@ public class BedrockMortar extends Item implements ICraftingHandler
     @Override
     public void onSmelting(EntityPlayer player, ItemStack item){};
 
-    public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
-    {
-        return AdditionalRecipe.textureBedrockMortar;
-    }
-
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.itemIcon = Item.bowlEmpty.getIconFromDamage(0);
+        this.itemIcon = Item.coal.getIconFromDamage(0);
+    }
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack par1ItemStack)
+    {
+        return true;
     }
 }
