@@ -24,6 +24,7 @@ import chibivaru.additionalrecipe.event.CirceForceEventHooks;
 import chibivaru.additionalrecipe.event.FlyingEventHooks;
 import chibivaru.additionalrecipe.event.ModInfo;
 import chibivaru.additionalrecipe.event.NoFallDamageEventHooks;
+import chibivaru.additionalrecipe.event.WeaponsEventHooks;
 import chibivaru.additionalrecipe.item.BlackRottenFlesh;
 import chibivaru.additionalrecipe.item.CirceForce;
 import chibivaru.additionalrecipe.item.ForceBall;
@@ -673,6 +674,7 @@ public class AdditionalRecipe {
 		MinecraftForge.EVENT_BUS.register(new BedrockArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new AngelusArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new CirceForceEventHooks());
+		MinecraftForge.EVENT_BUS.register(new WeaponsEventHooks());
 
 		if(digEndPortal)
 		{
