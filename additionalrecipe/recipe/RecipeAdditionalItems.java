@@ -396,6 +396,28 @@ public class RecipeAdditionalItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "NIOH" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
+			if(AdditionalRecipe.craftingDAYO)
+			{
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						AdditionalRecipe.spearDAYOItem,
+						new Object[]{"XX ","XYZ"," ZV",
+							Character.valueOf('X'),Item.swordDiamond,
+							Character.valueOf('Y'),"ExchangeIgnition",
+							Character.valueOf('Z'),Block.blockGold,
+							Character.valueOf('V'),Block.bedrock}));
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "Dark Spear 'DAYO'" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+				}
+			}
+			else
+			{
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "Dark Spear 'DAYO'" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
+				}
+			}
 		}
 	}
 }
