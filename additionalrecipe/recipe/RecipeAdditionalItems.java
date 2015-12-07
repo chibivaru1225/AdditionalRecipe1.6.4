@@ -372,5 +372,30 @@ public class RecipeAdditionalItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "CirceForce" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
+		if(AdditionalRecipe.craftingWeapons)
+		{
+			if(AdditionalRecipe.craftingNIOH)
+			{
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						AdditionalRecipe.bladeNIOHItem,
+						new Object[]{"X X","YZY","VZV",
+							Character.valueOf('X'),Item.swordIron,
+							Character.valueOf('Y'),Item.gunpowder,
+							Character.valueOf('Z'),Block.blockIron,
+							Character.valueOf('V'),Block.bedrock}));;
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "NIOH" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+				}
+			}
+			else
+			{
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "NIOH" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
+				}
+			}
+		}
 	}
 }
