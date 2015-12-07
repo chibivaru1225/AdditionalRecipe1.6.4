@@ -16,7 +16,14 @@ public class BladeNIOH extends ItemSword
 		this.toolMaterial = par2EnumToolMaterial;
 		this.setMaxStackSize(1);
 		this.weaponDamage = (int) par2EnumToolMaterial.getDamageVsEntity();
-		this.setMaxDamage(0);
+		if(AdditionalRecipe.bladeNIOHPreventDamage)
+		{
+			this.setMaxDamage(0);
+		}
+		else
+		{
+			this.setMaxDamage(AdditionalRecipe.bladeNIOHDamage);
+		}
 	}
 	@SideOnly(Side.CLIENT)
 	public void registerIcon(IconRegister register)

@@ -92,7 +92,7 @@ public class AdditionalRecipe {
 	public static int[] armorBedrockID = new int[4];
 	public static int[] armorAngelusID = new int[4];
 	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
-	public static int diamondMortarDamage,iromMortarDamage;
+	public static int diamondMortarDamage,iromMortarDamage,bladeNIOHDamage;
 	public static int cheaperExchangeIgnitionDamage;
 	public static int bedrockMortarCrafting;
 	public static int diamondMortarCrafting;
@@ -129,7 +129,7 @@ public class AdditionalRecipe {
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust,craftingButton;
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
-	public static boolean consoleOut,ultimateExchangeIgnitionEffect;
+	public static boolean consoleOut,ultimateExchangeIgnitionEffect,bladeNIOHPreventDamage;
 	public static RecipeHandler recipehandler;
 	public static AddChestGenHooks addchestgenhooks;
 	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
@@ -198,6 +198,7 @@ public class AdditionalRecipe {
 			Property DiamondMortarDamageProp              = cfg.get("ItemDamage"         ,"DiamondMortar"                   ,1561);
 			Property IromMortarDamageProp                 = cfg.get("ItemDamage"         ,"IromMortar"                      ,250);
 			Property CheaperExchangeIgnitionDamageProp    = cfg.get("ItemDamage"         ,"CheaperExchangeIgnition"         ,128);
+			Property BladeNIOHDamageProp                  = cfg.get("ItemDamage"         ,"NIOH"                            ,4);
 
 			Property SmeltingToolProp                     = cfg.get("Smelting"           ,"RecycleTool"                     ,true);
 			Property SmeltingToolWoodProp                 = cfg.get("Smelting"           ,"WoodTool"                        ,true);
@@ -301,6 +302,7 @@ public class AdditionalRecipe {
 
 			Property ConsoleOutProp                       = cfg.get("Another"            ,"ConsoleOut"                      ,true);
 			Property UltimateExchangeIgnitionEffectProp   = cfg.get("Another"            ,"UltimateExchangeIgnitionEffect"  ,false);
+			Property BladeNIOHPreventDamageProp           = cfg.get("Another"            ,"NIOHPreventDamage"               ,true);
 
 			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
 			SmeltingNetherrackProp.comment                = "Require Dirt";
@@ -356,6 +358,7 @@ public class AdditionalRecipe {
 			diamondMortarDamage                           = DiamondMortarDamageProp.getInt();
 			iromMortarDamage                              = IromMortarDamageProp.getInt();
 			cheaperExchangeIgnitionDamage                 = CheaperExchangeIgnitionDamageProp.getInt();
+			bladeNIOHDamage                               = BladeNIOHDamageProp.getInt();
 
 			smeltingTool                                  = SmeltingToolProp.getBoolean(true);
 			smeltingToolWood                              = SmeltingToolWoodProp.getBoolean(true);
@@ -459,6 +462,7 @@ public class AdditionalRecipe {
 
 			consoleOut                                    = ConsoleOutProp.getBoolean(true);
 			ultimateExchangeIgnitionEffect                = UltimateExchangeIgnitionEffectProp.getBoolean(false);
+			bladeNIOHPreventDamage                        = BladeNIOHPreventDamageProp.getBoolean(true);
 		}
 		catch (Exception e)
 		{
