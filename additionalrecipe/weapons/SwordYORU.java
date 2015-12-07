@@ -2,15 +2,15 @@ package chibivaru.additionalrecipe.weapons;
 
 import java.util.List;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.EnumChatFormatting;
+import chibivaru.additionalrecipe.AdditionalRecipe;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class SwordYORU extends ItemSword
 {
@@ -32,7 +32,7 @@ public class SwordYORU extends ItemSword
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
-		par3List.add((new StringBuilder()).append(EnumChatFormatting.DARK_PURPLE).append("Villany Corruption ").append(EnumChatFormatting.RED).append("V"));
+		par3List.add((new StringBuilder()).append(EnumChatFormatting.DARK_PURPLE).append("Villany Corruption ").append(EnumChatFormatting.RED).append("V").toString());
 	}
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack)

@@ -1,6 +1,5 @@
 package chibivaru.additionalrecipe.event;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
@@ -8,6 +7,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import chibivaru.additionalrecipe.AdditionalRecipe;
 
 public class WeaponsEventHooks {
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
@@ -28,19 +28,19 @@ public class WeaponsEventHooks {
 		{
 			if(!(player.experienceLevel > 10))
 			{
-				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10, 1));
-				player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 10, 1));
+				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10));
+				player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 10));
 			}
-			player.addPotionEffect(new PotionEffect(Potion.poison.id, 10, 1));
+			player.addPotionEffect(new PotionEffect(Potion.poison.id, 10));
 		}
 		if(swordYORU)
 		{
 			if(player.experienceLevel < 50)
 			{
-				player.addPotionEffect(new PotionEffect(Potion.hunger.id, 10, 1));
-				player.addPotionEffect(new PotionEffect(Potion.weakness.id, 10, 1));
+				player.addPotionEffect(new PotionEffect(Potion.hunger.id, 10));
+				player.addPotionEffect(new PotionEffect(Potion.weakness.id, 10));
 			}
-			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 10, 1));
+			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 10));
 		}
 	}
 }

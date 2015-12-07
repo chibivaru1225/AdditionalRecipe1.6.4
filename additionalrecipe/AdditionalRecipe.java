@@ -82,6 +82,9 @@ public class AdditionalRecipe {
 	public static final String MODNAME = "AdditionalRecipe";
 	public static final String VERSION = "2.01";
 
+	//@SidedProxy(clientSide = "chibivaru.additionalrecipe.event.ClientProxy", serverSide = "chibivaru.additionalrecipe.event.CommonProxy")
+	//public static CommonProxy proxy;
+
 	@Metadata(MODID)
 	public static ModMetadata meta;
 
@@ -297,7 +300,7 @@ public class AdditionalRecipe {
 			Property CraftingIronMortarProp               = cfg.get("AdditionalRecipe"   ,"IronMortar"                      ,true);
 			Property CraftingDiamondMortarProp            = cfg.get("AdditionalRecipe"   ,"DiamondMortar"                   ,true);
 			Property CraftingBedrockMortarProp            = cfg.get("AdditionalRecipe"   ,"BedrockMortar"                   ,true);
-			Property CraftingCirceForceProp               = cfg.get("AdditionalRecipe"   ,"CirceForce"                      ,true);
+			Property CraftingCirceForceProp               = cfg.get("AdditionalRecipe"   ,"CirceForce"                      ,false);
 			Property CraftingDustNetherStarProp           = cfg.get("AdditionalRecipe"   ,"DustNetherStar"                  ,false);
 			Property CraftingDustBedrockProp              = cfg.get("AdditionalRecipe"   ,"DustBedrock"                     ,false);
 			Property CraftingBedrockArmorProp             = cfg.get("AdditionalRecipe"   ,"BedrockArmor"                    ,true);
@@ -494,6 +497,8 @@ public class AdditionalRecipe {
 			craftingDifficulty = 0;
 		}
 
+		//proxy.registers();
+
 		ARMOR_BEDROCK  = EnumHelper.addArmorMaterial("BEDROCK" , 1, new int[] {10,10,10,10},20);
 		ARMOR_PRIDE    = EnumHelper.addArmorMaterial("PRIDE"   , 1, new int[] {15,15,15,15},30);
 		ARMOR_WRATH    = EnumHelper.addArmorMaterial("WRATH"   , 1, new int[] {15,15,15,15},30);
@@ -600,12 +605,14 @@ public class AdditionalRecipe {
 		bladeNIOH = (BladeNIOH)(new BladeNIOH(bladeNIOHItemID - 256,WEAPON_PHANTASM)).setUnlocalizedName("nioh");
 		bladeNIOH.setCreativeTab(ARTabs);
 		bladeNIOH.setTextureName("additionalrecipe:NIOH");
+		bladeNIOHItem = (Item)bladeNIOH;
 		LanguageRegistry.addName(bladeNIOH,"NIOH");
 		GameRegistry.registerItem(bladeNIOH,"NIOH");
 
 		spearDAYO = (SpearDAYO)(new SpearDAYO(spearDAYOItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("dayo");
 		spearDAYO.setCreativeTab(ARTabs);
 		spearDAYO.setTextureName("additionalrecipe:DAYO");
+		spearDAYOItem = (Item)spearDAYO;
 		LanguageRegistry.addName(spearDAYO,"Dark Spear 'DAYO'");
 		LanguageRegistry.instance().addNameForObject(spearDAYO,"ja_JP","悪槍「堕那」");
 		GameRegistry.registerItem(spearDAYO,"DAYO");
@@ -613,13 +620,16 @@ public class AdditionalRecipe {
 		swordYORU = (SwordYORU)(new SwordYORU(swordYORUItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("yoru");
 		swordYORU.setCreativeTab(ARTabs);
 		swordYORU.setTextureName("additionalrecipe:YORU");
+		swordYORUItem = (Item)swordYORU;
 		LanguageRegistry.addName(swordYORU,"Villainy Sword 'YORU'");
 		LanguageRegistry.instance().addNameForObject(swordYORU,"ja_JP","邪剣「夜」");
 		GameRegistry.registerItem(swordYORU,"YORU");
 
-		multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("k2");
+		//multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("k2");
+		multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256)).setUnlocalizedName("k2");
 		multiK2.setCreativeTab(ARTabs);
-		multiK2.setTextureName("additionalrecipe:K2GS");
+		//multiK2.setTextureName("additionalrecipe:K2GS");
+		multiK2Item = (Item)multiK2;
 		LanguageRegistry.addName(multiK2,"K2's Multi-Weapon");
 		GameRegistry.registerItem(multiK2, "K2");
 
