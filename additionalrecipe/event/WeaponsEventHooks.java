@@ -24,6 +24,7 @@ public class WeaponsEventHooks {
 	{
 		boolean spearDAYO = AdditionalRecipe.hasItem(AdditionalRecipe.spearDAYOItemID, player);
 		boolean swordYORU = AdditionalRecipe.hasItem(AdditionalRecipe.swordYORUItemID, player);
+		boolean multiK2   = AdditionalRecipe.hasItem(AdditionalRecipe.multiK2ItemID, player);
 		if(spearDAYO)
 		{
 			if(!(player.experienceLevel > 10))
@@ -42,5 +43,33 @@ public class WeaponsEventHooks {
 			}
 			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 10));
 		}
+		/*
+		if(multiK2)
+		{
+			switch(AdditionalRecipe.multiK2.mode)
+			{
+				case 0:
+				{
+					if(!player.isPotionActive(Potion.moveSlowdown.id))
+					{
+						player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id,20*30));
+					}
+					if(!player.isPotionActive(Potion.digSlowdown.id))
+					{
+						player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id,20*30));
+					}
+					break;
+				}
+				case 4:
+				{
+					if(!player.isPotionActive(Potion.regeneration.id))
+					{
+						player.addPotionEffect(new PotionEffect(Potion.regeneration.id,20*30));
+					}
+					break;
+				}
+			}
+		}
+		*/
 	}
 }

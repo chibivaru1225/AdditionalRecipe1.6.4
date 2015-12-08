@@ -6,8 +6,11 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
@@ -16,18 +19,19 @@ import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-//public class MultiK2 extends ItemSword
-public class MultiK2 extends Item
+public class MultiK2 extends ItemSword
+//public class MultiK2 extends Item
 {
 	private float weaponDamage = 10.0f;
     private boolean effect;
     public int mode;
     private EnumToolMaterial toolMaterial;
     private Icon[] icons = new Icon[4];
-    public MultiK2(int par1)
+    public MultiK2(int par1,EnumToolMaterial par2toolMaterial)
+    //public MultiK2(int par1)
 	{
-		super(par1);
-		//super(par1, par2toolMaterial);
+		//super(par1);
+		super(par1, par2toolMaterial);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(0);
 		this.setTextureName("additionalrecipe:K2GS");
@@ -44,79 +48,119 @@ public class MultiK2 extends Item
 		icons[3] = register.registerIcon(AdditionalRecipe.MODID + ":K2WA");
 	}
 	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityPlayer)
+	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
 	{
 		if(world.isRemote)
 		{
-			mode++;
-			if(mode > 3)
+			NBTTagCompound nbttagcompound = itemStack.getTagCompound();
+			int mk2;
+			if(nbttagcompound == null)
 			{
-				mode = 0;
+				System.out.println();
+				nbttagcompound = new NBTTagCompound();
+				itemStack.setTagCompound(nbttagcompound);
+				mk2 = 0;
+				System.out.println(mk2+mk2);
 			}
-			switch(mode)
+			else
+			{
+				mk2 = nbttagcompound.getInteger("adr.mk2");
+				System.out.println(mk2+mk2);
+			}
+			mk2 = mk2 + 1;
+			if(mk2 > 3)
+			{
+				mk2 = 0;
+			}
+			switch(mk2)
 			{
 				case 0:
 				{
 					this.weaponDamage = 40.0f;
-					this.setTextureName(AdditionalRecipe.MODID + ":K2GS");
 					break;
 				}
 				case 1:
 				{
 					this.weaponDamage = 20.0f;
-					this.setTextureName(AdditionalRecipe.MODID + ":K2LS");
 					break;
 				}
 				case 2:
 				{
 					this.weaponDamage = 10.0f;
-					this.setTextureName(AdditionalRecipe.MODID + ":K2LP");
 					break;
 				}
 				case 3:
 				{
 					this.weaponDamage = 5.0f;
-					this.setTextureName(AdditionalRecipe.MODID + ":K2WA");
 					break;
 				}
 			}
-			//System.out.println(this.weaponDamage);
+			nbttagcompound.setInteger("adr.mk2",mk2);
+			System.out.println(mk2);
 		}
-		return itemstack;
+		return itemStack;
 	}
 	@Override
-	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
+	public boolean onLeftClickEntity(ItemStack itemStack, EntityPlayer player, Entity entity)
 	{
+		NBTTagCompound nbttagcompound = itemStack.getTagCompound();
+		int mk2;
+		if(nbttagcompound == null)
+		{
+			nbttagcompound = new NBTTagCompound();
+			itemStack.setTagCompound(nbttagcompound);
+			mk2 = 0;
+		}
+		else
+		{
+			mk2 = nbttagcompound.getInteger("adr.mk2");
+		}
 		//System.out.println(weaponDamage);
+		if(mk2 == 2)
+		{
+			entity.hurtResistantTime = 0;
+		}
 		return entity.attackEntityFrom(DamageSource.causePlayerDamage(player),weaponDamage);
 	}
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
-		switch(mode)
+		NBTTagCompound nbttagcompound = par1ItemStack.getTagCompound();
+		int mk2;
+		if(nbttagcompound == null)
+		{
+			nbttagcompound = new NBTTagCompound();
+			par1ItemStack.setTagCompound(nbttagcompound);
+			mk2 = 0;
+		}
+		else
+		{
+			mk2 = nbttagcompound.getInteger("adr.mk2");
+		}
+		switch(mk2)
 		{
 			case 0:
 			{
 				par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append("Great Sword").toString());
-				par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+39").append(EnumChatFormatting.RED).append(" Attack Power").toString());
+				//par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+39").append(EnumChatFormatting.RED).append(" Attack Power").toString());
 				break;
 			}
 			case 1:
 			{
 				par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append("Long Sword").toString());
-				par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+19").append(EnumChatFormatting.RED).append(" Attack Power").toString());
+				//par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+19").append(EnumChatFormatting.RED).append(" Attack Power").toString());
 				break;
 			}
 			case 2:
 			{
 				par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append("Lapier").toString());
-				par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+9").append(EnumChatFormatting.RED).append(" Attack Power").toString());
+				//par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+9").append(EnumChatFormatting.RED).append(" Attack Power").toString());
 				break;
 			}
 			case 3:
 			{
 				par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append("Wand").toString());
-				par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+4").append(EnumChatFormatting.RED).append(" Attack Power").toString());
+				//par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+4").append(EnumChatFormatting.RED).append(" Attack Power").toString());
 				break;
 			}
 		}
@@ -129,37 +173,69 @@ public class MultiK2 extends Item
 			if(entity instanceof EntityPlayer)
 			{
 				EntityPlayer player = (EntityPlayer)entity;
-				if(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID))
+				if(player.inventory.hasItem(AdditionalRecipe.multiK2ItemID))
 				{
-					switch(mode)
+					switch(this.mode)
 					{
 						case 0:
 						{
-							this.weaponDamage = 40.0f;
-							setTextureName(AdditionalRecipe.MODID + ":K2GS");
+							if(!player.isPotionActive(Potion.moveSlowdown.id))
+							{
+								player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id,20*30));
+							}
+							if(!player.isPotionActive(Potion.digSlowdown.id))
+							{
+								player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id,20*30));
+							}
 							break;
 						}
 						case 1:
 						{
-							this.weaponDamage = 20.0f;
-							setTextureName(AdditionalRecipe.MODID + ":K2LS");
 							break;
 						}
 						case 2:
 						{
-							this.weaponDamage = 10.0f;
-							setTextureName(AdditionalRecipe.MODID + ":K2LP");
 							break;
 						}
 						case 3:
 						{
-							this.weaponDamage = 5.0f;
-							setTextureName(AdditionalRecipe.MODID + ":K2WA");
+							if(player.shouldHeal())
+							{
+								player.heal(1.0f);
+							}
 							break;
 						}
 					}
 				}
 			}
+		}
+	}
+	@Override
+	public Icon getIconIndex(ItemStack itemStack)
+	{
+		if(itemStack.hasTagCompound())
+		{
+			NBTTagCompound nbttagcompound = itemStack.getTagCompound();
+			int mk2 = nbttagcompound.getInteger("adr.mk2");
+			return this.icons[mk2];
+		}
+		else
+		{
+			return this.icons[0];
+		}
+	}
+	@Override
+	public Icon getIcon(ItemStack itemStack, int pass)
+	{
+		if(itemStack.hasTagCompound())
+		{
+			NBTTagCompound nbttagcompound = itemStack.getTagCompound();
+			int mk2 = nbttagcompound.getInteger("adr.mk2");
+			return this.icons[mk2];
+		}
+		else
+		{
+			return this.icons[0];
 		}
 	}
 	public Icon[] getIcons()

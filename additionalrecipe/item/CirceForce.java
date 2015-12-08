@@ -65,7 +65,10 @@ public class CirceForce extends Item{
 					if(player.isInsideOfMaterial(Material.water))
 					{
 						player.setAir(300);
-						player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30));
+						if(!player.isPotionActive(Potion.nightVision.id))
+						{
+							player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30));
+						}
 					}
 					if(player.isInsideOfMaterial(Material.water))
 					{

@@ -82,9 +82,6 @@ public class AdditionalRecipe {
 	public static final String MODNAME = "AdditionalRecipe";
 	public static final String VERSION = "2.01";
 
-	//@SidedProxy(clientSide = "chibivaru.additionalrecipe.event.ClientProxy", serverSide = "chibivaru.additionalrecipe.event.CommonProxy")
-	//public static CommonProxy proxy;
-
 	@Metadata(MODID)
 	public static ModMetadata meta;
 
@@ -497,8 +494,6 @@ public class AdditionalRecipe {
 			craftingDifficulty = 0;
 		}
 
-		//proxy.registers();
-
 		ARMOR_BEDROCK  = EnumHelper.addArmorMaterial("BEDROCK" , 1, new int[] {10,10,10,10},20);
 		ARMOR_PRIDE    = EnumHelper.addArmorMaterial("PRIDE"   , 1, new int[] {15,15,15,15},30);
 		ARMOR_WRATH    = EnumHelper.addArmorMaterial("WRATH"   , 1, new int[] {15,15,15,15},30);
@@ -625,8 +620,8 @@ public class AdditionalRecipe {
 		LanguageRegistry.instance().addNameForObject(swordYORU,"ja_JP","邪剣「夜」");
 		GameRegistry.registerItem(swordYORU,"YORU");
 
-		//multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("k2");
-		multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256)).setUnlocalizedName("k2");
+		multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("k2");
+		//multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256)).setUnlocalizedName("k2");
 		multiK2.setCreativeTab(ARTabs);
 		//multiK2.setTextureName("additionalrecipe:K2GS");
 		multiK2Item = (Item)multiK2;
