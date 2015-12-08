@@ -620,7 +620,7 @@ public class AdditionalRecipe {
 		LanguageRegistry.instance().addNameForObject(swordYORU,"ja_JP","邪剣「夜」");
 		GameRegistry.registerItem(swordYORU,"YORU");
 
-		multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("k2");
+		multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256,WEAPON_POOR)).setUnlocalizedName("k2");
 		//multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256)).setUnlocalizedName("k2");
 		multiK2.setCreativeTab(ARTabs);
 		//multiK2.setTextureName("additionalrecipe:K2GS");

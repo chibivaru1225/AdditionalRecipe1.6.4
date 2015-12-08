@@ -50,54 +50,49 @@ public class MultiK2 extends ItemSword
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
 	{
-		if(world.isRemote)
+		NBTTagCompound nbttagcompound = itemStack.getTagCompound();
+		int mk2;
+		if(nbttagcompound == null)
 		{
-			NBTTagCompound nbttagcompound = itemStack.getTagCompound();
-			int mk2;
-			if(nbttagcompound == null)
-			{
-				System.out.println();
-				nbttagcompound = new NBTTagCompound();
-				itemStack.setTagCompound(nbttagcompound);
-				mk2 = 0;
-				System.out.println(mk2+mk2);
-			}
-			else
-			{
-				mk2 = nbttagcompound.getInteger("adr.mk2");
-				System.out.println(mk2+mk2);
-			}
-			mk2 = mk2 + 1;
-			if(mk2 > 3)
-			{
-				mk2 = 0;
-			}
-			switch(mk2)
-			{
-				case 0:
-				{
-					this.weaponDamage = 40.0f;
-					break;
-				}
-				case 1:
-				{
-					this.weaponDamage = 20.0f;
-					break;
-				}
-				case 2:
-				{
-					this.weaponDamage = 10.0f;
-					break;
-				}
-				case 3:
-				{
-					this.weaponDamage = 5.0f;
-					break;
-				}
-			}
-			nbttagcompound.setInteger("adr.mk2",mk2);
-			System.out.println(mk2);
+			System.out.println();
+			nbttagcompound = new NBTTagCompound();
+			itemStack.setTagCompound(nbttagcompound);
+			mk2 = 0;
 		}
+		else
+		{
+			mk2 = nbttagcompound.getInteger("adr.mk2");
+		}
+		mk2 = mk2 + 1;
+		if(mk2 > 3)
+		{
+			mk2 = 0;
+		}
+		switch(mk2)
+		{
+			case 0:
+			{
+				this.weaponDamage = 40.0f;
+				break;
+			}
+			case 1:
+			{
+				this.weaponDamage = 20.0f;
+				break;
+			}
+			case 2:
+			{
+				this.weaponDamage = 10.0f;
+				break;
+			}
+			case 3:
+			{
+				this.weaponDamage = 5.0f;
+				break;
+			}
+		}
+		nbttagcompound.setInteger("adr.mk2",mk2);
+		System.out.println(mk2);
 		return itemStack;
 	}
 	@Override
@@ -118,7 +113,8 @@ public class MultiK2 extends ItemSword
 		//System.out.println(weaponDamage);
 		if(mk2 == 2)
 		{
-			entity.hurtResistantTime = 0;
+			entity.hurtResistantTime = 10;
+			System.out.println(weaponDamage);
 		}
 		return entity.attackEntityFrom(DamageSource.causePlayerDamage(player),weaponDamage);
 	}
@@ -168,43 +164,52 @@ public class MultiK2 extends ItemSword
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
 	{
-		if(world.isRemote)
+		if(entity instanceof EntityPlayer)
 		{
-			if(entity instanceof EntityPlayer)
+			EntityPlayer player = (EntityPlayer)entity;
+			if(player.inventory.hasItem(AdditionalRecipe.multiK2ItemID))
 			{
-				EntityPlayer player = (EntityPlayer)entity;
-				if(player.inventory.hasItem(AdditionalRecipe.multiK2ItemID))
+				NBTTagCompound nbttagcompound = stack.getTagCompound();
+				int mk2;
+				if(nbttagcompound == null)
 				{
-					switch(this.mode)
+					nbttagcompound = new NBTTagCompound();
+					stack.setTagCompound(nbttagcompound);
+					mk2 = 0;
+				}
+				else
+				{
+					mk2 = nbttagcompound.getInteger("adr.mk2");
+				}
+				switch(mk2)
+				{
+					case 0:
 					{
-						case 0:
+						if(!player.isPotionActive(Potion.moveSlowdown.id))
 						{
-							if(!player.isPotionActive(Potion.moveSlowdown.id))
-							{
-								player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id,20*30));
-							}
-							if(!player.isPotionActive(Potion.digSlowdown.id))
-							{
-								player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id,20*30));
-							}
-							break;
+							player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id,20*30));
 						}
-						case 1:
+						if(!player.isPotionActive(Potion.digSlowdown.id))
 						{
-							break;
+							player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id,20*30));
 						}
-						case 2:
+						break;
+					}
+					case 1:
+					{
+						break;
+					}
+					case 2:
+					{
+						break;
+					}
+					case 3:
+					{
+						if(player.shouldHeal())
 						{
-							break;
+							player.heal(1.0f);
 						}
-						case 3:
-						{
-							if(player.shouldHeal())
-							{
-								player.heal(1.0f);
-							}
-							break;
-						}
+						break;
 					}
 				}
 			}
