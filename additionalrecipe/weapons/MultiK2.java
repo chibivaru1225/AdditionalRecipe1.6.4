@@ -58,25 +58,25 @@ public class MultiK2 extends Item
 				case 0:
 				{
 					this.weaponDamage = 40.0f;
-					this.setTextureName(AdditionalRecipe.MODID + ":K2GS");
+					setTextureName(AdditionalRecipe.MODID + ":K2GS");
 					break;
 				}
 				case 1:
 				{
 					this.weaponDamage = 20.0f;
-					this.setTextureName(AdditionalRecipe.MODID + ":K2LS");
+					setTextureName(AdditionalRecipe.MODID + ":K2LS");
 					break;
 				}
 				case 2:
 				{
 					this.weaponDamage = 10.0f;
-					this.setTextureName(AdditionalRecipe.MODID + ":K2LP");
+					setTextureName(AdditionalRecipe.MODID + ":K2LP");
 					break;
 				}
 				case 3:
 				{
 					this.weaponDamage = 5.0f;
-					this.setTextureName(AdditionalRecipe.MODID + ":K2WA");
+					setTextureName(AdditionalRecipe.MODID + ":K2WA");
 					break;
 				}
 			}
