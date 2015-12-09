@@ -117,7 +117,7 @@ public class MultiK2 extends ItemSword
 			mk2 = nbttagcompound.getInteger("adr.mk2");
 		}
 		par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append(str[mk2]).toString());
-		par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+").append(EnumChatFormatting.BLUE).append((int)dmg[mk2]).append(EnumChatFormatting.RED).append(" Attack Power").toString());
+		par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append((int)dmg[mk2]).append(EnumChatFormatting.RED).append(" Attack Power").toString());
 	}
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)

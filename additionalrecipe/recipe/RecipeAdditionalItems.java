@@ -441,5 +441,22 @@ public class RecipeAdditionalItems {
 				}
 			}
 		}
+		if(AdditionalRecipe.craftingItemsK2)
+		{
+			if(AdditionalRecipe.craftingMultiK2)
+			{
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "K2's Multi-Weapon" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+				}
+			}
+			else
+			{
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "K2's Multi-Weapon" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
+				}
+			}
+		}
 	}
 }
