@@ -23,13 +23,14 @@ public class SwordExelector extends ItemSword
     private EnumToolMaterial toolMaterial;
     private Icon[] icons = new Icon[3];
     private float[] dmg = {1.0f,10.0f,20.0f};
-    private final int[] exptbl = {5,10,15};
-    //private final int[] exptbl = {AdditionalRecipe.exelectorFirstExp,AdditionalRecipe.exelectorSecondExp,AdditionalRecipe.exelectorLastExp};
+    //private final int[] exptbl = {5,10,15};
+    private final int[] exptbl = {AdditionalRecipe.exelectorFirstExp,AdditionalRecipe.exelectorSecondExp,AdditionalRecipe.exelectorLastExp};
     private String str = "Exp = ";
 	public SwordExelector(int par1, EnumToolMaterial par2EnumToolMaterial) {
 		super(par1, par2EnumToolMaterial);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(3);
+		this.setContainerItem(this);
 		this.setTextureName("additionalrecipe:exelectorFirst");
 		//this.level = 0; 0 = Great Sword,1 = Long Sword,2 = Lapier,3 = Wand
 	}
@@ -41,6 +42,10 @@ public class SwordExelector extends ItemSword
 		icons[0] = register.registerIcon(AdditionalRecipe.MODID + ":exelectorFirst");
 		icons[1] = register.registerIcon(AdditionalRecipe.MODID + ":exelectorSecond");
 		icons[2] = register.registerIcon(AdditionalRecipe.MODID + ":exelectorLast");
+	}
+	public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemstack)
+	{
+		return false;
 	}
 	@Override
 	public boolean onLeftClickEntity(ItemStack itemStack, EntityPlayer player, Entity entity)
@@ -59,30 +64,40 @@ public class SwordExelector extends ItemSword
 			exp = nbttagcompound.getInteger("adr.exp");
 			lvl = nbttagcompound.getInteger("adr.lvl");
 		}
-		exp++;
-		if(exp >= exptbl[2])
+		boolean bool = entity.attackEntityFrom(DamageSource.causePlayerDamage(player),dmg[lvl]);
+		if(bool)
 		{
-			lvl = 2;
-			this.setDamage(itemStack,0);
+			exp++;
+			if(exp >= exptbl[2])
+			{
+				player.addChatMessage("Exelector can extract ForceBall!");
+				player.swingItem();
+				lvl = 2;
+				this.setDamage(itemStack,0);
+			}
+			else if(exp == exptbl[1])
+			{
+				player.addChatMessage("Exelector increase Level 3!");
+				player.swingItem();
+				lvl = 2;
+				this.setDamage(itemStack,1);
+			}
+			else if(exp == exptbl[0])
+			{
+				player.addChatMessage("Exelector increase Level 2!");
+				player.swingItem();
+				lvl = 1;
+				this.setDamage(itemStack,2);
+			}
+			else
+			{
+				lvl = 0;
+				this.setDamage(itemStack,3);
+			}
+			nbttagcompound.setInteger("adr.exp",exp);
+			nbttagcompound.setInteger("adr.lvl",lvl);
 		}
-		else if(exp >= exptbl[1])
-		{
-			lvl = 2;
-			this.setDamage(itemStack,1);
-		}
-		else if(exp >= exptbl[0])
-		{
-			lvl = 1;
-			this.setDamage(itemStack,2);
-		}
-		else
-		{
-			lvl = 0;
-			this.setDamage(itemStack,3);
-		}
-		nbttagcompound.setInteger("adr.exp",exp);
-		nbttagcompound.setInteger("adr.lvl",lvl);
-		return entity.attackEntityFrom(DamageSource.causePlayerDamage(player),dmg[lvl]);
+		return bool;
 	}
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)

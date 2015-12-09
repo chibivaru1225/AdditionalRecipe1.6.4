@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -14,12 +15,24 @@ public class RecipeAdditionalItems {
 		{
 			if(AdditionalRecipe.craftingExchangeIgnition)
 			{
-				GameRegistry.addRecipe(
-					new ShapedOreRecipe(
-						AdditionalRecipe.exchangeIgnitionItem,
-						new Object[]{" X ","XYX"," X ",
-							Character.valueOf('X'),Item.netherStar,
-							Character.valueOf('Y'),Block.dragonEgg}));
+				if(AdditionalRecipe.craftingExelector)
+				{
+					GameRegistry.addRecipe(
+							new ShapedOreRecipe(
+								AdditionalRecipe.exchangeIgnitionItem,
+								new Object[]{" X ","XYX"," X ",
+									Character.valueOf('X'),Item.netherStar,
+									Character.valueOf('Y'),AdditionalRecipe.forceBallItem}));
+				}
+				else
+				{
+					GameRegistry.addRecipe(
+						new ShapedOreRecipe(
+							AdditionalRecipe.exchangeIgnitionItem,
+							new Object[]{" X ","XYX"," X ",
+								Character.valueOf('X'),Item.netherStar,
+								Character.valueOf('Y'),Block.dragonEgg}));
+				}
 				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -70,12 +83,24 @@ public class RecipeAdditionalItems {
 			}
 			if(AdditionalRecipe.craftingCheaperExchangeIgnition)
 			{
-				GameRegistry.addRecipe(
-					new ShapedOreRecipe(
-						AdditionalRecipe.cheaperExchangeIgnition,
-						new Object[]{"XXX","XYX","XXX",
-							Character.valueOf('X'),AdditionalRecipe.blackRottenFleshItem,
-							Character.valueOf('Y'),Block.blockDiamond}));
+				if(AdditionalRecipe.craftingExelector)
+				{
+					GameRegistry.addRecipe(
+						new ShapedOreRecipe(
+							AdditionalRecipe.cheaperExchangeIgnition,
+							new Object[]{"XXX","XYX","XXX",
+								Character.valueOf('X'),AdditionalRecipe.blackRottenFleshItem,
+								Character.valueOf('Y'),AdditionalRecipe.forceBallItem}));
+				}
+				else
+				{
+					GameRegistry.addRecipe(
+						new ShapedOreRecipe(
+							AdditionalRecipe.cheaperExchangeIgnition,
+							new Object[]{"XXX","XYX","XXX",
+								Character.valueOf('X'),AdditionalRecipe.blackRottenFleshItem,
+								Character.valueOf('Y'),Block.blockDiamond}));
+				}
 				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -86,6 +111,27 @@ public class RecipeAdditionalItems {
 				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
+				}
+			}
+			if(AdditionalRecipe.craftingCirceForce)
+			{
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						AdditionalRecipe.circeForceItem,
+						new Object[]{"XYX","YZY","XYX",
+							Character.valueOf('X'),Block.blockDiamond,
+							Character.valueOf('Y'),Item.bucketWater,
+							Character.valueOf('Z'),"ExchangeIgnition"}));
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "CirceForce" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+				}
+			}
+			else
+			{
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "CirceForce" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
 		}
@@ -351,29 +397,36 @@ public class RecipeAdditionalItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingCirceForce)
-		{
-			GameRegistry.addRecipe(
-				new ShapedOreRecipe(
-					AdditionalRecipe.circeForceItem,
-					new Object[]{"XYX","YZY","XYX",
-						Character.valueOf('X'),Block.blockDiamond,
-						Character.valueOf('Y'),Item.bucketWater,
-						Character.valueOf('Z'),"ExchangeIgnition"}));
-			if(AdditionalRecipe.consoleOut)
-			{
-				System.out.println(AdditionalRecipe.CONSOLE + "CirceForce" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-			}
-		}
-		else
-		{
-			if(AdditionalRecipe.consoleOut)
-			{
-				System.out.println(AdditionalRecipe.CONSOLE + "CirceForce" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
-			}
-		}
 		if(AdditionalRecipe.craftingWeapons)
 		{
+			if(AdditionalRecipe.craftingExelector)
+			{
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						AdditionalRecipe.swordExelectorItem,
+						new Object[]{"XX ","XVZ"," ZY",
+							Character.valueOf('X'),"blockQuartz",
+							Character.valueOf('Y'),Item.stick,
+							Character.valueOf('Z'),Item.diamond,
+							Character.valueOf('V'),Block.blockRedstone}));
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						AdditionalRecipe.forceBallItem,
+						new Object[]{new ItemStack(AdditionalRecipe.swordExelectorItem,1,0)}));
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "Exelector" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "ForceBall" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
+				}
+			}
+			else
+			{
+				if(AdditionalRecipe.consoleOut)
+				{
+					System.out.println(AdditionalRecipe.CONSOLE + "Exelector" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
+					System.out.println(AdditionalRecipe.CONSOLE + "ForceBall" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
+				}
+			}
 			if(AdditionalRecipe.craftingNIOH)
 			{
 				GameRegistry.addRecipe(

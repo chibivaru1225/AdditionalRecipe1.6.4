@@ -127,7 +127,7 @@ public class AdditionalRecipe {
 	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather,craftingCirceForce;
 	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
 	public static boolean craftingBedrockArmor,craftingAngelusArmor;
-	public static boolean craftingWeapons,craftingNIOH,craftingDAYO,craftingYORU,craftingItemsK2,craftingMultiK2;
+	public static boolean craftingWeapons,craftingExelector,craftingNIOH,craftingDAYO,craftingYORU,craftingItemsK2,craftingMultiK2;
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust,craftingButton;
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
@@ -267,9 +267,9 @@ public class AdditionalRecipe {
 			Property DiamondMortarCraftingProp            = cfg.get("MortarCrafting"     ,"DiamondMortarDust"               ,4);
 			Property IronMortarCraftingProp               = cfg.get("MortarCrafting"     ,"IronMortarDust"                  ,2);
 
-			Property ExelectorFirstExpProp                = cfg.get("Another"            ,"Exelector First-Lv Exp"          ,500);
-			Property ExelectorSecondExpProp               = cfg.get("Another"            ,"Exelector Second-Lv Exp"         ,2500);
-			Property ExelectorLastExpProp                 = cfg.get("Another"            ,"Exelector Last-Lv Exp"           ,5000);
+			Property ExelectorFirstExpProp                = cfg.get("Another"            ,"Exelector First-Lv Exp"          ,100);
+			Property ExelectorSecondExpProp               = cfg.get("Another"            ,"Exelector Second-Lv Exp"         ,250);
+			Property ExelectorLastExpProp                 = cfg.get("Another"            ,"Exelector Last-Lv Exp"           ,500);
 
 			Property DigBCSpringProp                      = cfg.get("Dig"                ,"BuildCraft_Spring"               ,true);
 			Property DigEndPortalProp                     = cfg.get("Dig"                ,"EndPortal"                       ,false);
@@ -298,6 +298,7 @@ public class AdditionalRecipe {
 			Property CraftingBedrockArmorProp             = cfg.get("AdditionalRecipe"   ,"BedrockArmor"                    ,true);
 			Property CraftingAngelusArmorProp             = cfg.get("AdditionalRecipe"   ,"AngelusArmor"                    ,true);
 			Property CraftingWeaponsProp                  = cfg.get("AdditionalRecipe"   ,"Weapons"                         ,true);
+			Property CraftigExelectorProp                 = cfg.get("AdditionalRecipe"   ,"Exelector"                       ,true);
 			Property CraftingNIOHProp                     = cfg.get("AdditionalRecipe"   ,"NIOH"                            ,true);
 			Property CraftingDAYOProp                     = cfg.get("AdditionalRecipe"   ,"Evil Spear DAYO"                 ,true);
 			Property CraftingYORUProp                     = cfg.get("AdditionalRecipe"   ,"Villany Sword YORU"              ,true);
@@ -460,6 +461,7 @@ public class AdditionalRecipe {
 			craftingBedrockArmor                          = CraftingBedrockArmorProp.getBoolean(true);
 			craftingAngelusArmor                          = CraftingAngelusArmorProp.getBoolean(true);
 			craftingWeapons                               = CraftingWeaponsProp.getBoolean(true);
+			craftingExelector                              = CraftigExelectorProp.getBoolean(true);
 			craftingNIOH                                  = CraftingNIOHProp.getBoolean(true);
 			craftingDAYO                                  = CraftingDAYOProp.getBoolean(true);
 			craftingYORU                                  = CraftingYORUProp.getBoolean(true);
