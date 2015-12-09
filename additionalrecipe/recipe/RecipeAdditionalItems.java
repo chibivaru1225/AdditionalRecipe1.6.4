@@ -24,15 +24,12 @@ public class RecipeAdditionalItems {
 									Character.valueOf('X'),Item.netherStar,
 									Character.valueOf('Y'),AdditionalRecipe.forceBallItem}));
 				}
-				else
-				{
-					GameRegistry.addRecipe(
-						new ShapedOreRecipe(
-							AdditionalRecipe.exchangeIgnitionItem,
-							new Object[]{" X ","XYX"," X ",
-								Character.valueOf('X'),Item.netherStar,
-								Character.valueOf('Y'),Block.dragonEgg}));
-				}
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						AdditionalRecipe.exchangeIgnitionItem,
+						new Object[]{" X ","XYX"," X ",
+							Character.valueOf('X'),Item.netherStar,
+							Character.valueOf('Y'),Block.dragonEgg}));
 				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
