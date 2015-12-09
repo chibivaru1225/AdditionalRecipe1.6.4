@@ -2,6 +2,7 @@ package chibivaru.additionalrecipe.weapons;
 
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,6 +12,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.src.ModLoader;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
@@ -27,6 +29,8 @@ public class MultiK2 extends ItemSword
     public int mode;
     private EnumToolMaterial toolMaterial;
     private Icon[] icons = new Icon[4];
+    private String[] str = {"Great Sword","Long Sword","Lapier","Wand"};
+    private float[] dmg = {20.0f,10.0f,5.0f,1.0f};
     public MultiK2(int par1,EnumToolMaterial par2toolMaterial)
     //public MultiK2(int par1)
 	{
@@ -68,31 +72,12 @@ public class MultiK2 extends ItemSword
 		{
 			mk2 = 0;
 		}
-		switch(mk2)
-		{
-			case 0:
-			{
-				this.weaponDamage = 40.0f;
-				break;
-			}
-			case 1:
-			{
-				this.weaponDamage = 20.0f;
-				break;
-			}
-			case 2:
-			{
-				this.weaponDamage = 10.0f;
-				break;
-			}
-			case 3:
-			{
-				this.weaponDamage = 5.0f;
-				break;
-			}
-		}
+		this.weaponDamage = dmg[mk2];
 		nbttagcompound.setInteger("adr.mk2",mk2);
-		System.out.println(mk2);
+		if(!world.isRemote)
+		{
+			entityPlayer.addChatMessage(new StringBuilder().append(EnumChatFormatting.LIGHT_PURPLE).append("K2's Multi-Weapon : ").append(EnumChatFormatting.RED).append("Mode ").append(EnumChatFormatting.BLUE).append(str[mk2]).toString());
+		}
 		return itemStack;
 	}
 	@Override
@@ -110,13 +95,11 @@ public class MultiK2 extends ItemSword
 		{
 			mk2 = nbttagcompound.getInteger("adr.mk2");
 		}
-		//System.out.println(weaponDamage);
 		if(mk2 == 2)
 		{
-			entity.hurtResistantTime = 10;
-			System.out.println(weaponDamage);
+			entity.hurtResistantTime = 0;
 		}
-		return entity.attackEntityFrom(DamageSource.causePlayerDamage(player),weaponDamage);
+		return entity.attackEntityFrom(DamageSource.causePlayerDamage(player),dmg[mk2]);
 	}
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
@@ -133,33 +116,8 @@ public class MultiK2 extends ItemSword
 		{
 			mk2 = nbttagcompound.getInteger("adr.mk2");
 		}
-		switch(mk2)
-		{
-			case 0:
-			{
-				par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append("Great Sword").toString());
-				//par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+39").append(EnumChatFormatting.RED).append(" Attack Power").toString());
-				break;
-			}
-			case 1:
-			{
-				par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append("Long Sword").toString());
-				//par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+19").append(EnumChatFormatting.RED).append(" Attack Power").toString());
-				break;
-			}
-			case 2:
-			{
-				par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append("Lapier").toString());
-				//par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+9").append(EnumChatFormatting.RED).append(" Attack Power").toString());
-				break;
-			}
-			case 3:
-			{
-				par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append("Wand").toString());
-				//par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+4").append(EnumChatFormatting.RED).append(" Attack Power").toString());
-				break;
-			}
-		}
+		par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append(str[mk2]).toString());
+		par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("+").append(EnumChatFormatting.BLUE).append((int)dmg[mk2]).append(EnumChatFormatting.RED).append(" Attack Power").toString());
 	}
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
@@ -187,16 +145,20 @@ public class MultiK2 extends ItemSword
 					{
 						if(!player.isPotionActive(Potion.moveSlowdown.id))
 						{
-							player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id,20*30));
+							player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id,20*2,2));
 						}
 						if(!player.isPotionActive(Potion.digSlowdown.id))
 						{
-							player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id,20*30));
+							player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id,20*2,2));
 						}
 						break;
 					}
 					case 1:
 					{
+						if(!player.isPotionActive(Potion.moveSpeed.id))
+						{
+							player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,20*2,1));
+						}
 						break;
 					}
 					case 2:
