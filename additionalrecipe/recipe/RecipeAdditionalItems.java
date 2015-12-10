@@ -401,11 +401,19 @@ public class RecipeAdditionalItems {
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
 						AdditionalRecipe.swordExelectorItem,
-						new Object[]{"XX ","XVZ"," ZY",
-							Character.valueOf('X'),"blockQuartz",
+						new Object[]{" XX","ZVX","YZ ",
+							Character.valueOf('X'),Item.netherQuartz,
 							Character.valueOf('Y'),Item.stick,
 							Character.valueOf('Z'),Item.diamond,
-							Character.valueOf('V'),Block.blockRedstone}));
+							Character.valueOf('V'),Item.redstone}));
+				GameRegistry.addRecipe(
+						new ShapedOreRecipe(
+							AdditionalRecipe.swordExelectorItem,
+							new Object[]{" XX","ZVX","YZ ",
+								Character.valueOf('X'),"crystalCertusQuartz",
+								Character.valueOf('Y'),Item.stick,
+								Character.valueOf('Z'),Item.diamond,
+								Character.valueOf('V'),Item.redstone}));
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
 						AdditionalRecipe.forceBallItem,
@@ -495,6 +503,15 @@ public class RecipeAdditionalItems {
 		{
 			if(AdditionalRecipe.craftingMultiK2)
 			{
+				GameRegistry.addRecipe(
+					new ShapedOreRecipe(
+						AdditionalRecipe.multiK2Item,
+						new Object[]{"XYX","ZVZ","YWY",
+							Character.valueOf('X'),Block.blockGold,
+							Character.valueOf('Y'),Block.blockRedstone,
+							Character.valueOf('Z'),Block.blockIron,
+							Character.valueOf('V'),"ExchangeIgnition",
+							Character.valueOf('W'),Block.obsidian}));
 				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "K2's Multi-Weapon" + RecipeHandler.RECIPE + RecipeHandler.ADDED);

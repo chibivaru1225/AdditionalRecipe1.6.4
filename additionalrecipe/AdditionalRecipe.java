@@ -267,10 +267,6 @@ public class AdditionalRecipe {
 			Property DiamondMortarCraftingProp            = cfg.get("MortarCrafting"     ,"DiamondMortarDust"               ,4);
 			Property IronMortarCraftingProp               = cfg.get("MortarCrafting"     ,"IronMortarDust"                  ,2);
 
-			Property ExelectorFirstExpProp                = cfg.get("Another"            ,"Exelector First-Lv Exp"          ,100);
-			Property ExelectorSecondExpProp               = cfg.get("Another"            ,"Exelector Second-Lv Exp"         ,250);
-			Property ExelectorLastExpProp                 = cfg.get("Another"            ,"Exelector Last-Lv Exp"           ,500);
-
 			Property DigBCSpringProp                      = cfg.get("Dig"                ,"BuildCraft_Spring"               ,true);
 			Property DigEndPortalProp                     = cfg.get("Dig"                ,"EndPortal"                       ,false);
 
@@ -308,6 +304,11 @@ public class AdditionalRecipe {
 			Property ConsoleOutProp                       = cfg.get("Another"            ,"ConsoleOut"                      ,true);
 			Property UltimateExchangeIgnitionEffectProp   = cfg.get("Another"            ,"UltimateExchangeIgnitionEffect"  ,false);
 			Property BladeNIOHPreventDamageProp           = cfg.get("Another"            ,"NIOHPreventDamage"               ,true);
+			Property ExelectorFirstExpProp                = cfg.get("Another"            ,"Exelector First-Lv Exp"          ,100);
+			Property ExelectorSecondExpProp               = cfg.get("Another"            ,"Exelector Second-Lv Exp"         ,250);
+			Property ExelectorLastExpProp                 = cfg.get("Another"            ,"Exelector Last-Lv Exp"           ,500);
+			//Property ExelectorAttackPowerVanilaProp       = cfg.get("Another"            ,"Exelector Attack Power Vanila"   ,false);
+			//Property ExelectroFirstAttackPowerProp        = cfg.get("Another"            ,"Exelector First Attack Power"    ,);
 
 			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
 			SmeltingNetherrackProp.comment                = "Require Dirt";

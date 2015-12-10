@@ -2,11 +2,9 @@ package chibivaru.additionalrecipe.weapons;
 
 import java.util.List;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
@@ -16,20 +14,24 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import chibivaru.additionalrecipe.AdditionalRecipe;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class SwordExelector extends ItemSword
 {
     private boolean effect;
     private EnumToolMaterial toolMaterial;
     private Icon[] icons = new Icon[3];
-    private float[] dmg = {1.0f,10.0f,20.0f};
+    private float[] dmgtbl  = {toolMaterial.STONE.getDamageVsEntity(),toolMaterial.IRON.getDamageVsEntity() * 1.5f,toolMaterial.EMERALD.getDamageVsEntity() * 2.0f};
+    //private float[] dmgtbl2 = {5.0f,10.0f,20.0f};
     //private final int[] exptbl = {5,10,15};
     private final int[] exptbl = {AdditionalRecipe.exelectorFirstExp,AdditionalRecipe.exelectorSecondExp,AdditionalRecipe.exelectorLastExp};
     private String str = "Exp = ";
 	public SwordExelector(int par1, EnumToolMaterial par2EnumToolMaterial) {
 		super(par1, par2EnumToolMaterial);
 		this.setMaxStackSize(1);
-		this.setMaxDamage(3);
+		this.setMaxDamage(4);
 		this.setContainerItem(this);
 		this.setTextureName("additionalrecipe:exelectorFirst");
 		//this.level = 0; 0 = Great Sword,1 = Long Sword,2 = Lapier,3 = Wand
@@ -39,13 +41,13 @@ public class SwordExelector extends ItemSword
 	{
 		super.registerIcons(register);
 		//this.itemIcon = register.registerIcon(AdditionalRecipe.MODID + ":" + this.getUnlocalizedName());
-		icons[0] = register.registerIcon(AdditionalRecipe.MODID + ":exelectorFirst");
-		icons[1] = register.registerIcon(AdditionalRecipe.MODID + ":exelectorSecond");
-		icons[2] = register.registerIcon(AdditionalRecipe.MODID + ":exelectorLast");
+		icons[0] = register.registerIcon(AdditionalRecipe.MODID + ":ExelectorFirst");
+		icons[1] = register.registerIcon(AdditionalRecipe.MODID + ":ExelectorSecond");
+		icons[2] = register.registerIcon(AdditionalRecipe.MODID + ":ExelectorLast");
 	}
 	public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemstack)
 	{
-		return false;
+		return true;
 	}
 	@Override
 	public boolean onLeftClickEntity(ItemStack itemStack, EntityPlayer player, Entity entity)
@@ -64,14 +66,15 @@ public class SwordExelector extends ItemSword
 			exp = nbttagcompound.getInteger("adr.exp");
 			lvl = nbttagcompound.getInteger("adr.lvl");
 		}
-		boolean bool = entity.attackEntityFrom(DamageSource.causePlayerDamage(player),dmg[lvl]);
+		boolean bool = entity.attackEntityFrom(DamageSource.causePlayerDamage(player),4.0F + dmgtbl[lvl]);
 		if(bool)
 		{
 			exp++;
-			if(exp >= exptbl[2])
+			if(exp == exptbl[2])
 			{
 				player.addChatMessage("Exelector can extract ForceBall!");
 				player.swingItem();
+				player.worldObj.playSoundAtEntity(player, "ambient.weather.thunder", 0.4F, 1.0F);
 				lvl = 2;
 				this.setDamage(itemStack,0);
 			}
@@ -79,6 +82,7 @@ public class SwordExelector extends ItemSword
 			{
 				player.addChatMessage("Exelector increase Level 3!");
 				player.swingItem();
+				player.worldObj.playSoundAtEntity(player, "ambient.weather.thunder", 0.4F, 1.0F);
 				lvl = 2;
 				this.setDamage(itemStack,1);
 			}
@@ -86,13 +90,9 @@ public class SwordExelector extends ItemSword
 			{
 				player.addChatMessage("Exelector increase Level 2!");
 				player.swingItem();
+				player.worldObj.playSoundAtEntity(player, "ambient.weather.thunder", 0.4F, 1.0F);
 				lvl = 1;
 				this.setDamage(itemStack,2);
-			}
-			else
-			{
-				lvl = 0;
-				this.setDamage(itemStack,3);
 			}
 			nbttagcompound.setInteger("adr.exp",exp);
 			nbttagcompound.setInteger("adr.lvl",lvl);
@@ -118,6 +118,7 @@ public class SwordExelector extends ItemSword
 		}
 		par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append("Level : ").append(lvl + 1).toString());
 		par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append(str).append(EnumChatFormatting.LIGHT_PURPLE).append(exp).append(" / ").append(exptbl[lvl]).toString());
+		par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append((int)dmgtbl[lvl] + 4).append(EnumChatFormatting.RED).append(" Attack Power").toString());
 	}
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
@@ -200,6 +201,11 @@ public class SwordExelector extends ItemSword
 			}
 		}
 		return false;
+    }
+    @Override
+    public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int par3, int par4, int par5, int par6, EntityLivingBase par7EntityLivingBase)
+    {
+    	return true;
     }
 	public Icon[] getIcons()
 	{
