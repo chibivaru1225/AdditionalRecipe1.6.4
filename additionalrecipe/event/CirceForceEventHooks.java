@@ -38,6 +38,10 @@ public class CirceForceEventHooks {
 					par2player.motionY += 0.1D;
 				}
 			}
+			if(par1player.isBurning())
+			{
+				par1player.extinguish();
+			}
 		}
 	}
 }

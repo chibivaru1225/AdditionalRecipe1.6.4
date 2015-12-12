@@ -79,7 +79,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class AdditionalRecipe {
 	public static final String MODID   = "additionalrecipe";
 	public static final String MODNAME = "AdditionalRecipe";
-	public static final String VERSION = "2.01";
+	public static final String VERSION = "2.02";
 
 	@Metadata(MODID)
 	public static ModMetadata meta;
@@ -462,7 +462,7 @@ public class AdditionalRecipe {
 			craftingBedrockArmor                          = CraftingBedrockArmorProp.getBoolean(true);
 			craftingAngelusArmor                          = CraftingAngelusArmorProp.getBoolean(true);
 			craftingWeapons                               = CraftingWeaponsProp.getBoolean(true);
-			craftingExelector                              = CraftigExelectorProp.getBoolean(true);
+			craftingExelector                             = CraftigExelectorProp.getBoolean(true);
 			craftingNIOH                                  = CraftingNIOHProp.getBoolean(true);
 			craftingDAYO                                  = CraftingDAYOProp.getBoolean(true);
 			craftingYORU                                  = CraftingYORUProp.getBoolean(true);
@@ -578,23 +578,20 @@ public class AdditionalRecipe {
 		LanguageRegistry.addName(swordExelector,new StringBuilder().append(EnumChatFormatting.WHITE).append("Exelector").toString());
 		GameRegistry.registerItem(swordExelector,"Exelector");
 
-		bladeNIOH = (BladeNIOH)(new BladeNIOH(bladeNIOHItemID - 256,WEAPON_PHANTASM)).setUnlocalizedName("nioh");
-		bladeNIOH.setCreativeTab(ARTabs);
+		bladeNIOH = (BladeNIOH)(new BladeNIOH(bladeNIOHItemID - 256,WEAPON_PHANTASM)).setUnlocalizedName("nioh").setCreativeTab(ARTabs);
 		bladeNIOH.setTextureName("additionalrecipe:NIOH");
 		bladeNIOHItem = (Item)bladeNIOH;
 		LanguageRegistry.addName(bladeNIOH,"NIOH");
 		GameRegistry.registerItem(bladeNIOH,"NIOH");
 
-		spearDAYO = (SpearDAYO)(new SpearDAYO(spearDAYOItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("dayo");
-		spearDAYO.setCreativeTab(ARTabs);
+		spearDAYO = (SpearDAYO)(new SpearDAYO(spearDAYOItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("dayo").setCreativeTab(ARTabs);
 		spearDAYO.setTextureName("additionalrecipe:DAYO");
 		spearDAYOItem = (Item)spearDAYO;
 		LanguageRegistry.addName(spearDAYO,"Dark Spear 'DAYO'");
 		LanguageRegistry.instance().addNameForObject(spearDAYO,"ja_JP","悪槍「堕那」");
 		GameRegistry.registerItem(spearDAYO,"DAYO");
 
-		swordYORU = (SwordYORU)(new SwordYORU(swordYORUItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("yoru");
-		swordYORU.setCreativeTab(ARTabs);
+		swordYORU = (SwordYORU)(new SwordYORU(swordYORUItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("yoru").setCreativeTab(ARTabs);
 		swordYORU.setTextureName("additionalrecipe:YORU");
 		swordYORUItem = (Item)swordYORU;
 		LanguageRegistry.addName(swordYORU,"Villainy Sword 'YORU'");
