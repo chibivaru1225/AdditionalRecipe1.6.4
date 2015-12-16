@@ -12,6 +12,7 @@ import net.minecraftforge.common.Property;
 public class ARConfiguration
 {
 	public Configuration cfg;
+	public static String[] category = {"ItemID","WeaponItemID","DustItemID","ArmorItemID","ItemDamage","Smelting","MortarCrafting","FurnaceCrafting","OreDicitionary","Crafting","Dig","Texture","AdditionalRecipe","Another"};
 	public void init(FMLPreInitializationEvent event)
 	{
 		cfg = new Configuration(event.getSuggestedConfigurationFile());
