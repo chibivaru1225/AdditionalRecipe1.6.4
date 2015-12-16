@@ -94,6 +94,7 @@ public class AdditionalRecipe {
 	public static HashMap<String,Integer> ARItemID;
 	public static HashMap<String,Item>    ARItem;
 	public static HashMap<String,String>  ARItemName;
+	public static HashMap<String,Integer> ARItemDamage;
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID;
 	public static int superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID,forceBallItemID,circeForceItemID;
 	public static int swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID,bladeNIOHItemID,spearDAYOItemID,swordYORUItemID,multiK2ItemID,swordExelectorItemID;
@@ -246,7 +247,6 @@ public class AdditionalRecipe {
 
 			Property CraftingEndPortalProp                = cfg.get("Crafting"           ,"EndPortal"                       ,false);
 			Property CraftingOreProp                      = cfg.get("Crafting"           ,"Ore"                             ,false);
-			Property CraftingDifficultyProp               = cfg.get("Crafting"           ,"Difficulty"                      ,0);
 			Property CraftingCrystalProp                  = cfg.get("Crafting"           ,"Crystal"                         ,true);
 			Property CraftingPinkSlimeBallProp            = cfg.get("Crafting"           ,"PinkSlimeBall"                   ,true);
 			Property CraftingFlourProp                    = cfg.get("Crafting"           ,"Flour"                           ,true);
@@ -315,6 +315,7 @@ public class AdditionalRecipe {
 			Property ExelectorFirstExpProp                = cfg.get("Another"            ,"Exelector First-Lv Exp"          ,100);
 			Property ExelectorSecondExpProp               = cfg.get("Another"            ,"Exelector Second-Lv Exp"         ,250);
 			Property ExelectorLastExpProp                 = cfg.get("Another"            ,"Exelector Last-Lv Exp"           ,500);
+			Property CraftingDifficultyProp               = cfg.get("Another"            ,"Difficulty"                      ,0);
 			//Property ExelectorAttackPowerVanilaProp       = cfg.get("Another"            ,"Exelector Attack Power Vanila"   ,false);
 			//Property ExelectroFirstAttackPowerProp        = cfg.get("Another"            ,"Exelector First Attack Power"    ,);
 

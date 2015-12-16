@@ -29,13 +29,37 @@ public class ARConfiguration
 			cfg.save();
 		}
 	}
-	public void ARLoadItemID(HashMap par1HashMap)
+	public boolean ARSet(String par1category,String par2key,boolean par3default,String par4comment)
 	{
-		
+		Property prop = cfg.get(par1category, par2key, par3default);
+		prop.comment  = par4comment;
+		return prop.getBoolean(par3default);
 	}
-	public Property ARLoadItemID(String par1category,String par2key,int par3defaultID,String par4comment)
+	public boolean ARSet(String par1category,String par2key,boolean par3default)
 	{
-		Property prop = new Property();
-		return prop;
+		Property prop = cfg.get(par1category, par2key, par3default);
+		return prop.getBoolean(par3default);
+	}
+	public int ARSet(String par1category,String par2key,int par3default,String par4comment)
+	{
+		Property prop = cfg.get(par1category, par2key, par3default);
+		prop.comment  = par4comment;
+		return prop.getInt();
+	}
+	public int ARSet(String par1category,String par2key,int par3default)
+	{
+		Property prop = cfg.get(par1category, par2key, par3default);
+		return prop.getInt();
+	}
+	public int ARSetID(String par1category,String par2key,int par3defaultID,String par4comment)
+	{
+		Property prop = cfg.get(par1category, par2key, par3defaultID);
+		prop.comment  = par4comment;
+		return prop.getInt();
+	}
+	public int ARSetID(String par1category,String par2key,int par3defaultID)
+	{
+		Property prop = cfg.get(par1category, par2key, par3defaultID);
+		return prop.getInt();
 	}
 }
