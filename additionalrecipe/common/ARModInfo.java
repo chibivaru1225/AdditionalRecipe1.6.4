@@ -1,9 +1,9 @@
-package chibivaru.additionalrecipe.event;
+package chibivaru.additionalrecipe.common;
 
 import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ModMetadata;
 
-public class ModInfo
+public class ARModInfo
 {
 	public static void loadInfo(ModMetadata meta)
 	{

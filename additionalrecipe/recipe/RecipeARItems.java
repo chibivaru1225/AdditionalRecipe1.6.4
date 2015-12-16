@@ -8,7 +8,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class RecipeAdditionalItems {
+public class RecipeARItems {
 	public void init()
 	{
 		if(AdditionalRecipe.craftingAlchemic)

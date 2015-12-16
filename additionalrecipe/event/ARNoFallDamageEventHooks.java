@@ -7,7 +7,7 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import chibivaru.additionalrecipe.AdditionalRecipe;
 
-public class NoFallDamageEventHooks
+public class ARNoFallDamageEventHooks
 {
 	private boolean noFallDamage = false;
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)

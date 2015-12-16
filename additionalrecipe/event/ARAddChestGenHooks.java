@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 
-public class AddChestGenHooks {
+public class ARAddChestGenHooks {
 	ChestGenHooks mineshaft  = ChestGenHooks.getInfo("MINESHAFT_CORRIDOR");
 	ChestGenHooks stronghold = ChestGenHooks.getInfo("STRONGHOLD_CROSSING");
 	ChestGenHooks pyramid    = ChestGenHooks.getInfo("PYRAMID_DESERT_CHEST");

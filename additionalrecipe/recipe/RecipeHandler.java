@@ -6,7 +6,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import chibivaru.additionalrecipe.AdditionalRecipe;
 
 public class RecipeHandler {
-	RecipeAdditionalItems recipeadditionalitems;
+	RecipeARItems recipeadditionalitems;
 	RecipeAnotherMod      recipeanothermod;
 	RecipeCrystal         recipecrystal;
 	RecipeDusts           recipedusts;
@@ -21,7 +21,7 @@ public class RecipeHandler {
 	public final static String NOTADDED = " was not added.";
 	public void init()
 	{
-		recipeadditionalitems = new RecipeAdditionalItems();
+		recipeadditionalitems = new RecipeARItems();
 		recipeanothermod      = new RecipeAnotherMod();
 		recipecrystal         = new RecipeCrystal();
 		recipedusts           = new RecipeDusts();

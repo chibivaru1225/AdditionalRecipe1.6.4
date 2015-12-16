@@ -7,7 +7,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import chibivaru.additionalrecipe.AdditionalRecipe;
 
-public class FlyingEventHooks
+public class ARFlyingEventHooks
 {
 	private boolean allowLevitatiton = false;//飛べるかどうか
 	private boolean isLevitation     = false;//飛んでいるかどうか

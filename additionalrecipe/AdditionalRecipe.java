@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 
 import net.minecraft.block.Block;
@@ -14,17 +15,19 @@ import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Property;
+
 import chibivaru.additionalrecipe.armor.BedrockArmor;
+import chibivaru.additionalrecipe.common.ARCreativeTab;
+import chibivaru.additionalrecipe.common.ARLogger;
+import chibivaru.additionalrecipe.common.ARModInfo;
 import chibivaru.additionalrecipe.dust.DustBedrock;
 import chibivaru.additionalrecipe.dust.DustNetherStar;
-import chibivaru.additionalrecipe.event.AddChestGenHooks;
-import chibivaru.additionalrecipe.event.AdditionalRecipeCreativeTab;
+import chibivaru.additionalrecipe.event.ARAddChestGenHooks;
 import chibivaru.additionalrecipe.event.AngelusArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.BedrockArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.CirceForceEventHooks;
-import chibivaru.additionalrecipe.event.FlyingEventHooks;
-import chibivaru.additionalrecipe.event.ModInfo;
-import chibivaru.additionalrecipe.event.NoFallDamageEventHooks;
+import chibivaru.additionalrecipe.event.ARFlyingEventHooks;
+import chibivaru.additionalrecipe.event.ARNoFallDamageEventHooks;
 import chibivaru.additionalrecipe.event.WeaponsEventHooks;
 import chibivaru.additionalrecipe.item.BlackRottenFlesh;
 import chibivaru.additionalrecipe.item.CirceForce;
@@ -45,6 +48,7 @@ import chibivaru.additionalrecipe.weapons.MultiK2;
 import chibivaru.additionalrecipe.weapons.SpearDAYO;
 import chibivaru.additionalrecipe.weapons.SwordExelector;
 import chibivaru.additionalrecipe.weapons.SwordYORU;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -56,7 +60,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-
 
 @Mod(
 		modid   = AdditionalRecipe.MODID,
@@ -71,6 +74,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 				+ "after:BuildCraftCore;"
 				+ "after:Railcraft"
 	)
+
 @NetworkMod(
 		clientSideRequired = true,
 		serverSideRequired = false
@@ -84,9 +88,12 @@ public class AdditionalRecipe {
 	@Metadata(MODID)
 	public static ModMetadata meta;
 
-	public static final CreativeTabs ARTabs = new AdditionalRecipeCreativeTab("AdditionalRecipe");
+	public static final CreativeTabs ARTabs = new ARCreativeTab("AdditionalRecipe");
 	public static final String CONSOLE = "[AdditionalRecipe]:";
 	public static final String ADDID = " added ID ";
+	public static HashMap<String,Integer> ARItemID;
+	public static HashMap<String,Item>    ARItem;
+	public static HashMap<String,String>  ARItemName;
 	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID;
 	public static int superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID,forceBallItemID,circeForceItemID;
 	public static int swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID,bladeNIOHItemID,spearDAYOItemID,swordYORUItemID,multiK2ItemID,swordExelectorItemID;
@@ -133,7 +140,7 @@ public class AdditionalRecipe {
 	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
 	public static boolean consoleOut,ultimateExchangeIgnitionEffect,bladeNIOHPreventDamage;
 	public static RecipeHandler recipehandler;
-	public static AddChestGenHooks addchestgenhooks;
+	public static ARAddChestGenHooks addchestgenhooks;
 	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
 	public EnumToolMaterial WEAPON_ULTIMATE,WEAPON_BASIC,WEAPON_POOR,WEAPON_PHANTASM;
 	public static String BEDROCK          = "bedrock";
@@ -154,6 +161,7 @@ public class AdditionalRecipe {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		ARLogger.init(MODNAME);
 		Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
 		try
 		{
@@ -510,43 +518,36 @@ public class AdditionalRecipe {
 		bedrockMortarItem = (Item)bedrockMortar;
 		GameRegistry.registerItem(bedrockMortar, "BedrockMortar");
 		GameRegistry.registerCraftingHandler(bedrockMortar);
-		ModLoader.addName(bedrockMortar, "BedrockMortar");
 
 		diamondMortar     = (DiamondMortar)(new DiamondMortar(diamondMortarItemID - 256)).setUnlocalizedName("diamondmortar").setCreativeTab(ARTabs);
 		diamondMortarItem = (Item)diamondMortar;
 		GameRegistry.registerItem(diamondMortar, "DiamondMortar");
 		GameRegistry.registerCraftingHandler(diamondMortar);
-		ModLoader.addName(diamondMortar, "DiamondMortar");
 
 		ironMortar     = (IronMortar)(new IronMortar(ironMortarItemID - 256)).setUnlocalizedName("ironmortar").setCreativeTab(ARTabs);
 		ironMortarItem = (Item)ironMortar;
 		GameRegistry.registerItem(ironMortar, "IronMortar");
 		GameRegistry.registerCraftingHandler(ironMortar);
-		ModLoader.addName(ironMortar, "IronMortar");
 
 		exchangeIgniniton     = (ExchangeIgnition)(new ExchangeIgnition(exchangeIgnitionItemID - 256)).setUnlocalizedName("exchangeiginiton").setCreativeTab(ARTabs);
 		exchangeIgnitionItem = (Item)exchangeIgniniton;
 		GameRegistry.registerItem(exchangeIgniniton, "ExchangeIgnition");
 		GameRegistry.registerCraftingHandler(exchangeIgniniton);
-		ModLoader.addName(exchangeIgniniton, "ExchangeIgnition");
-
+		
 		ultimateExchangeIgnition     = (UltimateExchangeIgnition)(new UltimateExchangeIgnition(ultimateExchangeIgnitionItemID - 256)).setUnlocalizedName("ultimateexchangeiginiton").setCreativeTab(ARTabs);
 		ultimateExchangeIgnitionItem = (Item)ultimateExchangeIgnition;
 		GameRegistry.registerItem(ultimateExchangeIgnition, "UltimateExchangeIgnition");
 		GameRegistry.registerCraftingHandler(ultimateExchangeIgnition);
-		ModLoader.addName(ultimateExchangeIgnition, "UltimateExchangeIgnition");
 
 		cheaperExchangeIgnition     = (CheaperExchangeIgnition)(new CheaperExchangeIgnition(cheaperExchangeIgnitionItemID - 256)).setUnlocalizedName("cheaperexchangeiginiton").setCreativeTab(ARTabs);
 		cheaperExchangeIgnitionItem = (Item)cheaperExchangeIgnition;
 		GameRegistry.registerItem(cheaperExchangeIgnition, "CheaperExchangeIgnition");
 		GameRegistry.registerCraftingHandler(cheaperExchangeIgnition);
-		ModLoader.addName(cheaperExchangeIgnition, "CheaperExchangeIgnition");
 
 		craftingFurnace = (CraftingFurnace)(new CraftingFurnace(craftingFurnaceItemID - 256)).setUnlocalizedName("craftingfurnace").setCreativeTab(ARTabs);
 		craftingFurnaceItem = (Item)craftingFurnace;
 		GameRegistry.registerItem(craftingFurnace,"CraftingFurnace");
 		GameRegistry.registerCraftingHandler(craftingFurnace);
-		ModLoader.addName(craftingFurnace, "CraftingFurnace");
 
 		gravitationFeatherItem = new GravitationFeather(gravitationFeatherItemID - 256).setUnlocalizedName("gravitationfeather").setCreativeTab(ARTabs);
 		LanguageRegistry.addName(gravitationFeatherItem, "GravitationFeather");
@@ -675,13 +676,13 @@ public class AdditionalRecipe {
 		LanguageRegistry.addName(dustExchangeIgnitionItem, "DustExchangeIgnition");
 		GameRegistry.registerItem(dustExchangeIgnitionItem, "DustExchangeIgnition");
 
-		addchestgenhooks = new AddChestGenHooks();
+		addchestgenhooks = new ARAddChestGenHooks();
 		addchestgenhooks.AddChestItems();
 
-		ModInfo.loadInfo(meta);
+		ARModInfo.loadInfo(meta);
 
-		MinecraftForge.EVENT_BUS.register(new NoFallDamageEventHooks());
-		MinecraftForge.EVENT_BUS.register(new FlyingEventHooks());
+		MinecraftForge.EVENT_BUS.register(new ARNoFallDamageEventHooks());
+		MinecraftForge.EVENT_BUS.register(new ARFlyingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new BedrockArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new AngelusArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new CirceForceEventHooks());
