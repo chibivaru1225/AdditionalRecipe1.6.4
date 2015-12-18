@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.event;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -35,11 +36,11 @@ public class ARNoFallDamageEventHooks
 				{
 					this.noFallDamage = true;
 				}
-				else if((player.inventory.hasItem(AdditionalRecipe.gravitationFeatherItemID))||(player.inventory.hasItem(AdditionalRecipe.superGravitationFeatherItemID)))
+				else if((player.inventory.hasItem(ARGetItemIDRegister("gravitationfeather"))||(player.inventory.hasItem(ARGetItemIDRegister("supergravitationfeather")))))
 				{
 					this.noFallDamage = true;
 				}
-				else if((player.inventory.hasItem(AdditionalRecipe.exchangeIgnitionItemID))||(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID)))
+				else if((player.inventory.hasItem(ARGetItemIDRegister("exchangeiginiton")))||(player.inventory.hasItem(ARGetItemIDRegister("ultimateexchangeiginiton"))))
 				{
 					this.noFallDamage = true;
 				}

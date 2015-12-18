@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.recipe;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,14 +20,14 @@ public class RecipeARItems {
 				{
 					GameRegistry.addRecipe(
 							new ShapedOreRecipe(
-								AdditionalRecipe.exchangeIgnitionItem,
+								ARGetItemRegister("exchangeiginiton"),
 								new Object[]{" X ","XYX"," X ",
 									Character.valueOf('X'),Item.netherStar,
-									Character.valueOf('Y'),AdditionalRecipe.forceBallItem}));
+									Character.valueOf('Y'),ARGetItemRegister("forceball")}));
 				}
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.exchangeIgnitionItem,
+						ARGetItemRegister("exchangeiginiton"),
 						new Object[]{" X ","XYX"," X ",
 							Character.valueOf('X'),Item.netherStar,
 							Character.valueOf('Y'),Block.dragonEgg}));
@@ -44,7 +45,7 @@ public class RecipeARItems {
 			}
 			if(AdditionalRecipe.craftingDustExchangeIgnition)
 			{
-				GameRegistry.addSmelting(AdditionalRecipe.exchangeIgnitionItemID,new ItemStack(AdditionalRecipe.dustExchangeIgnitionItem,1,0),0.0f);
+				GameRegistry.addSmelting(ARGetItemIDRegister("exchangeiginiton"),new ItemStack(ARGetItemRegister("dustexchangeignition"),1,0),0.0f);
 				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "DustExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -61,11 +62,11 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.ultimateExchangeIgnition,
+						ARGetItemRegister("ultimateexchangeiginiton"),
 						new Object[]{"XYX","YZY","XYX",
-							Character.valueOf('X'),AdditionalRecipe.dustExchangeIgnitionItem,
+							Character.valueOf('X'),ARGetItemRegister("dustexchangeignition"),
 							Character.valueOf('Y'),Block.dragonEgg,
-							Character.valueOf('Z'),AdditionalRecipe.superGravitationFeatherItem}));
+							Character.valueOf('Z'),ARGetItemRegister("supergravitationfeather")}));
 				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -84,18 +85,18 @@ public class RecipeARItems {
 				{
 					GameRegistry.addRecipe(
 						new ShapedOreRecipe(
-							AdditionalRecipe.cheaperExchangeIgnition,
+							ARGetItemRegister("cheaperexchangeiginiton"),
 							new Object[]{"XXX","XYX","XXX",
-								Character.valueOf('X'),AdditionalRecipe.blackRottenFleshItem,
-								Character.valueOf('Y'),AdditionalRecipe.forceBallItem}));
+								Character.valueOf('X'),ARGetItemRegister("blackrottenflesh"),
+								Character.valueOf('Y'),ARGetItemRegister("forceball")}));
 				}
 				else
 				{
 					GameRegistry.addRecipe(
 						new ShapedOreRecipe(
-							AdditionalRecipe.cheaperExchangeIgnition,
+							ARGetItemRegister("cheaperexchangeiginiton"),
 							new Object[]{"XXX","XYX","XXX",
-								Character.valueOf('X'),AdditionalRecipe.blackRottenFleshItem,
+								Character.valueOf('X'),ARGetItemRegister("blackrottenflesh"),
 								Character.valueOf('Y'),Block.blockDiamond}));
 				}
 				if(AdditionalRecipe.consoleOut)
@@ -114,7 +115,7 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.circeForceItem,
+						ARGetItemRegister("circeforce"),
 						new Object[]{"XYX","YZY","XYX",
 							Character.valueOf('X'),Block.blockDiamond,
 							Character.valueOf('Y'),Item.bucketWater,
@@ -143,7 +144,7 @@ public class RecipeARItems {
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.blackRottenFleshItem,
+					ARGetItemRegister("blackrottenflesh"),
 					new Object[]{"XXX","X X","XXX",
 						Character.valueOf('X'),Item.rottenFlesh}));
 			if(AdditionalRecipe.consoleOut)
@@ -164,7 +165,7 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.bedrockMortarItem,
+						ARGetItemRegister("bedrockmortar"),
 						new Object[]{"XYX"," X ",
 							Character.valueOf('X'),Item.netherStar,
 							Character.valueOf('Y'),Block.dragonEgg}));
@@ -184,7 +185,7 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.diamondMortarItem,
+						ARGetItemRegister("diamondmortar"),
 						new Object[]{"XYX"," X ",
 							Character.valueOf('X'),Item.diamond,
 							Character.valueOf('Y'),Item.ingotIron}));
@@ -204,7 +205,7 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.ironMortarItem,
+						ARGetItemRegister("ironmortar"),
 						new Object[]{"XYX"," X ",
 							Character.valueOf('X'),Item.ingotIron,
 							Character.valueOf('Y'),Item.flint}));
@@ -232,7 +233,7 @@ public class RecipeARItems {
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.gravitationFeatherItem,
+					ARGetItemRegister("gravitationfeather"),
 					new Object[]{" X ","XYX"," X ",
 						Character.valueOf('X'),Item.feather,
 						Character.valueOf('Y'),Item.diamond}));
@@ -252,7 +253,7 @@ public class RecipeARItems {
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.nightVisionTorchItem,
+					ARGetItemRegister("nightvisiontorch"),
 					new Object[]{"XXX","XYX","XXX",
 						Character.valueOf('X'),Block.glowStone,
 						Character.valueOf('Y'),Item.blazeRod}));
@@ -272,11 +273,11 @@ public class RecipeARItems {
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.superGravitationFeatherItem,
+					ARGetItemRegister("supergravitationfeather"),
 					new Object[]{"ZXZ","XYX","ZXZ",
 						Character.valueOf('X'),Block.blockDiamond,
-						Character.valueOf('Y'),AdditionalRecipe.gravitationFeatherItem,
-						Character.valueOf('Z'),AdditionalRecipe.nightVisionTorchItem}));
+						Character.valueOf('Y'),ARGetItemRegister("gravitationfeather"),
+						Character.valueOf('Z'),ARGetItemRegister("nightvisiontorch")}));
 			if(AdditionalRecipe.consoleOut)
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "SuperGravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -293,7 +294,7 @@ public class RecipeARItems {
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.craftingFurnaceItem,
+					ARGetItemRegister("craftingfurnace"),
 					new Object[]{"XYX","YZY","XYX",
 						Character.valueOf('X'),Item.diamond,
 						Character.valueOf('Y'),Item.coal,
@@ -317,25 +318,25 @@ public class RecipeARItems {
 					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_HELMET],
 					new Object[]{"XXX","XYX","   ",
 						Character.valueOf('X'),Block.bedrock,
-						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
+						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_PLATE],
 					new Object[]{"XYX","XXX","XXX",
 						Character.valueOf('X'),Block.bedrock,
-						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
+						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_LEGS],
 					new Object[]{"XXX","XYX","X X",
 						Character.valueOf('X'),Block.bedrock,
-						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
+						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_BOOTS],
 					new Object[]{"   ","XYX","X X",
 						Character.valueOf('X'),Block.bedrock,
-						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem}));
+						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
 			if(AdditionalRecipe.consoleOut)
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "BedrockArmor" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -355,33 +356,33 @@ public class RecipeARItems {
 					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_HELMET],
 					new Object[]{"ZYZ","ZXZ","ZWZ",
 						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_HELMET],
-						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem,
+						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
-						Character.valueOf('W'),AdditionalRecipe.ultimateExchangeIgnitionItem}));
+						Character.valueOf('W'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_PLATE],
 					new Object[]{"ZYZ","ZXZ","ZWZ",
 						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_PLATE],
-						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem,
+						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
-						Character.valueOf('W'),AdditionalRecipe.ultimateExchangeIgnitionItem}));
+						Character.valueOf('W'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_LEGS],
 					new Object[]{"ZYZ","ZXZ","ZWZ",
 						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_LEGS],
-						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem,
+						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
-						Character.valueOf('W'),AdditionalRecipe.ultimateExchangeIgnitionItem}));
+						Character.valueOf('W'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_BOOTS],
 					new Object[]{"ZYZ","ZXZ","ZWZ",
 						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_BOOTS],
-						Character.valueOf('Y'),AdditionalRecipe.dustExchangeIgnitionItem,
+						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
-						Character.valueOf('W'),AdditionalRecipe.ultimateExchangeIgnitionItem}));
+						Character.valueOf('W'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			if(AdditionalRecipe.consoleOut)
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -400,7 +401,7 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.swordExelectorItem,
+						ARGetItemRegister("exelector"),
 						new Object[]{" XX","ZVX","YZ ",
 							Character.valueOf('X'),Item.netherQuartz,
 							Character.valueOf('Y'),Item.stick,
@@ -408,7 +409,7 @@ public class RecipeARItems {
 							Character.valueOf('V'),Item.redstone}));
 				GameRegistry.addRecipe(
 						new ShapedOreRecipe(
-							AdditionalRecipe.swordExelectorItem,
+							ARGetItemRegister("exelector"),
 							new Object[]{" XX","ZVX","YZ ",
 								Character.valueOf('X'),"crystalCertusQuartz",
 								Character.valueOf('Y'),Item.stick,
@@ -416,8 +417,8 @@ public class RecipeARItems {
 								Character.valueOf('V'),Item.redstone}));
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						AdditionalRecipe.forceBallItem,
-						new Object[]{new ItemStack(AdditionalRecipe.swordExelectorItem,1,0)}));
+						ARGetItemRegister("forceball"),
+						new Object[]{new ItemStack(ARGetItemRegister("exelector"),1,0)}));
 				if(AdditionalRecipe.consoleOut)
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "Exelector" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -436,7 +437,7 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.bladeNIOHItem,
+						ARGetItemRegister("nioh"),
 						new Object[]{"X X","YZY","VZV",
 							Character.valueOf('X'),Item.swordIron,
 							Character.valueOf('Y'),Item.gunpowder,
@@ -458,7 +459,7 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.spearDAYOItem,
+						ARGetItemRegister("dayo"),
 						new Object[]{"XX ","XYZ"," ZV",
 							Character.valueOf('X'),Item.swordDiamond,
 							Character.valueOf('Y'),"ExchangeIgnition",
@@ -480,7 +481,7 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.swordYORUItem,
+						ARGetItemRegister("yoru"),
 						new Object[]{" X ","YXY","ZVZ",
 							Character.valueOf('X'),Block.blockIron,
 							Character.valueOf('Y'),Block.bedrock,
@@ -505,7 +506,7 @@ public class RecipeARItems {
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
-						AdditionalRecipe.multiK2Item,
+						ARGetItemRegister("toolk2"),
 						new Object[]{"XYX","ZVZ","YWY",
 							Character.valueOf('X'),Block.blockGold,
 							Character.valueOf('Y'),Block.blockRedstone,

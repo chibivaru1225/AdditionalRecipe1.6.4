@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.recipe;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -92,7 +93,7 @@ public class RecipeMortar {
 			GameRegistry.addRecipe(
 				new ShapelessOreRecipe(
 					new ItemStack(Block.stone,64),
-					new Object[]{AdditionalRecipe.ultimateExchangeIgnition,AdditionalRecipe.craftingFurnace}));
+					new Object[]{ARGetItemRegister("ultimateexchangeiginiton"),ARGetItemRegister("craftingfurnace")}));
 		}
 	}
 }

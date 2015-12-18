@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.event;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
@@ -35,8 +36,8 @@ public class ARFlyingEventHooks
 	//落下時ダメージ無効化処理。LivingFallEventが実装されたバージョンのみ
 	public void Flight(EntityPlayerSP player)
 	{
-		exchange = player.inventory.hasItem(AdditionalRecipe.exchangeIgnitionItemID);
-		ultimate = player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID);
+		exchange = player.inventory.hasItem(ARGetItemIDRegister("exchangeiginiton"));
+		ultimate = player.inventory.hasItem(ARGetItemIDRegister("ultimateexchangeiginiton"));
 		bedrock  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorBedrockID, player);
 		angelus  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player,true);
 		angelus2 = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player);

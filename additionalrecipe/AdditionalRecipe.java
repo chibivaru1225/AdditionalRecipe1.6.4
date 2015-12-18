@@ -1,5 +1,7 @@
 package chibivaru.additionalrecipe;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
+
 import java.util.HashMap;
 import java.util.logging.Level;
 
@@ -9,25 +11,25 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
-import net.minecraft.src.ModLoader;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Property;
-
 import chibivaru.additionalrecipe.armor.BedrockArmor;
+import chibivaru.additionalrecipe.common.ARConfiguration;
 import chibivaru.additionalrecipe.common.ARCreativeTab;
 import chibivaru.additionalrecipe.common.ARLogger;
 import chibivaru.additionalrecipe.common.ARModInfo;
 import chibivaru.additionalrecipe.dust.DustBedrock;
+import chibivaru.additionalrecipe.dust.DustExchangeIgnition;
 import chibivaru.additionalrecipe.dust.DustNetherStar;
 import chibivaru.additionalrecipe.event.ARAddChestGenHooks;
+import chibivaru.additionalrecipe.event.ARFlyingEventHooks;
+import chibivaru.additionalrecipe.event.ARNoFallDamageEventHooks;
 import chibivaru.additionalrecipe.event.AngelusArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.BedrockArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.CirceForceEventHooks;
-import chibivaru.additionalrecipe.event.ARFlyingEventHooks;
-import chibivaru.additionalrecipe.event.ARNoFallDamageEventHooks;
 import chibivaru.additionalrecipe.event.WeaponsEventHooks;
 import chibivaru.additionalrecipe.item.BlackRottenFlesh;
 import chibivaru.additionalrecipe.item.CirceForce;
@@ -44,11 +46,9 @@ import chibivaru.additionalrecipe.tools.ExchangeIgnition;
 import chibivaru.additionalrecipe.tools.IronMortar;
 import chibivaru.additionalrecipe.tools.UltimateExchangeIgnition;
 import chibivaru.additionalrecipe.weapons.BladeNIOH;
-import chibivaru.additionalrecipe.weapons.MultiK2;
 import chibivaru.additionalrecipe.weapons.SpearDAYO;
 import chibivaru.additionalrecipe.weapons.SwordExelector;
 import chibivaru.additionalrecipe.weapons.SwordYORU;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -91,13 +91,10 @@ public class AdditionalRecipe {
 	public static final CreativeTabs ARTabs = new ARCreativeTab("AdditionalRecipe");
 	public static final String CONSOLE = "[AdditionalRecipe]:";
 	public static final String ADDID = " added ID ";
-	public static HashMap<String,Integer> ARItemID;
-	public static HashMap<String,Item>    ARItem;
-	public static HashMap<String,String>  ARItemName;
-	public static HashMap<String,Integer> ARItemDamage;
-	public static int bedrockMortarItemID,diamondMortarItemID,ironMortarItemID,exchangeIgnitionItemID,dustNetherStarItemID,dustBedrockItemID,gravitationFeatherItemID;
-	public static int superGravitationFeatherItemID,craftingFurnaceItemID,ultimateExchangeIgnitionItemID,dustExchangeIgnitionItemID,cheaperExchangeIgnitionItemID,blackRottenFleshItemID,nightVisionTorchItemID,forceBallItemID,circeForceItemID;
-	public static int swordMoonlightItemID,swordDarkslayerItemID,swordMoonlightPowerdItemID,bladeNIOHItemID,spearDAYOItemID,swordYORUItemID,multiK2ItemID,swordExelectorItemID;
+	public static HashMap<String,Integer> ARItemID     = new HashMap<String,Integer>();
+	public static HashMap<String,Item>    ARItem       = new HashMap<String,Item>();
+	public static HashMap<String,String>  ARItemName   = new HashMap<String,String>();
+	public static HashMap<String,Integer> ARItemDamage = new HashMap<String,Integer>();
 	public static int[] armorBedrockID = new int[4];
 	public static int[] armorAngelusID = new int[4];
 	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
@@ -108,22 +105,6 @@ public class AdditionalRecipe {
 	public static int ironMortarCrafting;
 	public static int craftingDifficulty,exelectorFirstExp,exelectorSecondExp,exelectorLastExp;
 	public static int textureIronMortar,textureDiamondMortar,textureBedrockMortar;
-	public static BedrockMortar bedrockMortar;
-	public static DiamondMortar diamondMortar;
-	public static IronMortar ironMortar;
-	public static ExchangeIgnition exchangeIgniniton;
-	public static UltimateExchangeIgnition ultimateExchangeIgnition;
-	public static CraftingFurnace craftingFurnace;
-	public static CheaperExchangeIgnition cheaperExchangeIgnition;
-	public static BladeNIOH bladeNIOH;
-	public static SpearDAYO spearDAYO;
-	public static SwordYORU swordYORU;
-	public static SwordExelector swordExelector;
-	public static MultiK2 multiK2;
-	public static Item bedrockMortarItem,exchangeIgnitionItem,ironMortarItem,diamondMortarItem,dustNetherStarItem,dustBedrockItem,gravitationFeatherItem,superGravitationFeatherItem;
-	public static Item craftingFurnaceItem,ultimateExchangeIgnitionItem,dustExchangeIgnitionItem,blackRottenFleshItem,cheaperExchangeIgnitionItem,nightVisionTorchItem,forceBallItem,circeForceItem;
-	public static Item swordMoonlightItem,swordDarkslayerItem,swordMoonlightPowerdItem,bladeNIOHItem,spearDAYOItem,swordYORUItem;
-	public static Item multiK2Item,swordExelectorItem;
 	public static Item[] armorBedrockItem = new Item[4];
 	public static Item[] armorAngelusItem = new Item[4];
 	public static boolean craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,digBCSpring,digEndPortal,craftingEndPortal,craftingPinkSlimeBall,craftingFlour,craftingLinkModifer;
@@ -163,37 +144,11 @@ public class AdditionalRecipe {
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		ARLogger.init(MODNAME);
+		ARConfiguration.init(event);
 		Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
 		try
 		{
 			cfg.load();
-			Property BedrockMortarItemIDProp              = cfg.getItem("ItemID"         ,"BedrockMortarItemID"             ,12503);
-			Property DiamondMortarItemIDProp              = cfg.getItem("ItemID"         ,"DiamondMortarItemID"             ,12502);
-			Property IronMortarItemIDProp                 = cfg.getItem("ItemID"         ,"IronMortarItemID"                ,12501);
-
-			Property UltimateExchangeIgnitionItemIDProp   = cfg.getItem("ItemID"         ,"UltimateExchangeIgnitionItemID"  ,12506);
-			Property ExchangeIgnitionItemIDProp           = cfg.getItem("ItemID"         ,"ExchangeIgnitionItemID"          ,12500);
-			Property CheaperExchangeIgnitionItemIDProp    = cfg.getItem("ItemID"         ,"CheaperExchangeIgnitionItemID"   ,12507);
-
-			Property CraftingFurnaceItemIDProp            = cfg.getItem("ItemID"         ,"CraftingFurnaceItemID"           ,12505);
-			Property BlackRottenFleshItemIDProp           = cfg.getItem("ItemID"         ,"BlackRottenFleshItemID"          ,12508);
-			Property GravitationFeatherItemIDProp         = cfg.getItem("ItemID"         ,"GravitationFeatherItemID"        ,12504);
-			Property SuperGravitationFeatherItemIDProp    = cfg.getItem("ItemID"         ,"SuperGravitationFeatherItemID"   ,12510);
-			Property NightVisionTorchItemIDProp           = cfg.getItem("ItemID"         ,"NightVisionTorchItemID"          ,12509);
-			Property ForceBallItemIDProp                  = cfg.getItem("ItemID"         ,"ForceBallItemID"                 ,12511);
-			Property CirceForceItemIDProp                 = cfg.getItem("ItemID"         ,"CirceForceItemID"                ,12512);
-
-			Property SwordMoonlightProp                   = cfg.getItem("WeaponItemID"   ,"SwordMoonlightID"                ,12551);
-			Property SwordDarkslayerProp                  = cfg.getItem("WeaponItemID"   ,"SwordDarkslayerID"               ,12552);
-			Property SwordExelectorProp                   = cfg.getItem("WeaponItemID"   ,"SwordExelectorID"                ,12553);
-			Property BladeNIOHProp                        = cfg.getItem("WeaponItemID"   ,"BladeNIOHID"                     ,12557);
-			Property SpearDAYOProp                        = cfg.getItem("WeaponItemID"   ,"SpearDAYOID"                     ,12558);
-			Property SwordYORUProp                        = cfg.getItem("WeaponItemID"   ,"SwordYORUID"                     ,12559);
-			Property MultiK2Prop                          = cfg.getItem("WeaponItemID"   ,"MultiToolK2ID"                   ,12560);
-
-			Property DustNetherStarItemIDProp             = cfg.getItem("DustItemID"     ,"DustNetherStarItemID"            ,12600);
-			Property DustBedrockItemIDProp                = cfg.getItem("DustItemID"     ,"DustBedrockItemID"               ,12601);
-			Property DustExchangeIgnitionItemIDProp       = cfg.getItem("DustItemID"     ,"DustExchangeIgnitionID"          ,12602);
 
 			Property ArmorBedrockHelmetIDProp             = cfg.getItem("ArmorItemID"    ,"BedrockHelmetItemID"             ,12700);
 			Property ArmorBedrockPlateIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockPlateItemID"              ,12701);
@@ -331,30 +286,6 @@ public class AdditionalRecipe {
 			CraftingLinkModiferProp.comment               = "Link Modifer with MystCraft.";
 			CraftingPistonProp.comment                    = "It's possible to use bronze, invar and steel to make a piston.";
 
-			bedrockMortarItemID                           = BedrockMortarItemIDProp.getInt();
-			diamondMortarItemID                           = DiamondMortarItemIDProp.getInt();
-			ironMortarItemID                              = IronMortarItemIDProp.getInt();
-
-			ultimateExchangeIgnitionItemID                = UltimateExchangeIgnitionItemIDProp.getInt();
-			exchangeIgnitionItemID                        = ExchangeIgnitionItemIDProp.getInt();
-			cheaperExchangeIgnitionItemID                 = CheaperExchangeIgnitionItemIDProp.getInt();
-
-			craftingFurnaceItemID                         = CraftingFurnaceItemIDProp.getInt();
-			blackRottenFleshItemID                        = BlackRottenFleshItemIDProp.getInt();
-			gravitationFeatherItemID                      = GravitationFeatherItemIDProp.getInt();
-			superGravitationFeatherItemID                 = SuperGravitationFeatherItemIDProp.getInt();
-			nightVisionTorchItemID                        = NightVisionTorchItemIDProp.getInt();
-			forceBallItemID                               = ForceBallItemIDProp.getInt();
-			circeForceItemID                              = CirceForceItemIDProp.getInt();
-
-			swordMoonlightItemID                          = SwordMoonlightProp.getInt();
-			swordDarkslayerItemID                         = SwordDarkslayerProp.getInt();
-			swordExelectorItemID                          = SwordExelectorProp.getInt();
-			bladeNIOHItemID                               = BladeNIOHProp.getInt();
-			spearDAYOItemID                               = SpearDAYOProp.getInt();
-			swordYORUItemID                               = SwordYORUProp.getInt();
-			multiK2ItemID                                 = MultiK2Prop.getInt();
-
 			armorBedrockID[ARMOR_HELMET]                  = ArmorBedrockHelmetIDProp.getInt();
 			armorBedrockID[ARMOR_PLATE]                   = ArmorBedrockPlateIDProp.getInt();
 			armorBedrockID[ARMOR_LEGS]                    = ArmorBedrockLegsIDProp.getInt();
@@ -364,10 +295,6 @@ public class AdditionalRecipe {
 			armorAngelusID[ARMOR_PLATE]                   = ArmorAngelusVestmentIDProp.getInt();
 			armorAngelusID[ARMOR_LEGS]                    = ArmorAngelusSkirtIDProp.getInt();
 			armorAngelusID[ARMOR_BOOTS]                   = ArmorAngelusBootsIDProp.getInt();
-
-			dustNetherStarItemID                          = DustNetherStarItemIDProp.getInt();
-			dustBedrockItemID                             = DustBedrockItemIDProp.getInt();
-			dustExchangeIgnitionItemID                    = DustExchangeIgnitionItemIDProp.getInt();
 
 			diamondMortarDamage                           = DiamondMortarDamageProp.getInt();
 			iromMortarDamage                              = IromMortarDamageProp.getInt();
@@ -510,103 +437,36 @@ public class AdditionalRecipe {
 		ARMOR_LUST     = EnumHelper.addArmorMaterial("LUST"    , 1, new int[] {15,15,15,15},30);
 		ARMOR_ANGELUS  = EnumHelper.addArmorMaterial("ANGELUS" , 1, new int[] {20,20,20,20},40);
 
-		WEAPON_POOR     = EnumHelper.addToolMaterial("POOR"     , 2, 1, 6.0f, 0, 100);
+		WEAPON_POOR     = EnumHelper.addToolMaterial("POOR"     , 2, 1, 6.0f, 0,  100);
 		WEAPON_BASIC    = EnumHelper.addToolMaterial("BASIC"    , 3, 1, 6.0f, 5,  100);
 		WEAPON_ULTIMATE = EnumHelper.addToolMaterial("ULTIMATE" , 4, 1, 6.0f, 15, 100);
 		WEAPON_PHANTASM = EnumHelper.addToolMaterial("PHANTASM" , 4, 1, 6.0f, 95, 100);
 
-		bedrockMortar     = (BedrockMortar)(new BedrockMortar(bedrockMortarItemID - 256)).setUnlocalizedName("bedrockmortar").setCreativeTab(ARTabs);
-		bedrockMortarItem = (Item)bedrockMortar;
-		GameRegistry.registerItem(bedrockMortar, "BedrockMortar");
-		GameRegistry.registerCraftingHandler(bedrockMortar);
+		ARNewItemRegister(new BedrockMortar(ARGetItemIDRegister("bedrockmortar") - 256), "bedrockmortar", ARTabs, "BedrockMortar");
+		ARNewItemRegister(new DiamondMortar(ARGetItemIDRegister("diamondmortar") - 256), "diamondmortar", ARTabs, "DiamondMortar");
+		ARNewItemRegister(new IronMortar(ARGetItemIDRegister("ironmortar") - 256), "ironmortar", ARTabs, "IronMortar");
 
-		diamondMortar     = (DiamondMortar)(new DiamondMortar(diamondMortarItemID - 256)).setUnlocalizedName("diamondmortar").setCreativeTab(ARTabs);
-		diamondMortarItem = (Item)diamondMortar;
-		GameRegistry.registerItem(diamondMortar, "DiamondMortar");
-		GameRegistry.registerCraftingHandler(diamondMortar);
+		ARNewItemRegister(new ExchangeIgnition(ARGetItemIDRegister("exchangeiginiton") - 256), "exchangeiginiton", ARTabs, "ExchangeIgnition");
+		ARNewItemRegister(new UltimateExchangeIgnition(ARGetItemIDRegister("ultimateexchangeiginiton") - 256), "ultimateexchangeiginiton", ARTabs, "UltimateExchangeIgnition");
+		ARNewItemRegister(new CheaperExchangeIgnition(ARGetItemIDRegister("cheaperexchangeiginiton") - 256), "cheaperexchangeiginiton", ARTabs, "CheaperExchangeIgnition");
 
-		ironMortar     = (IronMortar)(new IronMortar(ironMortarItemID - 256)).setUnlocalizedName("ironmortar").setCreativeTab(ARTabs);
-		ironMortarItem = (Item)ironMortar;
-		GameRegistry.registerItem(ironMortar, "IronMortar");
-		GameRegistry.registerCraftingHandler(ironMortar);
+		ARNewItemRegister(new CraftingFurnace(ARGetItemIDRegister("craftingfurnace") - 256), "craftingfurnace",ARTabs, "CraftingFurnace");
+		ARNewItemRegister(new GravitationFeather(ARGetItemIDRegister("gravitationfeather") - 256), "gravitationfeather", ARTabs, "GravitationFeather");
+		ARNewItemRegister(new SuperGravitationFeather(ARGetItemIDRegister("supergravitationfeather") - 256), "supergravitationfeather" , ARTabs, "SuperGravitationFeather");
+		ARNewItemRegister(new BlackRottenFlesh(ARGetItemIDRegister("blackrottenflesh") - 256), "blackrottenflesh", ARTabs, "BlackRottenFlesh");
+		ARNewItemRegister(new NightVisionTorch(ARGetItemIDRegister("nightvisiontorch") - 256), "nightvisiontorch", ARTabs, "NightVisionTorch");
+		ARNewItemRegister(new ForceBall(ARGetItemIDRegister("forceball") - 256), "forceball", ARTabs, "ForceBall");
+		ARNewItemRegister(new CirceForce(ARGetItemIDRegister("circeforce") - 256), "circeforce", ARTabs, "CirceForce");
 
-		exchangeIgniniton     = (ExchangeIgnition)(new ExchangeIgnition(exchangeIgnitionItemID - 256)).setUnlocalizedName("exchangeiginiton").setCreativeTab(ARTabs);
-		exchangeIgnitionItem = (Item)exchangeIgniniton;
-		GameRegistry.registerItem(exchangeIgniniton, "ExchangeIgnition");
-		GameRegistry.registerCraftingHandler(exchangeIgniniton);
-		
-		ultimateExchangeIgnition     = (UltimateExchangeIgnition)(new UltimateExchangeIgnition(ultimateExchangeIgnitionItemID - 256)).setUnlocalizedName("ultimateexchangeiginiton").setCreativeTab(ARTabs);
-		ultimateExchangeIgnitionItem = (Item)ultimateExchangeIgnition;
-		GameRegistry.registerItem(ultimateExchangeIgnition, "UltimateExchangeIgnition");
-		GameRegistry.registerCraftingHandler(ultimateExchangeIgnition);
+		ARNewItemRegister(new SwordExelector(ARGetItemIDRegister("exelector") - 256, WEAPON_POOR), "exelector", ARTabs, "Exelector",new StringBuilder().append(EnumChatFormatting.WHITE).append("Exelector").toString());
+		ARNewItemRegister(new BladeNIOH(ARGetItemIDRegister("nioh") - 256, WEAPON_PHANTASM), "nioh", ARTabs, "NIOH");
+		ARNewItemRegister(new SwordYORU(ARGetItemIDRegister("yoru") - 256, WEAPON_ULTIMATE), "yoru", ARTabs, "Villainy Sword 'YORU'","ja_JP","邪剣「夜」");
+		ARNewItemRegister(new SpearDAYO(ARGetItemIDRegister("dayo") - 256, WEAPON_ULTIMATE), "dayo", ARTabs, "Evil Spear 'DAYO'","ja_JP","悪槍「堕那」");
+		ARNewItemRegister(new SwordExelector(ARGetItemIDRegister("toolk2") - 256, WEAPON_POOR), "toolk2", ARTabs, "K2",new StringBuilder().append(EnumChatFormatting.LIGHT_PURPLE).append("K2's Multi-Weapon").toString());
 
-		cheaperExchangeIgnition     = (CheaperExchangeIgnition)(new CheaperExchangeIgnition(cheaperExchangeIgnitionItemID - 256)).setUnlocalizedName("cheaperexchangeiginiton").setCreativeTab(ARTabs);
-		cheaperExchangeIgnitionItem = (Item)cheaperExchangeIgnition;
-		GameRegistry.registerItem(cheaperExchangeIgnition, "CheaperExchangeIgnition");
-		GameRegistry.registerCraftingHandler(cheaperExchangeIgnition);
-
-		craftingFurnace = (CraftingFurnace)(new CraftingFurnace(craftingFurnaceItemID - 256)).setUnlocalizedName("craftingfurnace").setCreativeTab(ARTabs);
-		craftingFurnaceItem = (Item)craftingFurnace;
-		GameRegistry.registerItem(craftingFurnace,"CraftingFurnace");
-		GameRegistry.registerCraftingHandler(craftingFurnace);
-
-		gravitationFeatherItem = new GravitationFeather(gravitationFeatherItemID - 256).setUnlocalizedName("gravitationfeather").setCreativeTab(ARTabs);
-		LanguageRegistry.addName(gravitationFeatherItem, "GravitationFeather");
-		GameRegistry.registerItem(gravitationFeatherItem, "GravitationFeather");
-
-		superGravitationFeatherItem = new SuperGravitationFeather(superGravitationFeatherItemID - 256).setUnlocalizedName("supergravitationfeather").setCreativeTab(ARTabs);
-		LanguageRegistry.addName(superGravitationFeatherItem, "SuperGravitationFeather");
-		GameRegistry.registerItem(superGravitationFeatherItem, "SuperGravitationFeather");
-
-		blackRottenFleshItem = new BlackRottenFlesh(blackRottenFleshItemID - 256).setUnlocalizedName("blackrottenflesh").setCreativeTab(ARTabs);
-		LanguageRegistry.addName(blackRottenFleshItem, "BlackRottenFlesh");
-		GameRegistry.registerItem(blackRottenFleshItem, "BlackRottenFlesh");
-
-		nightVisionTorchItem = new NightVisionTorch(nightVisionTorchItemID - 256).setUnlocalizedName("nightvisiontorch").setCreativeTab(ARTabs);
-		LanguageRegistry.addName(nightVisionTorchItem, "NightVisionTorch");
-		GameRegistry.registerItem(nightVisionTorchItem, "NightVisionTorch");
-
-		forceBallItem = new ForceBall(forceBallItemID - 256).setUnlocalizedName("forceball").setCreativeTab(ARTabs);
-		LanguageRegistry.addName(forceBallItem, "ForceBall");
-		GameRegistry.registerItem(forceBallItem, "ForceBall");
-
-		circeForceItem = new CirceForce(circeForceItemID - 256).setUnlocalizedName("circeforce").setCreativeTab(ARTabs);
-		LanguageRegistry.addName(circeForceItem, "CirceForce");
-		GameRegistry.registerItem(circeForceItem, "CirceForce");
-
-
-		swordExelector = (SwordExelector)(new SwordExelector(swordExelectorItemID - 256,WEAPON_POOR)).setUnlocalizedName("exelector").setCreativeTab(ARTabs);
-		swordExelectorItem = (Item)swordExelector;
-		LanguageRegistry.addName(swordExelector,new StringBuilder().append(EnumChatFormatting.WHITE).append("Exelector").toString());
-		GameRegistry.registerItem(swordExelector,"Exelector");
-
-		bladeNIOH = (BladeNIOH)(new BladeNIOH(bladeNIOHItemID - 256,WEAPON_PHANTASM)).setUnlocalizedName("nioh").setCreativeTab(ARTabs);
-		bladeNIOH.setTextureName("additionalrecipe:NIOH");
-		bladeNIOHItem = (Item)bladeNIOH;
-		LanguageRegistry.addName(bladeNIOH,"NIOH");
-		GameRegistry.registerItem(bladeNIOH,"NIOH");
-
-		spearDAYO = (SpearDAYO)(new SpearDAYO(spearDAYOItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("dayo").setCreativeTab(ARTabs);
-		spearDAYO.setTextureName("additionalrecipe:DAYO");
-		spearDAYOItem = (Item)spearDAYO;
-		LanguageRegistry.addName(spearDAYO,"Dark Spear 'DAYO'");
-		LanguageRegistry.instance().addNameForObject(spearDAYO,"ja_JP","悪槍「堕那」");
-		GameRegistry.registerItem(spearDAYO,"DAYO");
-
-		swordYORU = (SwordYORU)(new SwordYORU(swordYORUItemID - 256,WEAPON_ULTIMATE)).setUnlocalizedName("yoru").setCreativeTab(ARTabs);
-		swordYORU.setTextureName("additionalrecipe:YORU");
-		swordYORUItem = (Item)swordYORU;
-		LanguageRegistry.addName(swordYORU,"Villainy Sword 'YORU'");
-		LanguageRegistry.instance().addNameForObject(swordYORU,"ja_JP","邪剣「夜」");
-		GameRegistry.registerItem(swordYORU,"YORU");
-
-
-		multiK2 = (MultiK2)(new MultiK2(multiK2ItemID - 256,WEAPON_POOR)).setUnlocalizedName("k2");
-		multiK2.setCreativeTab(ARTabs);
-		multiK2Item = (Item)multiK2;
-		LanguageRegistry.addName(multiK2,new StringBuilder().append(EnumChatFormatting.LIGHT_PURPLE).append("K2's Multi-Weapon").toString());
-		GameRegistry.registerItem(multiK2, "K2");
-
+		ARNewItemRegister(new DustNetherStar(ARGetItemIDRegister("dustnetherstar") - 256), "dustnetherstar", ARTabs, "DustNetherStar");
+		ARNewItemRegister(new DustBedrock(ARGetItemIDRegister("dustbedrock") - 256), "dustbedrock", ARTabs, "DustBedrock");
+		ARNewItemRegister(new DustExchangeIgnition(ARGetItemIDRegister("dustexchangeignition") - 256), "dustexchangeignition", ARTabs, "DustExchangeIgnition");
 
 		armorBedrockItem[ARMOR_HELMET] = new BedrockArmor(armorBedrockID[ARMOR_HELMET] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);
 		armorBedrockItem[ARMOR_HELMET].setUnlocalizedName("bedrockhelmet");
@@ -663,19 +523,6 @@ public class AdditionalRecipe {
 		armorAngelusItem[ARMOR_BOOTS].setCreativeTab(ARTabs);
 		LanguageRegistry.addName(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
 		GameRegistry.registerItem(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
-
-
-		dustNetherStarItem = new DustNetherStar(dustNetherStarItemID - 256).setUnlocalizedName("dustnetherstar").setCreativeTab(ARTabs);
-		LanguageRegistry.addName(dustNetherStarItem, "DustNetherStar");
-		GameRegistry.registerItem(dustNetherStarItem, "DustNetherStar");
-
-		dustBedrockItem = new DustBedrock(dustBedrockItemID - 256).setUnlocalizedName("dustbedrock").setCreativeTab(ARTabs);
-		LanguageRegistry.addName(dustBedrockItem, "DustBedrock");
-		GameRegistry.registerItem(dustBedrockItem, "DustBedrock");
-
-		dustExchangeIgnitionItem = new DustBedrock(dustExchangeIgnitionItemID - 256).setUnlocalizedName("dustexchangeignition").setCreativeTab(ARTabs);
-		LanguageRegistry.addName(dustExchangeIgnitionItem, "DustExchangeIgnition");
-		GameRegistry.registerItem(dustExchangeIgnitionItem, "DustExchangeIgnition");
 
 		addchestgenhooks = new ARAddChestGenHooks();
 		addchestgenhooks.AddChestItems();

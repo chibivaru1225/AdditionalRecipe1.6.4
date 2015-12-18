@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.event;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -19,7 +20,7 @@ public class CirceForceEventHooks {
 	}
 	public void Circe(EntityPlayer par1player,EntityPlayerSP par2player)
 	{
-		boolean circeForce = AdditionalRecipe.hasItem(AdditionalRecipe.circeForceItemID, par1player);
+		boolean circeForce = AdditionalRecipe.hasItem(ARGetItemIDRegister("circeforce"), par1player);
 		if(circeForce)
 		{
 			if(par1player.isInWater())

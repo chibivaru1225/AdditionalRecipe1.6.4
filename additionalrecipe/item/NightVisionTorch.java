@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.item;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -53,7 +53,7 @@ public class NightVisionTorch extends Item
 		if(entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer)entity;
-			if(player.inventory.hasItem(AdditionalRecipe.nightVisionTorchItemID))
+			if(player.inventory.hasItem(ARGetItemIDRegister("nightvisiontorch")))
 			{
 				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,20*30));
 			}

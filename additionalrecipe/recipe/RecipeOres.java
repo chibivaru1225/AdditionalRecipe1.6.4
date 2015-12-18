@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.recipe;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.block.Block;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import chibivaru.additionalrecipe.AdditionalRecipe;
@@ -15,42 +16,42 @@ public class RecipeOres {
 				new ShapedOreRecipe(
 					Block.oreIron,
 					new Object[]{"X  "," X ","   ",
-						Character.valueOf('X'),AdditionalRecipe.ultimateExchangeIgnition}));
+						Character.valueOf('X'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					Block.oreGold,
 					new Object[]{" X "," X ","   ",
-						Character.valueOf('X'),AdditionalRecipe.ultimateExchangeIgnition}));
+						Character.valueOf('X'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					Block.oreCoal,
 					new Object[]{"  X"," X ","   ",
-						Character.valueOf('X'),AdditionalRecipe.ultimateExchangeIgnition}));
+						Character.valueOf('X'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					Block.oreDiamond,
 					new Object[]{"   ","XX ","   ",
-						Character.valueOf('X'),AdditionalRecipe.ultimateExchangeIgnition}));
+						Character.valueOf('X'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					Block.oreEmerald,
 					new Object[]{"   "," XX","   ",
-						Character.valueOf('X'),AdditionalRecipe.ultimateExchangeIgnition}));
+						Character.valueOf('X'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					Block.oreLapis,
 					new Object[]{"   "," X ","X  ",
-						Character.valueOf('X'),AdditionalRecipe.ultimateExchangeIgnition}));
+						Character.valueOf('X'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					Block.oreNetherQuartz,
 					new Object[]{"   "," X "," X ",
-						Character.valueOf('X'),AdditionalRecipe.ultimateExchangeIgnition}));
+						Character.valueOf('X'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
 					Block.oreRedstone,
 					new Object[]{"   "," X ","  X",
-						Character.valueOf('X'),AdditionalRecipe.ultimateExchangeIgnition}));
+						Character.valueOf('X'),ARGetItemRegister("ultimateexchangeiginiton")}));
 		}
 	}
 

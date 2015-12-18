@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import chibivaru.additionalrecipe.AdditionalRecipe;
+import chibivaru.additionalrecipe.common.ARItemHandler;
 
 public class RecipeHandler {
 	RecipeARItems recipeadditionalitems;
@@ -59,52 +60,52 @@ public class RecipeHandler {
 			}
 		}
 
-		OreDictionary.registerOre("dustNetherStar",AdditionalRecipe.dustNetherStarItem);
+		OreDictionary.registerOre("dustNetherStar",ARItemHandler.ARGetItemRegister("dustnetherstar"));
 		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "DustNetherStar" + OREDIC + ADDED);
 		}
-		OreDictionary.registerOre("dustBedrock",AdditionalRecipe.dustBedrockItem);
+		OreDictionary.registerOre("dustBedrock",ARItemHandler.ARGetItemRegister("dustbedrock"));
 		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "DustBedrock" + OREDIC + ADDED);
 		}
 
-		OreDictionary.registerOre("MortarTier01",AdditionalRecipe.bedrockMortar);
-		OreDictionary.registerOre("MortarTier02",AdditionalRecipe.bedrockMortar);
-		OreDictionary.registerOre("MortarTier03",AdditionalRecipe.bedrockMortar);
-		OreDictionary.registerOre("MortarOreTier03",AdditionalRecipe.bedrockMortar);
+		OreDictionary.registerOre("MortarTier01",ARItemHandler.ARGetItemRegister("bedrockmortar"));
+		OreDictionary.registerOre("MortarTier02",ARItemHandler.ARGetItemRegister("bedrockmortar"));
+		OreDictionary.registerOre("MortarTier03",ARItemHandler.ARGetItemRegister("bedrockmortar"));
+		OreDictionary.registerOre("MortarOreTier03",ARItemHandler.ARGetItemRegister("bedrockmortar"));
 		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + OREDIC + ADDED);
 		}
 
-		OreDictionary.registerOre("MortarTier01",new ItemStack(AdditionalRecipe.diamondMortar,1,32767));
-		OreDictionary.registerOre("MortarTier02",new ItemStack(AdditionalRecipe.diamondMortar,1,32767));
-		OreDictionary.registerOre("MortarOreTier02",new ItemStack(AdditionalRecipe.diamondMortar,1,32767));
+		OreDictionary.registerOre("MortarTier01",new ItemStack(ARItemHandler.ARGetItemRegister("diamondmortar"),1,32767));
+		OreDictionary.registerOre("MortarTier02",new ItemStack(ARItemHandler.ARGetItemRegister("diamondmortar"),1,32767));
+		OreDictionary.registerOre("MortarOreTier02",new ItemStack(ARItemHandler.ARGetItemRegister("diamondmortar"),1,32767));
 		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + OREDIC + ADDED);
 		}
 
-		OreDictionary.registerOre("MortarTier01",new ItemStack(AdditionalRecipe.ironMortar,1,32767));
-		OreDictionary.registerOre("MortarOreTier01",new ItemStack(AdditionalRecipe.ironMortar,1,32767));
+		OreDictionary.registerOre("MortarTier01",new ItemStack(ARItemHandler.ARGetItemRegister("ironmortar"),1,32767));
+		OreDictionary.registerOre("MortarOreTier01",new ItemStack(ARItemHandler.ARGetItemRegister("ironmortar"),1,32767));
 		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "IronMortar" + OREDIC + ADDED);
 		}
 
-		OreDictionary.registerOre("ExchangeIgnition",AdditionalRecipe.exchangeIgniniton);
+		OreDictionary.registerOre("ExchangeIgnition",ARItemHandler.ARGetItemRegister("exchangeiginiton"));
 		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + OREDIC + ADDED);
 		}
-		OreDictionary.registerOre("ExchangeIgnition",AdditionalRecipe.ultimateExchangeIgnition);
+		OreDictionary.registerOre("ExchangeIgnition",ARItemHandler.ARGetItemRegister("ultimateexchangeiginiton"));
 		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + OREDIC + ADDED);
 		}
-		OreDictionary.registerOre("ExchangeIgnition",new ItemStack(AdditionalRecipe.cheaperExchangeIgnition,1,32767));
+		OreDictionary.registerOre("ExchangeIgnition",new ItemStack(ARItemHandler.ARGetItemRegister("cheaperexchangeiginiton"),1,32767));
 		if(AdditionalRecipe.consoleOut)
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + OREDIC + ADDED);

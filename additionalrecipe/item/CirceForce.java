@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.item;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
@@ -9,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -60,7 +60,7 @@ public class CirceForce extends Item{
 			if(world.isRemote)
 			{
 				EntityPlayer player = (EntityPlayer)entity;
-				if(player.inventory.hasItem(AdditionalRecipe.circeForceItemID))
+				if(player.inventory.hasItem(ARGetItemIDRegister("circeforce")))
 				{
 					if(player.isInsideOfMaterial(Material.water))
 					{

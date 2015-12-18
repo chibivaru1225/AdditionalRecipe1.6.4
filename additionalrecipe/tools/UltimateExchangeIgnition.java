@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.tools;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -81,7 +82,7 @@ public class UltimateExchangeIgnition extends Item implements ICraftingHandler
 		if(entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer)entity;
-			if(player.inventory.hasItem(AdditionalRecipe.ultimateExchangeIgnitionItemID))
+			if(player.inventory.hasItem(ARGetItemIDRegister("ultimateexchangeiginiton")))
 			{
 				if(AdditionalRecipe.ultimateExchangeIgnitionEffect)
 				{

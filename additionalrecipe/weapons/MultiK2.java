@@ -1,5 +1,7 @@
 package chibivaru.additionalrecipe.weapons;
 
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
+
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -121,7 +123,7 @@ public class MultiK2 extends ItemSword
 		if(entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer)entity;
-			if(player.inventory.hasItem(AdditionalRecipe.multiK2ItemID))
+			if(player.inventory.hasItem(ARGetItemIDRegister("toolk2")))
 			{
 				NBTTagCompound nbttagcompound = stack.getTagCompound();
 				int mk2;
