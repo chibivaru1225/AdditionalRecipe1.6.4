@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.weapons;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemSword;
@@ -17,13 +18,13 @@ public class BladeNIOH extends ItemSword
 		this.setMaxStackSize(1);
 		this.weaponDamage = (int) par2EnumToolMaterial.getDamageVsEntity();
 		this.setTextureName("additionalrecipe:" + this.getUnlocalizedName());
-		if(AdditionalRecipe.bladeNIOHPreventDamage)
+		if(ARGetAnother("NIOHPreventDamage",true))
 		{
 			this.setMaxDamage(0);
 		}
 		else
 		{
-			this.setMaxDamage(AdditionalRecipe.bladeNIOHDamage);
+			this.setMaxDamage(ARGetCfgOther("NIOH",4));
 		}
 	}
 	@SideOnly(Side.CLIENT)

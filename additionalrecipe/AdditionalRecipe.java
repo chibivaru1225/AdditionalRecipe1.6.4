@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import static chibivaru.additionalrecipe.common.ARModInfo.*;
 
@@ -71,17 +72,11 @@ public class AdditionalRecipe {
 	public static HashMap<String,Item>    ARItem       = new HashMap<String,Item>();
 	public static HashMap<String,Boolean> ARSmelting   = new HashMap<String,Boolean>();
 	public static HashMap<String,Boolean> ARCrafting   = new HashMap<String,Boolean>();
+	public static HashMap<String,Integer> ARCfgOther   = new HashMap<String,Integer>();
+	public static HashMap<String,Boolean> ARAnother    = new HashMap<String,Boolean>();
+	public static int craftingDifficulty;
 	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
-	public static int diamondMortarDamage,iromMortarDamage,bladeNIOHDamage;
-	public static int cheaperExchangeIgnitionDamage;
-	public static int bedrockMortarCrafting;
-	public static int diamondMortarCrafting;
-	public static int ironMortarCrafting;
-	public static int craftingDifficulty,exelectorFirstExp,exelectorSecondExp,exelectorLastExp;
-	public static int textureIronMortar,textureDiamondMortar,textureBedrockMortar;
-	public static boolean craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,digBCSpring,digEndPortal,craftingEndPortal,craftingPinkSlimeBall,craftingFlour,craftingLinkModifer;
-	public static boolean smeltingNetherBrick,smeltingNetherrack,smeltingLeather,smeltingGlowStoneDust;
-	public static boolean smeltingMinecartEmpty,smeltingIronDoor,smeltingWoodDoor;
+	public static boolean craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,craftingEndPortal,craftingPinkSlimeBall,craftingFlour,craftingLinkModifer;
 	public static boolean craftingAlchemic,craftingExchangeIgnition,craftingUltimateExchangeIgnition,craftingDustExchangeIgnition,craftingCheaperExchangeIgnition;
 	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather,craftingCirceForce;
 	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
@@ -89,8 +84,6 @@ public class AdditionalRecipe {
 	public static boolean craftingWeapons,craftingExelector,craftingNIOH,craftingDAYO,craftingYORU,craftingItemsK2,craftingMultiK2;
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust,craftingButton;
-	public static boolean addOreDicExpBottle;
-	public static boolean consoleOut,ultimateExchangeIgnitionEffect,bladeNIOHPreventDamage;
 	public static RecipeHandler recipehandler;
 	public static ARAddChestGenHooks addchestgenhooks;
 	public static EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
@@ -120,26 +113,10 @@ public class AdditionalRecipe {
 		{
 			cfg.load();
 
-			Property DiamondMortarDamageProp              = cfg.get("ItemDamage"         ,"DiamondMortar"                   ,1561);
-			Property IromMortarDamageProp                 = cfg.get("ItemDamage"         ,"IromMortar"                      ,250);
-			Property CheaperExchangeIgnitionDamageProp    = cfg.get("ItemDamage"         ,"CheaperExchangeIgnition"         ,128);
-			Property BladeNIOHDamageProp                  = cfg.get("ItemDamage"         ,"NIOH"                            ,4);
-
-			Property SmeltingNetherBrickProp              = cfg.get("Smelting"           ,"NetherBrick"                     ,true);
-			Property SmeltingNetherrackProp               = cfg.get("Smelting"           ,"Netherrack"                      ,false);
-			Property SmeltingLeatherProp                  = cfg.get("Smelting"           ,"Leather"                         ,true);
-			Property SmeltingGlowStoneDustProp            = cfg.get("Smelting"           ,"GlowStoneDust"                   ,false);
-
-			Property SmeltingMinecartEmptyProp            = cfg.get("Smelting"           ,"MinecartEmpty"                   ,true);
-			Property SmeltingIronDoorProp                 = cfg.get("Smelting"           ,"IronDoor"                        ,true);
-			Property SmeltingWoodDoorProp                 = cfg.get("Smelting"           ,"WoodDoor"                        ,true);
-
 			Property MortarOreDustProp                    = cfg.get("MortarCrafting"     ,"CraftingOreDust"                 ,true);
 			Property MortarIngotDustProp                  = cfg.get("MortarCrafting"     ,"CraftingIngotDust"               ,true);
 
 			Property FurnaceDustIngotProp                 = cfg.get("FurnaceCrafting"    ,"DustIngot"                       ,false);
-
-			Property AddOreDicExpBottleProp               = cfg.get("OreDicitionary"     ,"ExpBottle"                       ,false);
 
 			Property CraftingEndPortalProp                = cfg.get("Crafting"           ,"EndPortal"                       ,false);
 			Property CraftingOreProp                      = cfg.get("Crafting"           ,"Ore"                             ,false);
@@ -166,17 +143,6 @@ public class AdditionalRecipe {
 			Property CraftingExpBottleProp                = cfg.get("Crafting"           ,"ExpBottle"                       ,true);
 			Property CraftingGlowStoneDustProp            = cfg.get("Crafting"           ,"GlowStoneDust"                   ,true);
 			Property CraftingButtonProp                   = cfg.get("Crafting"           ,"Button"                          ,true);
-
-			Property BedrockMortarCraftingProp            = cfg.get("MortarCrafting"     ,"BedrockMortarDust"               ,8);
-			Property DiamondMortarCraftingProp            = cfg.get("MortarCrafting"     ,"DiamondMortarDust"               ,4);
-			Property IronMortarCraftingProp               = cfg.get("MortarCrafting"     ,"IronMortarDust"                  ,2);
-
-			Property DigBCSpringProp                      = cfg.get("Dig"                ,"BuildCraft_Spring"               ,true);
-			Property DigEndPortalProp                     = cfg.get("Dig"                ,"EndPortal"                       ,false);
-
-			Property TextureIronMortarProp                = cfg.get("Texture"            ,"IronMortal"                      ,0x777777);
-			Property TextureDiamondMortarProp             = cfg.get("Texture"            ,"DiamondMortal"                   ,0x8888FF);
-			Property TextureBedrockMortarProp             = cfg.get("Texture"            ,"BedrockMortal"                   ,0x666666);
 
 			Property CraftingAlchemicProp                 = cfg.get("AdditionalRecipe"   ,"AlchemicItem"                    ,true);
 			Property CraftingExchangeIgnitionProp         = cfg.get("AdditionalRecipe"   ,"ExchangeIgnition"                ,true);
@@ -205,47 +171,10 @@ public class AdditionalRecipe {
 			Property CraftingItemsK2Prop                  = cfg.get("AdditionalRecipe"   ,"K2 Items"                        ,true);
 			Property CraftingMultiK2Prop                  = cfg.get("AdditionalRecipe"   ,"Multi-Tool K2"                   ,true);
 
-			Property ConsoleOutProp                       = cfg.get("Another"            ,"ConsoleOut"                      ,true);
-			Property UltimateExchangeIgnitionEffectProp   = cfg.get("Another"            ,"UltimateExchangeIgnitionEffect"  ,false);
-			Property BladeNIOHPreventDamageProp           = cfg.get("Another"            ,"NIOHPreventDamage"               ,true);
-			Property ExelectorFirstExpProp                = cfg.get("Another"            ,"Exelector First-Lv Exp"          ,100);
-			Property ExelectorSecondExpProp               = cfg.get("Another"            ,"Exelector Second-Lv Exp"         ,250);
-			Property ExelectorLastExpProp                 = cfg.get("Another"            ,"Exelector Last-Lv Exp"           ,500);
-			Property CraftingDifficultyProp               = cfg.get("Another"            ,"Difficulty"                      ,0);
-
-			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
-			SmeltingNetherrackProp.comment                = "Require Dirt";
-			SmeltingLeatherProp.comment                   = "Require RottenFlesh";
-			SmeltingGlowStoneDustProp.comment             = "Require RedstoneDust";
-
-			CraftingDifficultyProp.comment                = "0=easy 1=normal 2=hard 3=lunatic 4=ultimate The others are easy.";
-			CraftingCrystalProp.comment                   = "crystals with Geostrata.";
-			CraftingPinkSlimeBallProp.comment             = "PinkSlimeBall with MineFactoryReloaded.";
-			CraftingFlourProp.comment                     = "Flour with AppliedEnergistics.";
-			CraftingLinkModiferProp.comment               = "Link Modifer with MystCraft.";
-			CraftingPistonProp.comment                    = "It's possible to use bronze, invar and steel to make a piston.";
-
-			diamondMortarDamage                           = DiamondMortarDamageProp.getInt();
-			iromMortarDamage                              = IromMortarDamageProp.getInt();
-			cheaperExchangeIgnitionDamage                 = CheaperExchangeIgnitionDamageProp.getInt();
-			bladeNIOHDamage                               = BladeNIOHDamageProp.getInt();
-
-			smeltingNetherBrick                           = SmeltingNetherBrickProp.getBoolean(true);
-			smeltingNetherrack                            = SmeltingNetherrackProp.getBoolean(false);
-			smeltingLeather                               = SmeltingLeatherProp.getBoolean(true);
-			smeltingGlowStoneDust                         = SmeltingGlowStoneDustProp.getBoolean(false);
-
-			smeltingMinecartEmpty                         = SmeltingMinecartEmptyProp.getBoolean(true);
-			smeltingIronDoor                              = SmeltingIronDoorProp.getBoolean(true);
-			smeltingWoodDoor                              = SmeltingWoodDoorProp.getBoolean(true);
-
-			addOreDicExpBottle                            = AddOreDicExpBottleProp.getBoolean(false);
-
 			furnaceDustIngot                              = FurnaceDustIngotProp.getBoolean(true);
 
 			craftingEndPortal                             = CraftingEndPortalProp.getBoolean(false);
 			craftingOre                                   = CraftingOreProp.getBoolean(true);
-			craftingDifficulty                            = CraftingDifficultyProp.getInt();
 			craftingCrystal                               = CraftingCrystalProp.getBoolean(true);
 			craftingPinkSlimeBall                         = CraftingPinkSlimeBallProp.getBoolean(true);
 			craftingFlour                                 = CraftingFlourProp.getBoolean(true);
@@ -272,21 +201,6 @@ public class AdditionalRecipe {
 
 			mortarOreDust                                 = MortarOreDustProp.getBoolean(true);
 			mortarIngotDust                               = MortarIngotDustProp.getBoolean(true);
-
-			bedrockMortarCrafting                         = BedrockMortarCraftingProp.getInt();
-			diamondMortarCrafting                         = DiamondMortarCraftingProp.getInt();
-			ironMortarCrafting                            = IronMortarCraftingProp.getInt();
-
-			exelectorFirstExp                             = ExelectorFirstExpProp.getInt();
-			exelectorSecondExp                            = ExelectorSecondExpProp.getInt();
-			exelectorLastExp                              = ExelectorLastExpProp.getInt();
-
-			digBCSpring                                   = DigBCSpringProp.getBoolean(true);
-			digEndPortal                                  = DigEndPortalProp.getBoolean(false);
-
-			textureIronMortar                             = TextureIronMortarProp.getInt();
-			textureDiamondMortar                          = TextureDiamondMortarProp.getInt();
-			textureBedrockMortar                          = TextureBedrockMortarProp.getInt();
 
 			craftingAlchemic                              = CraftingAlchemicProp.getBoolean(true);
 			craftingExchangeIgnition                      = CraftingExchangeIgnitionProp.getBoolean(true);
@@ -315,9 +229,6 @@ public class AdditionalRecipe {
 			craftingItemsK2                               = CraftingItemsK2Prop.getBoolean(true);
 			craftingMultiK2                               = CraftingMultiK2Prop.getBoolean(true);
 
-			consoleOut                                    = ConsoleOutProp.getBoolean(true);
-			ultimateExchangeIgnitionEffect                = UltimateExchangeIgnitionEffectProp.getBoolean(false);
-			bladeNIOHPreventDamage                        = BladeNIOHPreventDamageProp.getBoolean(true);
 		}
 		catch (Exception e)
 		{
@@ -332,6 +243,7 @@ public class AdditionalRecipe {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+		craftingDifficulty = ARGetCfgOther("Difficulty",0);
 		if((craftingDifficulty < 0) && (4 < craftingDifficulty))
 		{
 			craftingDifficulty = 0;
@@ -366,7 +278,7 @@ public class AdditionalRecipe {
 		MinecraftForge.EVENT_BUS.register(new CirceForceEventHooks());
 		MinecraftForge.EVENT_BUS.register(new WeaponsEventHooks());
 
-		if(digEndPortal)
+		if(ARGetAnother("EndPortal",true))
 		{
 			Block.endPortalFrame.setHardness(60F);
 		}

@@ -15,31 +15,31 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class RecipeSmelting {
 	public void init()
 	{
-		if(AdditionalRecipe.smeltingNetherBrick)
+		if(ARGetSmelting("NetherBrick"))
 		{
 			GameRegistry.addSmelting(stoneBrick.blockID,new ItemStack(netherBrick,1),0.0f);
 		}
-		if(AdditionalRecipe.smeltingNetherrack)
+		if(ARGetSmelting("Netherrack"))
 		{
 			GameRegistry.addSmelting(dirt.blockID,new ItemStack(netherrack,1),0.0f);
 		}
-		if(AdditionalRecipe.smeltingLeather)
+		if(ARGetSmelting("Leather"))
 		{
 			GameRegistry.addSmelting(rottenFlesh.itemID,new ItemStack(leather,1),0.0f);
 		}
-		if(AdditionalRecipe.smeltingGlowStoneDust)
+		if(ARGetSmelting("GlowStoneDust"))
 		{
 			GameRegistry.addSmelting(redstone.itemID,new ItemStack(glowstone,1),0.0f);
 		}
-		if(AdditionalRecipe.smeltingMinecartEmpty)
+		if(ARGetSmelting("MinecartEmpty"))
 		{
 			GameRegistry.addSmelting(minecartEmpty.itemID,new ItemStack(ingotIron,5),0.0f);
 		}
-		if(AdditionalRecipe.smeltingIronDoor)
+		if(ARGetSmelting("IronDoor"))
 		{
 			GameRegistry.addSmelting(Item.doorIron.itemID,new ItemStack(ingotIron,6),0.0f);
 		}
-		if(AdditionalRecipe.smeltingWoodDoor)
+		if(ARGetSmelting("WoodDoor"))
 		{
 			GameRegistry.addSmelting(Item.doorWood.itemID,new ItemStack(coal,2,1),0.0f);
 		}

@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.tools;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
@@ -10,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -84,7 +84,7 @@ public class UltimateExchangeIgnition extends Item implements ICraftingHandler
 			EntityPlayer player = (EntityPlayer)entity;
 			if(player.inventory.hasItem(ARGetItemIDRegister("ultimateexchangeiginiton")))
 			{
-				if(AdditionalRecipe.ultimateExchangeIgnitionEffect)
+				if(ARGetAnother("UltimateExchangeIgnitionEffect",false))
 				{
 					player.addPotionEffect(new PotionEffect(Potion.damageBoost.id,20*30,75));
 					player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id,20*30,75));

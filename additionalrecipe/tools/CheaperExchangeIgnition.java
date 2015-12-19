@@ -1,11 +1,11 @@
 package chibivaru.additionalrecipe.tools;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -19,7 +19,7 @@ public class CheaperExchangeIgnition extends Item implements ICraftingHandler
     public CheaperExchangeIgnition(int par1)
     {
         super(par1);
-        this.setMaxDamage(AdditionalRecipe.cheaperExchangeIgnitionDamage);
+        this.setMaxDamage(ARGetCfgOther("CheaperExchangeIgnition",128));
         this.setMaxStackSize(1);
     }
 

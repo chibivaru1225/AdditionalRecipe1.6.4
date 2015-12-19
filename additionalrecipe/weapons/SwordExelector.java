@@ -1,5 +1,7 @@
 package chibivaru.additionalrecipe.weapons;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
+
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -26,7 +28,7 @@ public class SwordExelector extends ItemSword
     private float[] dmgtbl  = {toolMaterial.STONE.getDamageVsEntity(),toolMaterial.IRON.getDamageVsEntity() * 1.5f,toolMaterial.EMERALD.getDamageVsEntity() * 2.0f};
     //private float[] dmgtbl2 = {5.0f,10.0f,20.0f};
     //private final int[] exptbl = {5,10,15};
-    private final int[] exptbl = {AdditionalRecipe.exelectorFirstExp,AdditionalRecipe.exelectorSecondExp,AdditionalRecipe.exelectorLastExp};
+    private final int[] exptbl = {ARGetCfgOther("ExelectorFirstExp",4),ARGetCfgOther("ExelectorSecondExp",4),ARGetCfgOther("ExelectorLastExp",4)};
     private String str = "Exp = ";
 	public SwordExelector(int par1, EnumToolMaterial par2EnumToolMaterial) {
 		super(par1, par2EnumToolMaterial);

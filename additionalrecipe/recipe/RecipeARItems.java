@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.recipe;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -31,14 +32,14 @@ public class RecipeARItems {
 						new Object[]{" X ","XYX"," X ",
 							Character.valueOf('X'),Item.netherStar,
 							Character.valueOf('Y'),Block.dragonEgg}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -46,14 +47,14 @@ public class RecipeARItems {
 			if(AdditionalRecipe.craftingDustExchangeIgnition)
 			{
 				GameRegistry.addSmelting(ARGetItemIDRegister("exchangeiginiton"),new ItemStack(ARGetItemRegister("dustexchangeignition"),1,0),0.0f);
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "DustExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "DustExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -67,14 +68,14 @@ public class RecipeARItems {
 							Character.valueOf('X'),ARGetItemRegister("dustexchangeignition"),
 							Character.valueOf('Y'),Block.dragonEgg,
 							Character.valueOf('Z'),ARGetItemRegister("supergravitationfeather")}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -99,14 +100,14 @@ public class RecipeARItems {
 								Character.valueOf('X'),ARGetItemRegister("blackrottenflesh"),
 								Character.valueOf('Y'),Block.blockDiamond}));
 				}
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -120,14 +121,14 @@ public class RecipeARItems {
 							Character.valueOf('X'),Block.blockDiamond,
 							Character.valueOf('Y'),Item.bucketWater,
 							Character.valueOf('Z'),"ExchangeIgnition"}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "CirceForce" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "CirceForce" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -135,7 +136,7 @@ public class RecipeARItems {
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "AlchemicItems" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
@@ -147,14 +148,14 @@ public class RecipeARItems {
 					ARGetItemRegister("blackrottenflesh"),
 					new Object[]{"XXX","X X","XXX",
 						Character.valueOf('X'),Item.rottenFlesh}));
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "BlackRottenFlesh" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "BlackRottenFlesh" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
@@ -169,14 +170,14 @@ public class RecipeARItems {
 						new Object[]{"XYX"," X ",
 							Character.valueOf('X'),Item.netherStar,
 							Character.valueOf('Y'),Block.dragonEgg}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -189,14 +190,14 @@ public class RecipeARItems {
 						new Object[]{"XYX"," X ",
 							Character.valueOf('X'),Item.diamond,
 							Character.valueOf('Y'),Item.ingotIron}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -209,14 +210,14 @@ public class RecipeARItems {
 						new Object[]{"XYX"," X ",
 							Character.valueOf('X'),Item.ingotIron,
 							Character.valueOf('Y'),Item.flint}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "IronMortar" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "IronMortar" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -224,7 +225,7 @@ public class RecipeARItems {
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "Mortars" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
@@ -237,14 +238,14 @@ public class RecipeARItems {
 					new Object[]{" X ","XYX"," X ",
 						Character.valueOf('X'),Item.feather,
 						Character.valueOf('Y'),Item.diamond}));
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "GravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "GravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
@@ -257,14 +258,14 @@ public class RecipeARItems {
 					new Object[]{"XXX","XYX","XXX",
 						Character.valueOf('X'),Block.glowStone,
 						Character.valueOf('Y'),Item.blazeRod}));
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "NightVisionTorch" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "NightVisionTorch" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
@@ -278,14 +279,14 @@ public class RecipeARItems {
 						Character.valueOf('X'),Block.blockDiamond,
 						Character.valueOf('Y'),ARGetItemRegister("gravitationfeather"),
 						Character.valueOf('Z'),ARGetItemRegister("nightvisiontorch")}));
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "SuperGravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "SuperGravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
@@ -299,14 +300,14 @@ public class RecipeARItems {
 						Character.valueOf('X'),Item.diamond,
 						Character.valueOf('Y'),Item.coal,
 						Character.valueOf('Z'),"ExchangeIgnition"}));
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "CraftingFurnace" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "CraftingFurnace" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
@@ -337,14 +338,14 @@ public class RecipeARItems {
 					new Object[]{"   ","XYX","X X",
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "BedrockArmor" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "BedrockArmor" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
@@ -383,14 +384,14 @@ public class RecipeARItems {
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
 						Character.valueOf('W'),ARGetItemRegister("ultimateexchangeiginiton")}));
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
@@ -419,7 +420,7 @@ public class RecipeARItems {
 					new ShapelessOreRecipe(
 						ARGetItemRegister("forceball"),
 						new Object[]{new ItemStack(ARGetItemRegister("exelector"),1,0)}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "Exelector" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 					System.out.println(AdditionalRecipe.CONSOLE + "ForceBall" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
@@ -427,7 +428,7 @@ public class RecipeARItems {
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "Exelector" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 					System.out.println(AdditionalRecipe.CONSOLE + "ForceBall" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
@@ -443,14 +444,14 @@ public class RecipeARItems {
 							Character.valueOf('Y'),Item.gunpowder,
 							Character.valueOf('Z'),Block.blockIron,
 							Character.valueOf('V'),Block.bedrock}));;
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "NIOH" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "NIOH" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -465,14 +466,14 @@ public class RecipeARItems {
 							Character.valueOf('Y'),"ExchangeIgnition",
 							Character.valueOf('Z'),Block.blockGold,
 							Character.valueOf('V'),Block.bedrock}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "Evil Spear 'DAYO'" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "Evil Spear 'DAYO'" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -487,14 +488,14 @@ public class RecipeARItems {
 							Character.valueOf('Y'),Block.bedrock,
 							Character.valueOf('Z'),Block.blockDiamond,
 							Character.valueOf('V'),"ExchangeIgnition"}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "Villany Sword 'YORU'" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "Villany Sword 'YORU'" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
@@ -513,14 +514,14 @@ public class RecipeARItems {
 							Character.valueOf('Z'),Block.blockIron,
 							Character.valueOf('V'),"ExchangeIgnition",
 							Character.valueOf('W'),Block.obsidian}));
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "K2's Multi-Weapon" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				}
 			}
 			else
 			{
-				if(AdditionalRecipe.consoleOut)
+				if(ARGetAnother("ConsoleOut",true))
 				{
 					System.out.println(AdditionalRecipe.CONSOLE + "K2's Multi-Weapon" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}

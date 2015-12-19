@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.recipe;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -7,7 +8,7 @@ import chibivaru.additionalrecipe.AdditionalRecipe;
 import chibivaru.additionalrecipe.common.ARItemHandler;
 
 public class RecipeHandler {
-	RecipeARItems recipeadditionalitems;
+	RecipeARItems         recipeadditionalitems;
 	RecipeAnotherMod      recipeanothermod;
 	RecipeCrystal         recipecrystal;
 	RecipeDusts           recipedusts;
@@ -44,29 +45,29 @@ public class RecipeHandler {
 	}
 	public void oredic()
 	{
-		if(AdditionalRecipe.addOreDicExpBottle)
+		if(ARGetAnother("ExpBottle",false))
 		{
 			OreDictionary.registerOre("item_Fragment",Item.expBottle);
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "ExpBottle" + OREDIC + ADDED);
 			}
 		}
 		else
 		{
-			if(AdditionalRecipe.consoleOut)
+			if(ARGetAnother("ConsoleOut",true))
 			{
 				System.out.println(AdditionalRecipe.CONSOLE + "ExpBottle" + OREDIC + NOTADDED);
 			}
 		}
 
 		OreDictionary.registerOre("dustNetherStar",ARItemHandler.ARGetItemRegister("dustnetherstar"));
-		if(AdditionalRecipe.consoleOut)
+		if(ARGetAnother("ConsoleOut",true))
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "DustNetherStar" + OREDIC + ADDED);
 		}
 		OreDictionary.registerOre("dustBedrock",ARItemHandler.ARGetItemRegister("dustbedrock"));
-		if(AdditionalRecipe.consoleOut)
+		if(ARGetAnother("ConsoleOut",true))
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "DustBedrock" + OREDIC + ADDED);
 		}
@@ -75,7 +76,7 @@ public class RecipeHandler {
 		OreDictionary.registerOre("MortarTier02",ARItemHandler.ARGetItemRegister("bedrockmortar"));
 		OreDictionary.registerOre("MortarTier03",ARItemHandler.ARGetItemRegister("bedrockmortar"));
 		OreDictionary.registerOre("MortarOreTier03",ARItemHandler.ARGetItemRegister("bedrockmortar"));
-		if(AdditionalRecipe.consoleOut)
+		if(ARGetAnother("ConsoleOut",true))
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + OREDIC + ADDED);
 		}
@@ -83,30 +84,30 @@ public class RecipeHandler {
 		OreDictionary.registerOre("MortarTier01",new ItemStack(ARItemHandler.ARGetItemRegister("diamondmortar"),1,32767));
 		OreDictionary.registerOre("MortarTier02",new ItemStack(ARItemHandler.ARGetItemRegister("diamondmortar"),1,32767));
 		OreDictionary.registerOre("MortarOreTier02",new ItemStack(ARItemHandler.ARGetItemRegister("diamondmortar"),1,32767));
-		if(AdditionalRecipe.consoleOut)
+		if(ARGetAnother("ConsoleOut",true))
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + OREDIC + ADDED);
 		}
 
 		OreDictionary.registerOre("MortarTier01",new ItemStack(ARItemHandler.ARGetItemRegister("ironmortar"),1,32767));
 		OreDictionary.registerOre("MortarOreTier01",new ItemStack(ARItemHandler.ARGetItemRegister("ironmortar"),1,32767));
-		if(AdditionalRecipe.consoleOut)
+		if(ARGetAnother("ConsoleOut",true))
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "IronMortar" + OREDIC + ADDED);
 		}
 
 		OreDictionary.registerOre("ExchangeIgnition",ARItemHandler.ARGetItemRegister("exchangeiginiton"));
-		if(AdditionalRecipe.consoleOut)
+		if(ARGetAnother("ConsoleOut",true))
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + OREDIC + ADDED);
 		}
 		OreDictionary.registerOre("ExchangeIgnition",ARItemHandler.ARGetItemRegister("ultimateexchangeiginiton"));
-		if(AdditionalRecipe.consoleOut)
+		if(ARGetAnother("ConsoleOut",true))
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + OREDIC + ADDED);
 		}
 		OreDictionary.registerOre("ExchangeIgnition",new ItemStack(ARItemHandler.ARGetItemRegister("cheaperexchangeiginiton"),1,32767));
-		if(AdditionalRecipe.consoleOut)
+		if(ARGetAnother("ConsoleOut",true))
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + OREDIC + ADDED);
 		}

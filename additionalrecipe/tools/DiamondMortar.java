@@ -1,11 +1,11 @@
 package chibivaru.additionalrecipe.tools;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,7 +17,7 @@ public class DiamondMortar extends Item implements ICraftingHandler
     {
         super(par1);
         this.setMaxStackSize(1);
-        this.setMaxDamage(AdditionalRecipe.diamondMortarDamage);
+        this.setMaxDamage(ARGetCfgOther("DiamondMortar",1561));
     }
 
     //アイテムがクラフト後に戻らないようにする
@@ -54,7 +54,7 @@ public class DiamondMortar extends Item implements ICraftingHandler
     //既存のハサミと見分けるため、テクスチャを赤で乗算
     public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return AdditionalRecipe.textureDiamondMortar;
+        return 0x8888FF;
     }
 
     //1.5.2のテクスチャ指定

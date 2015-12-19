@@ -5,7 +5,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -49,7 +48,7 @@ public class BedrockMortar extends Item implements ICraftingHandler
 
     public int getColorFromItemStack(ItemStack par1ItemStack, int par2)
     {
-        return AdditionalRecipe.textureBedrockMortar;
+        return 0x666666;
     }
 
     @SideOnly(Side.CLIENT)

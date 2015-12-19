@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.recipe;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -49,39 +50,39 @@ public class RecipeDusts {
 		}
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
-				new ItemStack(Item.coal,AdditionalRecipe.ironMortarCrafting),
+				new ItemStack(Item.coal,ARGetCfgOther("IronMortarDust",2)),
 				new Object[]{"MortarOreTier01",Block.oreCoal}));
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
-				new ItemStack(Item.diamond,AdditionalRecipe.ironMortarCrafting),
+				new ItemStack(Item.diamond,ARGetCfgOther("IronMortarDust",2)),
 				new Object[]{"MortarOreTier01",Block.oreDiamond}));
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
-				new ItemStack(Item.emerald,AdditionalRecipe.ironMortarCrafting),
+				new ItemStack(Item.emerald,ARGetCfgOther("IronMortarDust",2)),
 				new Object[]{"MortarOreTier01",Block.oreEmerald}));
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
-				new ItemStack(Item.coal,AdditionalRecipe.diamondMortarCrafting),
+				new ItemStack(Item.coal,ARGetCfgOther("DiamondMortarDust",4)),
 				new Object[]{"MortarOreTier02",Block.oreCoal}));
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
-				new ItemStack(Item.diamond,AdditionalRecipe.diamondMortarCrafting),
+				new ItemStack(Item.diamond,ARGetCfgOther("DiamondMortarDust",4)),
 				new Object[]{"MortarOreTier02",Block.oreDiamond}));
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
-				new ItemStack(Item.emerald,AdditionalRecipe.diamondMortarCrafting),
+				new ItemStack(Item.emerald,ARGetCfgOther("DiamondMortarDust",4)),
 				new Object[]{"MortarOreTier02",Block.oreEmerald}));
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
-				new ItemStack(Item.coal,AdditionalRecipe.bedrockMortarCrafting),
+				new ItemStack(Item.coal,ARGetCfgOther("BedrockMortarDust",8)),
 				new Object[]{"MortarOreTier03",Block.oreCoal}));
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
-				new ItemStack(Item.diamond,AdditionalRecipe.bedrockMortarCrafting),
+				new ItemStack(Item.diamond,ARGetCfgOther("BedrockMortarDust",8)),
 				new Object[]{"MortarOreTier03",Block.oreDiamond}));
 		GameRegistry.addRecipe(
 			new ShapelessOreRecipe(
-				new ItemStack(Item.emerald,AdditionalRecipe.bedrockMortarCrafting),
+				new ItemStack(Item.emerald,ARGetCfgOther("BedrockMortarDust",8)),
 				new Object[]{"MortarOreTier03",Block.oreEmerald}));
 		//Mod鉱石+バニラ鉱石粉
 		if(AdditionalRecipe.mortarOreDust)
@@ -90,42 +91,42 @@ public class RecipeDusts {
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustIron").get(0).getItem(),AdditionalRecipe.ironMortarCrafting,OreDictionary.getOres("dustIron").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustIron").get(0).getItem(),ARGetCfgOther("IronMortarDust",2),OreDictionary.getOres("dustIron").get(0).getItemDamage()),
 						new Object[]{Block.oreIron,"MortarOreTier01"}));
 			}
 			if(OreDictionary.getOres("dustGold").size() > 0)
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustGold").get(0).getItem(),AdditionalRecipe.ironMortarCrafting,OreDictionary.getOres("dustGold").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustGold").get(0).getItem(),ARGetCfgOther("IronMortarDust",2),OreDictionary.getOres("dustGold").get(0).getItemDamage()),
 						new Object[]{Block.oreGold,"MortarOreTier01"}));
 			}
 			if((OreDictionary.getOres("dustCopper").size() > 0) && (OreDictionary.getOres("oreCopper").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustCopper").get(0).getItem(),AdditionalRecipe.ironMortarCrafting,OreDictionary.getOres("dustCopper").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustCopper").get(0).getItem(),ARGetCfgOther("IronMortarDust",2),OreDictionary.getOres("dustCopper").get(0).getItemDamage()),
 						new Object[]{"oreCopper","MortarOreTier01"}));
 			}
 			if((OreDictionary.getOres("dustTin").size() > 0) && (OreDictionary.getOres("oreTin").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustTin").get(0).getItem(),AdditionalRecipe.ironMortarCrafting,OreDictionary.getOres("dustTin").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustTin").get(0).getItem(),ARGetCfgOther("IronMortarDust",2),OreDictionary.getOres("dustTin").get(0).getItemDamage()),
 						new Object[]{"oreTin","MortarOreTier01"}));
 			}
 			if((OreDictionary.getOres("dustSilver").size() > 0) && (OreDictionary.getOres("oreSilver").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustSilver").get(0).getItem(),AdditionalRecipe.ironMortarCrafting,OreDictionary.getOres("dustSilver").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustSilver").get(0).getItem(),ARGetCfgOther("IronMortarDust",2),OreDictionary.getOres("dustSilver").get(0).getItemDamage()),
 						new Object[]{"oreSilver","MortarOreTier01"}));
 			}
 			if((OreDictionary.getOres("dustLead").size() > 0) && (OreDictionary.getOres("oreLead").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustLead").get(0).getItem(),AdditionalRecipe.ironMortarCrafting,OreDictionary.getOres("dustLead").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustLead").get(0).getItem(),ARGetCfgOther("IronMortarDust",2),OreDictionary.getOres("dustLead").get(0).getItemDamage()),
 						new Object[]{"oreLead","MortarOreTier01"}));
 			}
 
@@ -133,42 +134,42 @@ public class RecipeDusts {
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustIron").get(0).getItem(),AdditionalRecipe.diamondMortarCrafting,OreDictionary.getOres("dustIron").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustIron").get(0).getItem(),ARGetCfgOther("DiamondMortarDust",4),OreDictionary.getOres("dustIron").get(0).getItemDamage()),
 						new Object[]{Block.oreIron,"MortarOreTier02"}));
 			}
 			if(OreDictionary.getOres("dustGold").size() > 0)
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustGold").get(0).getItem(),AdditionalRecipe.diamondMortarCrafting,OreDictionary.getOres("dustGold").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustGold").get(0).getItem(),ARGetCfgOther("DiamondMortarDust",4),OreDictionary.getOres("dustGold").get(0).getItemDamage()),
 						new Object[]{Block.oreGold,"MortarOreTier02"}));
 			}
 			if((OreDictionary.getOres("dustCopper").size() > 0) && (OreDictionary.getOres("oreCopper").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustCopper").get(0).getItem(),AdditionalRecipe.diamondMortarCrafting,OreDictionary.getOres("dustCopper").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustCopper").get(0).getItem(),ARGetCfgOther("DiamondMortarDust",4),OreDictionary.getOres("dustCopper").get(0).getItemDamage()),
 						new Object[]{"oreCopper","MortarOreTier02"}));
 			}
 			if((OreDictionary.getOres("dustTin").size() > 0) && (OreDictionary.getOres("oreTin").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustTin").get(0).getItem(),AdditionalRecipe.diamondMortarCrafting,OreDictionary.getOres("dustTin").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustTin").get(0).getItem(),ARGetCfgOther("DiamondMortarDust",4),OreDictionary.getOres("dustTin").get(0).getItemDamage()),
 						new Object[]{"oreTin","MortarOreTier02"}));
 			}
 			if((OreDictionary.getOres("dustSilver").size() > 0) && (OreDictionary.getOres("oreSilver").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustSilver").get(0).getItem(),AdditionalRecipe.diamondMortarCrafting,OreDictionary.getOres("dustSilver").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustSilver").get(0).getItem(),ARGetCfgOther("DiamondMortarDust",4),OreDictionary.getOres("dustSilver").get(0).getItemDamage()),
 						new Object[]{"oreSilver","MortarOreTier02"}));
 			}
 			if((OreDictionary.getOres("dustLead").size() > 0) && (OreDictionary.getOres("oreLead").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustLead").get(0).getItem(),AdditionalRecipe.diamondMortarCrafting,OreDictionary.getOres("dustLead").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustLead").get(0).getItem(),ARGetCfgOther("DiamondMortarDust",4),OreDictionary.getOres("dustLead").get(0).getItemDamage()),
 						new Object[]{"oreLead","MortarOreTier02"}));
 			}
 
@@ -176,42 +177,42 @@ public class RecipeDusts {
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustIron").get(0).getItem(),AdditionalRecipe.bedrockMortarCrafting,OreDictionary.getOres("dustIron").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustIron").get(0).getItem(),ARGetCfgOther("BedrockMortarDust",8),OreDictionary.getOres("dustIron").get(0).getItemDamage()),
 						new Object[]{Block.oreIron,"MortarOreTier03"}));
 			}
 			if(OreDictionary.getOres("dustGold").size() > 0)
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustGold").get(0).getItem(),AdditionalRecipe.bedrockMortarCrafting,OreDictionary.getOres("dustGold").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustGold").get(0).getItem(),ARGetCfgOther("BedrockMortarDust",8),OreDictionary.getOres("dustGold").get(0).getItemDamage()),
 						new Object[]{Block.oreGold,"MortarOreTier03"}));
 			}
 			if((OreDictionary.getOres("dustCopper").size() > 0) && (OreDictionary.getOres("oreCopper").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustCopper").get(0).getItem(),AdditionalRecipe.bedrockMortarCrafting,OreDictionary.getOres("dustCopper").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustCopper").get(0).getItem(),ARGetCfgOther("BedrockMortarDust",8),OreDictionary.getOres("dustCopper").get(0).getItemDamage()),
 						new Object[]{"oreCopper","MortarOreTier03"}));
 			}
 			if((OreDictionary.getOres("dustTin").size() > 0) && (OreDictionary.getOres("oreTin").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustTin").get(0).getItem(),AdditionalRecipe.bedrockMortarCrafting,OreDictionary.getOres("dustTin").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustTin").get(0).getItem(),ARGetCfgOther("BedrockMortarDust",8),OreDictionary.getOres("dustTin").get(0).getItemDamage()),
 						new Object[]{"oreTin","MortarOreTier03"}));
 			}
 			if((OreDictionary.getOres("dustSilver").size() > 0) && (OreDictionary.getOres("oreSilver").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustSilver").get(0).getItem(),AdditionalRecipe.bedrockMortarCrafting,OreDictionary.getOres("dustSilver").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustSilver").get(0).getItem(),ARGetCfgOther("BedrockMortarDust",8),OreDictionary.getOres("dustSilver").get(0).getItemDamage()),
 						new Object[]{"oreSilver","MortarOreTier03"}));
 			}
 			if((OreDictionary.getOres("dustLead").size() > 0) && (OreDictionary.getOres("oreLead").size() > 0))
 			{
 				GameRegistry.addRecipe(
 					new ShapelessOreRecipe(
-						new ItemStack(OreDictionary.getOres("dustLead").get(0).getItem(),AdditionalRecipe.bedrockMortarCrafting,OreDictionary.getOres("dustLead").get(0).getItemDamage()),
+						new ItemStack(OreDictionary.getOres("dustLead").get(0).getItem(),ARGetCfgOther("BedrockMortarDust",8),OreDictionary.getOres("dustLead").get(0).getItemDamage()),
 						new Object[]{"oreLead","MortarOreTier03"}));
 			}
 		}
