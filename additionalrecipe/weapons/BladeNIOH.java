@@ -1,11 +1,11 @@
 package chibivaru.additionalrecipe.weapons;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemSword;
+import chibivaru.additionalrecipe.AdditionalRecipe;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BladeNIOH extends ItemSword
 {
@@ -16,6 +16,7 @@ public class BladeNIOH extends ItemSword
 		this.toolMaterial = par2EnumToolMaterial;
 		this.setMaxStackSize(1);
 		this.weaponDamage = (int) par2EnumToolMaterial.getDamageVsEntity();
+		this.setTextureName("additionalrecipe:" + this.getUnlocalizedName());
 		if(AdditionalRecipe.bladeNIOHPreventDamage)
 		{
 			this.setMaxDamage(0);

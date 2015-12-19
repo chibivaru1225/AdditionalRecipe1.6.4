@@ -1,13 +1,13 @@
 package chibivaru.additionalrecipe.armor;
 
-import chibivaru.additionalrecipe.AdditionalRecipe;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import chibivaru.additionalrecipe.AdditionalRecipe;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class AngelusArmor extends ItemArmor
 {
@@ -16,6 +16,7 @@ public class AngelusArmor extends ItemArmor
 	{
 		super(par1, par2EnumArmorMaterial, par3, par4);
 		this.setTextureName(type,par4);
+		this.setTextureName("additionalrecipe:" + this.getUnlocalizedName());
 		super.setMaxStackSize(1);
 		setMaxDamage(0);
 	}
@@ -40,7 +41,7 @@ public class AngelusArmor extends ItemArmor
 	@SideOnly(Side.CLIENT)
 	public void registerIcon(IconRegister register)
 	{
-		this.itemIcon = register.registerIcon(AdditionalRecipe.MODID + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+		this.itemIcon = register.registerIcon("additionalrecipe:" + this.getUnlocalizedName());
 	}
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{

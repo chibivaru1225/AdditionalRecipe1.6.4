@@ -28,11 +28,11 @@ public class ARNoFallDamageEventHooks
 			//飛行が許可されていないなら
 			if(!player.capabilities.allowFlying)
 			{
-				if(AdditionalRecipe.equipArmor(AdditionalRecipe.armorBedrockID, player, AdditionalRecipe.ARMOR_BOOTS))
+				if(AdditionalRecipe.equipArmor(ARGetItemIDRegister("bedrockboots"), player, AdditionalRecipe.ARMOR_BOOTS))
 				{
 					this.noFallDamage = true;
 				}
-				else if(AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_BOOTS))
+				else if(AdditionalRecipe.equipArmor(ARGetItemIDRegister("angelusboots"), player, AdditionalRecipe.ARMOR_BOOTS))
 				{
 					this.noFallDamage = true;
 				}

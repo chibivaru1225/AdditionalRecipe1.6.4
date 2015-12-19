@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.common;
 
+import static chibivaru.additionalrecipe.AdditionalRecipe.*;
 import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.Property;
@@ -36,9 +37,37 @@ public class ARConfiguration
 			ARNewItemIDRegister(ARSetID("WeaponItemID","SwordYORUID",12559),"yoru");
 			ARNewItemIDRegister(ARSetID("WeaponItemID","MultiToolK2ID",12560),"toolk2");
 
+			ARNewItemIDRegister(ARSetID("ArmorItemID","BedrockHelmetItemID",12700),"bedrockhelmet");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","BedrockPlateItemID",12701),"bedrockplate");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","BedrockLegsItemID",12702),"bedrocklegs");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","BedrockBootsItemID",12703),"bedrockboots");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusHoodItemID",12704),"angelushood");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusVestmentItemID",12705),"angelusvestment");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusSkirtItemID",12706),"angelusskirt");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusBootsItemID",12707),"angelusboots");
+
 			ARNewItemIDRegister(ARSetID("WeaponItemID","DustNetherStarItemID",12600),"dustnetherstar");
 			ARNewItemIDRegister(ARSetID("WeaponItemID","DustBedrockItemID",12601),"dustbedrock");
 			ARNewItemIDRegister(ARSetID("WeaponItemID","DustExchangeIgnitionID",12602),"dustexchangeignition");
+
+			ARSmelting.put("RecycleTool",ARSet("Smelting","RecycleTool",true));
+			ARSmelting.put("WoodTool",ARSet("Smelting","WoodTool",true));
+			ARSmelting.put("StoneTool",ARSet("Smelting","StoneTool",true));
+			ARSmelting.put("IronTool",ARSet("Smelting","IronTool",true));
+			ARSmelting.put("GoldTool",ARSet("Smelting","GoldTool",true));
+			ARSmelting.put("DiamondTool",ARSet("Smelting","DiamondTool",true));
+			ARSmelting.put("Bow",ARSet("Smelting","Bow",true));
+			ARSmelting.put("SteelTool",ARSet("Smelting","SteelTool",true));
+			ARSmelting.put("InvarTool",ARSet("Smelting","InvarTool",true));
+
+			ARSmelting.put("RecycleArmor",ARSet("Smelting","RecycleArmor",true));
+			ARSmelting.put("ChainArmor",ARSet("Smelting","ChainArmor",true));
+			ARSmelting.put("LeatherArmor",ARSet("Smelting","LeatherArmor",true));
+			ARSmelting.put("IronArmor",ARSet("Smelting","IronArmor",true));
+			ARSmelting.put("GoldArmor",ARSet("Smelting","GoldArmor",true));
+			ARSmelting.put("DiamondArmor",ARSet("Smelting","DiamondArmor",true));
+			ARSmelting.put("SteelArmor",ARSet("Smelting","SteelArmor",true));
+			ARSmelting.put("InvarArmor",ARSet("Smelting","InvarArmor",true));
 		}
 		catch (Exception e)
 		{
@@ -82,5 +111,27 @@ public class ARConfiguration
 	{
 		Property prop = cfg.get(par1category, par2key, par3defaultID);
 		return prop.getInt();
+	}
+	public static boolean ARGetSmelting(String par1key)
+	{
+		if(ARSmelting.containsKey(par1key))
+		{
+			return ARSmelting.get(par1key);
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public static boolean ARGetSmelting(String par1key,boolean par2default)
+	{
+		if(ARSmelting.containsKey(par1key))
+		{
+			return ARSmelting.get(par1key);
+		}
+		else
+		{
+			return par2default;
+		}
 	}
 }

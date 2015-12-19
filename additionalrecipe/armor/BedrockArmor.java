@@ -16,6 +16,7 @@ public class BedrockArmor extends ItemArmor
 	{
 		super(par1, par2EnumArmorMaterial, par3, par4);
 		this.setTextureName(type,par4);
+		this.setTextureName("additionalrecipe:" + this.getUnlocalizedName());
 		super.setMaxStackSize(1);
 		setMaxDamage(0);
 	}
@@ -40,7 +41,7 @@ public class BedrockArmor extends ItemArmor
 	@SideOnly(Side.CLIENT)
 	public void registerIcon(IconRegister register)
 	{
-		this.itemIcon = register.registerIcon(AdditionalRecipe.MODID + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+		this.itemIcon = register.registerIcon(AdditionalRecipe.MODID + ":" + this.getUnlocalizedName());
 	}
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{

@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.recipe;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import static net.minecraft.block.Block.*;
 import static net.minecraft.item.Item.*;
@@ -42,9 +43,9 @@ public class RecipeSmelting {
 		{
 			GameRegistry.addSmelting(Item.doorWood.itemID,new ItemStack(coal,2,1),0.0f);
 		}
-		if(AdditionalRecipe.smeltingTool)
+		if(ARGetSmelting("RecycleTool"))
 		{
-			if(AdditionalRecipe.smeltingToolWood)
+			if(ARGetSmelting("WoodTool"))
 			{
 				FurnaceRecipes.smelting().addSmelting(axeWood.itemID,new ItemStack(coal,1,1),0.0f);
 				FurnaceRecipes.smelting().addSmelting(hoeWood.itemID,new ItemStack(coal,1,1),0.0f);
@@ -52,7 +53,7 @@ public class RecipeSmelting {
 				FurnaceRecipes.smelting().addSmelting(swordWood.itemID,new ItemStack(coal,1,1),0.0f);
 				FurnaceRecipes.smelting().addSmelting(shovelWood.itemID,new ItemStack(coal,1,1),0.0f);
 			}
-			if(AdditionalRecipe.smeltingToolStone)
+			if(ARGetSmelting("StoneTool"))
 			{
 				FurnaceRecipes.smelting().addSmelting(axeStone.itemID,new ItemStack(stone,3,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(hoeStone.itemID,new ItemStack(stone,2,0),0.0f);
@@ -60,7 +61,7 @@ public class RecipeSmelting {
 				FurnaceRecipes.smelting().addSmelting(swordStone.itemID,new ItemStack(stone,2,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(shovelStone.itemID,new ItemStack(stone,1,0),0.0f);
 			}
-			if(AdditionalRecipe.smeltingToolIron)
+			if(ARGetSmelting("IronTool"))
 			{
 				FurnaceRecipes.smelting().addSmelting(axeIron.itemID,new ItemStack(ingotIron,3,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(hoeIron.itemID,new ItemStack(ingotIron,2,0),0.0f);
@@ -68,7 +69,7 @@ public class RecipeSmelting {
 				FurnaceRecipes.smelting().addSmelting(swordIron.itemID,new ItemStack(ingotIron,2,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(shovelIron.itemID,new ItemStack(ingotIron,1,0),0.0f);
 			}
-			if(AdditionalRecipe.smeltingToolGold)
+			if(ARGetSmelting("GoldTool"))
 			{
 				FurnaceRecipes.smelting().addSmelting(axeGold.itemID,new ItemStack(ingotGold,3,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(hoeGold.itemID,new ItemStack(ingotGold,2,0),0.0f);
@@ -76,7 +77,7 @@ public class RecipeSmelting {
 				FurnaceRecipes.smelting().addSmelting(swordGold.itemID,new ItemStack(ingotGold,2,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(shovelGold.itemID,new ItemStack(ingotGold,1,0),0.0f);
 			}
-			if(AdditionalRecipe.smeltingToolDiamond)
+			if(ARGetSmelting("DiamondTool"))
 			{
 				FurnaceRecipes.smelting().addSmelting(axeDiamond.itemID,new ItemStack(diamond,3,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(hoeDiamond.itemID,new ItemStack(diamond,2,0),0.0f);
@@ -84,42 +85,42 @@ public class RecipeSmelting {
 				FurnaceRecipes.smelting().addSmelting(swordDiamond.itemID,new ItemStack(diamond,2,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(shovelDiamond.itemID,new ItemStack(diamond,1,0),0.0f);
 			}
-			if(AdditionalRecipe.smeltingToolBow)
+			if(ARGetSmelting("Bow"))
 			{
 				FurnaceRecipes.smelting().addSmelting(bow.itemID,new ItemStack(silk,3,0),0.0f);
 			}
 		}
-		if(AdditionalRecipe.smeltingArmor)
+		if(ARGetSmelting("RecycleArmor"))
 		{
-			if(AdditionalRecipe.smeltingArmorChain)
+			if(ARGetSmelting("ChainArmor"))
 			{
 				FurnaceRecipes.smelting().addSmelting(helmetChain.itemID,new ItemStack(ingotIron,5,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(plateChain.itemID,new ItemStack(ingotIron,8,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(legsChain.itemID,new ItemStack(ingotIron,7,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(bootsChain.itemID,new ItemStack(ingotIron,4,0),0.0f);
 			}
-			if(AdditionalRecipe.smeltingArmorIron)
+			if(ARGetSmelting("IronArmor"))
 			{
 				FurnaceRecipes.smelting().addSmelting(helmetIron.itemID,new ItemStack(ingotIron,5,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(plateIron.itemID,new ItemStack(ingotIron,8,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(legsIron.itemID,new ItemStack(ingotIron,7,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(bootsIron.itemID,new ItemStack(ingotIron,4,0),0.0f);
 			}
-			if(AdditionalRecipe.smeltingArmorGold)
+			if(ARGetSmelting("IronArmor"))
 			{
 				FurnaceRecipes.smelting().addSmelting(helmetGold.itemID,new ItemStack(ingotGold,5,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(plateGold.itemID,new ItemStack(ingotGold,8,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(legsGold.itemID,new ItemStack(ingotGold,7,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(bootsGold.itemID,new ItemStack(ingotGold,4,0),0.0f);
 			}
-			if(AdditionalRecipe.smeltingArmorDiamond)
+			if(ARGetSmelting("DiamondArmor"))
 			{
 				FurnaceRecipes.smelting().addSmelting(helmetDiamond.itemID,new ItemStack(diamond,5,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(plateDiamond.itemID,new ItemStack(diamond,8,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(legsDiamond.itemID,new ItemStack(diamond,7,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(bootsDiamond.itemID,new ItemStack(diamond,4,0),0.0f);
 			}
-			if(AdditionalRecipe.smeltingArmorLeather)
+			if(ARGetSmelting("LeatherArmor"))
 			{
 				FurnaceRecipes.smelting().addSmelting(helmetLeather.itemID,new ItemStack(leather,5,0),0.0f);
 				FurnaceRecipes.smelting().addSmelting(plateLeather.itemID,new ItemStack(leather,8,0),0.0f);

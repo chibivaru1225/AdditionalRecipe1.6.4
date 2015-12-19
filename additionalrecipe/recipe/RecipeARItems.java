@@ -315,25 +315,25 @@ public class RecipeARItems {
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_HELMET],
+					ARGetItemRegister("bedrockhelmet"),
 					new Object[]{"XXX","XYX","   ",
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_PLATE],
+					ARGetItemRegister("bedrockplate"),
 					new Object[]{"XYX","XXX","XXX",
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_LEGS],
+					ARGetItemRegister("bedrocklegs"),
 					new Object[]{"XXX","XYX","X X",
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_BOOTS],
+					ARGetItemRegister("bedrockboots"),
 					new Object[]{"   ","XYX","X X",
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
@@ -353,33 +353,33 @@ public class RecipeARItems {
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_HELMET],
+					ARGetItemRegister("angelushood"),
 					new Object[]{"ZYZ","ZXZ","ZWZ",
-						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_HELMET],
+						Character.valueOf('X'),ARGetItemRegister("bedrockhelmet"),
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
 						Character.valueOf('W'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_PLATE],
+					ARGetItemRegister("angelusvestment"),
 					new Object[]{"ZYZ","ZXZ","ZWZ",
-						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_PLATE],
+						Character.valueOf('X'),ARGetItemRegister("bedrockplate"),
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
 						Character.valueOf('W'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_LEGS],
+					ARGetItemRegister("angelusskirt"),
 					new Object[]{"ZYZ","ZXZ","ZWZ",
-						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_LEGS],
+						Character.valueOf('X'),ARGetItemRegister("bedrocklegs"),
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
 						Character.valueOf('W'),ARGetItemRegister("ultimateexchangeiginiton")}));
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
-					AdditionalRecipe.armorAngelusItem[AdditionalRecipe.ARMOR_BOOTS],
+					ARGetItemRegister("angelusboots"),
 					new Object[]{"ZYZ","ZXZ","ZWZ",
-						Character.valueOf('X'),AdditionalRecipe.armorBedrockItem[AdditionalRecipe.ARMOR_BOOTS],
+						Character.valueOf('X'),ARGetItemRegister("bedrockboots"),
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
 						Character.valueOf('W'),ARGetItemRegister("ultimateexchangeiginiton")}));

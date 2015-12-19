@@ -1,6 +1,7 @@
 package chibivaru.additionalrecipe;
 
 import static chibivaru.additionalrecipe.common.ARItemHandler.*;
+import static chibivaru.additionalrecipe.common.ARModInfo.*;
 
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -11,19 +12,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Property;
-import chibivaru.additionalrecipe.armor.BedrockArmor;
 import chibivaru.additionalrecipe.common.ARConfiguration;
 import chibivaru.additionalrecipe.common.ARCreativeTab;
 import chibivaru.additionalrecipe.common.ARLogger;
-import chibivaru.additionalrecipe.common.ARModInfo;
-import chibivaru.additionalrecipe.dust.DustBedrock;
-import chibivaru.additionalrecipe.dust.DustExchangeIgnition;
-import chibivaru.additionalrecipe.dust.DustNetherStar;
 import chibivaru.additionalrecipe.event.ARAddChestGenHooks;
 import chibivaru.additionalrecipe.event.ARFlyingEventHooks;
 import chibivaru.additionalrecipe.event.ARNoFallDamageEventHooks;
@@ -31,24 +26,7 @@ import chibivaru.additionalrecipe.event.AngelusArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.BedrockArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.CirceForceEventHooks;
 import chibivaru.additionalrecipe.event.WeaponsEventHooks;
-import chibivaru.additionalrecipe.item.BlackRottenFlesh;
-import chibivaru.additionalrecipe.item.CirceForce;
-import chibivaru.additionalrecipe.item.ForceBall;
-import chibivaru.additionalrecipe.item.GravitationFeather;
-import chibivaru.additionalrecipe.item.NightVisionTorch;
-import chibivaru.additionalrecipe.item.SuperGravitationFeather;
 import chibivaru.additionalrecipe.recipe.RecipeHandler;
-import chibivaru.additionalrecipe.tools.BedrockMortar;
-import chibivaru.additionalrecipe.tools.CheaperExchangeIgnition;
-import chibivaru.additionalrecipe.tools.CraftingFurnace;
-import chibivaru.additionalrecipe.tools.DiamondMortar;
-import chibivaru.additionalrecipe.tools.ExchangeIgnition;
-import chibivaru.additionalrecipe.tools.IronMortar;
-import chibivaru.additionalrecipe.tools.UltimateExchangeIgnition;
-import chibivaru.additionalrecipe.weapons.BladeNIOH;
-import chibivaru.additionalrecipe.weapons.SpearDAYO;
-import chibivaru.additionalrecipe.weapons.SwordExelector;
-import chibivaru.additionalrecipe.weapons.SwordYORU;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -58,8 +36,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(
 		modid   = AdditionalRecipe.MODID,
@@ -93,10 +69,8 @@ public class AdditionalRecipe {
 	public static final String ADDID = " added ID ";
 	public static HashMap<String,Integer> ARItemID     = new HashMap<String,Integer>();
 	public static HashMap<String,Item>    ARItem       = new HashMap<String,Item>();
-	public static HashMap<String,String>  ARItemName   = new HashMap<String,String>();
-	public static HashMap<String,Integer> ARItemDamage = new HashMap<String,Integer>();
-	public static int[] armorBedrockID = new int[4];
-	public static int[] armorAngelusID = new int[4];
+	public static HashMap<String,Boolean> ARSmelting   = new HashMap<String,Boolean>();
+	public static HashMap<String,Boolean> ARCrafting   = new HashMap<String,Boolean>();
 	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
 	public static int diamondMortarDamage,iromMortarDamage,bladeNIOHDamage;
 	public static int cheaperExchangeIgnitionDamage;
@@ -105,11 +79,7 @@ public class AdditionalRecipe {
 	public static int ironMortarCrafting;
 	public static int craftingDifficulty,exelectorFirstExp,exelectorSecondExp,exelectorLastExp;
 	public static int textureIronMortar,textureDiamondMortar,textureBedrockMortar;
-	public static Item[] armorBedrockItem = new Item[4];
-	public static Item[] armorAngelusItem = new Item[4];
 	public static boolean craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,digBCSpring,digEndPortal,craftingEndPortal,craftingPinkSlimeBall,craftingFlour,craftingLinkModifer;
-	public static boolean smeltingTool,smeltingToolWood,smeltingToolStone,smeltingToolIron,smeltingToolGold,smeltingToolDiamond,smeltingToolBow;
-	public static boolean smeltingArmor,smeltingArmorChain,smeltingArmorLeather,smeltingArmorIron,smeltingArmorGold,smeltingArmorDiamond;
 	public static boolean smeltingNetherBrick,smeltingNetherrack,smeltingLeather,smeltingGlowStoneDust;
 	public static boolean smeltingMinecartEmpty,smeltingIronDoor,smeltingWoodDoor;
 	public static boolean craftingAlchemic,craftingExchangeIgnition,craftingUltimateExchangeIgnition,craftingDustExchangeIgnition,craftingCheaperExchangeIgnition;
@@ -119,12 +89,12 @@ public class AdditionalRecipe {
 	public static boolean craftingWeapons,craftingExelector,craftingNIOH,craftingDAYO,craftingYORU,craftingItemsK2,craftingMultiK2;
 	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
 	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust,craftingButton;
-	public static boolean smeltingToolSteel,smeltingArmorSteel,smeltingToolInvar,smeltingArmorInvar,addOreDicExpBottle;
+	public static boolean addOreDicExpBottle;
 	public static boolean consoleOut,ultimateExchangeIgnitionEffect,bladeNIOHPreventDamage;
 	public static RecipeHandler recipehandler;
 	public static ARAddChestGenHooks addchestgenhooks;
-	public EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
-	public EnumToolMaterial WEAPON_ULTIMATE,WEAPON_BASIC,WEAPON_POOR,WEAPON_PHANTASM;
+	public static EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
+	public static EnumToolMaterial WEAPON_ULTIMATE,WEAPON_BASIC,WEAPON_POOR,WEAPON_PHANTASM;
 	public static String BEDROCK          = "bedrock";
 	public static String PRIDE            = "pride";
 	public static String WRATH            = "wrath";
@@ -150,39 +120,10 @@ public class AdditionalRecipe {
 		{
 			cfg.load();
 
-			Property ArmorBedrockHelmetIDProp             = cfg.getItem("ArmorItemID"    ,"BedrockHelmetItemID"             ,12700);
-			Property ArmorBedrockPlateIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockPlateItemID"              ,12701);
-			Property ArmorBedrockLegsIDProp               = cfg.getItem("ArmorItemID"    ,"BedrockLegsItemID"               ,12702);
-			Property ArmorBedrockBootsIDProp              = cfg.getItem("ArmorItemID"    ,"BedrockBootsItemID"              ,12703);
-
-			Property ArmorAngelusHoodIDProp               = cfg.getItem("ArmorItemID"    ,"AngelusHoodItemID"               ,12704);
-			Property ArmorAngelusVestmentIDProp           = cfg.getItem("ArmorItemID"    ,"AngelusVestmentItemID"           ,12705);
-			Property ArmorAngelusSkirtIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusSkirtItemID"              ,12706);
-			Property ArmorAngelusBootsIDProp              = cfg.getItem("ArmorItemID"    ,"AngelusBootsItemID"              ,12707);
-
 			Property DiamondMortarDamageProp              = cfg.get("ItemDamage"         ,"DiamondMortar"                   ,1561);
 			Property IromMortarDamageProp                 = cfg.get("ItemDamage"         ,"IromMortar"                      ,250);
 			Property CheaperExchangeIgnitionDamageProp    = cfg.get("ItemDamage"         ,"CheaperExchangeIgnition"         ,128);
 			Property BladeNIOHDamageProp                  = cfg.get("ItemDamage"         ,"NIOH"                            ,4);
-
-			Property SmeltingToolProp                     = cfg.get("Smelting"           ,"RecycleTool"                     ,true);
-			Property SmeltingToolWoodProp                 = cfg.get("Smelting"           ,"WoodTool"                        ,true);
-			Property SmeltingToolStoneProp                = cfg.get("Smelting"           ,"StoneTool"                       ,true);
-			Property SmeltingToolIronProp                 = cfg.get("Smelting"           ,"IronTool"                        ,true);
-			Property SmeltingToolGoldProp                 = cfg.get("Smelting"           ,"GoldTool"                        ,true);
-			Property SmeltingToolDiamondProp              = cfg.get("Smelting"           ,"DiamondTool"                     ,true);
-			Property SmeltingToolBowProp                  = cfg.get("Smelting"           ,"Bow"                             ,true);
-			Property SmeltingToolSteelProp                = cfg.get("Smelting"           ,"SteelTool"                       ,true);
-			Property SmeltingToolInvarProp                = cfg.get("Smelting"           ,"InvarTool"                       ,true);
-
-			Property SmeltingArmorProp                    = cfg.get("Smelting"           ,"RecycleArmor"                    ,true);
-			Property SmeltingArmorChainProp               = cfg.get("Smelting"           ,"ChainArmor"                      ,true);
-			Property SmeltingArmorLeatherProp             = cfg.get("Smelting"           ,"LeatherArmor"                    ,true);
-			Property SmeltingArmorIronProp                = cfg.get("Smelting"           ,"IronArmor"                       ,true);
-			Property SmeltingArmorGoldProp                = cfg.get("Smelting"           ,"GoldArmor"                       ,true);
-			Property SmeltingArmorDiamondProp             = cfg.get("Smelting"           ,"DiamondArmor"                    ,true);
-			Property SmeltingArmorSteelProp               = cfg.get("Smelting"           ,"SteelArmor"                      ,true);
-			Property SmeltingArmorInvarProp               = cfg.get("Smelting"           ,"InvarArmor"                      ,true);
 
 			Property SmeltingNetherBrickProp              = cfg.get("Smelting"           ,"NetherBrick"                     ,true);
 			Property SmeltingNetherrackProp               = cfg.get("Smelting"           ,"Netherrack"                      ,false);
@@ -271,8 +212,6 @@ public class AdditionalRecipe {
 			Property ExelectorSecondExpProp               = cfg.get("Another"            ,"Exelector Second-Lv Exp"         ,250);
 			Property ExelectorLastExpProp                 = cfg.get("Another"            ,"Exelector Last-Lv Exp"           ,500);
 			Property CraftingDifficultyProp               = cfg.get("Another"            ,"Difficulty"                      ,0);
-			//Property ExelectorAttackPowerVanilaProp       = cfg.get("Another"            ,"Exelector Attack Power Vanila"   ,false);
-			//Property ExelectroFirstAttackPowerProp        = cfg.get("Another"            ,"Exelector First Attack Power"    ,);
 
 			SmeltingNetherBrickProp.comment               = "Require StoneBrick";
 			SmeltingNetherrackProp.comment                = "Require Dirt";
@@ -286,39 +225,10 @@ public class AdditionalRecipe {
 			CraftingLinkModiferProp.comment               = "Link Modifer with MystCraft.";
 			CraftingPistonProp.comment                    = "It's possible to use bronze, invar and steel to make a piston.";
 
-			armorBedrockID[ARMOR_HELMET]                  = ArmorBedrockHelmetIDProp.getInt();
-			armorBedrockID[ARMOR_PLATE]                   = ArmorBedrockPlateIDProp.getInt();
-			armorBedrockID[ARMOR_LEGS]                    = ArmorBedrockLegsIDProp.getInt();
-			armorBedrockID[ARMOR_BOOTS]                   = ArmorBedrockBootsIDProp.getInt();
-
-			armorAngelusID[ARMOR_HELMET]                  = ArmorAngelusHoodIDProp.getInt();
-			armorAngelusID[ARMOR_PLATE]                   = ArmorAngelusVestmentIDProp.getInt();
-			armorAngelusID[ARMOR_LEGS]                    = ArmorAngelusSkirtIDProp.getInt();
-			armorAngelusID[ARMOR_BOOTS]                   = ArmorAngelusBootsIDProp.getInt();
-
 			diamondMortarDamage                           = DiamondMortarDamageProp.getInt();
 			iromMortarDamage                              = IromMortarDamageProp.getInt();
 			cheaperExchangeIgnitionDamage                 = CheaperExchangeIgnitionDamageProp.getInt();
 			bladeNIOHDamage                               = BladeNIOHDamageProp.getInt();
-
-			smeltingTool                                  = SmeltingToolProp.getBoolean(true);
-			smeltingToolWood                              = SmeltingToolWoodProp.getBoolean(true);
-			smeltingToolStone                             = SmeltingToolStoneProp.getBoolean(true);
-			smeltingToolIron                              = SmeltingToolIronProp.getBoolean(true);
-			smeltingToolGold                              = SmeltingToolGoldProp.getBoolean(true);
-			smeltingToolDiamond                           = SmeltingToolDiamondProp.getBoolean(true);
-			smeltingToolBow                               = SmeltingToolBowProp.getBoolean(true);
-			smeltingToolSteel                             = SmeltingToolSteelProp.getBoolean(true);
-			smeltingToolInvar                             = SmeltingToolInvarProp.getBoolean(true);
-
-			smeltingArmor                                 = SmeltingArmorProp.getBoolean(true);
-			smeltingArmorChain                            = SmeltingArmorChainProp.getBoolean(true);
-			smeltingArmorLeather                          = SmeltingArmorLeatherProp.getBoolean(true);
-			smeltingArmorIron                             = SmeltingArmorIronProp.getBoolean(true);
-			smeltingArmorGold                             = SmeltingArmorGoldProp.getBoolean(true);
-			smeltingArmorDiamond                          = SmeltingArmorDiamondProp.getBoolean(true);
-			smeltingArmorSteel                            = SmeltingArmorSteelProp.getBoolean(true);
-			smeltingArmorInvar                            = SmeltingArmorInvarProp.getBoolean(true);
 
 			smeltingNetherBrick                           = SmeltingNetherBrickProp.getBoolean(true);
 			smeltingNetherrack                            = SmeltingNetherrackProp.getBoolean(false);
@@ -442,92 +352,12 @@ public class AdditionalRecipe {
 		WEAPON_ULTIMATE = EnumHelper.addToolMaterial("ULTIMATE" , 4, 1, 6.0f, 15, 100);
 		WEAPON_PHANTASM = EnumHelper.addToolMaterial("PHANTASM" , 4, 1, 6.0f, 95, 100);
 
-		ARNewItemRegister(new BedrockMortar(ARGetItemIDRegister("bedrockmortar") - 256), "bedrockmortar", ARTabs, "BedrockMortar");
-		ARNewItemRegister(new DiamondMortar(ARGetItemIDRegister("diamondmortar") - 256), "diamondmortar", ARTabs, "DiamondMortar");
-		ARNewItemRegister(new IronMortar(ARGetItemIDRegister("ironmortar") - 256), "ironmortar", ARTabs, "IronMortar");
-
-		ARNewItemRegister(new ExchangeIgnition(ARGetItemIDRegister("exchangeiginiton") - 256), "exchangeiginiton", ARTabs, "ExchangeIgnition");
-		ARNewItemRegister(new UltimateExchangeIgnition(ARGetItemIDRegister("ultimateexchangeiginiton") - 256), "ultimateexchangeiginiton", ARTabs, "UltimateExchangeIgnition");
-		ARNewItemRegister(new CheaperExchangeIgnition(ARGetItemIDRegister("cheaperexchangeiginiton") - 256), "cheaperexchangeiginiton", ARTabs, "CheaperExchangeIgnition");
-
-		ARNewItemRegister(new CraftingFurnace(ARGetItemIDRegister("craftingfurnace") - 256), "craftingfurnace",ARTabs, "CraftingFurnace");
-		ARNewItemRegister(new GravitationFeather(ARGetItemIDRegister("gravitationfeather") - 256), "gravitationfeather", ARTabs, "GravitationFeather");
-		ARNewItemRegister(new SuperGravitationFeather(ARGetItemIDRegister("supergravitationfeather") - 256), "supergravitationfeather" , ARTabs, "SuperGravitationFeather");
-		ARNewItemRegister(new BlackRottenFlesh(ARGetItemIDRegister("blackrottenflesh") - 256), "blackrottenflesh", ARTabs, "BlackRottenFlesh");
-		ARNewItemRegister(new NightVisionTorch(ARGetItemIDRegister("nightvisiontorch") - 256), "nightvisiontorch", ARTabs, "NightVisionTorch");
-		ARNewItemRegister(new ForceBall(ARGetItemIDRegister("forceball") - 256), "forceball", ARTabs, "ForceBall");
-		ARNewItemRegister(new CirceForce(ARGetItemIDRegister("circeforce") - 256), "circeforce", ARTabs, "CirceForce");
-
-		ARNewItemRegister(new SwordExelector(ARGetItemIDRegister("exelector") - 256, WEAPON_POOR), "exelector", ARTabs, "Exelector",new StringBuilder().append(EnumChatFormatting.WHITE).append("Exelector").toString());
-		ARNewItemRegister(new BladeNIOH(ARGetItemIDRegister("nioh") - 256, WEAPON_PHANTASM), "nioh", ARTabs, "NIOH");
-		ARNewItemRegister(new SwordYORU(ARGetItemIDRegister("yoru") - 256, WEAPON_ULTIMATE), "yoru", ARTabs, "Villainy Sword 'YORU'","ja_JP","邪剣「夜」");
-		ARNewItemRegister(new SpearDAYO(ARGetItemIDRegister("dayo") - 256, WEAPON_ULTIMATE), "dayo", ARTabs, "Evil Spear 'DAYO'","ja_JP","悪槍「堕那」");
-		ARNewItemRegister(new SwordExelector(ARGetItemIDRegister("toolk2") - 256, WEAPON_POOR), "toolk2", ARTabs, "K2",new StringBuilder().append(EnumChatFormatting.LIGHT_PURPLE).append("K2's Multi-Weapon").toString());
-
-		ARNewItemRegister(new DustNetherStar(ARGetItemIDRegister("dustnetherstar") - 256), "dustnetherstar", ARTabs, "DustNetherStar");
-		ARNewItemRegister(new DustBedrock(ARGetItemIDRegister("dustbedrock") - 256), "dustbedrock", ARTabs, "DustBedrock");
-		ARNewItemRegister(new DustExchangeIgnition(ARGetItemIDRegister("dustexchangeignition") - 256), "dustexchangeignition", ARTabs, "DustExchangeIgnition");
-
-		armorBedrockItem[ARMOR_HELMET] = new BedrockArmor(armorBedrockID[ARMOR_HELMET] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK);
-		armorBedrockItem[ARMOR_HELMET].setUnlocalizedName("bedrockhelmet");
-		armorBedrockItem[ARMOR_HELMET].setTextureName("additionalrecipe:BedrockHelmet");
-		armorBedrockItem[ARMOR_HELMET].setCreativeTab(ARTabs);
-		LanguageRegistry.addName(armorBedrockItem[ARMOR_HELMET], "BedrockHelmet");
-		GameRegistry.registerItem(armorBedrockItem[ARMOR_HELMET], "BedrockHelmet");
-
-		armorBedrockItem[ARMOR_PLATE] = new BedrockArmor(armorBedrockID[ARMOR_PLATE] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK);
-		armorBedrockItem[ARMOR_PLATE].setUnlocalizedName("bedrockplate");
-		armorBedrockItem[ARMOR_PLATE].setTextureName("additionalrecipe:BedrockPlate");
-		armorBedrockItem[ARMOR_PLATE].setCreativeTab(ARTabs);
-		LanguageRegistry.addName(armorBedrockItem[ARMOR_PLATE], "BedrockChestplate");
-		GameRegistry.registerItem(armorBedrockItem[ARMOR_PLATE], "BedrockChestplate");
-
-		armorBedrockItem[ARMOR_LEGS] = new BedrockArmor(armorBedrockID[ARMOR_LEGS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK);
-		armorBedrockItem[ARMOR_LEGS].setUnlocalizedName("bedrocklegs");
-		armorBedrockItem[ARMOR_LEGS].setTextureName("additionalrecipe:BedrockLegs");
-		armorBedrockItem[ARMOR_LEGS].setCreativeTab(ARTabs);
-		LanguageRegistry.addName(armorBedrockItem[ARMOR_LEGS], "BedrockLeggings");
-		GameRegistry.registerItem(armorBedrockItem[ARMOR_LEGS], "BedrockLeggings");
-
-		armorBedrockItem[ARMOR_BOOTS] = new BedrockArmor(armorBedrockID[ARMOR_BOOTS] - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK);
-		armorBedrockItem[ARMOR_BOOTS].setUnlocalizedName("bedrockboots");
-		armorBedrockItem[ARMOR_BOOTS].setTextureName("additionalrecipe:BedrockBoots");
-		armorBedrockItem[ARMOR_BOOTS].setCreativeTab(ARTabs);
-		LanguageRegistry.addName(armorBedrockItem[ARMOR_BOOTS], "BedrockBoots");
-		GameRegistry.registerItem(armorBedrockItem[ARMOR_BOOTS], "BedrockBoots");
-
-		armorAngelusItem[ARMOR_HELMET] = new BedrockArmor(armorAngelusID[ARMOR_HELMET] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_HELMET, ANGELUS);
-		armorAngelusItem[ARMOR_HELMET].setUnlocalizedName("angelushood");
-		armorAngelusItem[ARMOR_HELMET].setTextureName("additionalrecipe:AngelusHood");
-		armorAngelusItem[ARMOR_HELMET].setCreativeTab(ARTabs);
-		LanguageRegistry.addName(armorAngelusItem[ARMOR_HELMET], "AngelusHood");
-		GameRegistry.registerItem(armorAngelusItem[ARMOR_HELMET], "AngelusHood");
-
-		armorAngelusItem[ARMOR_PLATE] = new BedrockArmor(armorAngelusID[ARMOR_PLATE] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_PLATE, ANGELUS);
-		armorAngelusItem[ARMOR_PLATE].setUnlocalizedName("angelusvestment");
-		armorAngelusItem[ARMOR_PLATE].setTextureName("additionalrecipe:AngelusVestment");
-		armorAngelusItem[ARMOR_PLATE].setCreativeTab(ARTabs);
-		LanguageRegistry.addName(armorAngelusItem[ARMOR_PLATE], "AngelusVestment");
-		GameRegistry.registerItem(armorAngelusItem[ARMOR_PLATE], "AngelusVestment");
-
-		armorAngelusItem[ARMOR_LEGS] = new BedrockArmor(armorAngelusID[ARMOR_LEGS] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_LEGS, ANGELUS);
-		armorAngelusItem[ARMOR_LEGS].setUnlocalizedName("angelusskirt");
-		armorAngelusItem[ARMOR_LEGS].setTextureName("additionalrecipe:AngelusSkirt");
-		armorAngelusItem[ARMOR_LEGS].setCreativeTab(ARTabs);
-		LanguageRegistry.addName(armorAngelusItem[ARMOR_LEGS], "AngelusSkirt");
-		GameRegistry.registerItem(armorAngelusItem[ARMOR_LEGS], "AngelusSkirt");
-
-		armorAngelusItem[ARMOR_BOOTS] = new BedrockArmor(armorAngelusID[ARMOR_BOOTS] - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_BOOTS, ANGELUS);
-		armorAngelusItem[ARMOR_BOOTS].setUnlocalizedName("angelusboots");
-		armorAngelusItem[ARMOR_BOOTS].setTextureName("additionalrecipe:AngelusBoots");
-		armorAngelusItem[ARMOR_BOOTS].setCreativeTab(ARTabs);
-		LanguageRegistry.addName(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
-		GameRegistry.registerItem(armorAngelusItem[ARMOR_BOOTS], "AngelusBoots");
+		ARItemRegister();
 
 		addchestgenhooks = new ARAddChestGenHooks();
 		addchestgenhooks.AddChestItems();
 
-		ARModInfo.loadInfo(meta);
+		loadInfo(meta);
 
 		MinecraftForge.EVENT_BUS.register(new ARNoFallDamageEventHooks());
 		MinecraftForge.EVENT_BUS.register(new ARFlyingEventHooks());
@@ -565,57 +395,67 @@ public class AdditionalRecipe {
 		}
 		return false;
 	}
-	public static boolean equipArmor(int armorIDs[],EntityPlayer player,int armorType)
+	public static boolean equipArmor(int armorID,EntityPlayer player,int armorType)
 	{
 		switch(armorType)
 		{
 			case ARMOR_HELMET:
 			{
-				return player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == armorIDs[armorType];
+				return player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == armorID;
 			}
 			case ARMOR_PLATE:
 			{
-				return player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == armorIDs[armorType];
+				return player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == armorID;
 			}
 			case ARMOR_LEGS:
 			{
-				return player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == armorIDs[armorType];
+				return player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == armorID;
 			}
 			case ARMOR_BOOTS:
 			{
-				return player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == armorIDs[armorType];
+				return player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == armorID;
 			}
 		}
 		return false;
 	}
-	public static boolean equipArmor(int armorIDs[],EntityPlayer player,boolean mode)
+	public static boolean equipArmor(int par1HeadID,int par2PlateID,int par3LegID,int par4BootsID,EntityPlayer player)
 	{
-		if(mode)
+		if(player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == par1HeadID)
 		{
-			if((player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_HELMET]))
+			if(player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == par2PlateID)
 			{
-				return true;
+				if(player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == par3LegID)
+				{
+					if(player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == par4BootsID)
+					{
+						return true;
+					}
+				}
 			}
-			else if((player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_PLATE]))
-			{
-				return true;
-			}
-			else if((player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_LEGS]))
-			{
-				return true;
-			}
-			else if((player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem().itemID == armorIDs[AdditionalRecipe.ARMOR_BOOTS]))
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+		}
+		return false;
+	}
+	public static boolean equipArmor(int par1HeadID,int par2PlateID,int par3LegID,int par4BootsID,EntityPlayer par5Player,boolean par6Mode)
+	{
+		if((par5Player.inventory.armorItemInSlot(3) != null && par5Player.inventory.armorItemInSlot(3).getItem().itemID == par1HeadID))
+		{
+			return true;
+		}
+		else if((par5Player.inventory.armorItemInSlot(2) != null && par5Player.inventory.armorItemInSlot(2).getItem().itemID == par2PlateID))
+		{
+			return true;
+		}
+		else if((par5Player.inventory.armorItemInSlot(1) != null && par5Player.inventory.armorItemInSlot(1).getItem().itemID == par3LegID))
+		{
+			return true;
+		}
+		else if((par5Player.inventory.armorItemInSlot(0) != null && par5Player.inventory.armorItemInSlot(0).getItem().itemID == par4BootsID))
+		{
+			return true;
 		}
 		else
 		{
-			return equipArmor(armorIDs,player);
+			return false;
 		}
 	}
 	public static boolean hasItem(int itemID,EntityPlayer player)

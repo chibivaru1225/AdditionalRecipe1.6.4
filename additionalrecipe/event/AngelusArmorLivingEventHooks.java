@@ -1,5 +1,8 @@
 package chibivaru.additionalrecipe.event;
 
+import static chibivaru.additionalrecipe.AdditionalRecipe.*;
+import static chibivaru.additionalrecipe.common.ARItemHandler.*;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -26,7 +29,6 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 
 public class AngelusArmorLivingEventHooks
 {
@@ -76,10 +78,10 @@ public class AngelusArmorLivingEventHooks
 	}
 	private void Angelus(EntityPlayer player)
 	{
-		boolean isHelmet = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_HELMET);
-		boolean isPlate  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_PLATE);
-		boolean isLegs   = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_LEGS);
-		boolean isBoots  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_BOOTS);
+		boolean isHelmet = equipArmor(ARGetItemIDRegister("angelushood"), player, ARMOR_HELMET);
+		boolean isPlate  = equipArmor(ARGetItemIDRegister("angelusvestment"), player, ARMOR_PLATE);
+		boolean isLegs   = equipArmor(ARGetItemIDRegister("angelusskirt"), player, ARMOR_LEGS);
+		boolean isBoots  = equipArmor(ARGetItemIDRegister("angelusboots"), player, ARMOR_BOOTS);
 		if(isHelmet)
 		{
 			if(player.isInsideOfMaterial(Material.water))
@@ -158,7 +160,7 @@ public class AngelusArmorLivingEventHooks
 	{
 		EntityPlayer player = ((PlayerEvent)(event)).entityPlayer;
 		Entity entity       = event.target;
-		boolean isHelmet    = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_HELMET);
+		boolean isHelmet    = equipArmor(ARGetItemIDRegister("angelushood"), player, ARMOR_HELMET);
 		if(isHelmet && (entity instanceof EntityLivingBase))
 		{
 			EntityLivingBase target = (EntityLivingBase)entity;
@@ -177,7 +179,7 @@ public class AngelusArmorLivingEventHooks
 			if(entity instanceof EntityPlayer)
 			{
 				EntityPlayer player = (EntityPlayer)entity;
-				boolean isHelmet    = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_HELMET);
+				boolean isHelmet    = equipArmor(ARGetItemIDRegister("angelushood"), player, ARMOR_HELMET);
 				if(isHelmet)
 				{
 					Iterator i$ = event.drops.iterator();
@@ -217,7 +219,7 @@ public class AngelusArmorLivingEventHooks
 		if(livingBase instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer)livingBase;
-			boolean isPlate     = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_PLATE);
+			boolean isPlate     = equipArmor(ARGetItemIDRegister("angelusvestment"), player, ARMOR_PLATE);
 			if(isPlate && source != DamageSource.starve)
 			{
 				float damageResistant = damageAmount * (float)(player.experienceLevel);
@@ -237,7 +239,7 @@ public class AngelusArmorLivingEventHooks
 		if(livingBase instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer)livingBase;
-			boolean isPlate     = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_PLATE);
+			boolean isPlate     = equipArmor(ARGetItemIDRegister("angelusvestment"), player, ARMOR_PLATE);
 			if(isPlate && source != DamageSource.starve)
 			{
 				float damageResistant = damageAmount * (float)(player.experienceLevel);
@@ -255,14 +257,14 @@ public class AngelusArmorLivingEventHooks
 		if(livingBase instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer)livingBase;
-			boolean isLegs = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player, AdditionalRecipe.ARMOR_LEGS);
+			boolean isLegs = equipArmor(ARGetItemIDRegister("angelusskirt"), player, ARMOR_LEGS);
 			if(isLegs && (source.getEntity() instanceof EntityLivingBase))
 			{
 				float reflectDamage = damageAmount * (float)(player.experienceLevel / 5);
 				double width = player.experienceLevel / 2;
 				if(player == (EntityPlayer)source.getEntity())
 				{
-					System.out.println(AdditionalRecipe.CONSOLE + "DamageSource is Player.");
+					System.out.println(CONSOLE + "DamageSource is Player.");
 					return;
 				}
 				source.getEntity().attackEntityFrom(DamageSource.causeMobDamage(player), reflectDamage);

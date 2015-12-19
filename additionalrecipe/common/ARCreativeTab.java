@@ -6,9 +6,11 @@ import net.minecraft.item.Item;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ARCreativeTab extends CreativeTabs{
+public class ARCreativeTab extends CreativeTabs
+{
 
-	public ARCreativeTab(String label) {
+	public ARCreativeTab(String label)
+	{
 		super(label);
 		// TODO Auto-generated constructor stub
 	}

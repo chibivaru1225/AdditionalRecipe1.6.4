@@ -1,5 +1,6 @@
 package chibivaru.additionalrecipe.recipe;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -72,7 +73,7 @@ public class RecipeAnotherMod {
 		{
 			if(OreDictionary.getOres("ingotSteel").size() != 0)
 			{
-				if(AdditionalRecipe.smeltingToolSteel)
+				if(ARGetSmelting("SteelTool"))
 				{
 					if(GameRegistry.findItem("Railcraft","railcraft.tool.steel.axe") != null)
 					{
@@ -135,7 +136,7 @@ public class RecipeAnotherMod {
 						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Sword.");
 					}
 				}
-				if(AdditionalRecipe.smeltingArmorSteel)
+				if(ARGetSmelting("SteelArmor"))
 				{
 					if(GameRegistry.findItem("Railcraft","railcraft.armor.steel.boots") != null)
 					{
@@ -192,7 +193,7 @@ public class RecipeAnotherMod {
 		{
 			if(OreDictionary.getOres("ingotInvar").size() != 0)
 			{
-				if(AdditionalRecipe.smeltingToolInvar)
+				if(ARGetSmelting("InvarTool"))
 				{
 					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarAxe") != null)
 					{
@@ -255,7 +256,7 @@ public class RecipeAnotherMod {
 						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Sword.");
 					}
 				}
-				if(AdditionalRecipe.smeltingArmorInvar)
+				if(ARGetSmelting("InvarArmor"))
 				{
 					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarBoots") != null)
 					{

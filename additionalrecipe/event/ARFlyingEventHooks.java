@@ -1,12 +1,12 @@
 package chibivaru.additionalrecipe.event;
 
+import static chibivaru.additionalrecipe.AdditionalRecipe.*;
 import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 
 public class ARFlyingEventHooks
 {
@@ -38,9 +38,9 @@ public class ARFlyingEventHooks
 	{
 		exchange = player.inventory.hasItem(ARGetItemIDRegister("exchangeiginiton"));
 		ultimate = player.inventory.hasItem(ARGetItemIDRegister("ultimateexchangeiginiton"));
-		bedrock  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorBedrockID, player);
-		angelus  = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player,true);
-		angelus2 = AdditionalRecipe.equipArmor(AdditionalRecipe.armorAngelusID, player);
+		bedrock  = equipArmor(ARGetItemIDRegister("bedrockhelmet"),ARGetItemIDRegister("bedrockplate"),ARGetItemIDRegister("bedrocklegs"),ARGetItemIDRegister("bedrockboots"), player);
+		angelus  = equipArmor(ARGetItemIDRegister("angelushood"),ARGetItemIDRegister("angelusvestment"),ARGetItemIDRegister("angelusskirt"),ARGetItemIDRegister("angelusboots"), player,true);
+		angelus2 = equipArmor(ARGetItemIDRegister("angelushood"),ARGetItemIDRegister("angelusvestment"),ARGetItemIDRegister("angelusskirt"),ARGetItemIDRegister("angelusboots"), player);
 		//クリエイティブでないなら
 		if(!player.capabilities.isCreativeMode)
 		{
