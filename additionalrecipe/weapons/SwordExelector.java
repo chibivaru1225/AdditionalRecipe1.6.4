@@ -43,9 +43,9 @@ public class SwordExelector extends ItemSword
 	{
 		super.registerIcons(register);
 		//this.itemIcon = register.registerIcon(AdditionalRecipe.MODID + ":" + this.getUnlocalizedName());
-		icons[0] = register.registerIcon(AdditionalRecipe.MODID + ":ExelectorFirst");
-		icons[1] = register.registerIcon(AdditionalRecipe.MODID + ":ExelectorSecond");
-		icons[2] = register.registerIcon(AdditionalRecipe.MODID + ":ExelectorLast");
+		this.icons[0] = register.registerIcon(AdditionalRecipe.MODID + ":ExelectorFirst");
+		this.icons[1] = register.registerIcon(AdditionalRecipe.MODID + ":ExelectorSecond");
+		this.icons[2] = register.registerIcon(AdditionalRecipe.MODID + ":ExelectorLast");
 	}
 	public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemstack)
 	{
