@@ -6,7 +6,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeDusts {
@@ -20,7 +19,7 @@ public class RecipeDusts {
 					OreDictionary.getOres("dustCoal").get(0),
 					new Object[]{Item.coal,"MortarTier01"}));
 		}
-		if(AdditionalRecipe.craftingDustNetherStar)
+		if(ARGetCrafting("DustNetherStar",true))
 		{
 			if(OreDictionary.getOres("dustNetherStar").size() > 0)
 			{
@@ -34,7 +33,7 @@ public class RecipeDusts {
 						new Object[]{"dustNetherStar"}));
 			}
 		}
-		if(AdditionalRecipe.craftingDustBedrock)
+		if(ARGetCrafting("DustBedrock",true))
 		{
 			if(OreDictionary.getOres("dustBedrock").size() > 0)
 			{
@@ -85,7 +84,7 @@ public class RecipeDusts {
 				new ItemStack(Item.emerald,ARGetCfgOther("BedrockMortarDust",8)),
 				new Object[]{"MortarOreTier03",Block.oreEmerald}));
 		//Mod鉱石+バニラ鉱石粉
-		if(AdditionalRecipe.mortarOreDust)
+		if(ARGetCrafting("CraftingOreDust",true))
 		{
 			if(OreDictionary.getOres("dustIron").size() > 0)
 			{
@@ -216,7 +215,7 @@ public class RecipeDusts {
 						new Object[]{"oreLead","MortarOreTier03"}));
 			}
 		}
-		if(AdditionalRecipe.mortarIngotDust)
+		if(ARGetCrafting("CraftingIngotDust",true))
 		{
 			if(OreDictionary.getOres("dustIron").size() > 0)
 			{

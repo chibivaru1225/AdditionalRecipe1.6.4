@@ -1,11 +1,11 @@
 package chibivaru.additionalrecipe.recipe;
 
+import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import chibivaru.additionalrecipe.AdditionalRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeMortar {
@@ -88,7 +88,7 @@ public class RecipeMortar {
 			new ShapelessOreRecipe(
 				Block.gravel,
 				new Object[]{Block.cobblestone,Block.sand,Item.bowlEmpty}));
-		if((AdditionalRecipe.furnaceDustIngot)&&(AdditionalRecipe.craftingCraftingFurnace))
+		if((ARGetCrafting("DustIngot",true))&&(ARGetCrafting("CraftingFurnace",true)))
 		{
 			GameRegistry.addRecipe(
 				new ShapelessOreRecipe(

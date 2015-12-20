@@ -24,7 +24,7 @@ public class RecipeAnotherMod {
 	{
 		if(Loader.isModLoaded("Mystcraft"))
 		{
-			if(AdditionalRecipe.craftingLinkModifer)
+			if(ARGetCrafting("LinkModifer",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -49,7 +49,7 @@ public class RecipeAnotherMod {
 		{
 			if(OreDictionary.getOres("dustWheat").size() > 0)
 			{
-				if(AdditionalRecipe.craftingFlour)
+				if(ARGetCrafting("Flour",true))
 				{
 					GameRegistry.addRecipe(
 						new ShapelessOreRecipe(
@@ -73,7 +73,7 @@ public class RecipeAnotherMod {
 		{
 			if(OreDictionary.getOres("ingotSteel").size() != 0)
 			{
-				if(ARGetSmelting("SteelTool"))
+				if(ARGetSmelting("SteelTool",true))
 				{
 					if(GameRegistry.findItem("Railcraft","railcraft.tool.steel.axe") != null)
 					{
@@ -136,7 +136,7 @@ public class RecipeAnotherMod {
 						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Sword.");
 					}
 				}
-				if(ARGetSmelting("SteelArmor"))
+				if(ARGetSmelting("SteelArmor",true))
 				{
 					if(GameRegistry.findItem("Railcraft","railcraft.armor.steel.boots") != null)
 					{
@@ -193,7 +193,7 @@ public class RecipeAnotherMod {
 		{
 			if(OreDictionary.getOres("ingotInvar").size() != 0)
 			{
-				if(ARGetSmelting("InvarTool"))
+				if(ARGetSmelting("InvarTool",true))
 				{
 					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarAxe") != null)
 					{
@@ -256,7 +256,7 @@ public class RecipeAnotherMod {
 						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Sword.");
 					}
 				}
-				if(ARGetSmelting("InvarArmor"))
+				if(ARGetSmelting("InvarArmor",true))
 				{
 					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarBoots") != null)
 					{
@@ -314,7 +314,7 @@ public class RecipeAnotherMod {
 			MFR = Class.forName("powercrystals.minefactoryreloaded.MineFactoryReloadedCore");
 			Object pinkSlimeBall = MFR.getField("pinkSlimeballItem").get(null);
 			ItemStack pink = new ItemStack((Item)pinkSlimeBall);
-			if(AdditionalRecipe.craftingPinkSlimeBall)
+			if(ARGetCrafting("PinkSlimeBall",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(

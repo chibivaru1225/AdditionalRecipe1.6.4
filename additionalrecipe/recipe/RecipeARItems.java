@@ -13,11 +13,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class RecipeARItems {
 	public void init()
 	{
-		if(AdditionalRecipe.craftingAlchemic)
+		if(ARGetCrafting("AlchemicItem",true))
 		{
-			if(AdditionalRecipe.craftingExchangeIgnition)
+			if(ARGetCrafting("ExchangeIgnition",true))
 			{
-				if(AdditionalRecipe.craftingExelector)
+				if(ARGetCrafting("Exelector",true))
 				{
 					GameRegistry.addRecipe(
 							new ShapedOreRecipe(
@@ -44,7 +44,7 @@ public class RecipeARItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "ExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
-			if(AdditionalRecipe.craftingDustExchangeIgnition)
+			if(ARGetCrafting("DustExchangeIgnition",true))
 			{
 				GameRegistry.addSmelting(ARGetItemIDRegister("exchangeiginiton"),new ItemStack(ARGetItemRegister("dustexchangeignition"),1,0),0.0f);
 				if(ARGetAnother("ConsoleOut",true))
@@ -59,7 +59,7 @@ public class RecipeARItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "DustExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
-			if(AdditionalRecipe.craftingUltimateExchangeIgnition)
+			if(ARGetCrafting("UltimateExchangeIgnition",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -80,9 +80,9 @@ public class RecipeARItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "UltimateExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
-			if(AdditionalRecipe.craftingCheaperExchangeIgnition)
+			if(ARGetCrafting("CheaperExchangeIgnition",true))
 			{
-				if(AdditionalRecipe.craftingExelector)
+				if(ARGetCrafting("Exelector",true))
 				{
 					GameRegistry.addRecipe(
 						new ShapedOreRecipe(
@@ -112,7 +112,7 @@ public class RecipeARItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "CheaperExchangeIgnition" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
-			if(AdditionalRecipe.craftingCirceForce)
+			if(ARGetCrafting("CirceForce",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -141,7 +141,7 @@ public class RecipeARItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "AlchemicItems" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingBlackRottenFlesh)
+		if(ARGetCrafting("BlackRottenFlesh",true))
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
@@ -160,9 +160,9 @@ public class RecipeARItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "BlackRottenFlesh" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingMortar)
+		if(ARGetCrafting("Mortar",true))
 		{
-			if(AdditionalRecipe.craftingBedrockMortar)
+			if(ARGetCrafting("BedrockMortar",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -182,7 +182,7 @@ public class RecipeARItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "BedrockMortar" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
-			if(AdditionalRecipe.craftingDiamondMortar)
+			if(ARGetCrafting("DiamondMortar",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -202,7 +202,7 @@ public class RecipeARItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "DiamondMortar" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
-			if(AdditionalRecipe.craftingIronMortar)
+			if(ARGetCrafting("IronMortar",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -230,7 +230,7 @@ public class RecipeARItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "Mortars" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingGravitationFeather)
+		if(ARGetCrafting("GravitationFeather",true))
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
@@ -250,7 +250,7 @@ public class RecipeARItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "GravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingNightVisionTorch)
+		if(ARGetCrafting("NightVisionTorch",true))
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
@@ -270,7 +270,7 @@ public class RecipeARItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "NightVisionTorch" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingSuperGravitationFeather)
+		if(ARGetCrafting("SuperGravitationFeather",true))
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
@@ -291,7 +291,7 @@ public class RecipeARItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "SuperGravitationFeather" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingCraftingFurnace)
+		if(ARGetCrafting("CraftingFurnace",true))
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
@@ -312,7 +312,7 @@ public class RecipeARItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "CraftingFurnace" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingBedrockArmor)
+		if(ARGetCrafting("BedrockArmor",true))
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
@@ -350,7 +350,7 @@ public class RecipeARItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "BedrockArmor" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingAngelusArmor)
+		if(ARGetCrafting("AngelusArmor",true))
 		{
 			GameRegistry.addRecipe(
 				new ShapedOreRecipe(
@@ -396,9 +396,9 @@ public class RecipeARItems {
 				System.out.println(AdditionalRecipe.CONSOLE + "AngelusArmor" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 			}
 		}
-		if(AdditionalRecipe.craftingWeapons)
+		if(ARGetCrafting("Weapons",true))
 		{
-			if(AdditionalRecipe.craftingExelector)
+			if(ARGetCrafting("Exelector",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -434,7 +434,7 @@ public class RecipeARItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "ForceBall" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
-			if(AdditionalRecipe.craftingNIOH)
+			if(ARGetCrafting("NIOH",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -456,7 +456,7 @@ public class RecipeARItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "NIOH" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
-			if(AdditionalRecipe.craftingDAYO)
+			if(ARGetCrafting("Evil Spear DAYO",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -478,7 +478,7 @@ public class RecipeARItems {
 					System.out.println(AdditionalRecipe.CONSOLE + "Evil Spear 'DAYO'" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
 				}
 			}
-			if(AdditionalRecipe.craftingYORU)
+			if(ARGetCrafting("Villany Sword YORU",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(
@@ -501,9 +501,9 @@ public class RecipeARItems {
 				}
 			}
 		}
-		if(AdditionalRecipe.craftingItemsK2)
+		if(ARGetCrafting("K2 Items",true))
 		{
-			if(AdditionalRecipe.craftingMultiK2)
+			if(ARGetCrafting("Multi-Tool K2",true))
 			{
 				GameRegistry.addRecipe(
 					new ShapedOreRecipe(

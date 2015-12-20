@@ -78,6 +78,59 @@ public class ARConfiguration
 			ARSmelting.put("IronDoor", ARSet("Smelting","IronDoor",true));
 			ARSmelting.put("WoodDoor", ARSet("Smelting","WoodDoor",true));
 
+			ARCrafting.put("EndPortal",ARSet("Crafting","EndPortal",false));
+			ARCrafting.put("Ore",ARSet("Crafting","Ore",false));
+			ARCrafting.put("Crystal",ARSet("Crafting","Crystal",true));
+			ARCrafting.put("PinkSlimeBall",ARSet("Crafting","PinkSlimeBall",true));
+			ARCrafting.put("Flour",ARSet("Crafting","Flour",true));
+			ARCrafting.put("LinkModifer",ARSet("Crafting","LinkModifer",true));
+			ARCrafting.put("Mushroom",ARSet("Crafting","Mushroom",true));
+			ARCrafting.put("Piston",ARSet("Crafting","Piston",true));
+			ARCrafting.put("Jewel",ARSet("Crafting","Jewel",true));
+			ARCrafting.put("Skull",ARSet("Crafting","Skull",true));
+			ARCrafting.put("Bedrock",ARSet("Crafting","Bedrock",false));
+			ARCrafting.put("DragonEgg",ARSet("Crafting","DragonEgg",true));
+			ARCrafting.put("NetherStar",ARSet("Crafting","NetherStar",true));
+			ARCrafting.put("EnderPearl",ARSet("Crafting","EnderPearl",true));
+			ARCrafting.put("PowerStone",ARSet("Crafting","PowerStone",true));
+			ARCrafting.put("Grass",ARSet("Crafting","Grass",true));
+			ARCrafting.put("Obsidian",ARSet("Crafting","Obsidian",false));
+			ARCrafting.put("BlazeRod",ARSet("Crafting","BlazeRod",true));
+			ARCrafting.put("BookOld",ARSet("Crafting","BookOld",true));
+			ARCrafting.put("Cray",ARSet("Crafting","Cray",false));
+			ARCrafting.put("Cactus",ARSet("Crafting","Cactus",false));
+			ARCrafting.put("SlimeBall",ARSet("Crafting","SlimeBall",true));
+			ARCrafting.put("ExpBottle",ARSet("Crafting","ExpBottle",true));
+			ARCrafting.put("GlowStoneDust",ARSet("Crafting","GlowStoneDust",true));
+			ARCrafting.put("Button",ARSet("Crafting","Button",true));
+
+			ARCrafting.put("AlchemicItem",ARSet("AdditionalRecipe","AlchemicItem",true));
+			ARCrafting.put("ExchangeIgnition",ARSet("AdditionalRecipe","ExchangeIgnition",true));
+			ARCrafting.put("DustExchangeIgnition",ARSet("AdditionalRecipe","DustExchangeIgnition",true));
+			ARCrafting.put("UltimateExchangeIgnition",ARSet("AdditionalRecipe","UltimateExchangeIgnition",true));
+			ARCrafting.put("CheaperExchangeIgnition",ARSet("AdditionalRecipe","CheaperExchangeIgnition",true));
+			ARCrafting.put("BlackRottenFlesh",ARSet("AdditionalRecipe","BlackRottenFlesh",true));
+			ARCrafting.put("CraftingFurnace",ARSet("AdditionalRecipe","CraftingFurnace",false));
+			ARCrafting.put("NightVisionTorch",ARSet("AdditionalRecipe","NightVisionTorch",true));
+			ARCrafting.put("GravitationFeather",ARSet("AdditionalRecipe","GravitationFeather",true));
+			ARCrafting.put("SuperGravitationFeather",ARSet("AdditionalRecipe","SuperGravitationFeather",false));
+			ARCrafting.put("Mortar",ARSet("AdditionalRecipe","Mortar",true));
+			ARCrafting.put("IronMortar",ARSet("AdditionalRecipe","IronMortar",true));
+			ARCrafting.put("DiamondMortar",ARSet("AdditionalRecipe","DiamondMortar",true));
+			ARCrafting.put("BedrockMortar",ARSet("AdditionalRecipe","BedrockMortar",true));
+			ARCrafting.put("CirceForce",ARSet("AdditionalRecipe","CirceForce",true));
+			ARCrafting.put("DustNetherStar",ARSet("AdditionalRecipe","DustNetherStar",false));
+			ARCrafting.put("DustBedrock",ARSet("AdditionalRecipe","DustBedrock",false));
+			ARCrafting.put("BedrockArmor",ARSet("AdditionalRecipe","BedrockArmor",true));
+			ARCrafting.put("AngelusArmor",ARSet("AdditionalRecipe","AngelusArmor",true));
+			ARCrafting.put("Weapons",ARSet("AdditionalRecipe","Weapons",true));
+			ARCrafting.put("Exelector",ARSet("AdditionalRecipe","Exelector",true));
+			ARCrafting.put("NIOH",ARSet("AdditionalRecipe","NIOH",true));
+			ARCrafting.put("Evil Spear DAYO",ARSet("AdditionalRecipe","Evil Spear DAYO",false));
+			ARCrafting.put("Villany Sword YORU",ARSet("AdditionalRecipe","Villany Sword YORU",false));
+			ARCrafting.put("K2 Items",ARSet("AdditionalRecipe","K2 Items",true));
+			ARCrafting.put("Multi-Tool K2",ARSet("AdditionalRecipe","Multi-Tool K2",true));
+
 			ARCfgOther.put("DiamondMortar",ARSet("ItemDamage","DiamondMortar",1561));
 			ARCfgOther.put("IromMortar",ARSet("ItemDamage","IromMortar",250));
 			ARCfgOther.put("CheaperExchangeIgnition",ARSet("ItemDamage","CheaperExchangeIgnition",128));
@@ -99,6 +152,11 @@ public class ARConfiguration
 			ARAnother.put("ConsoleOut",ARSet("Another","ConsoleOut",true));
 			ARAnother.put("UltimateExchangeIgnitionEffect",ARSet("Another","UltimateExchangeIgnitionEffect",false));
 			ARAnother.put("NIOHPreventDamage",ARSet("Another","NIOHPreventDamage",true));
+
+			ARCrafting.put("CraftingOreDust",ARSet("MortarCrafting","CraftingOreDust",true));
+			ARCrafting.put("CraftingIngotDust",ARSet("MortarCrafting","CraftingIngotDust",true));
+
+			ARCrafting.put("DustIngot",ARSet("Crafting","DustIngot",false));
 		}
 		catch (Exception e)
 		{
@@ -143,7 +201,7 @@ public class ARConfiguration
 		Property prop = cfg.get(par1category, par2key, par3defaultID);
 		return prop.getInt();
 	}
-	public static boolean ARGetSmelting(String par1key)
+	public static boolean ARGetSmelting(String par1key,boolean par2default)
 	{
 		if(ARSmelting.containsKey(par1key))
 		{
@@ -151,14 +209,14 @@ public class ARConfiguration
 		}
 		else
 		{
-			return false;
+			return par2default;
 		}
 	}
-	public static boolean ARGetSmelting(String par1key,boolean par2default)
+	public static boolean ARGetCrafting(String par1key,boolean par2default)
 	{
-		if(ARSmelting.containsKey(par1key))
+		if(ARCrafting.containsKey(par1key))
 		{
-			return ARSmelting.get(par1key);
+			return ARCrafting.get(par1key);
 		}
 		else
 		{

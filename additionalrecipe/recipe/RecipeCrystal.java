@@ -42,7 +42,7 @@ public class RecipeCrystal {
 				System.out.println(AdditionalRecipe.CONSOLE + "CertusQuartz" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 				System.out.println(AdditionalRecipe.CONSOLE + "NetherQuartz" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
 			}
-			if(AdditionalRecipe.craftingCrystal)
+			if(ARGetCrafting("Crystal",true))
 			{
 				if((OreDictionary.getOres("dyeBlackCrystalShard").size() != 0) && (OreDictionary.getOres("dyeBlackCrystal").size() != 0))
 				{

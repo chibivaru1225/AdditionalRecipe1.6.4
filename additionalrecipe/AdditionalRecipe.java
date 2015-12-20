@@ -5,7 +5,6 @@ import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import static chibivaru.additionalrecipe.common.ARModInfo.*;
 
 import java.util.HashMap;
-import java.util.logging.Level;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,10 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.Property;
 import chibivaru.additionalrecipe.common.ARConfiguration;
 import chibivaru.additionalrecipe.common.ARCreativeTab;
 import chibivaru.additionalrecipe.common.ARLogger;
@@ -28,9 +25,7 @@ import chibivaru.additionalrecipe.event.BedrockArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.CirceForceEventHooks;
 import chibivaru.additionalrecipe.event.WeaponsEventHooks;
 import chibivaru.additionalrecipe.recipe.RecipeHandler;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Metadata;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -75,15 +70,6 @@ public class AdditionalRecipe {
 	public static HashMap<String,Integer> ARCfgOther   = new HashMap<String,Integer>();
 	public static HashMap<String,Boolean> ARAnother    = new HashMap<String,Boolean>();
 	public static int craftingDifficulty;
-	public static int armorSlothHoodID,armorSlothVestmentID,armorSlothSkirtID,armorSlothBootsID;
-	public static boolean craftingCrystal,mortarOreDust,mortarIngotDust,furnaceDustIngot,craftingOre,craftingEndPortal,craftingPinkSlimeBall,craftingFlour,craftingLinkModifer;
-	public static boolean craftingAlchemic,craftingExchangeIgnition,craftingUltimateExchangeIgnition,craftingDustExchangeIgnition,craftingCheaperExchangeIgnition;
-	public static boolean craftingCraftingFurnace,craftingBlackRottenFlesh,craftingNightVisionTorch,craftingGravitationFeather,craftingSuperGravitationFeather,craftingCirceForce;
-	public static boolean craftingMortar,craftingIronMortar,craftingDiamondMortar,craftingBedrockMortar,craftingDustNetherStar,craftingDustBedrock;
-	public static boolean craftingBedrockArmor,craftingAngelusArmor;
-	public static boolean craftingWeapons,craftingExelector,craftingNIOH,craftingDAYO,craftingYORU,craftingItemsK2,craftingMultiK2;
-	public static boolean craftingMushroom,craftingPiston,craftingJewel,craftingSkull,craftingBedrock,craftingDragonEgg,craftingNetherStar,craftingExpBottle;
-	public static boolean craftingEnderPearl,craftingPowerStone,craftingGrass,craftingObsidian,craftingBlazeRod,craftingBookOld,craftingCray,craftingCactus,craftingSlimeBall,craftingGlowStoneDust,craftingButton;
 	public static RecipeHandler recipehandler;
 	public static ARAddChestGenHooks addchestgenhooks;
 	public static EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS;
@@ -108,136 +94,6 @@ public class AdditionalRecipe {
 	{
 		ARLogger.init(MODNAME);
 		ARConfiguration.init(event);
-		Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
-		try
-		{
-			cfg.load();
-
-			Property MortarOreDustProp                    = cfg.get("MortarCrafting"     ,"CraftingOreDust"                 ,true);
-			Property MortarIngotDustProp                  = cfg.get("MortarCrafting"     ,"CraftingIngotDust"               ,true);
-
-			Property FurnaceDustIngotProp                 = cfg.get("FurnaceCrafting"    ,"DustIngot"                       ,false);
-
-			Property CraftingEndPortalProp                = cfg.get("Crafting"           ,"EndPortal"                       ,false);
-			Property CraftingOreProp                      = cfg.get("Crafting"           ,"Ore"                             ,false);
-			Property CraftingCrystalProp                  = cfg.get("Crafting"           ,"Crystal"                         ,true);
-			Property CraftingPinkSlimeBallProp            = cfg.get("Crafting"           ,"PinkSlimeBall"                   ,true);
-			Property CraftingFlourProp                    = cfg.get("Crafting"           ,"Flour"                           ,true);
-			Property CraftingLinkModiferProp              = cfg.get("Crafting"           ,"LinkModifer"                     ,true);
-			Property CraftingMushroomProp                 = cfg.get("Crafting"           ,"Mushroom"                        ,true);
-			Property CraftingPistonProp                   = cfg.get("Crafting"           ,"Piston"                          ,true);
-			Property CraftingJewelProp                    = cfg.get("Crafting"           ,"Jewel"                           ,true);
-			Property CraftingSkullProp                    = cfg.get("Crafting"           ,"Skull"                           ,true);
-			Property CraftingBedrockProp                  = cfg.get("Crafting"           ,"Bedrock"                         ,false);
-			Property CraftingDragonEggProp                = cfg.get("Crafting"           ,"DragonEgg"                       ,true);
-			Property CraftingNetherStarProp               = cfg.get("Crafting"           ,"NetherStar"                      ,true);
-			Property CraftingEnderPearlProp               = cfg.get("Crafting"           ,"EnderPearl"                      ,true);
-			Property CraftingPowerStoneProp               = cfg.get("Crafting"           ,"PowerStone"                      ,true);
-			Property CraftingGrassProp                    = cfg.get("Crafting"           ,"Grass"                           ,true);
-			Property CraftingObsidianProp                 = cfg.get("Crafting"           ,"Obsidian"                        ,false);
-			Property CraftingBlazeRodProp                 = cfg.get("Crafting"           ,"BlazeRod"                        ,true);
-			Property CraftingBookOldProp                  = cfg.get("Crafting"           ,"BookOld"                         ,true);
-			Property CraftingCrayProp                     = cfg.get("Crafting"           ,"Cray"                            ,false);
-			Property CraftingCactusProp                   = cfg.get("Crafting"           ,"Cactus"                          ,false);
-			Property CraftingSlimeBallProp                = cfg.get("Crafting"           ,"SlimeBall"                       ,true);
-			Property CraftingExpBottleProp                = cfg.get("Crafting"           ,"ExpBottle"                       ,true);
-			Property CraftingGlowStoneDustProp            = cfg.get("Crafting"           ,"GlowStoneDust"                   ,true);
-			Property CraftingButtonProp                   = cfg.get("Crafting"           ,"Button"                          ,true);
-
-			Property CraftingAlchemicProp                 = cfg.get("AdditionalRecipe"   ,"AlchemicItem"                    ,true);
-			Property CraftingExchangeIgnitionProp         = cfg.get("AdditionalRecipe"   ,"ExchangeIgnition"                ,true);
-			Property CraftingDustExchangeIgnitionProp     = cfg.get("AdditionalRecipe"   ,"DustExchangeIgnition"            ,true);
-			Property CraftingUltimateExchangeIgnitionProp = cfg.get("AdditionalRecipe"   ,"UltimateExchangeIgnition"        ,false);
-			Property CraftingCheaperExchangeIgnitionProp  = cfg.get("AdditionalRecipe"   ,"CheaperExchangeIgnition"         ,true);
-			Property CraftingBlackRottenFleshProp         = cfg.get("AdditionalRecipe"   ,"BlackRottenFlesh"                ,true);
-			Property CraftingCraftingFurnaceProp          = cfg.get("AdditionalRecipe"   ,"CraftingFurnace"                 ,false);
-			Property CraftingNightVisionTorchProp         = cfg.get("AdditionalRecipe"   ,"NightVisionTorch"                ,true);
-			Property CraftingGravitationFeatherProp       = cfg.get("AdditionalRecipe"   ,"GravitationFeather"              ,true);
-			Property CraftingSuperGravitationFeatherProp  = cfg.get("AdditionalRecipe"   ,"SuperGravitationFeather"         ,false);
-			Property CraftingMortarProp                   = cfg.get("AdditionalRecipe"   ,"Mortar"                          ,true);
-			Property CraftingIronMortarProp               = cfg.get("AdditionalRecipe"   ,"IronMortar"                      ,true);
-			Property CraftingDiamondMortarProp            = cfg.get("AdditionalRecipe"   ,"DiamondMortar"                   ,true);
-			Property CraftingBedrockMortarProp            = cfg.get("AdditionalRecipe"   ,"BedrockMortar"                   ,true);
-			Property CraftingCirceForceProp               = cfg.get("AdditionalRecipe"   ,"CirceForce"                      ,false);
-			Property CraftingDustNetherStarProp           = cfg.get("AdditionalRecipe"   ,"DustNetherStar"                  ,false);
-			Property CraftingDustBedrockProp              = cfg.get("AdditionalRecipe"   ,"DustBedrock"                     ,false);
-			Property CraftingBedrockArmorProp             = cfg.get("AdditionalRecipe"   ,"BedrockArmor"                    ,true);
-			Property CraftingAngelusArmorProp             = cfg.get("AdditionalRecipe"   ,"AngelusArmor"                    ,true);
-			Property CraftingWeaponsProp                  = cfg.get("AdditionalRecipe"   ,"Weapons"                         ,true);
-			Property CraftigExelectorProp                 = cfg.get("AdditionalRecipe"   ,"Exelector"                       ,true);
-			Property CraftingNIOHProp                     = cfg.get("AdditionalRecipe"   ,"NIOH"                            ,true);
-			Property CraftingDAYOProp                     = cfg.get("AdditionalRecipe"   ,"Evil Spear DAYO"                 ,true);
-			Property CraftingYORUProp                     = cfg.get("AdditionalRecipe"   ,"Villany Sword YORU"              ,true);
-			Property CraftingItemsK2Prop                  = cfg.get("AdditionalRecipe"   ,"K2 Items"                        ,true);
-			Property CraftingMultiK2Prop                  = cfg.get("AdditionalRecipe"   ,"Multi-Tool K2"                   ,true);
-
-			furnaceDustIngot                              = FurnaceDustIngotProp.getBoolean(true);
-
-			craftingEndPortal                             = CraftingEndPortalProp.getBoolean(false);
-			craftingOre                                   = CraftingOreProp.getBoolean(true);
-			craftingCrystal                               = CraftingCrystalProp.getBoolean(true);
-			craftingPinkSlimeBall                         = CraftingPinkSlimeBallProp.getBoolean(true);
-			craftingFlour                                 = CraftingFlourProp.getBoolean(true);
-			craftingLinkModifer                           = CraftingLinkModiferProp.getBoolean(true);
-			craftingMushroom                              = CraftingMushroomProp.getBoolean(true);
-			craftingPiston                                = CraftingPistonProp.getBoolean(true);
-			craftingJewel                                 = CraftingJewelProp.getBoolean(true);
-			craftingSkull                                 = CraftingSkullProp.getBoolean(true);
-			craftingBedrock                               = CraftingBedrockProp.getBoolean(false);
-			craftingDragonEgg                             = CraftingDragonEggProp.getBoolean(true);
-			craftingNetherStar                            = CraftingNetherStarProp.getBoolean(true);
-			craftingEnderPearl                            = CraftingEnderPearlProp.getBoolean(true);
-			craftingPowerStone                            = CraftingPowerStoneProp.getBoolean(true);
-			craftingGrass                                 = CraftingGrassProp.getBoolean(true);
-			craftingObsidian                              = CraftingObsidianProp.getBoolean(false);
-			craftingBlazeRod                              = CraftingBlazeRodProp.getBoolean(true);
-			craftingBookOld                               = CraftingBookOldProp.getBoolean(true);
-			craftingCray                                  = CraftingCrayProp.getBoolean(false);
-			craftingCactus                                = CraftingCactusProp.getBoolean(false);
-			craftingSlimeBall                             = CraftingSlimeBallProp.getBoolean(true);
-			craftingExpBottle                             = CraftingExpBottleProp.getBoolean(true);
-			craftingGlowStoneDust                         = CraftingGlowStoneDustProp.getBoolean(true);
-			craftingButton                                = CraftingButtonProp.getBoolean(true);
-
-			mortarOreDust                                 = MortarOreDustProp.getBoolean(true);
-			mortarIngotDust                               = MortarIngotDustProp.getBoolean(true);
-
-			craftingAlchemic                              = CraftingAlchemicProp.getBoolean(true);
-			craftingExchangeIgnition                      = CraftingExchangeIgnitionProp.getBoolean(true);
-			craftingDustExchangeIgnition                  = CraftingDustExchangeIgnitionProp.getBoolean(true);
-			craftingUltimateExchangeIgnition              = CraftingUltimateExchangeIgnitionProp.getBoolean(false);
-			craftingCheaperExchangeIgnition               = CraftingCheaperExchangeIgnitionProp.getBoolean(true);
-			craftingBlackRottenFlesh                      = CraftingBlackRottenFleshProp.getBoolean(true);
-			craftingCraftingFurnace                       = CraftingCraftingFurnaceProp.getBoolean(false);
-			craftingNightVisionTorch                      = CraftingNightVisionTorchProp.getBoolean(true);
-			craftingGravitationFeather                    = CraftingGravitationFeatherProp.getBoolean(true);
-			craftingSuperGravitationFeather               = CraftingSuperGravitationFeatherProp.getBoolean(false);
-			craftingMortar                                = CraftingMortarProp.getBoolean(true);
-			craftingIronMortar                            = CraftingIronMortarProp.getBoolean(true);
-			craftingDiamondMortar                         = CraftingDiamondMortarProp.getBoolean(true);
-			craftingBedrockMortar                         = CraftingBedrockMortarProp.getBoolean(true);
-			craftingCirceForce                            = CraftingCirceForceProp.getBoolean(true);
-			craftingDustNetherStar                        = CraftingDustNetherStarProp.getBoolean(false);
-			craftingDustBedrock                           = CraftingDustBedrockProp.getBoolean(false);
-			craftingBedrockArmor                          = CraftingBedrockArmorProp.getBoolean(true);
-			craftingAngelusArmor                          = CraftingAngelusArmorProp.getBoolean(true);
-			craftingWeapons                               = CraftingWeaponsProp.getBoolean(true);
-			craftingExelector                             = CraftigExelectorProp.getBoolean(true);
-			craftingNIOH                                  = CraftingNIOHProp.getBoolean(true);
-			craftingDAYO                                  = CraftingDAYOProp.getBoolean(true);
-			craftingYORU                                  = CraftingYORUProp.getBoolean(true);
-			craftingItemsK2                               = CraftingItemsK2Prop.getBoolean(true);
-			craftingMultiK2                               = CraftingMultiK2Prop.getBoolean(true);
-
-		}
-		catch (Exception e)
-		{
-			FMLLog.log(Level.SEVERE, e, CONSOLE + "Config Load Failure.");
-		}
-		finally
-		{
-			cfg.save();
-		}
 	}
 
 	@Mod.EventHandler
@@ -283,7 +139,7 @@ public class AdditionalRecipe {
 			Block.endPortalFrame.setHardness(60F);
 		}
 	}
-	@EventHandler
+	@Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
 	{
 		recipehandler = new RecipeHandler();
