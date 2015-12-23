@@ -2,14 +2,34 @@ package chibivaru.additionalrecipe.recipe;
 
 import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import static chibivaru.additionalrecipe.common.ARItemHandler.*;
+
+import java.util.HashMap;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeMortar {
+	public static HashMap<String,IRecipe> Mortar = new HashMap<String,IRecipe>();
 	public void init()
+	{
+		this.LoadRecipe();
+	}
+	public IRecipe GetRecipe(String par1String)
+	{
+		if(this.Mortar.containsKey(par1String))
+		{
+			return this.Mortar.get(par1String);
+		}
+		else
+		{
+			return null;
+		}
+	}
+	public void LoadRecipe()
 	{
 		//粉砕
 		GameRegistry.addRecipe(

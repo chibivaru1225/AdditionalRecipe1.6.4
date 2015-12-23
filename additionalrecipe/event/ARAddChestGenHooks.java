@@ -13,13 +13,13 @@ public class ARAddChestGenHooks {
 	public void AddChestItems()
 	{
 		//WeightRandomChestContent(ItemStack,MaxValue,MinValue,Rarity)
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("cheaperexchangeiginiton")),1,1,10));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("ironmortar")),1,1,50));
-		stronghold.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("cheaperexchangeiginiton")),1,1,10));
-		stronghold.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("diamondmortar")),1,1,50));
-		pyramid.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("cheaperexchangeiginiton")),1,1,10));
-		pyramid.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("diamondmortar")),1,1,50));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("cheaperexchangeiginiton")),1,1,10));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("ironmortar")),1,1,50));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("cheaperexchangeiginiton")),1,1,5));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("ironmortar")),1,1,10));
+		stronghold.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("cheaperexchangeiginiton")),1,1,5));
+		stronghold.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("diamondmortar")),1,1,10));
+		pyramid.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("cheaperexchangeiginiton")),1,1,5));
+		pyramid.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("diamondmortar")),1,1,10));
+		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("cheaperexchangeiginiton")),1,1,5));
+		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(ARGetItemRegister("ironmortar")),1,1,10));
 	}
 }

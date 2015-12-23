@@ -3,6 +3,7 @@ package chibivaru.additionalrecipe.recipe;
 import static chibivaru.additionalrecipe.common.ARConfiguration.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.OreDictionary;
 import chibivaru.additionalrecipe.AdditionalRecipe;
 import chibivaru.additionalrecipe.common.ARItemHandler;
@@ -42,6 +43,10 @@ public class RecipeHandler {
 		recipeoredic.init();
 		recipeores.init();
 		recipesmelting.init();
+	}
+	public void registRecipe(String par1RecipeName,IRecipe par2IRecipe)
+	{
+		
 	}
 	public void oredic()
 	{

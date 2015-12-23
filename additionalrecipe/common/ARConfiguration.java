@@ -152,6 +152,7 @@ public class ARConfiguration
 			ARAnother.put("ConsoleOut",ARSet("Another","ConsoleOut",true));
 			ARAnother.put("UltimateExchangeIgnitionEffect",ARSet("Another","UltimateExchangeIgnitionEffect",false));
 			ARAnother.put("NIOHPreventDamage",ARSet("Another","NIOHPreventDamage",true));
+			ARAnother.put("ARItemsBonusChest",ARSet("Another","ARItemsBonusChest",false));
 
 			ARCrafting.put("CraftingOreDust",ARSet("MortarCrafting","CraftingOreDust",true));
 			ARCrafting.put("CraftingIngotDust",ARSet("MortarCrafting","CraftingIngotDust",true));

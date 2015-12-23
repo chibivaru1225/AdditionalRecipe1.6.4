@@ -55,7 +55,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 public class AdditionalRecipe {
 	public static final String MODID   = "additionalrecipe";
 	public static final String MODNAME = "AdditionalRecipe";
-	public static final String VERSION = "2.02";
+	public static final String VERSION = "2.03";
 
 	@Metadata(MODID)
 	public static ModMetadata meta;
@@ -63,12 +63,15 @@ public class AdditionalRecipe {
 	public static final CreativeTabs ARTabs = new ARCreativeTab("AdditionalRecipe");
 	public static final String CONSOLE = "[AdditionalRecipe]:";
 	public static final String ADDID = " added ID ";
-	public static HashMap<String,Integer> ARItemID     = new HashMap<String,Integer>();
-	public static HashMap<String,Item>    ARItem       = new HashMap<String,Item>();
-	public static HashMap<String,Boolean> ARSmelting   = new HashMap<String,Boolean>();
-	public static HashMap<String,Boolean> ARCrafting   = new HashMap<String,Boolean>();
-	public static HashMap<String,Integer> ARCfgOther   = new HashMap<String,Integer>();
-	public static HashMap<String,Boolean> ARAnother    = new HashMap<String,Boolean>();
+	public static HashMap<String,Integer> ARItemID         = new HashMap<String,Integer>();
+	public static HashMap<String,Item>    ARItem           = new HashMap<String,Item>();
+
+	public static HashMap<String,Boolean> ARSmelting       = new HashMap<String,Boolean>();
+	public static HashMap<String,Boolean> ARItemCrafting   = new HashMap<String,Boolean>();
+	public static HashMap<String,Boolean> ARCrafting       = new HashMap<String,Boolean>();
+	public static HashMap<String,Integer> ARCfgOther       = new HashMap<String,Integer>();
+	public static HashMap<String,Boolean> ARAnother        = new HashMap<String,Boolean>();
+	public static HashMap<String,Boolean> ARMortar         = new HashMap<String,Boolean>();
 	public static int craftingDifficulty;
 	public static RecipeHandler recipehandler;
 	public static ARAddChestGenHooks addchestgenhooks;
@@ -123,7 +126,10 @@ public class AdditionalRecipe {
 		ARItemRegister();
 
 		addchestgenhooks = new ARAddChestGenHooks();
-		addchestgenhooks.AddChestItems();
+		if(ARGetAnother("ARItemsBonusChest",true))
+		{
+			addchestgenhooks.AddChestItems();
+		}
 
 		loadInfo(meta);
 
