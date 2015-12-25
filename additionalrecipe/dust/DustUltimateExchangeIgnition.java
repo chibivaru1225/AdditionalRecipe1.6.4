@@ -8,8 +8,8 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class DustTinyExchangeIgnition extends Item{
-	public DustTinyExchangeIgnition(int par1) {
+public class DustUltimateExchangeIgnition extends Item{
+	public DustUltimateExchangeIgnition(int par1) {
 		super(par1);
 		this.setMaxStackSize(64);	//スタックできる量
 	}

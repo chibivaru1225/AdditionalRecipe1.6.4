@@ -41,15 +41,19 @@ public class ARConfiguration
 			ARNewItemIDRegister(ARSetID("ArmorItemID","BedrockPlateItemID",12701),"bedrockplate");
 			ARNewItemIDRegister(ARSetID("ArmorItemID","BedrockLegsItemID",12702),"bedrocklegs");
 			ARNewItemIDRegister(ARSetID("ArmorItemID","BedrockBootsItemID",12703),"bedrockboots");
-
 			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusHoodItemID",12704),"angelushood");
 			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusVestmentItemID",12705),"angelusvestment");
 			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusSkirtItemID",12706),"angelusskirt");
 			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusBootsItemID",12707),"angelusboots");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyHoodItemID",12708),"gluttonyhood");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyVestmentItemID",12709),"gluttonyvestment");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonySkirtItemID",12710),"gluttonyskirt");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyBootsItemID",12711),"gluttonyboots");
 
-			ARNewItemIDRegister(ARSetID("WeaponItemID","DustNetherStarItemID",12600),"dustnetherstar");
-			ARNewItemIDRegister(ARSetID("WeaponItemID","DustBedrockItemID",12601),"dustbedrock");
-			ARNewItemIDRegister(ARSetID("WeaponItemID","DustExchangeIgnitionID",12602),"dustexchangeignition");
+			ARNewItemIDRegister(ARSetID("DustItemID","DustNetherStarItemID",12600),"dustnetherstar");
+			ARNewItemIDRegister(ARSetID("DustItemID","DustBedrockItemID",12601),"dustbedrock");
+			ARNewItemIDRegister(ARSetID("DustItemID","DustExchangeIgnitionID",12602),"dustexchangeignition");
+			ARNewItemIDRegister(ARSetID("DustItemID","DustUltimateExchangeIgnitionID",12603),"dustultimateexchangeignition");
 
 			ARSmelting.put("RecycleTool",ARSet("Smelting","RecycleTool",true));
 			ARSmelting.put("WoodTool",ARSet("Smelting","WoodTool",true));
@@ -106,7 +110,6 @@ public class ARConfiguration
 
 			ARCrafting.put("AlchemicItem",ARSet("AdditionalRecipe","AlchemicItem",true));
 			ARCrafting.put("ExchangeIgnition",ARSet("AdditionalRecipe","ExchangeIgnition",true));
-			ARCrafting.put("DustExchangeIgnition",ARSet("AdditionalRecipe","DustExchangeIgnition",true));
 			ARCrafting.put("UltimateExchangeIgnition",ARSet("AdditionalRecipe","UltimateExchangeIgnition",true));
 			ARCrafting.put("CheaperExchangeIgnition",ARSet("AdditionalRecipe","CheaperExchangeIgnition",true));
 			ARCrafting.put("BlackRottenFlesh",ARSet("AdditionalRecipe","BlackRottenFlesh",true));
@@ -121,8 +124,11 @@ public class ARConfiguration
 			ARCrafting.put("CirceForce",ARSet("AdditionalRecipe","CirceForce",true));
 			ARCrafting.put("DustNetherStar",ARSet("AdditionalRecipe","DustNetherStar",false));
 			ARCrafting.put("DustBedrock",ARSet("AdditionalRecipe","DustBedrock",false));
+			ARCrafting.put("DustExchangeIgnition",ARSet("AdditionalRecipe","DustExchangeIgnition",true));
+			ARCrafting.put("DustUltimateExchangeIgnition",ARSet("AdditionalRecipe","DustUltimateExchangeIgnition",true));
 			ARCrafting.put("BedrockArmor",ARSet("AdditionalRecipe","BedrockArmor",true));
 			ARCrafting.put("AngelusArmor",ARSet("AdditionalRecipe","AngelusArmor",true));
+			ARCrafting.put("GluttonyArmor",ARSet("AdditionalRecipe","GluttonyArmor",true));
 			ARCrafting.put("Weapons",ARSet("AdditionalRecipe","Weapons",true));
 			ARCrafting.put("Exelector",ARSet("AdditionalRecipe","Exelector",true));
 			ARCrafting.put("NIOH",ARSet("AdditionalRecipe","NIOH",true));
@@ -143,6 +149,7 @@ public class ARConfiguration
 			ARCfgOther.put("ExelectorFirstExp",ARSet("Another","ExelectorFirstExp",100));
 			ARCfgOther.put("ExelectorSecondExp",ARSet("Another","ExelectorSecondExp",250));
 			ARCfgOther.put("ExelectorLastExp",ARSet("Another","ExelectorLastExp",500));
+			ARCfgOther.put("ForceBallExperience",ARSet("Another","ForceBallExperience",25));
 			ARCfgOther.put("Difficulty",ARSet("Another","Difficulty",0,"0=easy 1=normal 2=hard 3=lunatic 4=ultimate The others are easy."));
 
 			ARAnother.put("ExpBottle",ARSet("OreDicitionary","ExpBottle",false));
@@ -153,6 +160,7 @@ public class ARConfiguration
 			ARAnother.put("UltimateExchangeIgnitionEffect",ARSet("Another","UltimateExchangeIgnitionEffect",false));
 			ARAnother.put("NIOHPreventDamage",ARSet("Another","NIOHPreventDamage",true));
 			ARAnother.put("ARItemsBonusChest",ARSet("Another","ARItemsBonusChest",false));
+			ARAnother.put("ForceBallSwingForExperience",ARSet("Another","ForceBallSwingForExperience",true));
 
 			ARCrafting.put("CraftingOreDust",ARSet("MortarCrafting","CraftingOreDust",true));
 			ARCrafting.put("CraftingIngotDust",ARSet("MortarCrafting","CraftingIngotDust",true));

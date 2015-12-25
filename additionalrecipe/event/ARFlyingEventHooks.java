@@ -23,6 +23,7 @@ public class ARFlyingEventHooks
 	private boolean bedrock          = false;
 	private boolean angelus          = false;
 	private boolean angelus2         = false;
+	private boolean gluttony         = false;
 
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
 	public void LivingUpdate(LivingUpdateEvent event)
@@ -39,6 +40,7 @@ public class ARFlyingEventHooks
 		exchange = player.inventory.hasItem(ARGetItemIDRegister("exchangeiginiton"));
 		ultimate = player.inventory.hasItem(ARGetItemIDRegister("ultimateexchangeiginiton"));
 		bedrock  = equipArmor(ARGetItemIDRegister("bedrockhelmet"),ARGetItemIDRegister("bedrockplate"),ARGetItemIDRegister("bedrocklegs"),ARGetItemIDRegister("bedrockboots"), player);
+		gluttony = equipArmor(ARGetItemIDRegister("gluttonyhood"),ARGetItemIDRegister("gluttonyvestment"),ARGetItemIDRegister("gluttonyskirt"),ARGetItemIDRegister("gluttonyboots"), player);
 		angelus  = equipArmor(ARGetItemIDRegister("angelushood"),ARGetItemIDRegister("angelusvestment"),ARGetItemIDRegister("angelusskirt"),ARGetItemIDRegister("angelusboots"), player,true);
 		angelus2 = equipArmor(ARGetItemIDRegister("angelushood"),ARGetItemIDRegister("angelusvestment"),ARGetItemIDRegister("angelusskirt"),ARGetItemIDRegister("angelusboots"), player);
 		//クリエイティブでないなら
@@ -47,7 +49,7 @@ public class ARFlyingEventHooks
 			//飛行が許可されていないなら
 			if(!player.capabilities.allowFlying)
 			{
-				if(exchange||ultimate||bedrock||angelus||angelus2)
+				if(exchange||ultimate||bedrock||angelus||angelus2||gluttony)
 				{
 					this.allowLevitatiton = true;
 				}
@@ -128,7 +130,7 @@ public class ARFlyingEventHooks
 		}
 		if (this.isLevitation)//飛行中の処理
 		{
-			if(exchange||bedrock||angelus)
+			if(exchange||bedrock||angelus||gluttony)
 			{
 				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
 				player.jumpMovementFactor = 0.1f;//滞空時の滞空移動速度．クリエイティブより少し早い

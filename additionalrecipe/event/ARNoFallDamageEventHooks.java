@@ -32,6 +32,10 @@ public class ARNoFallDamageEventHooks
 				{
 					this.noFallDamage = true;
 				}
+				else if(AdditionalRecipe.equipArmor(ARGetItemIDRegister("gluttonyboots"), player, AdditionalRecipe.ARMOR_BOOTS))
+				{
+					this.noFallDamage = true;
+				}
 				else if(AdditionalRecipe.equipArmor(ARGetItemIDRegister("angelusboots"), player, AdditionalRecipe.ARMOR_BOOTS))
 				{
 					this.noFallDamage = true;

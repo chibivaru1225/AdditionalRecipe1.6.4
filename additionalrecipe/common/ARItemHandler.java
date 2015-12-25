@@ -6,9 +6,11 @@ import net.minecraft.item.Item;
 import net.minecraft.util.EnumChatFormatting;
 import chibivaru.additionalrecipe.armor.AngelusArmor;
 import chibivaru.additionalrecipe.armor.BedrockArmor;
+import chibivaru.additionalrecipe.armor.GluttonyArmor;
 import chibivaru.additionalrecipe.dust.DustBedrock;
 import chibivaru.additionalrecipe.dust.DustExchangeIgnition;
 import chibivaru.additionalrecipe.dust.DustNetherStar;
+import chibivaru.additionalrecipe.dust.DustUltimateExchangeIgnition;
 import chibivaru.additionalrecipe.item.BlackRottenFlesh;
 import chibivaru.additionalrecipe.item.CirceForce;
 import chibivaru.additionalrecipe.item.ForceBall;
@@ -55,18 +57,23 @@ public class ARItemHandler
 		ARNewItemRegister(new SpearDAYO(ARGetItemIDRegister("dayo") - 256, WEAPON_ULTIMATE), "dayo", ARTabs, "Evil Spear 'DAYO'","ja_JP","悪槍「堕那」");
 		ARNewItemRegister(new MultiK2(ARGetItemIDRegister("toolk2") - 256, WEAPON_POOR), "toolk2", ARTabs, "K2",new StringBuilder().append(EnumChatFormatting.LIGHT_PURPLE).append("K2's Multi-Weapon").toString());
 
-		ARNewItemRegister(new BedrockArmor(ARGetItemIDRegister("bedrockhelmet") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK), "bedrockhelmet", ARTabs, "BedrockHelmet", "additionalrecipe:BedrockHelmet" ,ARMOR_HELMET);
-		ARNewItemRegister(new BedrockArmor(ARGetItemIDRegister("bedrockplate") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK), "bedrockplate", ARTabs, "BedrockChestplate", "additionalrecipe:BedrockPlate" ,ARMOR_PLATE);
-		ARNewItemRegister(new BedrockArmor(ARGetItemIDRegister("bedrocklegs") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK), "bedrocklegs", ARTabs, "BedrockLeggings", "additionalrecipe:BedrockLegs" ,ARMOR_LEGS);
-		ARNewItemRegister(new BedrockArmor(ARGetItemIDRegister("bedrockboots") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK), "bedrockboots", ARTabs, "BedrockBoots", "additionalrecipe:BedrockBoots" ,ARMOR_BOOTS);
-		ARNewItemRegister(new AngelusArmor(ARGetItemIDRegister("angelushood") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, ANGELUS), "angelushood", ARTabs, "AngelusHood", "additionalrecipe:AngelusHood" ,ARMOR_HELMET);
-		ARNewItemRegister(new AngelusArmor(ARGetItemIDRegister("angelusvestment") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, ANGELUS), "angelusvestment", ARTabs, "AngelusVestment", "additionalrecipe:AngelusVestment" ,ARMOR_PLATE);
-		ARNewItemRegister(new AngelusArmor(ARGetItemIDRegister("angelusskirt") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, ANGELUS), "angelusskirt", ARTabs, "AngelusSkirt", "additionalrecipe:AngelusSkirt" ,ARMOR_LEGS);
-		ARNewItemRegister(new AngelusArmor(ARGetItemIDRegister("angelusboots") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, ANGELUS), "angelusboots", ARTabs, "AngelusBoots", "additionalrecipe:AngelusBoots" ,ARMOR_BOOTS);
+		ARNewItemRegister(new BedrockArmor(ARGetItemIDRegister("bedrockhelmet") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_HELMET, BEDROCK), "bedrockhelmet", ARTabs, "BedrockHelmet", "additionalrecipe:bedrockhelmet" ,ARMOR_HELMET);
+		ARNewItemRegister(new BedrockArmor(ARGetItemIDRegister("bedrockplate") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_PLATE, BEDROCK), "bedrockplate", ARTabs, "BedrockChestplate", "additionalrecipe:bedrockplate" ,ARMOR_PLATE);
+		ARNewItemRegister(new BedrockArmor(ARGetItemIDRegister("bedrocklegs") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_LEGS, BEDROCK), "bedrocklegs", ARTabs, "BedrockLeggings", "additionalrecipe:bedrocklegs" ,ARMOR_LEGS);
+		ARNewItemRegister(new BedrockArmor(ARGetItemIDRegister("bedrockboots") - 256, ARMOR_BEDROCK, ARMOR_DEFAULT, ARMOR_BOOTS, BEDROCK), "bedrockboots", ARTabs, "BedrockBoots", "additionalrecipe:bedrockboots" ,ARMOR_BOOTS);
+		ARNewItemRegister(new AngelusArmor(ARGetItemIDRegister("angelushood") - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_HELMET, ANGELUS), "angelushood", ARTabs, "AngelusHood", "additionalrecipe:angelushood" ,ARMOR_HELMET);
+		ARNewItemRegister(new AngelusArmor(ARGetItemIDRegister("angelusvestment") - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_PLATE, ANGELUS), "angelusvestment", ARTabs, "AngelusVestment", "additionalrecipe:angelusvestment" ,ARMOR_PLATE);
+		ARNewItemRegister(new AngelusArmor(ARGetItemIDRegister("angelusskirt") - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_LEGS, ANGELUS), "angelusskirt", ARTabs, "AngelusSkirt", "additionalrecipe:angelusskirt" ,ARMOR_LEGS);
+		ARNewItemRegister(new AngelusArmor(ARGetItemIDRegister("angelusboots") - 256, ARMOR_ANGELUS, ARMOR_DEFAULT, ARMOR_BOOTS, ANGELUS), "angelusboots", ARTabs, "AngelusBoots", "additionalrecipe:angelusboots" ,ARMOR_BOOTS);
+		ARNewItemRegister(new GluttonyArmor(ARGetItemIDRegister("gluttonyhood") - 256, ARMOR_GLUTTONY, ARMOR_DEFAULT, ARMOR_HELMET, GLUTTONY), "gluttonyhood", ARTabs, "GluttonyHood", "additionalrecipe:gluttonyhood" ,ARMOR_HELMET);
+		ARNewItemRegister(new GluttonyArmor(ARGetItemIDRegister("gluttonyvestment") - 256, ARMOR_GLUTTONY, ARMOR_DEFAULT, ARMOR_PLATE, GLUTTONY), "gluttonyvestment", ARTabs, "GluttonyVestment", "additionalrecipe:gluttonyvestment" ,ARMOR_PLATE);
+		ARNewItemRegister(new GluttonyArmor(ARGetItemIDRegister("gluttonyskirt") - 256, ARMOR_GLUTTONY, ARMOR_DEFAULT, ARMOR_LEGS, GLUTTONY), "gluttonyskirt", ARTabs, "GluttonySkirt", "additionalrecipe:gluttonyskirt" ,ARMOR_LEGS);
+		ARNewItemRegister(new GluttonyArmor(ARGetItemIDRegister("gluttonyboots") - 256, ARMOR_GLUTTONY, ARMOR_DEFAULT, ARMOR_BOOTS, GLUTTONY), "gluttonyboots", ARTabs, "GluttonyBoots", "additionalrecipe:gluttonyboots" ,ARMOR_BOOTS);
 
 		ARNewItemRegister(new DustNetherStar(ARGetItemIDRegister("dustnetherstar") - 256), "dustnetherstar", ARTabs, "DustNetherStar");
 		ARNewItemRegister(new DustBedrock(ARGetItemIDRegister("dustbedrock") - 256), "dustbedrock", ARTabs, "DustBedrock");
 		ARNewItemRegister(new DustExchangeIgnition(ARGetItemIDRegister("dustexchangeignition") - 256), "dustexchangeignition", ARTabs, "DustExchangeIgnition");
+		ARNewItemRegister(new DustUltimateExchangeIgnition(ARGetItemIDRegister("dustultimateexchangeignition") - 256), "dustultimateexchangeignition", ARTabs, "DustUltimateExchangeIgnition");
 	}
 	public static void ARNewItemRegister(Item par1Item,String par2UnlocalizedName,CreativeTabs par3CreativeTab,String par4Name)
 	{

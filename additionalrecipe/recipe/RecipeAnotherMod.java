@@ -32,17 +32,6 @@ public class RecipeAnotherMod {
 						new Object[]{"XXX","XYX","XXX",
 							Character.valueOf('X'),Block.blockDiamond,
 							Character.valueOf('Y'),Block.blockGold}));
-				if(ARGetAnother("ConsoleOut",true))
-				{
-					System.out.println(AdditionalRecipe.CONSOLE + "Link Modifer" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-				}
-			}
-			else
-			{
-				if(ARGetAnother("ConsoleOut",true))
-				{
-					System.out.println(AdditionalRecipe.CONSOLE + "Link Modifer" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
-				}
 			}
 		}
 		if(Loader.isModLoaded("AppliedEnergistics"))
@@ -55,17 +44,6 @@ public class RecipeAnotherMod {
 						new ShapelessOreRecipe(
 							OreDictionary.getOres("dustWheat").get(0),
 							new Object[]{Item.wheat}));
-					if(ARGetAnother("ConsoleOut",true))
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Flour" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-					}
-				}
-				else
-				{
-					if(ARGetAnother("ConsoleOut",true))
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Flour" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
-					}
 				}
 			}
 		}
@@ -78,62 +56,22 @@ public class RecipeAnotherMod {
 					if(GameRegistry.findItem("Railcraft","railcraft.tool.steel.axe") != null)
 					{
 						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","railcraft.tool.steel.axe").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),3,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Steel Axe" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Axe.");
 					}
 					if(GameRegistry.findItem("Railcraft","railcraft.tool.steel.hoe") != null)
 					{
 						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","railcraft.tool.steel.hoe").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),2,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Steel Hoe" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Hoe.");
 					}
 					if(GameRegistry.findItem("Railcraft","railcraft.tool.steel.pickaxe") != null)
 					{
 						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","railcraft.tool.steel.pickaxe").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),3,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Steel Pickaxe" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Pickaxe.");
 					}
 					if(GameRegistry.findItem("Railcraft","railcraft.tool.steel.shovel") != null)
 					{
 						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","railcraft.tool.steel.shovel").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),1,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Steel Shovel" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Shovel.");
 					}
 					if(GameRegistry.findItem("Railcraft","railcraft.tool.steel.sword") != null)
 					{
 						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","railcraft.tool.steel.sword").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),2,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Steel Sword" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Sword.");
 					}
 				}
 				if(ARGetSmelting("SteelArmor",true))
@@ -141,50 +79,18 @@ public class RecipeAnotherMod {
 					if(GameRegistry.findItem("Railcraft","railcraft.armor.steel.boots") != null)
 					{
 						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","railcraft.armor.steel.boots").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),4,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Steel Boots" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Boots.");
 					}
 					if(GameRegistry.findItem("Railcraft","railcraft.armor.steel.helmet") != null)
 					{
 						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","railcraft.armor.steel.helmet").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),5,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Steel Helmet" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Helmet.");
 					}
 					if(GameRegistry.findItem("Railcraft","railcraft.armor.steel.legs") != null)
 					{
 						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","railcraft.armor.steel.legs").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),7,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Steel Leggings" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Leggings.");
 					}
 					if(GameRegistry.findItem("Railcraft","railcraft.armor.steel.plate") != null)
 					{
 						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("Railcraft","railcraft.armor.steel.plate").itemID,new ItemStack(OreDictionary.getOres("ingotSteel").get(0).getItem(),8,OreDictionary.getOres("ingotSteel").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Steel Plate" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find Railcraft:Steel Chestplate.");
 					}
 				}
 			}
@@ -195,116 +101,44 @@ public class RecipeAnotherMod {
 			{
 				if(ARGetSmelting("InvarTool",true))
 				{
-					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarAxe") != null)
+					if(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarAxe") != null)
 					{
-						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarAxe").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Invar Axe" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
+						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarAxe").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
 					}
-					else
+					if(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarHoe") != null)
 					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Axe.");
+						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarHoe").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
 					}
-					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarHoe") != null)
+					if(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarPickaxe") != null)
 					{
-						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarHoe").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Invar Hoe" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
+						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarPickaxe").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
 					}
-					else
+					if(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarShovel") != null)
 					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Hoe.");
+						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarShovel").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
 					}
-					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarPickaxe") != null)
+					if(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarSword") != null)
 					{
-						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarPickaxe").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Invar Pickaxe" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Pickaxe.");
-					}
-					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarShovel") != null)
-					{
-						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarShovel").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Invar Shovel" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Shovel.");
-					}
-					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarSword") != null)
-					{
-						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","thermalexpansion.tool.invarSword").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Invar Sword" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Sword.");
+						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.tool.invarSword").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
 					}
 				}
 				if(ARGetSmelting("InvarArmor",true))
 				{
-					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarBoots") != null)
+					if(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.armor.invarBoots") != null)
 					{
-						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarBoots").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Invar Boots" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
+						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.armor.invarBoots").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
 					}
-					else
+					if(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.armor.invarHelmet") != null)
 					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Boots.");
+						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.armor.invarHelmet").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
 					}
-					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarHelmet") != null)
+					if(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.armor.invarLegs") != null)
 					{
-						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarHelmet").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Invar Helmet" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
+						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.armor.invarLegs").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
 					}
-					else
+					if(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.armor.invarPlate") != null)
 					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Helmet.");
-					}
-					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarLegs") != null)
-					{
-						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarLegs").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Invar Leggings" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Leggings.");
-					}
-					if(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarPlate") != null)
-					{
-						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","thermalexpansion.armor.invarPlate").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
-						if(ARGetAnother("ConsoleOut",true))
-						{
-							System.out.println(AdditionalRecipe.CONSOLE + "Invar Plate" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-						}
-					}
-					else
-					{
-						System.out.println(AdditionalRecipe.CONSOLE + "Can't Find ThermalExpansion:Invar Chestplate.");
+						FurnaceRecipes.smelting().addSmelting(GameRegistry.findItem("ThermalExpansion","item.thermalexpansion.armor.invarPlate").itemID,new ItemStack(OreDictionary.getOres("ingotInvar").get(0).getItem(),3,OreDictionary.getOres("ingotInvar").get(0).getItemDamage()),0.0f);
 					}
 				}
 			}
@@ -322,17 +156,6 @@ public class RecipeAnotherMod {
 						new Object[]{"XXX","XYX","XXX",
 							Character.valueOf('X'),Item.rottenFlesh,
 							Character.valueOf('Y'),Item.slimeBall}));
-				if(ARGetAnother("ConsoleOut",true))
-				{
-					System.out.println(AdditionalRecipe.CONSOLE + "PinkSlimeBall" + RecipeHandler.RECIPE + RecipeHandler.ADDED);
-				}
-			}
-			else
-			{
-				if(ARGetAnother("ConsoleOut",true))
-				{
-					System.out.println(AdditionalRecipe.CONSOLE + "PinkSlimeBall" + RecipeHandler.RECIPE + RecipeHandler.NOTADDED);
-				}
 			}
 		}
 		catch(Exception e)
