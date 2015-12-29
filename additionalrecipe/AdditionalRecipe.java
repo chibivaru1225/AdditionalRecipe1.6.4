@@ -24,6 +24,7 @@ import chibivaru.additionalrecipe.event.AngelusArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.BedrockArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.CirceForceEventHooks;
 import chibivaru.additionalrecipe.event.GluttonyArmorLivingEventHooks;
+import chibivaru.additionalrecipe.event.K2ArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.WeaponsEventHooks;
 import chibivaru.additionalrecipe.recipe.RecipeHandler;
 import cpw.mods.fml.common.Mod;
@@ -75,7 +76,7 @@ public class AdditionalRecipe {
 	public static int craftingDifficulty;
 	public static RecipeHandler recipehandler;
 	public static ARAddChestGenHooks addchestgenhooks;
-	public static EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS,ARMOR_DRAGONE,ARMOR_NIGHTMARE;
+	public static EnumArmorMaterial ARMOR_BEDROCK,ARMOR_PRIDE,ARMOR_WRATH,ARMOR_ENVY,ARMOR_SLOTH,ARMOR_AVARICE,ARMOR_GLUTTONY,ARMOR_LUST,ARMOR_ANGELUS,ARMOR_DRAGONE,ARMOR_NIGHTMARE,ARMOR_K2;
 	public static EnumToolMaterial WEAPON_ULTIMATE,WEAPON_BASIC,WEAPON_POOR,WEAPON_PHANTASM;
 	public static String BEDROCK          = "bedrock";
 	public static String PRIDE            = "pride";
@@ -88,6 +89,7 @@ public class AdditionalRecipe {
 	public static String ANGELUS          = "angelus";
 	public static String DRAGONE          = "dragone";
 	public static String NIGHTMARE        = "nightmare";
+	public static String K2               = "k2";
 	public static final int ARMOR_DEFAULT = 0;
 	public static final int ARMOR_HELMET  = 0;
 	public static final int ARMOR_PLATE   = 1;
@@ -120,6 +122,7 @@ public class AdditionalRecipe {
 		ARMOR_LUST      = EnumHelper.addArmorMaterial("LUST"     , 1, new int[] {15,15,15,15},30);
 		ARMOR_DRAGONE   = EnumHelper.addArmorMaterial("DRAGONE"  , 1, new int[] {20,20,20,20},40);
 		ARMOR_NIGHTMARE = EnumHelper.addArmorMaterial("NIGHTMARE", 1, new int[] {30,30,30,30},40);
+		ARMOR_K2        = EnumHelper.addArmorMaterial("K2"       , 1, new int[] {40,40,40,40},40);
 		ARMOR_ANGELUS   = EnumHelper.addArmorMaterial("ANGELUS"  , 1, new int[] {40,40,40,40},40);
 
 		WEAPON_POOR     = EnumHelper.addToolMaterial("POOR"     , 2, 1, 6.0f, 0,  100);
@@ -141,6 +144,7 @@ public class AdditionalRecipe {
 		MinecraftForge.EVENT_BUS.register(new ARFlyingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new BedrockArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new AngelusArmorLivingEventHooks());
+		MinecraftForge.EVENT_BUS.register(new K2ArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new GluttonyArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new CirceForceEventHooks());
 		MinecraftForge.EVENT_BUS.register(new WeaponsEventHooks());

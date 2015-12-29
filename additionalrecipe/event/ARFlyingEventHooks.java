@@ -23,6 +23,8 @@ public class ARFlyingEventHooks
 	private boolean bedrock          = false;
 	private boolean angelus          = false;
 	private boolean angelus2         = false;
+	private boolean k2               = false;
+	private boolean k22              = false;
 	private boolean gluttony         = false;
 
 	@ForgeSubscribe//(1.6までは@ForgeSubscribe)
@@ -43,13 +45,15 @@ public class ARFlyingEventHooks
 		gluttony = equipArmor(ARGetItemIDRegister("gluttonyhood"),ARGetItemIDRegister("gluttonyvestment"),ARGetItemIDRegister("gluttonyskirt"),ARGetItemIDRegister("gluttonyboots"), player);
 		angelus  = equipArmor(ARGetItemIDRegister("angelushood"),ARGetItemIDRegister("angelusvestment"),ARGetItemIDRegister("angelusskirt"),ARGetItemIDRegister("angelusboots"), player,true);
 		angelus2 = equipArmor(ARGetItemIDRegister("angelushood"),ARGetItemIDRegister("angelusvestment"),ARGetItemIDRegister("angelusskirt"),ARGetItemIDRegister("angelusboots"), player);
+		k2       = equipArmor(ARGetItemIDRegister("k2helmet"),ARGetItemIDRegister("k2plate"),ARGetItemIDRegister("k2legs"),ARGetItemIDRegister("k2boots"), player,true);
+		k22      = equipArmor(ARGetItemIDRegister("k2helmet"),ARGetItemIDRegister("k2plate"),ARGetItemIDRegister("k2legs"),ARGetItemIDRegister("k2boots"), player);
 		//クリエイティブでないなら
 		if(!player.capabilities.isCreativeMode)
 		{
 			//飛行が許可されていないなら
 			if(!player.capabilities.allowFlying)
 			{
-				if(exchange||ultimate||bedrock||angelus||angelus2||gluttony)
+				if(exchange||ultimate||bedrock||angelus||angelus2||gluttony||k2||k22)
 				{
 					this.allowLevitatiton = true;
 				}
@@ -130,7 +134,7 @@ public class ARFlyingEventHooks
 		}
 		if (this.isLevitation)//飛行中の処理
 		{
-			if(exchange||bedrock||angelus||gluttony)
+			if(exchange||bedrock||angelus||gluttony||k2)
 			{
 				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
 				player.jumpMovementFactor = 0.1f;//滞空時の滞空移動速度．クリエイティブより少し早い
@@ -145,7 +149,7 @@ public class ARFlyingEventHooks
 					player.motionY += 0.4D;
 				}
 			}
-			if(ultimate||angelus2)
+			if(ultimate||angelus2||k22)
 			{
 				player.motionY = 0D;//Y軸方向への移動量は入力なしでは滞空
 				player.jumpMovementFactor = 0.15f;//滞空時の滞空移動速度．クリエイティブより少し早い

@@ -40,6 +40,10 @@ public class ARNoFallDamageEventHooks
 				{
 					this.noFallDamage = true;
 				}
+				else if(AdditionalRecipe.equipArmor(ARGetItemIDRegister("k2boots"), player, AdditionalRecipe.ARMOR_BOOTS))
+				{
+					this.noFallDamage = true;
+				}
 				else if((player.inventory.hasItem(ARGetItemIDRegister("gravitationfeather"))||(player.inventory.hasItem(ARGetItemIDRegister("supergravitationfeather")))))
 				{
 					this.noFallDamage = true;

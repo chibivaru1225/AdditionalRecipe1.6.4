@@ -45,10 +45,14 @@ public class ARConfiguration
 			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusVestmentItemID",12705),"angelusvestment");
 			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusSkirtItemID",12706),"angelusskirt");
 			ARNewItemIDRegister(ARSetID("ArmorItemID","AngelusBootsItemID",12707),"angelusboots");
-			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyHoodItemID",12708),"gluttonyhood");
-			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyVestmentItemID",12709),"gluttonyvestment");
-			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonySkirtItemID",12710),"gluttonyskirt");
-			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyBootsItemID",12711),"gluttonyboots");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","K2HelmetItemID",12708),"k2helmet");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","K2PlateItemID",12709),"k2plate");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","K2LegsItemID",12710),"k2legs");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","K2BootsItemID",12711),"k2boots");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyHoodItemID",12712),"gluttonyhood");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyVestmentItemID",12713),"gluttonyvestment");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonySkirtItemID",12714),"gluttonyskirt");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyBootsItemID",12715),"gluttonyboots");
 
 			ARNewItemIDRegister(ARSetID("DustItemID","DustNetherStarItemID",12600),"dustnetherstar");
 			ARNewItemIDRegister(ARSetID("DustItemID","DustBedrockItemID",12601),"dustbedrock");
