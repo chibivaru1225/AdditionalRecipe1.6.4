@@ -275,6 +275,22 @@ public class RecipeARItems
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition"),
 						Character.valueOf('Z'),Block.blockDiamond,
 						Character.valueOf('W'),ARGetItemRegister("dustultimateexchangeignition")}));
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					ARGetItemRegister("angelushood"),
+					new Object[]{ARGetItemRegister("k2helmet")}));
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					ARGetItemRegister("angelusvestment"),
+					new Object[]{ARGetItemRegister("k2plate")}));
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					ARGetItemRegister("angelusskirt"),
+					new Object[]{ARGetItemRegister("k2legs")}));
+			GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					ARGetItemRegister("angelusboots"),
+					new Object[]{ARGetItemRegister("k2boots")}));
 		}
 		if(ARGetCrafting("Weapons",true))
 		{
@@ -348,6 +364,25 @@ public class RecipeARItems
 							Character.valueOf('Z'),Block.blockIron,
 							Character.valueOf('V'),"ExchangeIgnition",
 							Character.valueOf('W'),Block.obsidian}));
+			}
+			if(ARGetCrafting("Mind-Armor K2",true))
+			{
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						ARGetItemRegister("k2helmet"),
+						new Object[]{ARGetItemRegister("angelushood")}));
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						ARGetItemRegister("k2plate"),
+						new Object[]{ARGetItemRegister("angelusvestment")}));
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						ARGetItemRegister("k2legs"),
+						new Object[]{ARGetItemRegister("angelusskirt")}));
+				GameRegistry.addRecipe(
+					new ShapelessOreRecipe(
+						ARGetItemRegister("k2boots"),
+						new Object[]{ARGetItemRegister("angelusboots")}));
 			}
 		}
 	}

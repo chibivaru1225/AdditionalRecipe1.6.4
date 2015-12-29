@@ -140,6 +140,7 @@ public class ARConfiguration
 			ARCrafting.put("Villany Sword YORU",ARSet("AdditionalRecipe","Villany Sword YORU",false));
 			ARCrafting.put("K2 Items",ARSet("AdditionalRecipe","K2 Items",true));
 			ARCrafting.put("Multi-Tool K2",ARSet("AdditionalRecipe","Multi-Tool K2",true));
+			ARCrafting.put("Mind-Armor K2",ARSet("AdditionalRecipe","Mind-Armor K2",true));
 
 			ARCfgOther.put("DiamondMortar",ARSet("ItemDamage","DiamondMortar",1561));
 			ARCfgOther.put("IromMortar",ARSet("ItemDamage","IromMortar",250));

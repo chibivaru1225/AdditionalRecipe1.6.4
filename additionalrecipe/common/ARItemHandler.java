@@ -70,7 +70,7 @@ public class ARItemHandler
 		ARNewItemRegister(new GluttonyArmor(ARGetItemIDRegister("gluttonyvestment") - 256, ARMOR_GLUTTONY, ARMOR_DEFAULT, ARMOR_PLATE, GLUTTONY), "gluttonyvestment", ARTabs, "GluttonyVestment", "additionalrecipe:gluttonyvestment" ,ARMOR_PLATE);
 		ARNewItemRegister(new GluttonyArmor(ARGetItemIDRegister("gluttonyskirt") - 256, ARMOR_GLUTTONY, ARMOR_DEFAULT, ARMOR_LEGS, GLUTTONY), "gluttonyskirt", ARTabs, "GluttonySkirt", "additionalrecipe:gluttonyskirt" ,ARMOR_LEGS);
 		ARNewItemRegister(new GluttonyArmor(ARGetItemIDRegister("gluttonyboots") - 256, ARMOR_GLUTTONY, ARMOR_DEFAULT, ARMOR_BOOTS, GLUTTONY), "gluttonyboots", ARTabs, "GluttonyBoots", "additionalrecipe:gluttonyboots" ,ARMOR_BOOTS);
-		ARNewItemRegister(new K2Armor(ARGetItemIDRegister("k2helmet") - 256, ARMOR_K2, ARMOR_DEFAULT, ARMOR_HELMET, K2), "k2helemt", ARTabs, "K2Helmet", "additionalrecipe:k2helemt" ,ARMOR_HELMET);
+		ARNewItemRegister(new K2Armor(ARGetItemIDRegister("k2helmet") - 256, ARMOR_K2, ARMOR_DEFAULT, ARMOR_HELMET, K2), "k2helmet", ARTabs, "K2Helmet", "additionalrecipe:k2helmet" ,ARMOR_HELMET);
 		ARNewItemRegister(new K2Armor(ARGetItemIDRegister("k2plate") - 256, ARMOR_K2, ARMOR_DEFAULT, ARMOR_PLATE, K2), "k2plate", ARTabs, "K2Chestplate", "additionalrecipe:k2plate" ,ARMOR_PLATE);
 		ARNewItemRegister(new K2Armor(ARGetItemIDRegister("k2legs") - 256, ARMOR_K2, ARMOR_DEFAULT, ARMOR_LEGS, K2), "k2legs", ARTabs, "K2Leggings", "additionalrecipe:k2legs" ,ARMOR_LEGS);
 		ARNewItemRegister(new K2Armor(ARGetItemIDRegister("k2boots") - 256, ARMOR_K2, ARMOR_DEFAULT, ARMOR_BOOTS, K2), "k2boots", ARTabs, "K2Boots", "additionalrecipe:k2boots" ,ARMOR_BOOTS);
