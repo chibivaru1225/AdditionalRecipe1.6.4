@@ -206,5 +206,16 @@ public class RecipeAnotherMod {
 		{
 			System.out.println(AdditionalRecipe.CONSOLE + "Can't Find MoreInventoryMod.");
 		}
+		if(Loader.isModLoaded("TConstruct"))
+		{
+			if(GameRegistry.findItem("TConstruct","canister") != null)
+			{
+				System.out.println(AdditionalRecipe.CONSOLE + "Find TConstruct and Canister1.");
+			}
+			else if(GameRegistry.findItem("TConstruct","Heart Canister") != null)
+			{
+				System.out.println(AdditionalRecipe.CONSOLE + "Find TConstruct and Canister2.");
+			}
+		}
 	}
 }

@@ -46,7 +46,8 @@ import cpw.mods.fml.common.network.NetworkMod;
 				+ "after:MoreInventoryMod;"
 				+ "after:ThermalExpansion;"
 				+ "after:BuildCraftCore;"
-				+ "after:Railcraft"
+				+ "after:Railcraft;"
+				+ "after:TConstruct"
 	)
 
 @NetworkMod(
