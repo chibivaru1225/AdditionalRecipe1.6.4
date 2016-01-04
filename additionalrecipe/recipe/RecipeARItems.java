@@ -142,12 +142,9 @@ public class RecipeARItems
 		if(ARGetCrafting("SuperGravitationFeather",true))
 		{
 			GameRegistry.addRecipe(
-				new ShapedOreRecipe(
+				new ShapelessOreRecipe(
 					ARGetItemRegister("supergravitationfeather"),
-					new Object[]{"ZXZ","XYX","ZXZ",
-						Character.valueOf('X'),Block.blockDiamond,
-						Character.valueOf('Y'),ARGetItemRegister("gravitationfeather"),
-						Character.valueOf('Z'),ARGetItemRegister("nightvisiontorch")}));
+					new Object[]{"ExchangeIgnition",ARGetItemRegister("gravitationfeather"),ARGetItemRegister("nightvisiontorch")}));
 		}
 		if(ARGetCrafting("CraftingFurnace",true))
 		{
@@ -186,29 +183,29 @@ public class RecipeARItems
 						Character.valueOf('X'),Block.bedrock,
 						Character.valueOf('Y'),ARGetItemRegister("dustexchangeignition")}));
 			GameRegistry.addRecipe(
-					new ShapedOreRecipe(
-						ARGetItemRegister("bedrockhelmet"),
-						new Object[]{"XXX","XYX","   ",
-							Character.valueOf('X'),Block.bedrock,
-							Character.valueOf('Y'),ARGetItemRegister("forceball")}));
-				GameRegistry.addRecipe(
-					new ShapedOreRecipe(
-						ARGetItemRegister("bedrockplate"),
-						new Object[]{"XYX","XXX","XXX",
-							Character.valueOf('X'),Block.bedrock,
-							Character.valueOf('Y'),ARGetItemRegister("forceball")}));
-				GameRegistry.addRecipe(
-					new ShapedOreRecipe(
-						ARGetItemRegister("bedrocklegs"),
-						new Object[]{"XXX","XYX","X X",
-							Character.valueOf('X'),Block.bedrock,
-							Character.valueOf('Y'),ARGetItemRegister("forceball")}));
-				GameRegistry.addRecipe(
-					new ShapedOreRecipe(
-						ARGetItemRegister("bedrockboots"),
-						new Object[]{"   ","XYX","X X",
-							Character.valueOf('X'),Block.bedrock,
-							Character.valueOf('Y'),ARGetItemRegister("forceball")}));
+				new ShapedOreRecipe(
+					ARGetItemRegister("bedrockhelmet"),
+					new Object[]{"XXX","XYX","   ",
+						Character.valueOf('X'),Block.bedrock,
+						Character.valueOf('Y'),ARGetItemRegister("forceball")}));
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					ARGetItemRegister("bedrockplate"),
+					new Object[]{"XYX","XXX","XXX",
+						Character.valueOf('X'),Block.bedrock,
+						Character.valueOf('Y'),ARGetItemRegister("forceball")}));
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					ARGetItemRegister("bedrocklegs"),
+					new Object[]{"XXX","XYX","X X",
+						Character.valueOf('X'),Block.bedrock,
+						Character.valueOf('Y'),ARGetItemRegister("forceball")}));
+			GameRegistry.addRecipe(
+				new ShapedOreRecipe(
+					ARGetItemRegister("bedrockboots"),
+					new Object[]{"   ","XYX","X X",
+						Character.valueOf('X'),Block.bedrock,
+						Character.valueOf('Y'),ARGetItemRegister("forceball")}));
 		}
 		if(ARGetCrafting("GluttonyArmor",true))
 		{

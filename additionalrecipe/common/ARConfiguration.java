@@ -120,7 +120,7 @@ public class ARConfiguration
 			ARCrafting.put("CraftingFurnace",ARSet("AdditionalRecipe","CraftingFurnace",false));
 			ARCrafting.put("NightVisionTorch",ARSet("AdditionalRecipe","NightVisionTorch",true));
 			ARCrafting.put("GravitationFeather",ARSet("AdditionalRecipe","GravitationFeather",true));
-			ARCrafting.put("SuperGravitationFeather",ARSet("AdditionalRecipe","SuperGravitationFeather",false));
+			ARCrafting.put("SuperGravitationFeather",ARSet("AdditionalRecipe","SuperGravitationFeather",true));
 			ARCrafting.put("Mortar",ARSet("AdditionalRecipe","Mortar",true));
 			ARCrafting.put("IronMortar",ARSet("AdditionalRecipe","IronMortar",true));
 			ARCrafting.put("DiamondMortar",ARSet("AdditionalRecipe","DiamondMortar",true));

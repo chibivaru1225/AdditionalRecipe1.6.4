@@ -5,6 +5,7 @@ import static chibivaru.additionalrecipe.common.ARItemHandler.*;
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -117,6 +118,25 @@ public class MultiK2 extends ItemSword
 		par3List.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append("Mode ").append(EnumChatFormatting.LIGHT_PURPLE).append(str[mk2]).toString());
 		par3List.add((new StringBuilder()).append(EnumChatFormatting.BLUE).append((int)dmg[mk2] + 4).append(EnumChatFormatting.RED).append(" Attack Power").toString());
 	}
+    @Override
+    public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List itemList)
+    {
+    	ItemStack m1 = new ItemStack(this, 1, 0);
+    	ItemStack m2 = new ItemStack(this, 1, 0);
+    	ItemStack m3 = new ItemStack(this, 1, 0);
+    	NBTTagCompound nbt1 = new NBTTagCompound();
+        NBTTagCompound nbt2 = new NBTTagCompound();
+        NBTTagCompound nbt3 = new NBTTagCompound();
+        nbt1.setInteger("adr.mk2",0);
+        nbt2.setInteger("adr.mk2",1);
+        nbt3.setInteger("adr.mk2",2);
+        m1.setTagCompound(nbt1);
+        m2.setTagCompound(nbt2);
+        m3.setTagCompound(nbt3);
+        itemList.add(m1);
+        itemList.add(m2);
+        itemList.add(m3);
+    }
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held)
 	{

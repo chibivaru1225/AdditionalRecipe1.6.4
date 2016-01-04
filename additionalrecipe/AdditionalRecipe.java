@@ -121,8 +121,8 @@ public class AdditionalRecipe {
 		ARMOR_AVARICE   = EnumHelper.addArmorMaterial("AVARICE"  , 1, new int[] {15,15,15,15},30);
 		ARMOR_GLUTTONY  = EnumHelper.addArmorMaterial("GLUTTONY" , 1, new int[] {15,15,15,15},30);
 		ARMOR_LUST      = EnumHelper.addArmorMaterial("LUST"     , 1, new int[] {15,15,15,15},30);
-		ARMOR_DRAGONE   = EnumHelper.addArmorMaterial("DRAGONE"  , 1, new int[] {20,20,20,20},40);
-		ARMOR_NIGHTMARE = EnumHelper.addArmorMaterial("NIGHTMARE", 1, new int[] {30,30,30,30},40);
+		ARMOR_NIGHTMARE = EnumHelper.addArmorMaterial("NIGHTMARE", 1, new int[] {20,20,20,20},40);
+		ARMOR_DRAGONE   = EnumHelper.addArmorMaterial("DRAGONE"  , 1, new int[] {30,30,30,30},40);
 		ARMOR_K2        = EnumHelper.addArmorMaterial("K2"       , 1, new int[] {40,40,40,40},40);
 		ARMOR_ANGELUS   = EnumHelper.addArmorMaterial("ANGELUS"  , 1, new int[] {40,40,40,40},40);
 
