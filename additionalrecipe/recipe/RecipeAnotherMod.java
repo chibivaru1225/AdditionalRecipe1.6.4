@@ -142,6 +142,21 @@ public class RecipeAnotherMod {
 					}
 				}
 			}
+			if(ARGetCrafting("EnderiumDust",true))
+			{
+				if(OreDictionary.getOres("dustEnderium").size() > 0)
+				{
+					ItemStack dend = OreDictionary.getOres("dustEnderium").get(0);
+					dend.stackSize = 4;
+					GameRegistry.addRecipe(
+						new ShapelessOreRecipe(
+							dend,
+							new Object[]{"ExchangeIgnition",
+									"dustTin","dustTin","dustTin",
+									"dustPlatinum",
+									Item.enderPearl,Item.enderPearl,Item.enderPearl,Item.enderPearl}));
+				}
+			}
 		}
 		try
 		{

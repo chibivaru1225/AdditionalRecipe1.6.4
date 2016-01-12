@@ -111,6 +111,7 @@ public class ARConfiguration
 			ARCrafting.put("ExpBottle",ARSet("Crafting","ExpBottle",true));
 			ARCrafting.put("GlowStoneDust",ARSet("Crafting","GlowStoneDust",true));
 			ARCrafting.put("Button",ARSet("Crafting","Button",true));
+			ARCrafting.put("EnderiumDust",ARSet("Crafting","EnderiumDust",true));
 
 			ARCrafting.put("AlchemicItem",ARSet("AdditionalRecipe","AlchemicItem",true));
 			ARCrafting.put("ExchangeIgnition",ARSet("AdditionalRecipe","ExchangeIgnition",true));
