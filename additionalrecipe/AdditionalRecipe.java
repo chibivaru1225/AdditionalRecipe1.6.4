@@ -26,6 +26,7 @@ import chibivaru.additionalrecipe.event.CirceForceEventHooks;
 import chibivaru.additionalrecipe.event.GluttonyArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.K2ArmorLivingEventHooks;
 import chibivaru.additionalrecipe.event.WeaponsEventHooks;
+import chibivaru.additionalrecipe.event.WrathArmorLivingEventHooks;
 import chibivaru.additionalrecipe.recipe.RecipeHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Metadata;
@@ -146,6 +147,7 @@ public class AdditionalRecipe {
 		MinecraftForge.EVENT_BUS.register(new BedrockArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new AngelusArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new K2ArmorLivingEventHooks());
+		MinecraftForge.EVENT_BUS.register(new WrathArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new GluttonyArmorLivingEventHooks());
 		MinecraftForge.EVENT_BUS.register(new CirceForceEventHooks());
 		MinecraftForge.EVENT_BUS.register(new WeaponsEventHooks());

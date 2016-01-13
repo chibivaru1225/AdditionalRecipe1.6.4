@@ -53,6 +53,10 @@ public class ARConfiguration
 			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyVestmentItemID",12713),"gluttonyvestment");
 			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonySkirtItemID",12714),"gluttonyskirt");
 			ARNewItemIDRegister(ARSetID("ArmorItemID","GluttonyBootsItemID",12715),"gluttonyboots");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","WrathHoodItemID",12716),"wrathhood");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","WrathVestmentItemID",12717),"wrathvestment");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","WrathSkirtItemID",12718),"wrathskirt");
+			ARNewItemIDRegister(ARSetID("ArmorItemID","WrathBootsItemID",12719),"wrathboots");
 
 			ARNewItemIDRegister(ARSetID("DustItemID","DustNetherStarItemID",12600),"dustnetherstar");
 			ARNewItemIDRegister(ARSetID("DustItemID","DustBedrockItemID",12601),"dustbedrock");
@@ -134,6 +138,7 @@ public class ARConfiguration
 			ARCrafting.put("BedrockArmor",ARSet("AdditionalRecipe","BedrockArmor",true));
 			ARCrafting.put("AngelusArmor",ARSet("AdditionalRecipe","AngelusArmor",true));
 			ARCrafting.put("GluttonyArmor",ARSet("AdditionalRecipe","GluttonyArmor",true));
+			ARCrafting.put("WrathArmor",ARSet("AdditionalRecipe","WrathArmor",true));
 			ARCrafting.put("Weapons",ARSet("AdditionalRecipe","Weapons",true));
 			ARCrafting.put("Exelector",ARSet("AdditionalRecipe","Exelector",true));
 			ARCrafting.put("NIOH",ARSet("AdditionalRecipe","NIOH",true));

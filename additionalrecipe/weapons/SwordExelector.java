@@ -103,10 +103,6 @@ public class SwordExelector extends ItemSword
 		boolean bool = entity.attackEntityFrom(DamageSource.causePlayerDamage(player),4.0F + dmgtbl[lvl]);
 		if(bool)
 		{
-			if(entity instanceof IMob)
-			{
-				exp++;
-			}
 			exp++;
 			if(exp == exptbl[2])
 			{
