@@ -6,6 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -22,7 +23,7 @@ public class WrathArmorLivingEventHooks
 				timer++;
 				return true;
 			}
-			else if(timer == 5)
+			else if(timer == 20 * 60)
 			{
 				timer = 0;
 				return false;
@@ -94,8 +95,9 @@ public class WrathArmorLivingEventHooks
 		{
 			if(timer(false))
 			{
-				player.getFoodStats().addStats(1,0F);
+				player.getFoodStats().addStats(-1,-1F);
 			}
+			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id,3,20));
 		}
 	}
 }
